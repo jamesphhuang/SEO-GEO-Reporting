@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Screaming Frog SEO 策略視覺報告｜SHOPLINE｜2026-06-29</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f5ef;
+      --ink: #202124;
+      --muted: #667085;
+      --line: #ded9cc;
+      --panel: #ffffff;
+      --brand: #0b6b57;
+      --blue: #2b5fab;
+      --amber: #a05a00;
+      --red: #b42318;
+      --green: #067647;
+      --shadow: 0 10px 32px rgba(32, 33, 36, .08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", Arial, sans-serif;
+      line-height: 1.5;
+    }
+    header {
+      padding: 28px 32px 18px;
+      background: #ffffff;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      letter-spacing: 0;
+    }
+    .subhead { color: var(--muted); font-size: 14px; }
+    .tabs {
+      display: flex;
+      gap: 8px;
+      padding: 14px 32px;
+      overflow-x: auto;
+      background: #fbfaf7;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 88px;
+      z-index: 15;
+    }
+    .tab {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 13px;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .tab.active {
+      background: var(--brand);
+      color: #fff;
+      border-color: var(--brand);
+    }
+    main { padding: 28px 32px 48px; }
+    section.page { display: none; max-width: 1220px; margin: 0 auto; }
+    section.page.active { display: block; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin: 18px 0 22px;
+    }
+    .metric, .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+    .metric { padding: 16px; min-height: 108px; }
+    .metric b { display: block; font-size: 28px; margin-bottom: 4px; }
+    .metric span { color: var(--muted); font-size: 13px; }
+    .panel { padding: 18px; margin: 16px 0; }
+    h2 { font-size: 22px; margin: 0 0 8px; }
+    h3 { font-size: 16px; margin: 0 0 10px; }
+    .note { color: var(--muted); font-size: 14px; margin: 0 0 10px; }
+    .priority {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-right: 6px;
+    }
+    .p1 { background: #fee4e2; color: var(--red); }
+    .p2 { background: #fef0c7; color: var(--amber); }
+    .ok { background: #dcfae6; color: var(--green); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      font-size: 13px;
+    }
+    th, td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid #ebe7dd;
+      vertical-align: top;
+    }
+    th { background: #f2efe7; font-weight: 700; }
+    tr:last-child td { border-bottom: 0; }
+    .url {
+      color: var(--blue);
+      overflow-wrap: anywhere;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+    }
+    .bars { display: grid; gap: 10px; }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 230px 1fr 70px;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+    }
+    .bar-track { height: 12px; background: #ebe7dd; border-radius: 999px; overflow: hidden; }
+    .bar-fill { height: 100%; background: var(--brand); border-radius: 999px; }
+    .bar-fill.warn { background: var(--amber); }
+    .bar-fill.risk { background: var(--red); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    ul { margin: 8px 0 0; padding-left: 20px; }
+    li { margin: 6px 0; }
+    @media (max-width: 900px) {
+      header { position: static; padding: 22px 18px 14px; }
+      .tabs { top: 0; padding: 12px 18px; }
+      main { padding: 18px; }
+      .grid, .two-col { grid-template-columns: 1fr; }
+      .bar-row { grid-template-columns: 1fr; gap: 5px; }
+      table { font-size: 12px; }
+      th, td { padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Screaming Frog SEO 策略視覺報告</h1>
+    <div class="subhead">SHOPLINE｜crawl：2026-06-29 15:57-15:59 Asia/Taipei｜756 URLs encountered，748 crawled，97 internal indexable HTML</div>
+  </header>
+
+  <nav class="tabs" aria-label="Report pages">
+    <button class="tab active" data-page="overview">總覽</button>
+    <button class="tab" data-page="indexability">索引 / Robots</button>
+    <button class="tab" data-page="serp">SERP Snippet</button>
+    <button class="tab" data-page="headings">Heading</button>
+    <button class="tab" data-page="performance">效能 / 圖片</button>
+    <button class="tab" data-page="links">連結</button>
+    <button class="tab" data-page="hreflang">Hreflang</button>
+    <button class="tab" data-page="security">安全 / 外部錯誤</button>
+    <button class="tab" data-page="actions">行動清單</button>
+  </nav>
+
+  <main>
+    <section id="overview" class="page active">
+      <h2>總覽：技術健康不是崩壞，問題在模板與訊息承接</h2>
+      <p class="note">本次 Screaming Frog 實測補上 Ahrefs Site Audit 之外的 crawl-level 細節。核心結論：內部 indexable HTML 僅 97 頁，canonical 狀態穩定，但 SERP snippet、圖片大小、x-default hreflang、外部 4xx 與 FAQ heading 模板需要整理。</p>
+      <div class="grid">
+        <div class="metric"><b>756</b><span>Total URLs encountered</span></div>
+        <div class="metric"><b>97</b><span>Internal indexable HTML URLs</span></div>
+        <div class="metric"><b>82</b><span>External 4xx URLs</span></div>
+        <div class="metric"><b>157</b><span>Images over 100 kB</span></div>
+        <div class="metric"><b>43</b><span>Titles over 561 px</span></div>
+        <div class="metric"><b>56</b><span>Meta descriptions over 985 px</span></div>
+        <div class="metric"><b>83</b><span>Missing x-default hreflang</span></div>
+        <div class="metric"><b>2</b><span>Internal 3xx URLs</span></div>
+      </div>
+      <div class="panel">
+        <h3>策略解讀</h3>
+        <ul>
+          <li><span class="priority p1">P1</span>商業頁 SERP snippet 與轉換承接要同步修：`/payments`、`/online-store/features`、`/pos`、`/ai` 都有 title/meta 可改善空間。</li>
+          <li><span class="priority p1">P1</span>圖片壓縮是最直接的 crawl-verified speed 機會：157 張圖片超過 100 kB，與本週 Ahrefs 的 `Not compressed 97` 可以合併處理。</li>
+          <li><span class="priority p2">P2</span>FAQ heading 模板、x-default hreflang、外部 support 403 需要整理，但不要蓋過 conversion/CTA 的 P1。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="indexability" class="page">
+      <h2>索引 / Robots：canonical 穩，robots 邊界要釐清</h2>
+      <div class="grid">
+        <div class="metric"><b>102</b><span>Internal URLs</span></div>
+        <div class="metric"><b>97</b><span>Internal indexable URLs</span></div>
+        <div class="metric"><b>5</b><span>Internal non-indexable URLs</span></div>
+        <div class="metric"><b>3</b><span>Internal blocked by robots.txt</span></div>
+      </div>
+      <div class="panel">
+        <h3>Blocked by robots.txt sample</h3>
+        <table>
+          <thead><tr><th>URL</th><th>Inlinks</th><th>建議</th></tr></thead>
+          <tbody>
+            <tr><td class="url">https://shopline.tw/about/privacy</td><td>99</td><td>若本來就不收錄，保留 robots；但應避免大量模板內鏈造成 crawl noise。</td></tr>
+            <tr><td class="url">https://shopline.tw/about/terms</td><td>99</td><td>同上，確認 legal pages 的 index policy 與內鏈策略一致。</td></tr>
+            <tr><td class="url">https://shopline.tw/about/shopline_payments_terms</td><td>1</td><td>確認是否應由 noindex 取代 robots block，避免搜尋引擎看不到內容卻看到連結。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="serp" class="page">
+      <h2>SERP Snippet：標題與描述有 CTR 浪費</h2>
+      <div class="bars panel">
+        <div class="bar-row"><span>Title over 561 px</span><div class="bar-track"><div class="bar-fill warn" style="width:44%"></div></div><strong>43</strong></div>
+        <div class="bar-row"><span>Title below 30 chars</span><div class="bar-track"><div class="bar-fill warn" style="width:39%"></div></div><strong>38</strong></div>
+        <div class="bar-row"><span>Meta over 985 px</span><div class="bar-track"><div class="bar-fill risk" style="width:58%"></div></div><strong>56</strong></div>
+        <div class="bar-row"><span>Meta below 70 chars</span><div class="bar-track"><div class="bar-fill warn" style="width:23%"></div></div><strong>22</strong></div>
+      </div>
+      <div class="two-col">
+        <div class="panel">
+          <h3>Title 過長樣本</h3>
+          <table>
+            <thead><tr><th>URL</th><th>Pixel</th></tr></thead>
+            <tbody>
+              <tr><td class="url">https://shopline.tw/payments</td><td>693</td></tr>
+              <tr><td class="url">https://shopline.tw/online-store</td><td>699</td></tr>
+              <tr><td class="url">https://shopline.tw/social-commerce</td><td>779</td></tr>
+              <tr><td class="url">https://shopline.tw/news/shopline-youtube-shopping</td><td>940</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="panel">
+          <h3>Title 偏短樣本</h3>
+          <table>
+            <thead><tr><th>URL</th><th>Title</th></tr></thead>
+            <tbody>
+              <tr><td class="url">/showcase</td><td>電商品牌商家案例｜SHOPLINE 全方位零售整合專家</td></tr>
+              <tr><td class="url">/online-store/features</td><td>網路開店功能｜SHOPLINE 全方位零售整合專家</td></tr>
+              <tr><td class="url">/social-commerce/features</td><td>智慧社群購物系統功能｜SHOPLINE 全方位零售整合專家</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>策略動作</h3>
+        <p><span class="priority p1">P1</span>先處理商業頁：`/payments`、`/online-store/features`、`/pos`、`/ai`、`/showcase`。標題縮短品牌尾巴，把「電商平台、開店平台、金流、POS、AI」放在截斷前；meta description 補 CTA 與差異化，不只介紹功能。</p>
+      </div>
+    </section>
+
+    <section id="headings" class="page">
+      <h2>Heading：FAQ 模板有結構問題</h2>
+      <div class="grid">
+        <div class="metric"><b>9</b><span>Multiple H1</span></div>
+        <div class="metric"><b>14</b><span>Duplicate H1</span></div>
+        <div class="metric"><b>97</b><span>H1 non-sequential</span></div>
+        <div class="metric"><b>48</b><span>Duplicate H2</span></div>
+      </div>
+      <div class="panel">
+        <h3>Multiple H1 sample</h3>
+        <table>
+          <thead><tr><th>URL</th><th>H1-1</th><th>H1-2</th></tr></thead>
+          <tbody>
+            <tr><td class="url">/faq/design</td><td>SHOPLINE 新手問答</td><td>如何開始建立商店</td></tr>
+            <tr><td class="url">/faq/features</td><td>SHOPLINE 新手問答</td><td>功能特色說明</td></tr>
+            <tr><td class="url">/faq/plans</td><td>SHOPLINE 新手問答</td><td>方案及付款說明</td></tr>
+            <tr><td class="url">/faq/payments-and-shipping</td><td>SHOPLINE 新手問答</td><td>金、物流服務</td></tr>
+            <tr><td class="url">/faq/about</td><td>SHOPLINE 新手問答</td><td>關於 SHOPLINE</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="panel">
+        <h3>策略動作</h3>
+        <p><span class="priority p2">P2</span>FAQ 模板改為單一 H1：「SHOPLINE 新手問答：方案及付款說明」這類完整主題；第二層主題用 H2。這會讓 FAQ/about、FAQ/plans、FAQ/payments 的 intent 更清楚，也能支援 cannibalization map。</p>
+      </div>
+    </section>
+
+    <section id="performance" class="page">
+      <h2>效能 / 圖片：大圖是最可執行的速度議題</h2>
+      <div class="grid">
+        <div class="metric"><b>157</b><span>Images over 100 kB</span></div>
+        <div class="metric"><b>8</b><span>Missing image size attributes</span></div>
+        <div class="metric"><b>98.99%</b><span>Internal response time under 1s</span></div>
+        <div class="metric"><b>20</b><span>Ahrefs slow pages cross-check</span></div>
+      </div>
+      <div class="panel">
+        <h3>Large image sample</h3>
+        <table>
+          <thead><tr><th>Image URL</th><th>Bytes</th><th>Inlinks</th></tr></thead>
+          <tbody>
+            <tr><td class="url">.../673dbdf3c32405000b383f2b/original.png</td><td>695,908</td><td>1</td></tr>
+            <tr><td class="url">.../6a28e42c0b95ba334b42c8cd/original.png</td><td>631,779</td><td>1</td></tr>
+            <tr><td class="url">.../672b232416f9df000aa08150/original.png</td><td>546,225</td><td>1</td></tr>
+            <tr><td class="url">.../67a177ab434c8c000cb94b4e/original.png</td><td>431,908</td><td>1</td></tr>
+            <tr><td class="url">.../685a7a6c4bf21c000fb384d7/original.png</td><td>413,911</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="panel">
+        <h3>策略動作</h3>
+        <p><span class="priority p1">P1</span>將大圖與 Ahrefs `Not compressed 97` 合併成同一張工程票：優先壓縮 PNG、改 WebP/AVIF、補 width/height，從商業頁與首頁模板開始。預期：Large image count -60-80%，slow pages -50-80%。</p>
+      </div>
+    </section>
+
+    <section id="links" class="page">
+      <h2>連結：外部連結錯誤多，內部導流要看品質</h2>
+      <div class="grid">
+        <div class="metric"><b>82</b><span>External 4xx</span></div>
+        <div class="metric"><b>2</b><span>Internal 3xx</span></div>
+        <div class="metric"><b>1</b><span>Internal no-anchor outlink page</span></div>
+        <div class="metric"><b>97</b><span>Pages flagged high external outlinks</span></div>
+      </div>
+      <div class="panel">
+        <h3>Internal redirect chain</h3>
+        <table>
+          <thead><tr><th>Source</th><th>Redirect path</th><th>Anchor</th></tr></thead>
+          <tbody>
+            <tr><td class="url">/online-store/features</td><td class="url">/cross-border/pricing -> /cross-border -> /</td><td>立即預約諮詢</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="panel">
+        <h3>策略動作</h3>
+        <p><span class="priority p1">P1</span>`/online-store/features` 的 CTA 不應走兩段 redirect 回首頁。把「立即預約諮詢」改成最終 canonical conversion URL，這同時改善 UX、crawl efficiency 與商業頁 conversion path。</p>
+      </div>
+    </section>
+
+    <section id="hreflang" class="page">
+      <h2>Hreflang：缺 x-default 是系統性模板問題</h2>
+      <div class="grid">
+        <div class="metric"><b>97</b><span>Contains hreflang</span></div>
+        <div class="metric"><b>83</b><span>Missing x-default</span></div>
+        <div class="metric"><b>100%</b><span>Canonical self-referencing</span></div>
+        <div class="metric"><b>0</b><span>Non-indexable canonicals report rows</span></div>
+      </div>
+      <div class="panel">
+        <h3>Missing x-default sample</h3>
+        <table>
+          <thead><tr><th>URL</th><th>Current hreflang</th></tr></thead>
+          <tbody>
+            <tr><td class="url">/ai</td><td>zh-Hant-TW</td></tr>
+            <tr><td class="url">/showcase</td><td>zh-Hant-TW</td></tr>
+            <tr><td class="url">/solutions/omo</td><td>zh-Hant-TW</td></tr>
+            <tr><td class="url">/solutions/shop-efficiency</td><td>zh-Hant-TW</td></tr>
+            <tr><td class="url">/social-commerce/instagram-live</td><td>zh-Hant-TW</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="panel">
+        <h3>策略動作</h3>
+        <p><span class="priority p2">P2</span>若 SHOPLINE 有跨語系 fallback 策略，補 x-default；若台灣站刻意只服務 zh-Hant-TW，則在 data_quality 中標註為低風險 warning，不要把它升成高優先技術債。</p>
+      </div>
+    </section>
+
+    <section id="security" class="page">
+      <h2>安全 / 外部錯誤：support 403 與 header 議題分開處理</h2>
+      <div class="grid">
+        <div class="metric"><b>97</b><span>Missing HSTS header</span></div>
+        <div class="metric"><b>97</b><span>Missing Referrer-Policy</span></div>
+        <div class="metric"><b>97</b><span>Unsafe cross-origin links</span></div>
+        <div class="metric"><b>82</b><span>External 4xx</span></div>
+      </div>
+      <div class="panel">
+        <h3>External 4xx sample</h3>
+        <table>
+          <thead><tr><th>URL pattern</th><th>Status</th><th>Inlinks</th><th>判讀</th></tr></thead>
+          <tbody>
+            <tr><td class="url">support.shoplineapp.com/hc/zh-tw/articles/...</td><td>403</td><td>1-2</td><td>可能是 user-agent 或權限擋爬；先用瀏覽器/Chrome UA 驗證。</td></tr>
+            <tr><td class="url">support.shoplineapp.com/hc/zh-tw/articles/900000838886...</td><td>403</td><td>2</td><td>若真是公開幫助中心，需修 allowlist 或連結替代。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="panel">
+        <h3>策略動作</h3>
+        <p><span class="priority p2">P2</span>先抽樣 10 個 support 403 用瀏覽器驗證。如果瀏覽器正常，將 Screaming Frog user-agent/crawl config 調整後重跑；如果真 403，更新內鏈到可公開存取的 help center URL。</p>
+      </div>
+    </section>
+
+    <section id="actions" class="page">
+      <h2>行動清單：把 crawl issue 接到策略與工程票</h2>
+      <table>
+        <thead><tr><th>Priority</th><th>議題</th><th>證據</th><th>動作</th><th>預期結果</th></tr></thead>
+        <tbody>
+          <tr><td><span class="priority p1">P1</span></td><td>商業頁 SERP + CTA</td><td>Title/meta 長短不一；/online-store/features CTA redirect chain</td><td>重寫 payments/features/POS/AI title/meta，CTA 改 final URL</td><td>CTR +0.3-0.8pp；Key events +3-8%</td></tr>
+          <tr><td><span class="priority p1">P1</span></td><td>圖片與 compression</td><td>157 images over 100 kB；Ahrefs Not compressed 97</td><td>壓縮 PNG，改 WebP/AVIF，補 image dimensions</td><td>Large images -60-80%；Slow pages -50-80%</td></tr>
+          <tr><td><span class="priority p2">P2</span></td><td>FAQ heading template</td><td>9 multiple H1；FAQ pages share H1</td><td>FAQ 模板改單一 H1 + H2 hierarchy</td><td>Heading warnings -80-100%</td></tr>
+          <tr><td><span class="priority p2">P2</span></td><td>Hreflang x-default</td><td>83 pages missing x-default</td><td>確認跨語系 fallback 後補 x-default 或明確降風險</td><td>Hreflang warnings -70-90%</td></tr>
+          <tr><td><span class="priority p2">P2</span></td><td>External 4xx / support links</td><td>82 external 4xx mostly support.shoplineapp.com 403</td><td>用 Chrome UA 重驗；真錯則修 help center links</td><td>External 4xx -50-80%</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script>
+    const tabs = document.querySelectorAll(".tab");
+    const pages = document.querySelectorAll(".page");
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        tabs.forEach((item) => item.classList.remove("active"));
+        pages.forEach((page) => page.classList.remove("active"));
+        tab.classList.add("active");
+        document.getElementById(tab.dataset.page).classList.add("active");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    });
+  </script>
+</body>
+</html>

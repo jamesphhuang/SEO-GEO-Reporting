@@ -1,0 +1,2 @@
+﻿issue_name,source_tool,affected_count,detail_level,recommended_fix,notes
+Not compressed,Ahrefs Site Audit,189,summary-only,從 Ahrefs Site Audit 匯出 affected URLs 後，依 content-type 與 template 分批啟用 Brotli/Gzip。,本地目前沒有 Ahrefs row-level affected URL export。

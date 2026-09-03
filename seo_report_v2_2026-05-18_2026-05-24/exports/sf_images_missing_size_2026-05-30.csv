@@ -1,0 +1,2 @@
+﻿issue_name,source_tool,affected_count,detail_level,recommended_fix,notes
+Images missing size attributes,Screaming Frog,7,summary-only,從 Screaming Frog UI 直接匯出 Images > Missing Size Attributes，或重跑 MCP 支援 issue tab 後補 row-level URL。,Crawl Overview 顯示 7 筆；目前 MCP Images:All CSV 未包含 missing-size issue flag，避免誤列 237 張圖片。

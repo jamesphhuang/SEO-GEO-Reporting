@@ -1,0 +1,22 @@
+﻿export_key,source_tool,issue_name,severity,affected_count,detail_level,status,export_file,notes
+double_slash_urls,Ahrefs Site Audit,Double slash in URL,Error,94,row-level,available,exports/double_slash_urls_2026-05-26.csv,Ahrefs 發現 94 筆；Screaming Frog current crawl Multiple Slashes = 0。
+sf_external_4xx_403,Screaming Frog,External Client Error 4xx / 403,Warning,82,row-level,available,exports/sf_external_4xx_403_2026-05-30.csv,主要為 support.shoplineapp.com 403。
+sf_internal_3xx_redirects,Screaming Frog,Internal Redirection 3xx,Warning,2,row-level,available,exports/sf_internal_3xx_redirects_2026-05-30.csv,更新內部連結為最終 URL。
+sf_page_titles_over_60,Screaming Frog,Page title over 60 characters,Warning,5,row-level,available,exports/sf_page_titles_over_60_2026-05-30.csv,
+sf_page_titles_below_30,Screaming Frog,Page title below 30 characters,Warning,37,row-level,available,exports/sf_page_titles_below_30_2026-05-30.csv,
+sf_page_titles_over_561px,Screaming Frog,Page title over 561 pixels,Warning,42,row-level,available,exports/sf_page_titles_over_561px_2026-05-30.csv,
+sf_meta_over_155,Screaming Frog,Meta description over 155 characters,Warning,2,row-level,available,exports/sf_meta_over_155_2026-05-30.csv,
+sf_meta_below_70,Screaming Frog,Meta description below 70 characters,Warning,22,row-level,available,exports/sf_meta_below_70_2026-05-30.csv,
+sf_meta_over_985px,Screaming Frog,Meta description over 985 pixels,Warning,54,row-level,available,exports/sf_meta_over_985px_2026-05-30.csv,
+sf_h1_duplicate,Screaming Frog,H1 duplicate,Warning,16,row-level,available,exports/sf_h1_duplicate_2026-05-30.csv,
+sf_h1_multiple,Screaming Frog,Multiple H1,Warning,9,row-level,available,exports/sf_h1_multiple_2026-05-30.csv,
+sf_h1_over_70,Screaming Frog,H1 over 70 characters,Warning,9,row-level,available,exports/sf_h1_over_70_2026-05-30.csv,
+sf_images_over_100kb,Screaming Frog,Images over 100 KB,Warning,158,row-level,available,exports/sf_images_over_100kb_2026-05-30.csv,
+sf_images_missing_size,Screaming Frog,Images missing size attributes,Warning,7,summary-only,available,exports/sf_images_missing_size_2026-05-30.csv,Crawl Overview 顯示 7 筆；目前 MCP Images:All CSV 未包含 row-level missing-size flag。
+sf_hreflang_missing_self_reference,Screaming Frog,Hreflang missing self reference,Error,94,row-level,available,exports/sf_hreflang_missing_self_reference_2026-05-30.csv,多數 hreflang URL 指向雙斜線版本。
+sf_hreflang_missing_x_default,Screaming Frog,Hreflang missing x-default,Warning,81,row-level,available,exports/sf_hreflang_missing_x_default_2026-05-30.csv,
+sf_security_missing_hsts,Screaming Frog,Missing HSTS header,Warning,95,row-level,available,exports/sf_security_missing_hsts_2026-05-30.csv,資安強化，不是直接排名修正。
+sf_security_missing_referrer_policy,Screaming Frog,Missing secure Referrer-Policy header,Warning,95,row-level,available,exports/sf_security_missing_referrer_policy_2026-05-30.csv,資安與隱私強化。
+ahrefs_not_compressed,Ahrefs Site Audit,Not compressed,Warning,189,summary-only,available,exports/ahrefs_not_compressed_summary_2026-05-26.csv,需 Ahrefs affected URL export 才能列 row-level URL。
+ahrefs_structured_data,Ahrefs Site Audit,Structured data rich result validation error,Notice,189,summary-only,available,exports/ahrefs_structured_data_summary_2026-05-26.csv,需 Ahrefs affected URL export 才能列 row-level URL。
+ahrefs_slow_pages,Ahrefs Site Audit,Slow page,Warning,46,summary-only,available,exports/ahrefs_slow_pages_summary_2026-05-26.csv,需 Ahrefs affected URL export 才能列 row-level URL。

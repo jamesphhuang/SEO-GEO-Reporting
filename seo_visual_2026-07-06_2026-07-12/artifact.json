@@ -1,0 +1,430 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "SHOPLINE SEO 優化建議｜主站與部落格",
+    "description": "比較 shopline.tw 與 blog.shopline.tw 在 2026 年 7 月 6 日至 12 日的自然搜尋表現，並提出可執行的優化順序。",
+    "generatedAt": "2026-07-13T08:30:00+08:00",
+    "cards": [
+      {
+        "id": "main_sessions_card",
+        "description": "主站 shopline.tw 的 Organic Search 工作階段。",
+        "dataset": "headline_metrics",
+        "sourceId": "ga4_organic_host",
+        "metrics": [
+          { "label": "主站自然工作階段", "field": "main_sessions", "format": "number" },
+          { "label": "較前週", "field": "main_sessions_change", "format": "percent", "signed": true }
+        ]
+      },
+      {
+        "id": "blog_sessions_card",
+        "description": "部落格 blog.shopline.tw 的 Organic Search 工作階段。",
+        "dataset": "headline_metrics",
+        "sourceId": "ga4_organic_host",
+        "metrics": [
+          { "label": "部落格自然工作階段", "field": "blog_sessions", "format": "number" },
+          { "label": "較前週", "field": "blog_sessions_change", "format": "percent", "signed": true }
+        ]
+      },
+      {
+        "id": "homepage_clicks_card",
+        "description": "主站首頁在 Google Search 的點擊數。",
+        "dataset": "headline_metrics",
+        "sourceId": "gsc_main_pages",
+        "metrics": [
+          { "label": "首頁自然點擊", "field": "homepage_clicks", "format": "number" },
+          { "label": "較前週", "field": "homepage_clicks_change", "format": "percent", "signed": true }
+        ]
+      },
+      {
+        "id": "audit_health_card",
+        "description": "Ahrefs Site Audit 專案的健康度快照。",
+        "dataset": "headline_metrics",
+        "sourceId": "ahrefs_site_audit",
+        "metrics": [
+          { "label": "技術健康度", "field": "audit_health", "format": "number" },
+          { "label": "需優先修復項", "field": "priority_issue_groups", "format": "number" }
+        ]
+      }
+    ],
+    "charts": [
+      {
+        "id": "organic_sessions_chart",
+        "title": "自然搜尋工作階段",
+        "subtitle": "2026 年 7 月 6 日至 12 日，與前一完整週比較。",
+        "dataset": "organic_sessions_by_host",
+        "sourceId": "ga4_organic_host",
+        "type": "bar",
+        "encodings": {
+          "x": { "field": "site", "type": "nominal", "label": "站點" },
+          "y": { "field": "sessions", "type": "quantitative", "label": "工作階段" },
+          "color": { "field": "period", "type": "nominal", "label": "期間" },
+          "tooltip": [
+            { "field": "total_users", "type": "quantitative", "label": "使用者" },
+            { "field": "engaged_sessions", "type": "quantitative", "label": "互動工作階段" },
+            { "field": "key_events", "type": "quantitative", "label": "Key events" }
+          ]
+        }
+      },
+      {
+        "id": "main_ctr_chart",
+        "title": "主站高曝光商業頁 CTR",
+        "subtitle": "Google Search，2026 年 7 月 6 日至 12 日；數值為點擊率。",
+        "dataset": "main_commercial_pages",
+        "sourceId": "gsc_main_pages",
+        "type": "bar",
+        "valueFormat": "percent",
+        "encodings": {
+          "x": { "field": "page_label", "type": "nominal", "label": "頁面" },
+          "y": { "field": "ctr", "type": "quantitative", "label": "CTR", "format": "percent" },
+          "tooltip": [
+            { "field": "impressions", "type": "quantitative", "label": "曝光" },
+            { "field": "clicks", "type": "quantitative", "label": "點擊" },
+            { "field": "position", "type": "quantitative", "label": "平均排名" },
+            { "field": "ctr_previous", "type": "quantitative", "label": "前週 CTR", "format": "percent" }
+          ]
+        }
+      },
+      {
+        "id": "blog_momentum_chart",
+        "title": "部落格 Top Pages 的 Ahrefs 流量變動",
+        "subtitle": "Ahrefs 台灣月度估算，2026 年 7 月 12 日對比 7 月 5 日。",
+        "dataset": "blog_top_pages",
+        "sourceId": "ahrefs_blog_top_pages",
+        "type": "bar",
+        "encodings": {
+          "x": { "field": "page_label", "type": "nominal", "label": "內容" },
+          "y": { "field": "traffic_diff", "type": "quantitative", "label": "預估自然流量變動" },
+          "tooltip": [
+            { "field": "sum_traffic", "type": "quantitative", "label": "本期流量" },
+            { "field": "sum_traffic_prev", "type": "quantitative", "label": "前期流量" },
+            { "field": "top_keyword", "type": "text", "label": "主要關鍵字" },
+            { "field": "position", "type": "quantitative", "label": "主要字排名" }
+          ]
+        }
+      },
+      {
+        "id": "technical_issues_chart",
+        "title": "技術問題影響 URL 數",
+        "subtitle": "Ahrefs Site Audit 最新可用爬取，2026 年 7 月 7 日。",
+        "dataset": "technical_issues",
+        "sourceId": "ahrefs_site_audit",
+        "type": "bar",
+        "encodings": {
+          "x": { "field": "issue", "type": "nominal", "label": "問題" },
+          "y": { "field": "urls", "type": "quantitative", "label": "受影響 URL" },
+          "tooltip": [
+            { "field": "category", "type": "text", "label": "類別" },
+            { "field": "importance", "type": "text", "label": "嚴重度" },
+            { "field": "change", "type": "quantitative", "label": "相較前次變動" }
+          ]
+        }
+      }
+    ],
+    "tables": [
+      {
+        "id": "main_opportunity_table",
+        "title": "主站商業頁優化清單",
+        "subtitle": "以曝光、點擊率、平均排名與前週變化判斷優先順序。",
+        "dataset": "main_commercial_pages",
+        "sourceId": "gsc_main_pages",
+        "density": "spacious",
+        "defaultSort": { "field": "impressions", "direction": "desc" },
+        "columns": [
+          { "field": "page_label", "label": "頁面", "type": "text" },
+          { "field": "impressions", "label": "曝光", "format": "number" },
+          { "field": "clicks", "label": "點擊", "format": "number" },
+          { "field": "ctr", "label": "CTR", "format": "percent" },
+          { "field": "position", "label": "平均排名", "format": "number" },
+          { "field": "click_change", "label": "點擊變動", "format": "number", "movement": true }
+        ]
+      },
+      {
+        "id": "blog_content_table",
+        "title": "部落格內容優先清單",
+        "subtitle": "前期月度估算流量變動、關鍵字與排名位置。",
+        "dataset": "blog_top_pages",
+        "sourceId": "ahrefs_blog_top_pages",
+        "density": "spacious",
+        "defaultSort": { "field": "traffic_diff", "direction": "desc" },
+        "columns": [
+          { "field": "page_label", "label": "內容", "type": "text" },
+          { "field": "top_keyword", "label": "主要關鍵字", "type": "text" },
+          { "field": "position", "label": "排名", "format": "number" },
+          { "field": "sum_traffic", "label": "本期預估流量", "format": "number" },
+          { "field": "traffic_diff", "label": "流量變動", "format": "number", "movement": true },
+          { "field": "recommended_action", "label": "建議", "type": "text" }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "ga4_organic_host",
+        "label": "Google Analytics 4｜Organic Search hostname 與 landing page 報表",
+        "query": {
+          "engine": "Google Analytics Data API",
+          "language": "javascript",
+          "query": "run_report({ property_id: 272808823, date_ranges: [current, previous], dimensions: [hostName], metrics: [sessions, totalUsers, engagedSessions, keyEvents], dimension_filter: sessionDefaultChannelGroup == 'Organic Search' })",
+          "sql": "SELECT hostName, dateRange, sessions, totalUsers, engagedSessions, keyEvents FROM ga4_property_272808823 WHERE sessionDefaultChannelGroup = 'Organic Search' AND dateRange IN ('2026-07-06/2026-07-12', '2026-06-29/2026-07-05')",
+          "description": "比較主站與部落格 hostname 的 Organic Search 工作階段、使用者與互動工作階段。",
+          "executed_at": "2026-07-13T08:19:00+08:00",
+          "filters": ["Organic Search", "current: 2026-07-06 to 2026-07-12", "previous: 2026-06-29 to 2026-07-05"],
+          "metric_definitions": ["sessions: GA4 工作階段", "engagedSessions: 互動工作階段", "keyEvents: GA4 目前設定為 key event 的事件數"],
+          "tables_used": ["GA4 property 272808823"]
+        }
+      },
+      {
+        "id": "gsc_main_pages",
+        "label": "Google Search Console｜主站頁面成效",
+        "query": {
+          "engine": "Google Search Console Search Analytics API",
+          "language": "javascript",
+          "query": "get_advanced_search_analytics({ site_url: 'https://shopline.tw/', start_date: '2026-07-06', end_date: '2026-07-12', dimensions: 'page', sort_by: 'impressions' })",
+          "sql": "SELECT page, clicks, impressions, ctr, position FROM gsc_search_analytics WHERE site_url = 'https://shopline.tw/' AND date BETWEEN '2026-07-06' AND '2026-07-12' AND search_type = 'WEB' ORDER BY impressions DESC",
+          "description": "取得主站頁面的 Google Search clicks、impressions、CTR 與 position，並與前一完整週比對。",
+          "executed_at": "2026-07-13T08:18:00+08:00",
+          "filters": ["WEB search", "current: 2026-07-06 to 2026-07-12", "previous: 2026-06-29 to 2026-07-05"],
+          "metric_definitions": ["ctr: clicks divided by impressions", "position: Google Search 平均排名"],
+          "tables_used": ["GSC property https://shopline.tw/"]
+        }
+      },
+      {
+        "id": "gsc_blog_pages",
+        "label": "Google Search Console｜部落格頁面與查詢成效",
+        "query": {
+          "engine": "Google Search Console Search Analytics API",
+          "language": "javascript",
+          "query": "get_advanced_search_analytics({ site_url: 'sc-domain:blog.shopline.tw', start_date: '2026-07-06', end_date: '2026-07-12', dimensions: 'page,query' })",
+          "sql": "SELECT page, query, clicks, impressions, ctr, position FROM gsc_search_analytics WHERE site_url = 'sc-domain:blog.shopline.tw' AND date BETWEEN '2026-07-06' AND '2026-07-12' AND search_type = 'WEB'",
+          "description": "取得部落格的頁面與查詢成效，辨識近期點擊下滑與高曝光低 CTR 內容。",
+          "executed_at": "2026-07-13T08:19:00+08:00",
+          "filters": ["WEB search", "current: 2026-07-06 to 2026-07-12", "previous: 2026-06-29 to 2026-07-05"],
+          "metric_definitions": ["clicks: Google Search 點擊", "impressions: Google Search 曝光"],
+          "tables_used": ["GSC property sc-domain:blog.shopline.tw"]
+        }
+      },
+      {
+        "id": "ahrefs_blog_top_pages",
+        "label": "Ahrefs｜部落格 Top Pages 與關鍵字",
+        "query": {
+          "engine": "Ahrefs API v3",
+          "language": "javascript",
+          "query": "site_explorer_top_pages({ target: 'blog.shopline.tw/', mode: 'subdomains', country: 'TW', date: '2026-07-12', date_compared: '2026-07-05' })",
+          "sql": "SELECT url, sum_traffic, sum_traffic_prev, traffic_diff, keywords, top_keyword FROM ahrefs_site_explorer_top_pages WHERE target = 'blog.shopline.tw/' AND mode = 'subdomains' AND country = 'TW' AND date = '2026-07-12' AND date_compared = '2026-07-05'",
+          "description": "比較部落格 Top Pages 的 Ahrefs 估算自然流量、主要關鍵字與排名。",
+          "executed_at": "2026-07-13T08:22:00+08:00",
+          "filters": ["Country: TW", "date: 2026-07-12", "comparison date: 2026-07-05"],
+          "metric_definitions": ["sum_traffic: Ahrefs 估算月度自然流量，不等同於 GSC clicks", "traffic_diff: 與比較日期的估算流量差"],
+          "tables_used": ["Ahrefs Site Explorer Top Pages"]
+        }
+      },
+      {
+        "id": "ahrefs_site_audit",
+        "label": "Ahrefs｜Site Audit 技術問題",
+        "query": {
+          "engine": "Ahrefs API v3",
+          "language": "javascript",
+          "query": "site_audit_issues({ project_id: 1584843, date: '2026-07-12T00:00:00' })",
+          "sql": "SELECT name, category, importance, crawled, change FROM ahrefs_site_audit_issues WHERE project_id = 1584843 AND date = '2026-07-12T00:00:00'",
+          "description": "讀取 SHOPLINE Site Audit 專案的最新可用技術問題計數。",
+          "executed_at": "2026-07-13T08:22:00+08:00",
+          "filters": ["Project: 1584843", "latest crawl completed 2026-07-07"],
+          "metric_definitions": ["urls: 受該問題影響的 URL 數", "health score: Ahrefs Site Audit 專案健康度"],
+          "tables_used": ["Ahrefs Site Audit project 1584843"]
+        }
+      }
+    ],
+    "blocks": [
+      {
+        "id": "title",
+        "type": "markdown",
+        "body": "# SHOPLINE SEO 優化建議｜主站與部落格"
+      },
+      {
+        "id": "executive_summary",
+        "type": "markdown",
+        "body": "## Executive Summary\n\n- **主站的自然搜尋下滑是首要營運風險。** `shopline.tw` Organic Search 工作階段由 3,766 降至 3,089，週減 18.0%；首頁 Google Search 點擊少 450 次，CTR 從 9.30% 降至 7.54%。\n- **主站不缺排名，缺的是商業頁的搜尋結果說服力。** `/online-store/features` 排名約第 4、曝光 5.2k，但 CTR 僅 0.14%；`/about/pricing`、`/showcase`、`/about` 也有高曝光低 CTR 現象。\n- **部落格保持較穩定，但必須從資訊流量導向產品需求。** 部落格工作階段僅週減 1.6%，而 POS、Threads 內容在 Ahrefs 月度估算中成長；應將這些文章導到 POS、開店與 AI 等商業頁。\n- **技術債務已足以放大內容與 CTR 問題。** 最新稽核仍有 97 個未壓縮頁面、83 個缺少 x-default hreflang、68 個過短 meta description 與 26 個慢頁；先處理可模板化的問題。"
+      },
+      { "id": "headline_metrics_block", "type": "metric-strip", "cardIds": ["main_sessions_card", "blog_sessions_card", "homepage_clicks_card", "audit_health_card"] },
+      {
+        "id": "sessions_takeaway",
+        "type": "markdown",
+        "body": "## 主站跌幅明顯大於部落格\n\n**主站的問題不是整體 SEO 市況，而是商業與品牌落地頁的效率下降。** 主站自然工作階段週減 677 次，部落格只少 64 次；兩者都受同一週期影響，主站應優先檢查首頁與產品頁的 SERP 呈現、品牌意圖分流及 CTA 銜接。下圖以 hostname 分開比較，不把登入與其他子網域混入判讀。",
+        "sourceId": "ga4_organic_host"
+      },
+      { "id": "organic_sessions_block", "type": "chart", "chartId": "organic_sessions_chart" },
+      {
+        "id": "main_ctr_takeaway",
+        "type": "markdown",
+        "body": "## 主站商業頁應先做 CTR 與意圖對齊\n\n**優先改寫 `/online-store/features`、`/about/pricing` 與 `/payments` 的 title、meta description、第一屏價值主張與 FAQ schema。** 這些頁面已有排名與曝光，修正搜尋摘要的效益通常快於新增一篇從零開始的內容。`/online-store/features` 以 5,167 曝光只取得 7 點擊，是本報告最明確的搜尋結果頁機會。",
+        "sourceId": "gsc_main_pages"
+      },
+      { "id": "main_ctr_block", "type": "chart", "chartId": "main_ctr_chart" },
+      { "id": "main_opportunity_block", "type": "table", "tableId": "main_opportunity_table" },
+      {
+        "id": "blog_takeaway",
+        "type": "markdown",
+        "body": "## 部落格應把高成長內容變成商業入口\n\n**POS 與 Threads 是本週最值得擴張的內容群。** `what-is-pos` 的 Ahrefs 估算流量增加 1,217，`ads-article-threads-marketing` 增加 1,263；但 7 日 GSC 讀值顯示 POS 文章近期點擊從 94 降至 59，代表短期波動仍在。對這兩篇文章的正確做法不是只追流量，而是在維持資訊意圖答案後，加上情境式內鏈到 `/pos/features`、`/online-store/features`、`/ai` 與案例頁。",
+        "sourceId": "ahrefs_blog_top_pages"
+      },
+      { "id": "blog_momentum_block", "type": "chart", "chartId": "blog_momentum_chart" },
+      { "id": "blog_content_block", "type": "table", "tableId": "blog_content_table" },
+      {
+        "id": "technical_takeaway",
+        "type": "markdown",
+        "body": "## 技術優先修模板，不先逐頁救火\n\n**可批次修正的問題應排在單一頁面調整之前。** 未壓縮回應、x-default hreflang、過短 meta description 與慢頁面都具有大範圍影響；先定位共用 template、CDN/header 與 metadata 產生規則，再以抽樣 URL 驗證。這份技術資料來自主站 Audit 專案，不應把它直接解讀為部落格的完整技術結論。",
+        "sourceId": "ahrefs_site_audit"
+      },
+      { "id": "technical_issues_block", "type": "chart", "chartId": "technical_issues_chart" },
+      {
+        "id": "recommended_actions",
+        "type": "markdown",
+        "body": "## 建議執行順序\n\n1. **P1｜主站首頁與 `/online-store/features` SERP 重寫。** 依搜尋意圖拆出品牌、開店平台與功能價值，測試 title/meta/FAQ；目標：核心商業頁 CTR +0.3 至 +0.8pp。\n2. **P1｜修正 template 層級技術問題。** 先處理 97 個未壓縮頁面、68 個過短 meta 與 83 個 x-default hreflang；目標：受影響 URL -60 至 -90%。\n3. **P1｜建立「POS 是什麼 → POS 功能／硬體／導入案例」內鏈路徑。** 從 `what-is-pos` 使用比較表、CTA 與至少 3 條內容內鏈導向 `/pos/features`、`/pos/hardware` 與案例頁；目標：商業頁 Organic sessions +5 至 +12%。\n4. **P1｜重做 Threads 文章的 SERP 摘要與轉換出口。** 133.7k 曝光、0.12% CTR 是擴大點擊的最大部落格機會；增加更新日期、2026 例子、目錄與「社群開店」CTA；目標：CTR +0.2 至 +0.5pp。\n5. **P2｜更新 IG 限動舊文並合併重複意圖。** `ig-story-2018` 在 GSC 與 Ahrefs 都轉弱；刷新尺寸表與年份、指向新版 Instagram 尺寸文章，避免兩篇同搶「ig 限動」意圖。\n6. **P2｜擴寫「電商是什麼／官網架設／AI 行銷工具」群集。** 目前分別在約第 16、8、14 位，補對照表、成本計算與產品功能內鏈，優先搶進前 5。\n7. **P2｜修 `/payments` 的 conversion measurement。** 此頁本週 69 個自然工作階段、0 key events；確認 CTA event、表單完成與可追蹤的商業轉換是否正確設定。\n8. **P2｜建立主站與部落格的雙向內鏈規則。** 每篇高流量資訊文至少一條產品頁連結；每個商業 hub 至少連回 3 篇證明需求與用法的內容。"
+      },
+      {
+        "id": "further_questions",
+        "type": "markdown",
+        "body": "## Further Questions\n\n- `/about/pricing`、`/payments` 與 `/online-store/features` 的 key events 為零，是追蹤設定缺漏、CTA 位置不足，還是實際轉換問題？需要以 event-level 與 funnel 報表確認。\n- `shopline` 品牌詞同時被首頁、Pricing、Showcase、About 與 FAQ 承接；需要檢查站內連結與 canonical/metadata，決定各頁應保留的品牌意圖。\n- 部落格尚未有本週 Screaming Frog 爬取；需排程 subdomain crawl，才能確認文章模板的 Core Web Vitals、canonical、H1 與內鏈深度。"
+      },
+      {
+        "id": "caveats",
+        "type": "markdown",
+        "body": "## Caveats and Assumptions\n\n- GSC 是 7 日實際搜尋資料；Ahrefs 是月度自然流量估算且採不同更新節奏，兩者只能互補判讀，不能直接相加或用於同一個成長率。\n- GA4 hostname 資料的 `keyEvents` 在主站與部落格皆為 0，不能據此判定沒有商業價值，只能視為現有事件設定或歸因資料未提供可用訊號。\n- 技術問題取自 2026 年 7 月 7 日的 Ahrefs 主站 Audit；Screaming Frog 最新保存 crawl 為 6 月 29 日，未用於本週的部落格技術結論。"
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "generatedAt": "2026-07-13T08:30:00+08:00",
+    "status": "ready",
+    "datasets": {
+      "headline_metrics": [
+        {
+          "main_sessions": 3089,
+          "main_sessions_change": -0.1797,
+          "blog_sessions": 3906,
+          "blog_sessions_change": -0.0161,
+          "homepage_clicks": 1534,
+          "homepage_clicks_change": -0.2268,
+          "audit_health": 98,
+          "priority_issue_groups": 4
+        }
+      ],
+      "organic_sessions_by_host": [
+        { "site": "主站 shopline.tw", "period": "前週", "sessions": 3766, "total_users": 2173, "engaged_sessions": 1498, "key_events": 0 },
+        { "site": "主站 shopline.tw", "period": "本週", "sessions": 3089, "total_users": 1832, "engaged_sessions": 1279, "key_events": 0 },
+        { "site": "部落格 blog.shopline.tw", "period": "前週", "sessions": 3970, "total_users": 3182, "engaged_sessions": 1958, "key_events": 0 },
+        { "site": "部落格 blog.shopline.tw", "period": "本週", "sessions": 3906, "total_users": 3010, "engaged_sessions": 1873, "key_events": 0 }
+      ],
+      "main_commercial_pages": [
+        { "page_label": "首頁", "url": "https://shopline.tw/", "impressions": 20346, "clicks": 1534, "ctr": 0.0754, "ctr_previous": 0.093, "position": 4.3, "position_previous": 4.1, "click_change": -450 },
+        { "page_label": "方案與定價", "url": "https://shopline.tw/about/pricing", "impressions": 6987, "clicks": 137, "ctr": 0.0196, "ctr_previous": 0.0206, "position": 3.1, "position_previous": 2.5, "click_change": -17 },
+        { "page_label": "線上商店功能", "url": "https://shopline.tw/online-store/features", "impressions": 5167, "clicks": 7, "ctr": 0.0014, "ctr_previous": 0.001, "position": 4.0, "position_previous": 2.8, "click_change": 1 },
+        { "page_label": "品牌案例", "url": "https://shopline.tw/showcase", "impressions": 4814, "clicks": 47, "ctr": 0.0098, "ctr_previous": 0.0075, "position": 1.8, "position_previous": 1.5, "click_change": 5 },
+        { "page_label": "SHOPLINE 關於我們", "url": "https://shopline.tw/about", "impressions": 5787, "clicks": 41, "ctr": 0.0071, "ctr_previous": 0.0068, "position": 2.1, "position_previous": 2.0, "click_change": -3 },
+        { "page_label": "付款服務", "url": "https://shopline.tw/payments", "impressions": 2055, "clicks": 74, "ctr": 0.036, "ctr_previous": 0.0317, "position": 5.4, "position_previous": 5.2, "click_change": 6 },
+        { "page_label": "關於 FAQ", "url": "https://shopline.tw/faq/about", "impressions": 3776, "clicks": 10, "ctr": 0.0026, "ctr_previous": 0.0017, "position": 1.7, "position_previous": 1.5, "click_change": 3 }
+      ],
+      "blog_top_pages": [
+        { "page_label": "POS 是什麼", "url": "https://blog.shopline.tw/what-is-pos/", "sum_traffic": 2712, "sum_traffic_prev": 1495, "traffic_diff": 1217, "top_keyword": "pos", "position": 2, "recommended_action": "擴寫導入比較與 POS 產品內鏈" },
+        { "page_label": "Threads 行銷", "url": "https://blog.shopline.tw/ads-article-threads-marketing/", "sum_traffic": 1376, "sum_traffic_prev": 113, "traffic_diff": 1263, "top_keyword": "脆", "position": 2, "recommended_action": "重寫 SERP 摘要並加社群開店 CTA" },
+        { "page_label": "Instagram 尺寸", "url": "https://blog.shopline.tw/instagram-image-sizes/", "sum_traffic": 3456, "sum_traffic_prev": 3361, "traffic_diff": 95, "top_keyword": "ig限動比例", "position": 2, "recommended_action": "維護年度尺寸表並導向社群商務" },
+        { "page_label": "電商是什麼", "url": "https://blog.shopline.tw/what-is-ecommerce-and-how-to-succeed/", "sum_traffic": 144, "sum_traffic_prev": 76, "traffic_diff": 68, "top_keyword": "電商", "position": 16, "recommended_action": "擴寫比較章節，連向開店功能頁" },
+        { "page_label": "品牌企劃書", "url": "https://blog.shopline.tw/brand-business-plan/", "sum_traffic": 157, "sum_traffic_prev": 127, "traffic_diff": 30, "top_keyword": "企劃書", "position": 7, "recommended_action": "補開店規劃模板與定價 CTA" },
+        { "page_label": "IG 限動舊文", "url": "https://blog.shopline.tw/ig-story-2018/", "sum_traffic": 357, "sum_traffic_prev": 757, "traffic_diff": -400, "top_keyword": "ig 限動", "position": 6, "recommended_action": "更新或合併至新版尺寸文章" },
+        { "page_label": "Facebook 圖片尺寸", "url": "https://blog.shopline.tw/post-image-size-gh/", "sum_traffic": 2393, "sum_traffic_prev": 2452, "traffic_diff": -59, "top_keyword": "臉書尺寸", "position": 2, "recommended_action": "維持權威內容，加入社群工具 CTA" },
+        { "page_label": "免費圖庫", "url": "https://blog.shopline.tw/free-stock-marketing-content/", "sum_traffic": 356, "sum_traffic_prev": 371, "traffic_diff": -15, "top_keyword": "免費圖片", "position": 9, "recommended_action": "補商用授權與商品素材工作流" }
+      ],
+      "technical_issues": [
+        { "issue": "未壓縮回應", "urls": 97, "category": "Usability and performance", "importance": "Warning", "change": 0 },
+        { "issue": "缺少 x-default hreflang", "urls": 83, "category": "Localization", "importance": "Notice", "change": 0 },
+        { "issue": "Meta description 過短", "urls": 68, "category": "Content", "importance": "Warning", "change": 0 },
+        { "issue": "慢頁面", "urls": 26, "category": "Usability and performance", "importance": "Warning", "change": -2 },
+        { "issue": "結構化資料 schema.org 驗證錯誤", "urls": 9, "category": "Other", "importance": "Notice", "change": 0 },
+        { "issue": "3XX 重新導向", "urls": 3, "category": "Redirects", "importance": "Warning", "change": 0 },
+        { "issue": "robots.txt 無法存取", "urls": 2, "category": "Other", "importance": "Error", "change": 0 }
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "ga4_organic_host",
+      "label": "Google Analytics 4｜Organic Search hostname 與 landing page 報表",
+      "query": {
+        "engine": "Google Analytics Data API",
+        "language": "javascript",
+        "query": "run_report({ property_id: 272808823, date_ranges: [current, previous], dimensions: [hostName], metrics: [sessions, totalUsers, engagedSessions, keyEvents], dimension_filter: sessionDefaultChannelGroup == 'Organic Search' })",
+        "sql": "run_report({ property_id: 272808823, date_ranges: [current, previous], dimensions: [hostName], metrics: [sessions, totalUsers, engagedSessions, keyEvents], dimension_filter: sessionDefaultChannelGroup == 'Organic Search' })",
+        "description": "比較主站與部落格 hostname 的 Organic Search 工作階段、使用者與互動工作階段。",
+        "executed_at": "2026-07-13T08:19:00+08:00",
+        "filters": ["Organic Search", "current: 2026-07-06 to 2026-07-12", "previous: 2026-06-29 to 2026-07-05"],
+        "metric_definitions": ["sessions: GA4 工作階段", "engagedSessions: 互動工作階段", "keyEvents: GA4 目前設定為 key event 的事件數"],
+        "tables_used": ["GA4 property 272808823"]
+      }
+    },
+    {
+      "id": "gsc_main_pages",
+      "label": "Google Search Console｜主站頁面成效",
+      "query": {
+        "engine": "Google Search Console Search Analytics API",
+        "language": "javascript",
+        "query": "get_advanced_search_analytics({ site_url: 'https://shopline.tw/', start_date: '2026-07-06', end_date: '2026-07-12', dimensions: 'page', sort_by: 'impressions' })",
+        "sql": "get_advanced_search_analytics({ site_url: 'https://shopline.tw/', start_date: '2026-07-06', end_date: '2026-07-12', dimensions: 'page', sort_by: 'impressions' })",
+        "description": "取得主站頁面的 Google Search clicks、impressions、CTR 與 position，並與前一完整週比對。",
+        "executed_at": "2026-07-13T08:18:00+08:00",
+        "filters": ["WEB search", "current: 2026-07-06 to 2026-07-12", "previous: 2026-06-29 to 2026-07-05"],
+        "metric_definitions": ["ctr: clicks divided by impressions", "position: Google Search 平均排名"],
+        "tables_used": ["GSC property https://shopline.tw/"]
+      }
+    },
+    {
+      "id": "gsc_blog_pages",
+      "label": "Google Search Console｜部落格頁面與查詢成效",
+      "query": {
+        "engine": "Google Search Console Search Analytics API",
+        "language": "javascript",
+        "query": "get_advanced_search_analytics({ site_url: 'sc-domain:blog.shopline.tw', start_date: '2026-07-06', end_date: '2026-07-12', dimensions: 'page,query' })",
+        "sql": "get_advanced_search_analytics({ site_url: 'sc-domain:blog.shopline.tw', start_date: '2026-07-06', end_date: '2026-07-12', dimensions: 'page,query' })",
+        "description": "取得部落格的頁面與查詢成效，辨識近期點擊下滑與高曝光低 CTR 內容。",
+        "executed_at": "2026-07-13T08:19:00+08:00",
+        "filters": ["WEB search", "current: 2026-07-06 to 2026-07-12", "previous: 2026-06-29 to 2026-07-05"],
+        "metric_definitions": ["clicks: Google Search 點擊", "impressions: Google Search 曝光"],
+        "tables_used": ["GSC property sc-domain:blog.shopline.tw"]
+      }
+    },
+    {
+      "id": "ahrefs_blog_top_pages",
+      "label": "Ahrefs｜部落格 Top Pages 與關鍵字",
+      "query": {
+        "engine": "Ahrefs API v3",
+        "language": "javascript",
+        "query": "site_explorer_top_pages({ target: 'blog.shopline.tw/', mode: 'subdomains', country: 'TW', date: '2026-07-12', date_compared: '2026-07-05' })",
+        "sql": "site_explorer_top_pages({ target: 'blog.shopline.tw/', mode: 'subdomains', country: 'TW', date: '2026-07-12', date_compared: '2026-07-05' })",
+        "description": "比較部落格 Top Pages 的 Ahrefs 估算自然流量、主要關鍵字與排名。",
+        "executed_at": "2026-07-13T08:22:00+08:00",
+        "filters": ["Country: TW", "date: 2026-07-12", "comparison date: 2026-07-05"],
+        "metric_definitions": ["sum_traffic: Ahrefs 估算月度自然流量，不等同於 GSC clicks", "traffic_diff: 與比較日期的估算流量差"],
+        "tables_used": ["Ahrefs Site Explorer Top Pages"]
+      }
+    },
+    {
+      "id": "ahrefs_site_audit",
+      "label": "Ahrefs｜Site Audit 技術問題",
+      "query": {
+        "engine": "Ahrefs API v3",
+        "language": "javascript",
+        "query": "site_audit_issues({ project_id: 1584843, date: '2026-07-12T00:00:00' })",
+        "sql": "site_audit_issues({ project_id: 1584843, date: '2026-07-12T00:00:00' })",
+        "description": "讀取 SHOPLINE Site Audit 專案的最新可用技術問題計數。",
+        "executed_at": "2026-07-13T08:22:00+08:00",
+        "filters": ["Project: 1584843", "latest crawl completed 2026-07-07"],
+        "metric_definitions": ["urls: 受該問題影響的 URL 數", "health score: Ahrefs Site Audit 專案健康度"],
+        "tables_used": ["Ahrefs Site Audit project 1584843"]
+      }
+    }
+  ],
+  "package_info": {
+    "originUrl": "artifact://shopline-seo-2026-07-06-2026-07-12"
+  }
+}

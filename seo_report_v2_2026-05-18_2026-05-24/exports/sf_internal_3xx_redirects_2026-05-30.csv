@@ -1,0 +1,3 @@
+﻿address,status_code,status,redirect_url,redirect_type,inlinks,source_pages,anchor_text,recommended_fix
+https://shopline.tw/cross-border/pricing,301,Moved Permanently,https://shopline.tw/cross-border,HTTP Redirect,1,https://shopline.tw/online-store/features,立即預約諮詢,將內部連結直接改成最終 200 URL，減少跳轉鏈與 crawl waste。
+https://shopline.tw/cross-border,301,Moved Permanently,https://shopline.tw/,HTTP Redirect,0,https://shopline.tw/cross-border/pricing,,將內部連結直接改成最終 200 URL，減少跳轉鏈與 crawl waste。

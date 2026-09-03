@@ -1,0 +1,14 @@
+# Local credentials and OAuth tokens
+.gsc-mcp-config/
+.ga4-mcp-config/
+gsc_credentials/*.json
+
+# Rebuildable dependencies and tool caches
+.venv-*/
+node_modules
+.screaming-frog-mcp/cache/
+.screaming-frog-mcp/.cache/
+
+# macOS metadata
+.DS_Store
+._*

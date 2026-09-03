@@ -1,0 +1,72 @@
+{
+  "surface": "report",
+  "title": "SEO / GEO 總覽報告｜2026 Lead Gen",
+  "generatedAt": "2026-09-03T00:00:00+08:00",
+  "status": "reviewed",
+  "report": { "asOf": "2026-08-31" },
+  "filters": [],
+  "queries": {
+    "leadgen_monthly": {
+      "reportingField": "month",
+      "rows": [
+        {"month":"2026-01","nonPaidActual":399,"nonPaidTarget":474,"sqlActualCurrent":71,"sqlTarget":90,"sqlMaturity":"Mature","sqlMaturityDate":"2026-03-31","nplAttainment":0.8418,"sqlAttainment":0.7889},
+        {"month":"2026-02","nonPaidActual":316,"nonPaidTarget":385,"sqlActualCurrent":50,"sqlTarget":73,"sqlMaturity":"Mature","sqlMaturityDate":"2026-04-30","nplAttainment":0.8208,"sqlAttainment":0.6849},
+        {"month":"2026-03","nonPaidActual":536,"nonPaidTarget":670,"sqlActualCurrent":96,"sqlTarget":114,"sqlMaturity":"Mature","sqlMaturityDate":"2026-05-31","nplAttainment":0.8,"sqlAttainment":0.8421},
+        {"month":"2026-04","nonPaidActual":510,"nonPaidTarget":590,"sqlActualCurrent":98,"sqlTarget":101,"sqlMaturity":"Mature","sqlMaturityDate":"2026-06-30","nplAttainment":0.8644,"sqlAttainment":0.9703},
+        {"month":"2026-05","nonPaidActual":502,"nonPaidTarget":573,"sqlActualCurrent":106,"sqlTarget":108,"sqlMaturity":"Mature","sqlMaturityDate":"2026-07-31","nplAttainment":0.8761,"sqlAttainment":0.9815},
+        {"month":"2026-06","nonPaidActual":559,"nonPaidTarget":460,"sqlActualCurrent":117,"sqlTarget":117,"sqlMaturity":"Mature","sqlMaturityDate":"2026-08-31","nplAttainment":1.2152,"sqlAttainment":1},
+        {"month":"2026-07","nonPaidActual":477,"nonPaidTarget":537,"sqlActualCurrent":104,"sqlTarget":102,"sqlMaturity":"Immature","sqlMaturityDate":"2026-09-29","nplAttainment":0.8883,"sqlAttainment":1.0196},
+        {"month":"2026-08","nonPaidActual":347,"nonPaidTarget":620,"sqlActualCurrent":53,"sqlTarget":106,"sqlMaturity":"Immature","sqlMaturityDate":"2026-10-30","nplAttainment":0.5597,"sqlAttainment":0.5}
+      ],
+      "source": {
+        "label": "2022–2026 TW MKT Monthly Reporting.xlsx｜2026 lead gen distribution",
+        "files": [{"label":"2022–2026 TW MKT Monthly Reporting.xlsx"}],
+        "filters": ["Market: Taiwan", "Non-Paid Leads and *SQL rows", "Reporting cutoff: 2026-08-31"],
+        "metricDefinitions": [
+          {"label":"Non-paid Leads Actual","definition":"2026 lead gen distribution 中每月 Non-Paid Leads 的 Actual。","componentIds":["report-metric-npl","report-npl","report-npl-trend","report-summary"]},
+          {"label":"Non-paid Leads Target","definition":"2026 lead gen distribution 中每月 Non-Paid Leads 的 Target。","componentIds":["report-metric-npl","report-npl","report-npl-trend"]},
+          {"label":"目前累積 SQL","definition":"2026 lead gen distribution 中每月 *SQL 的目前累積 Actual；未成熟 Cohort 僅供觀察。","componentIds":["report-metric-sql","report-metric-maturity","report-sql-pending"]},
+          {"label":"正式 SQL Actual","definition":"僅計名單月份 Cohort 在月結後滿 60 天的 SQL Actual。","formula":"成熟 Cohort SQL Actual 加總","componentIds":["report-metric-sql","report-sql","report-sql-trend","report-summary"]},
+          {"label":"SQL Target","definition":"2026 lead gen distribution 中每月 *SQL 的 Target；正式達成率僅計成熟 Cohort。","componentIds":["report-metric-sql","report-sql","report-sql-trend"]},
+          {"label":"Mature SQL conversion rate","definition":"成熟 SQL Actual 除以同期間成熟 Non-paid Leads Actual；用來區分名單量與 SQL 轉換效率。","formula":"成熟 SQL Actual ÷ 成熟 Non-paid Leads Actual","componentIds":["report-metric-rate","report-summary"]},
+          {"label":"SQL Cohort maturity","definition":"名單月份月結後滿 60 天視為 Mature；未成熟月份不納入正式 SQL Target／趨勢結論。","componentIds":["report-sql","report-sql-trend","report-sql-pending","report-summary"]}
+        ],
+        "caveats": [
+          "2026-07 Cohort 於 2026-09-29 成熟；2026-08 Cohort 於 2026-10-30 成熟。",
+          "成熟是正式判讀門檻，不是資料凍結；來源更正須以追加式快照保留歷史版本。",
+          "本報告僅有月度總量，無法從此檔案單獨判定 SEO、內容或單一渠道的因果影響。"
+        ],
+        "evidenceFlow": [{"kind":"validation","title":"Calculation check","detail":"Monthly Actual and Target totals were recomputed from the 2026 lead gen distribution source rows."}]
+      }
+    },
+    "leadgen_yoy_mature": {
+      "reportingField": "period",
+      "rows": [
+        {"period":"2025 Jan–Jun","nonPaidActual":3348,"sqlActual":642,"sqlRate":0.191756,"year":"2025"},
+        {"period":"2026 Jan–Jun","nonPaidActual":2822,"sqlActual":538,"sqlRate":0.190645,"year":"2026"}
+      ],
+      "source": {
+        "label":"2022–2026 TW MKT Monthly Reporting.xlsx｜2025–2026 mature Cohort comparison",
+        "files":[{"label":"2022–2026 TW MKT Monthly Reporting.xlsx"}],
+        "filters":["Taiwan", "Jan–Jun mature Cohorts", "2026 cutoff: 2026-08-31"],
+        "metricDefinitions":[
+          {"label":"Mature SQL rate","definition":"成熟 Cohort SQL Actual 除以同期間 Non-paid Leads Actual。","formula":"Mature SQL Actual ÷ Mature Non-paid Leads Actual","componentIds":["report-yoy"]}
+        ],
+        "caveats":["2025 年 6 月 Non-Paid Leads 含高峰會，YoY 解讀需保留活動型高峰註記。"]
+      }
+    },
+    "leadgen_pending": {
+      "reportingField": "month",
+      "rows": [
+        {"month":"2026-07","sqlActualCurrent":104,"sqlTarget":102,"sqlMaturity":"Immature","maturityDate":"2026-09-29"},
+        {"month":"2026-08","sqlActualCurrent":53,"sqlTarget":106,"sqlMaturity":"Immature","maturityDate":"2026-10-30"}
+      ],
+      "source": {
+        "label":"2026 lead gen distribution｜immature SQL Cohorts",
+        "files":[{"label":"2022–2026 TW MKT Monthly Reporting.xlsx"}],
+        "filters":["2026-07 to 2026-08", "Reporting cutoff: 2026-08-31"],
+        "metricDefinitions":[{"label":"Immature SQL","definition":"未滿月結後 60 天的目前累積 SQL；顯示但不納入正式達標結論。","componentIds":["report-sql-pending"]}]
+      }
+    }
+  }
+}

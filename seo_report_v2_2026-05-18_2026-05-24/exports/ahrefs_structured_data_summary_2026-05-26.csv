@@ -1,0 +1,2 @@
+﻿issue_name,source_tool,affected_count,detail_level,recommended_fix,notes
+Structured data rich result validation error,Ahrefs Site Audit,189,summary-only,匯出 affected URLs 後，依 schema type 修正 required/recommended properties。,Screaming Frog 目前未偵測 structured data；Ahrefs 顯示 189 筆，需用 Ahrefs row-level export 複核。

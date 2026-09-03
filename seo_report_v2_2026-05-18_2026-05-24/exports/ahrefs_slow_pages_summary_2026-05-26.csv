@@ -1,0 +1,2 @@
+﻿issue_name,source_tool,affected_count,detail_level,recommended_fix,notes
+Slow page,Ahrefs Site Audit,46,summary-only,匯出 affected URLs，依 template 對照 CWV/Lighthouse 指標優先處理 LCP 與 JS/CSS bottlenecks。,本地目前沒有 Ahrefs row-level affected URL export。
