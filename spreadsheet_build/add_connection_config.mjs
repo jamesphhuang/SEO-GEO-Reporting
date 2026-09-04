@@ -1,6 +1,11 @@
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { FileBlob, SpreadsheetFile } from "@oai/artifact-tool";
 
-const workbookPath = "/Volumes/T7/Codex AI Agent/0528週報.xlsx";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const projectRoot = path.resolve(__dirname, "..");
+const workbookPath = path.join(projectRoot, "0528週報.xlsx");
 const input = await FileBlob.load(workbookPath);
 const workbook = await SpreadsheetFile.importXlsx(input);
 

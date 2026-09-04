@@ -1,10 +1,17 @@
 OAuth mode:
 
-Place the Google OAuth Desktop app client JSON here as:
+Credential files are not managed by Git.
 
-oauth_client.json
+For the formal SEO／GEO Reporting workspace, place the GSC credential files in:
 
-The Codex MCP config points to this path:
-/Volumes/T7/Codex AI Agent/gsc_credentials/oauth_client.json
+../98_環境設定/gsc/
+
+Expected filenames include:
+
+- oauth_client.json
+- token.json
+
+The actual MCP paths are managed by the Codex MCP configuration. Do not place
+credential files in this repository or commit them.
 
 This mode uses your own Google account's existing Search Console permissions.

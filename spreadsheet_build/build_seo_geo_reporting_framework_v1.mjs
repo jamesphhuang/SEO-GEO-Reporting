@@ -1,5 +1,11 @@
 import fs from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { SpreadsheetFile, Workbook } from "@oai/artifact-tool";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const projectRoot = path.resolve(__dirname, "..");
 
 process.on("uncaughtException", (error) => {
   console.error(`BUILD_ERROR: ${error.name}: ${error.message}`);
@@ -7,8 +13,8 @@ process.on("uncaughtException", (error) => {
   process.exit(1);
 });
 
-const outputDir = "/Volumes/T7/Codex AI Agent/Technical SEO AI Agent/outputs/seo_geo_reporting_framework_v1";
-const outputPath = `${outputDir}/SEO_GEO_Reporting_Framework_v1.0.xlsx`;
+const outputDir = path.join(projectRoot, "outputs", "seo_geo_reporting_framework_v1");
+const outputPath = path.join(outputDir, "SEO_GEO_Reporting_Framework_v1.0.xlsx");
 
 const COLORS = {
   navy: "#1F4E78",

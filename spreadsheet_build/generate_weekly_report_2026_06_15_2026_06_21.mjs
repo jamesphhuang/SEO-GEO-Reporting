@@ -1,12 +1,17 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const projectRoot = path.resolve(__dirname, "..");
+const workspaceRoot = path.resolve(projectRoot, "..");
 const periodStart = "2026-06-15";
 const periodEnd = "2026-06-21";
 const executedAt = "2026-06-22 09:36:55 CST";
 const reportTitle = "SEO 週報｜SHOPLINE｜2026-06-15 至 2026-06-21";
 const runId = "weekly-seo-20260615-20260621-20260622-093655";
-const outDir = "/Volumes/T7/Codex AI Agent";
+const outDir = process.env.SEO_GEO_REPORT_OUTPUT_DIR || path.join(workspaceRoot, "90_正式報告");
 const outPath = path.join(outDir, `${periodStart}_${periodEnd}_週報.xlsx`);
 
 const weeklyHeaders = [

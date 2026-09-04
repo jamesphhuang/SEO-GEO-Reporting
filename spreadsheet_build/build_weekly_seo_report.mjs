@@ -1,7 +1,12 @@
 import fs from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { SpreadsheetFile, Workbook } from "@oai/artifact-tool";
 
-const outputPath = "/Volumes/T7/Codex AI Agent/0528週報.xlsx";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const projectRoot = path.resolve(__dirname, "..");
+const outputPath = path.join(projectRoot, "0528週報.xlsx");
 
 const workbook = Workbook.create();
 
