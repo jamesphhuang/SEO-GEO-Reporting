@@ -1,6 +1,7 @@
 import copy
 import unittest
 
+from reporting.google_sheets_gateway import SheetsGatewayError
 from reporting.google_sheets_snapshot_adapter import GoogleSheetsSnapshotAdapter, SheetSchemaError
 from reporting.snapshot_mvp import COLUMNS, CONTRACT
 
@@ -26,6 +27,12 @@ class FakeGateway:
         self.batch_calls = 0
         self.raise_on_write = False
         self.drop_write = False
+        self.raise_after_write = False
+        self.corrupt_write = False
+        self.metadata_sheet_id = 123
+
+    def get_sheet_metadata(self, spreadsheet_id, sheet_title):
+        return {"sheetId": self.metadata_sheet_id, "title": sheet_title}
 
     def read_values(self, spreadsheet_id, sheet_title, cell_range):
         return copy.deepcopy(self.values)
@@ -33,6 +40,8 @@ class FakeGateway:
     def batch_update(self, spreadsheet_id, requests):
         self.batch_calls += 1
         if self.raise_on_write:
+            if isinstance(self.raise_on_write, Exception):
+                raise self.raise_on_write
             raise RuntimeError("synthetic remote write failure")
         if self.drop_write:
             return
@@ -43,6 +52,10 @@ class FakeGateway:
                     entered = cell.get("userEnteredValue", {})
                     values.append(entered.get("stringValue", entered.get("numberValue", "")))
                 self.values.append(values)
+                if self.corrupt_write:
+                    self.values[-1][COLUMNS.index("value")] = 999
+        if self.raise_after_write:
+            raise SheetsGatewayError("WRITE_RESULT_UNCERTAIN", "synthetic timeout")
 
 
 def adapter(gateway, **updates):
@@ -50,6 +63,11 @@ def adapter(gateway, **updates):
 
 
 class GoogleSheetsSnapshotAdapterTests(unittest.TestCase):
+    def test_empty_v2_read_is_valid(self):
+        gateway = FakeGateway()
+        gateway.values = [["KPI Snapshots v2"], ["description"], [], list(COLUMNS)]
+        self.assertEqual(adapter(gateway, header_row=4).read_snapshots(), [])
+
     def test_append_readback_retry_and_latest_revision(self):
         gateway = FakeGateway()
         storage = adapter(gateway)
@@ -93,6 +111,13 @@ class GoogleSheetsSnapshotAdapterTests(unittest.TestCase):
         with self.assertRaises(SheetSchemaError):
             adapter(FakeGateway(), header_mapping={"value": "duplicate", "target": "duplicate"})
 
+    def test_wrong_sheet_id_fails_closed_before_read_or_write(self):
+        gateway = FakeGateway()
+        gateway.metadata_sheet_id = 999
+        result = adapter(gateway).append_if_new([candidate()])
+        self.assertEqual((result.storage_status, result.appended_count, result.failure_code), ("Failed", 0, "TAB_NOT_FOUND"))
+        self.assertEqual(gateway.batch_calls, 0)
+
     def test_remote_failure_or_missing_readback_never_replays(self):
         failed = FakeGateway()
         failed.raise_on_write = True
@@ -102,3 +127,22 @@ class GoogleSheetsSnapshotAdapterTests(unittest.TestCase):
         dropped.drop_write = True
         result = adapter(dropped).append_if_new([candidate()])
         self.assertEqual((result.storage_status, result.appended_count), ("Failed", None))
+
+    def test_uncertain_write_reconciles_only_when_readback_contains_the_row(self):
+        reconciled = FakeGateway()
+        reconciled.raise_after_write = True
+        result = adapter(reconciled).append_if_new([candidate()])
+        self.assertEqual((result.storage_status, result.appended_count), ("Ready", 1))
+        self.assertEqual(result.failure_code, None)
+
+        missing = FakeGateway()
+        missing.drop_write = True
+        missing.raise_on_write = SheetsGatewayError("WRITE_RESULT_UNCERTAIN", "synthetic timeout")
+        result = adapter(missing).append_if_new([candidate()])
+        self.assertEqual((result.storage_status, result.appended_count, result.failure_code), ("Failed", None, "WRITE_RESULT_UNCERTAIN"))
+
+    def test_readback_mismatch_is_failed_without_replay(self):
+        gateway = FakeGateway()
+        gateway.corrupt_write = True
+        result = adapter(gateway).append_if_new([candidate()])
+        self.assertEqual((result.storage_status, result.appended_count, result.failure_code), ("Failed", None, "READBACK_MISMATCH"))
