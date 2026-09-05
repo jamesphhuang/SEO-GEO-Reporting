@@ -1,0 +1,105 @@
+{
+  "scope_version": "1.0.0",
+  "effective_date": "2026-09-05",
+  "purpose": "MVP diagnostic scope; never a replacement for official business results",
+  "sites": {
+    "tw_main": {
+      "property_id": "257016301",
+      "hostname": "shopline.tw",
+      "source_timezone": "Asia/Taipei"
+    },
+    "tw_blog": {
+      "property_id": "399614424",
+      "hostname": "blog.shopline.tw",
+      "source_timezone": "Asia/Taipei"
+    }
+  },
+  "channels": [
+    "Organic Search",
+    "AI Assistant"
+  ],
+  "hostname_matching": "Exact, case-insensitive; default deny all unlisted hosts",
+  "cross_property_totals": "Forbidden without a separate deduplication contract",
+  "landing_page_policy": "Landing-page diagnostic queries must request landingPage path only. The Daily host×channel Snapshot MVP intentionally excludes landingPage; do not export raw query strings or sum event-host rows as landing-session totals.",
+  "conversion_watchlist": [
+    {
+      "property_id": "257016301",
+      "hostname": "consultation.shopline.tw",
+      "role": "consultation diagnostics, excluded from main-site traffic total"
+    },
+    {
+      "property_id": "257016301",
+      "hostname": "sso.shoplineapp.com",
+      "role": "trial workflow; collection and cross-domain continuity unverified"
+    }
+  ],
+  "events": [
+    {
+      "intent": "consultation_success",
+      "property_id": "257016301",
+      "hostname": "consultation.shopline.tw",
+      "candidate_events": [
+        "Free_Consultation",
+        "signed_up_tw_consultation"
+      ],
+      "successful_event": null,
+      "event_classification": "CANDIDATE_SUCCESS_EVENT",
+      "mapping_status": "BUSINESS_CONFIRMATION_REQUIRED",
+      "business_confirmation_status": "BUSINESS_CONFIRMATION_REQUIRED",
+      "required_evidence": [
+        "actual trigger conditions",
+        "success page or backend confirmation",
+        "duplicate behavior",
+        "cross-domain behavior",
+        "reconciliation to Salesforce/Excel Actual"
+      ],
+      "combine_candidates": false
+    },
+    {
+      "intent": "trial_success",
+      "property_id": "257016301",
+      "hostname": "sso.shoplineapp.com",
+      "candidate_events": [],
+      "successful_event": null,
+      "event_classification": "NO_SUCCESS_EVENT_CONFIRMED",
+      "mapping_status": "BUSINESS_CONFIRMATION_REQUIRED",
+      "business_confirmation_status": "BUSINESS_CONFIRMATION_REQUIRED",
+      "required_evidence": [
+        "actual completed-registration event",
+        "cross-domain continuity",
+        "backend success and deduplication"
+      ]
+    },
+    {
+      "intent": "trial_cta",
+      "property_id": "257016301",
+      "hostname": "shopline.tw",
+      "candidate_events": [
+        "Trial BTN Click"
+      ],
+      "successful_event": null,
+      "event_classification": "CTA_INTERACTION",
+      "mapping_status": "CTA_INTERACTION",
+      "business_confirmation_status": "NOT_A_SUCCESS_METRIC"
+    },
+    {
+      "intent": "consultation_cta",
+      "property_id": "257016301",
+      "hostname": "shopline.tw",
+      "candidate_events": [
+        "Contact BTN Click"
+      ],
+      "successful_event": null,
+      "event_classification": "CTA_INTERACTION",
+      "mapping_status": "CTA_INTERACTION",
+      "business_confirmation_status": "NOT_A_SUCCESS_METRIC"
+    }
+  ],
+  "forbidden_success_proxies": [
+    "Trial BTN Click",
+    "Contact BTN Click",
+    "page_view",
+    "session_start"
+  ],
+  "ga4_admin_mutation": false
+}

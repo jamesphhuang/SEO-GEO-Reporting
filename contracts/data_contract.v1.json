@@ -1,0 +1,134 @@
+{
+  "contract_version": "1.0.0",
+  "effective_date": "2026-09-05",
+  "authority": "User-approved Data Contract in this task",
+  "change_policy": "New immutable version requires Salesforce/business-owner approval; historical snapshots retain their contract_version.",
+  "timezone": "Asia/Taipei",
+  "framework_spreadsheet_id": "1My3hsSSBwNqSRCyPNL7z-S8WsVFns5lZ2c76UE1N9RA",
+  "business": {
+    "source_of_truth": {
+      "title": "2022-2026 TW MKT Monthly Reporting",
+      "spreadsheet_id": "1lfbDAu-YHBiRk9qOFUpKO7y2TFEmzDkaOxzuepJ6Ny8",
+      "allowed_sources": [
+        "Salesforce",
+        "Excel Actual",
+        "Salesforce / Excel Actual"
+      ]
+    },
+    "metrics": [
+      "non_paid_leads",
+      "successful_conversions",
+      "sql"
+    ],
+    "ga4_is_authoritative": false,
+    "sql_maturity": {
+      "cohort": "lead_month",
+      "days_after_calendar_month_end": 60,
+      "as_of_semantics": "Date-level Asia/Taipei end-of-day; mature iff as_of_date >= last calendar date of lead month + 60 calendar days.",
+      "immature_display": "Accumulated SQL only",
+      "immature_exclusions": [
+        "target_attainment",
+        "formal_trend",
+        "rag"
+      ]
+    }
+  },
+  "snapshot": {
+    "columns": [
+      "snapshot_id",
+      "loaded_at",
+      "source",
+      "metric_granularity",
+      "period_start",
+      "period_end",
+      "as_of_date",
+      "data_status",
+      "metric_group",
+      "metric",
+      "segment",
+      "platform/property",
+      "value",
+      "denominator",
+      "target",
+      "source_reference",
+      "revision_note",
+      "contract_version",
+      "unit",
+      "source_timezone",
+      "logical_key",
+      "revision",
+      "supersedes_snapshot_id",
+      "content_hash",
+      "validation_status"
+    ],
+    "states": [
+      "Ready",
+      "Partial",
+      "Stale",
+      "Failed"
+    ],
+    "missing_value": null,
+    "validation_status": "Passed",
+    "storage": "append_only",
+    "revision_policy": "Require latest supersedes_snapshot_id and revision_note for changed data; never overwrite historical rows.",
+    "writer_model": "single_writer",
+    "logical_key_fields": [
+      "contract_version",
+      "source",
+      "metric_granularity",
+      "period_start",
+      "period_end",
+      "metric_group",
+      "metric",
+      "segment",
+      "platform/property"
+    ],
+    "content_fields": [
+      "as_of_date",
+      "data_status",
+      "value",
+      "denominator",
+      "target",
+      "unit",
+      "source_timezone",
+      "source_reference"
+    ],
+    "supported_metrics": {
+      "sessions": {
+        "source": "GA4",
+        "group": "Behavior",
+        "unit": "count"
+      },
+      "engaged_sessions": {
+        "source": "GA4",
+        "group": "Behavior",
+        "unit": "count"
+      },
+      "non_paid_leads": {
+        "source": "business",
+        "group": "Business",
+        "unit": "count"
+      },
+      "successful_conversions": {
+        "source": "business",
+        "group": "Business",
+        "unit": "count"
+      },
+      "sql": {
+        "source": "business",
+        "group": "Business",
+        "unit": "count"
+      }
+    }
+  },
+  "report": {
+    "requires_validation": true,
+    "select_latest_before_status_gate": true,
+    "non_ready_formal_conclusions": false,
+    "rag_thresholds": null
+  },
+  "scheduler": {
+    "enabled": false,
+    "phase_limit": 4
+  }
+}

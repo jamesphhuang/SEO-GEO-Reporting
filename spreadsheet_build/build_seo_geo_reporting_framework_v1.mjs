@@ -166,7 +166,7 @@ dashboard.getRange("A11:J15").values = [
   ["SEO 能見度", "Google 曝光、點擊、CTR、排名；品牌詞／非品牌詞", "GSC", "共同完整截止日往回 7 天；等長比較", "待第一份快照", "", "", "", "", ""],
   ["網站健康度", "Google 體驗健康度 + 技術可搜尋性", "GSC / Screaming Frog", "週報看異常；月報看完整健康度", "待第一份快照", "", "", "", "", ""],
   ["GEO 能見度", "WorkDuo 平台別能見度、SOV、引用與情緒", "WorkDuo", "平台分開；總覽等權重；N/A 不視為 0", "待第一份快照", "", "", "", "", ""],
-  ["商業成果", "Non-paid Leads、SQL（Sales-Qualified Lead）", "Salesforce / Excel Actual", "依來源月份直接判讀；缺漏時標示 Stale／Failed", "待第一份匯入", "", "", "", "", ""],
+  ["商業成果", "Non-paid Leads、SQL（Sales-Qualified Lead）", "Salesforce / Excel Actual", "SQL 依名單月份 Cohort，月結滿 60 天才正式判讀；非 Ready 不作正式結論", "待第一份匯入", "", "", "", "", ""],
 ];
 headers(dashboard, "A11:E11");
 tableStyle(dashboard, "A11:E15");
@@ -218,7 +218,7 @@ readme.getRange("A20:B25").values = [
   ["資料健康檢查", "先檢查來源、日期、涵蓋率、欄位與可比較性，再產出報告。Partial／Stale／Failed 不驅動正式分數或紅黃綠結論。"],
   ["品牌詞字典", "季度例行版本化；新產品或重大活動可中途新版本。歧義查詢先列待判定，不自動歸為非品牌。"],
   ["內容 Cohort 群組", "本報告依同一內容版本或重大更新日期歸組追蹤；一般分析中 cohort 也可指具共同特徵或互動行為的使用者群體。"],
-  ["SQL", "Excel／Salesforce 填入的 SQL 視為已成熟，可直接做 Actual、Target 與趨勢判讀，不使用 60 天成熟期。"],
+  ["SQL", "依 contracts/data_contract.v1.json：名單月份月結後滿 60 天才成熟。未成熟僅顯示累積 SQL，不納入 Target 達成率、正式趨勢或紅黃綠結論；定義變更須另建核准版本。"],
   ["最小權限", "Dashboard／彙總表可廣泛唯讀；Action 與內容列由指定 Owner 編輯；原始匯出與個資維持受限。"],
 ];
 note(readme, "A20:H25");
@@ -378,7 +378,7 @@ subtitle(targets, "A2:L2", "商業 KPI 使用既有 Target；SEO／GEO 先以完
 targets.getRange("A4:L4").values = [["Setting ID", "Metric Group", "Metric", "Scope", "Direction", "Target Type", "Target Value", "Baseline Start", "Baseline End", "Authority", "Status", "Note"]];
 targets.getRange("A5:L9").values = [
   ["BUS-001", "Business", "Non-paid Leads", "TW", "Higher", "Existing target", "", "", "", "Salesforce / Excel Actual", "Pending import", "由既有 Target 匯入"],
-  ["BUS-002", "Business", "SQL", "TW", "Higher", "Existing target", "", "", "", "Salesforce / Excel Actual", "Pending import", "已填入 SQL 視為成熟"],
+  ["BUS-002", "Business", "SQL", "TW", "Higher", "Existing target", "", "", "", "Salesforce / Excel Actual", "Pending import", "名單月份月結滿 60 天且 Ready 才納入正式 Target；依 Data Contract v1.0.0"],
   ["SEO-001", "SEO Visibility", "Google impressions / clicks", "Brand & non-brand", "Higher", "Baseline first", "", "", "", "GSC", "Pending baseline", "近 12 個完整月"],
   ["GEO-001", "GEO Visibility", "Platform visibility / SOV", "GEO-Core v1.0", "Higher", "Baseline first", "", "", "", "WorkDuo", "Pending baseline", "近 90 天；平台分開"],
   ["TECH-001", "Technical Searchability", "Indexability / critical issues", "Core SEO scope", "Mixed", "Baseline first", "", "", "", "Screaming Frog", "Pending baseline", "前次成功 Full crawl"],

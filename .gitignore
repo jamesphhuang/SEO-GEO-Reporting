@@ -12,3 +12,8 @@ node_modules
 # macOS metadata
 .DS_Store
 ._*
+
+outputs/phase1_4_2026-09-05/
+outputs/project_review_2026-09-05/
+__pycache__/
+*.py[cod]
