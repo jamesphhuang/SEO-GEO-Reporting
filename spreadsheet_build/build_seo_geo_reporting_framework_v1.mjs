@@ -1,7 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { SpreadsheetFile, Workbook } from "@oai/artifact-tool";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,7 +12,39 @@ process.on("uncaughtException", (error) => {
   process.exit(1);
 });
 
-const outputDir = path.join(projectRoot, "outputs", "seo_geo_reporting_framework_v1");
+const dataContract = JSON.parse(
+  await fs.readFile(path.join(projectRoot, "contracts", "data_contract.v1.json"), "utf8")
+);
+const snapshotSheetManifest = {
+  legacy: {
+    sheetName: "KPI Snapshots",
+    title: "KPI Snapshots｜彙總、追加式、可追溯",
+    description: "只寫入彙總指標，不存 GA4／Salesforce 個資或逐筆 raw data。新匯入一律追加；更正以新批次與 revision note 表示。",
+    headerRow: 4,
+    headers: [
+      "Snapshot ID", "載入時間", "資料來源", "報表粒度", "期間起日", "期間迄日", "As-of 日期", "資料狀態", "Metric Group", "Metric", "Segment", "Platform / Property", "Value", "Denominator", "Target", "正式來源", "原始檔 / 查詢連結", "Revision / Note"
+    ],
+    initialDataRows: [],
+  },
+  v2: {
+    sheetName: "KPI Snapshots v2",
+    title: "KPI Snapshots v2｜Append-only Data Contract v1.0",
+    description: "Production snapshot storage after activation. Activation pending until programmatic gateway verification. Legacy KPI Snapshots remains historical/read-only. No raw personal data.",
+    headerRow: 4,
+    headers: dataContract.snapshot.columns,
+    initialDataRows: [],
+  },
+};
+
+if (process.argv.includes("--snapshot-schema-manifest")) {
+  console.log(JSON.stringify(snapshotSheetManifest));
+  process.exit(0);
+}
+
+const { SpreadsheetFile, Workbook } = await import("@oai/artifact-tool");
+const outputDir = process.env.SEO_GEO_FRAMEWORK_OUTPUT_DIR
+  ? path.resolve(process.env.SEO_GEO_FRAMEWORK_OUTPUT_DIR)
+  : path.join(projectRoot, "outputs", "seo_geo_reporting_framework_v1");
 const outputPath = path.join(outputDir, "SEO_GEO_Reporting_Framework_v1.0.xlsx");
 
 const COLORS = {
@@ -116,7 +147,8 @@ function applyListValidation(sheet, range, values) {
 const dashboard = addSheet("Dashboard");
 const readme = addSheet("README & 口徑");
 const reportRuns = addSheet("Report Runs");
-const kpiSnapshots = addSheet("KPI Snapshots");
+const kpiSnapshots = addSheet(snapshotSheetManifest.legacy.sheetName);
+const kpiSnapshotsV2 = addSheet(snapshotSheetManifest.v2.sheetName);
 const actionQueue = addSheet("Action Queue");
 const contentLog = addSheet("Content Change Log");
 const urlRegistry = addSheet("URL Registry");
@@ -243,12 +275,9 @@ setWidths(reportRuns, [150, 145, 70, 120, 130, 120, 120, 120, 120, 95, 95, 110, 
 reportRuns.freezePanes.freezeRows(4);
 
 // KPI Snapshots
-title(kpiSnapshots, "A1:R1", "KPI Snapshots｜彙總、追加式、可追溯");
-subtitle(kpiSnapshots, "A2:R2", "只寫入彙總指標，不存 GA4／Salesforce 個資或逐筆 raw data。新匯入一律追加；更正以新批次與 revision note 表示。"
-);
-kpiSnapshots.getRange("A4:R4").values = [[
-  "Snapshot ID", "載入時間", "資料來源", "報表粒度", "期間起日", "期間迄日", "As-of 日期", "資料狀態", "Metric Group", "Metric", "Segment", "Platform / Property", "Value", "Denominator", "Target", "正式來源", "原始檔 / 查詢連結", "Revision / Note"
-]];
+title(kpiSnapshots, "A1:R1", snapshotSheetManifest.legacy.title);
+subtitle(kpiSnapshots, "A2:R2", snapshotSheetManifest.legacy.description);
+kpiSnapshots.getRange("A4:R4").values = [snapshotSheetManifest.legacy.headers];
 headers(kpiSnapshots, "A4:R4");
 kpiSnapshots.getRange("A5:R2001").format = { wrapText: true, verticalAlignment: "top" };
 kpiSnapshots.getRange("B5:B2001").setNumberFormat("yyyy-mm-dd hh:mm");
@@ -261,6 +290,18 @@ applyListValidation(kpiSnapshots, "I5:I2001", ["SEO Visibility", "Google Experie
 applyListValidation(kpiSnapshots, "P5:P2001", ["Yes", "No"]);
 setWidths(kpiSnapshots, [155, 145, 150, 90, 110, 110, 105, 90, 160, 170, 160, 150, 100, 105, 100, 95, 250, 250]);
 kpiSnapshots.freezePanes.freezeRows(4);
+
+// KPI Snapshots v2
+title(kpiSnapshotsV2, "A1:Y1", snapshotSheetManifest.v2.title);
+subtitle(kpiSnapshotsV2, "A2:Y2", snapshotSheetManifest.v2.description);
+kpiSnapshotsV2.getRange("A4:Y4").values = [snapshotSheetManifest.v2.headers];
+headers(kpiSnapshotsV2, "A4:Y4");
+kpiSnapshotsV2.getRange("A5:Y2001").format = { wrapText: true, verticalAlignment: "top" };
+kpiSnapshotsV2.getRange("B5:B2001").setNumberFormat("yyyy-mm-dd hh:mm");
+kpiSnapshotsV2.getRange("E5:G2001").setNumberFormat("yyyy-mm-dd");
+kpiSnapshotsV2.getRange("M5:O2001").setNumberFormat("#,##0.0");
+setWidths(kpiSnapshotsV2, [260, 165, 145, 110, 110, 110, 110, 95, 150, 170, 180, 170, 100, 110, 100, 280, 260, 120, 90, 130, 260, 80, 260, 260, 130]);
+kpiSnapshotsV2.freezePanes.freezeRows(4);
 
 // Action Queue
 title(actionQueue, "A1:T1", "Action Queue｜P0 固定顯示、Top 5 動態排序");
@@ -398,6 +439,8 @@ targets.freezePanes.freezeRows(4);
 const checks = [
   ["Dashboard", "A1:J22"],
   ["README & 口徑", "A1:H25"],
+  ["KPI Snapshots", "A1:R5"],
+  ["KPI Snapshots v2", "A1:Y5"],
   ["Action Queue", "A1:T10"],
   ["URL Registry", "A1:J10"],
   ["GEO Prompt Registry", "A1:I10"],
@@ -410,7 +453,7 @@ for (const [sheetName, range] of checks) {
     range: `${sheetName}!${range}`,
     include: "values,formulas",
     tableMaxRows: 30,
-    tableMaxCols: 20,
+    tableMaxCols: 30,
   });
   console.log(check.ndjson);
 }

@@ -51,6 +51,22 @@ class GoogleSheetsGatewayTests(unittest.TestCase):
         with self.assertRaisesRegex(SheetsGatewayError, "TAB_NOT_FOUND"):
             GoogleSheetsGateway(lambda: "token", opener=lambda *_args, **_kwargs: Response(metadata("other tab"))).get_sheet_metadata("book", "tab")
 
+    def test_sheets_401_and_403_are_auth_failures(self):
+        for status in (401, 403):
+            with self.subTest(status=status):
+                def denied(request, timeout):
+                    raise HTTPError(request.full_url, status, "denied", {}, io.BytesIO(b'{"error":"denied"}'))
+
+                with self.assertRaisesRegex(SheetsGatewayError, "AUTH_FAILED"):
+                    GoogleSheetsGateway(lambda: "token", opener=denied).get_sheet_metadata("book", "tab")
+
+    def test_read_timeout_is_a_remote_read_failure(self):
+        def timeout(request, timeout):
+            raise URLError(socket.timeout("synthetic timeout"))
+
+        with self.assertRaisesRegex(SheetsGatewayError, "REMOTE_READ_FAILED"):
+            GoogleSheetsGateway(lambda: "token", opener=timeout).get_sheet_metadata("book", "tab")
+
     def test_malformed_read_and_write_failures_have_stable_codes(self):
         gateway = GoogleSheetsGateway(
             lambda: "token",
