@@ -4,7 +4,7 @@ import json
 import socket
 from typing import Any, Callable
 from urllib.error import HTTPError, URLError
-from urllib.parse import quote
+from urllib.parse import quote, urlencode
 from urllib.request import Request, urlopen
 
 
@@ -101,7 +101,11 @@ class GoogleSheetsGateway:
     def read_values(self, spreadsheet_id: str, sheet_title: str, cell_range: str) -> list[list[Any]]:
         self.get_sheet_metadata(spreadsheet_id, sheet_title)
         remote_range = quote("'" + sheet_title + "'!" + cell_range, safe="!'")
-        response = self._request("GET", "/v4/spreadsheets/" + quote(spreadsheet_id, safe="") + "/values/" + remote_range)
+        query = urlencode({"valueRenderOption": "UNFORMATTED_VALUE"})
+        response = self._request(
+            "GET",
+            "/v4/spreadsheets/" + quote(spreadsheet_id, safe="") + "/values/" + remote_range + "?" + query,
+        )
         values = response.get("values", [])
         if not isinstance(values, list) or any(not isinstance(row, list) for row in values):
             raise SheetsGatewayError("MALFORMED_REMOTE_ROW", "values response must be a list of rows")

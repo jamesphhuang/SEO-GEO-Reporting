@@ -3,6 +3,7 @@ import json
 import socket
 import unittest
 from urllib.error import HTTPError, URLError
+from urllib.parse import parse_qs, urlsplit
 
 from reporting.google_sheets_gateway import GoogleSheetsGateway, SheetsGatewayError
 
@@ -37,6 +38,23 @@ class GoogleSheetsGatewayTests(unittest.TestCase):
         self.assertEqual(gateway.read_values("book", "KPI Snapshots v2", "A1:A1"), [["header"]])
         self.assertEqual(seen[0][1], "Bearer runtime-token")
         self.assertTrue(seen[0][0].startswith("https://example.test/v4/spreadsheets/book"))
+        self.assertEqual(parse_qs(urlsplit(seen[1][0]).query), {"valueRenderOption": ["UNFORMATTED_VALUE"]})
+
+    def test_read_values_preserves_numeric_and_blank_semantics(self):
+        seen = []
+
+        def opener(request, timeout):
+            seen.append(request.full_url)
+            if "?fields=" in request.full_url:
+                return Response(metadata())
+            return Response({"values": [["header", 12, None, ""]]})
+
+        gateway = GoogleSheetsGateway(lambda: "runtime-token", opener=opener, api_root="https://example.test")
+        values = gateway.read_values("book", "KPI Snapshots v2", "A1:D1")
+        self.assertEqual(values, [["header", 12, None, ""]])
+        self.assertIsInstance(values[0][1], int)
+        self.assertIsNone(values[0][2])
+        self.assertEqual(parse_qs(urlsplit(seen[1]).query)["valueRenderOption"], ["UNFORMATTED_VALUE"])
 
     def test_auth_wrong_spreadsheet_and_wrong_tab_fail_closed(self):
         with self.assertRaisesRegex(SheetsGatewayError, "AUTH_FAILED"):
