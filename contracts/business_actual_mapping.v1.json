@@ -1,0 +1,96 @@
+{
+  "mapping_version": "1.0.0",
+  "effective_date": "2026-09-06",
+  "authority": "Read-only source inventory of the user-approved actuals workbook",
+  "base_data_contract_version": "1.0.0",
+  "workbook": {
+    "title": "2022-2026 TW MKT Monthly Reporting",
+    "spreadsheet_id": "1lfbDAu-YHBiRk9qOFUpKO7y2TFEmzDkaOxzuepJ6Ny8",
+    "source_timezone": "Asia/Shanghai",
+    "source_reference": "https://docs.google.com/spreadsheets/d/1lfbDAu-YHBiRk9qOFUpKO7y2TFEmzDkaOxzuepJ6Ny8/edit"
+  },
+  "mapping_policy": {
+    "only_evidence_confirmed": true,
+    "missing_is_null_not_zero": true,
+    "actual_value_cell_policy": "raw_only",
+    "historical_rows_are_not_migrated": true,
+    "remote_write_enabled": false
+  },
+  "mappings": [
+    {
+      "metric": "non_paid_leads",
+      "metric_group": "Business",
+      "source": "Excel Actual",
+      "source_tabs": [
+        {
+          "title": "2024 lead gen distribution",
+          "sheet_id": 848244723,
+          "coverage_start": "2024-01",
+          "coverage_end": "2024-12",
+          "observed_actual_end": "2024-12",
+          "blocks": [
+            {"header_row": 11, "data_row": 15, "month_columns": {"01": "C", "02": "G", "03": "K"}},
+            {"header_row": 55, "data_row": 59, "month_columns": {"04": "C", "05": "G", "06": "K"}},
+            {"header_row": 99, "data_row": 103, "month_columns": {"07": "C", "08": "G", "09": "K"}},
+            {"header_row": 143, "data_row": 147, "month_columns": {"10": "C", "11": "G", "12": "K"}}
+          ]
+        },
+        {
+          "title": "2025 lead gen distribution",
+          "sheet_id": 1206034988,
+          "coverage_start": "2025-01",
+          "coverage_end": "2025-12",
+          "observed_actual_end": "2025-12",
+          "blocks": [
+            {"header_row": 11, "data_row": 15, "month_columns": {"01": "C", "02": "G", "03": "K"}},
+            {"header_row": 55, "data_row": 59, "month_columns": {"04": "C", "05": "G", "06": "K"}},
+            {"header_row": 99, "data_row": 103, "month_columns": {"07": "C", "08": "G", "09": "K"}},
+            {"header_row": 143, "data_row": 147, "month_columns": {"10": "C", "11": "G", "12": "K"}}
+          ]
+        },
+        {
+          "title": "2026 lead gen distribution",
+          "sheet_id": 1999633447,
+          "coverage_start": "2026-01",
+          "coverage_end": "2026-12",
+          "observed_actual_end": "2026-08",
+          "blocks": [
+            {"header_row": 11, "data_row": 23, "month_columns": {"01": "C", "02": "G", "03": "K"}},
+            {"header_row": 63, "data_row": 71, "month_columns": {"04": "C", "05": "G", "06": "K"}},
+            {"header_row": 111, "data_row": 119, "month_columns": {"07": "C", "08": "G", "09": "K"}},
+            {"header_row": 159, "data_row": 163, "month_columns": {"10": "C", "11": "G", "12": "K"}}
+          ]
+        }
+      ],
+      "row_label": "Non-Paid Leads",
+      "value_field": "Actual",
+      "period_representation": "year-specific tab plus month header block",
+      "metric_granularity": "Monthly",
+      "unit": "count",
+      "segment": "all_non_paid",
+      "allowed_segments": ["all_non_paid"],
+      "platform_property": "TW",
+      "source_timezone": "Asia/Shanghai",
+      "formula_policy": "raw_only",
+      "missing_policy": "Partial with null value; never zero",
+      "status": "EVIDENCE_CONFIRMED",
+      "evidence": [
+        "Each listed row has the exact Non-Paid Leads label.",
+        "Each listed Actual cell is a raw numeric cell in the observed workbook ranges.",
+        "The workbook note states lead counts are primarily based on Salesforce; paid ads leads use UTM."
+      ]
+    }
+  ],
+  "unresolved_metrics": [
+    {
+      "metric": "successful_conversions",
+      "status": "SOURCE_NOT_CONFIRMED",
+      "reason": "Salesforce tab contains Sales Leads aggregates for 2023 only, while Leads Acquisition Analysis contains Sales Total and Close Won fields through 2025-11; formal business semantics and current 2026 coverage are not reconciled."
+    },
+    {
+      "metric": "sql",
+      "status": "SOURCE_NOT_CONFIRMED",
+      "reason": "Candidate rows include Salesforce SQL for 2023, Leads Acquisition Analysis SQL by product funnel, and year tabs with *SQL/*Qualified rows; no approved single total and segment definition is evidenced for the formal KPI."
+    }
+  ]
+}

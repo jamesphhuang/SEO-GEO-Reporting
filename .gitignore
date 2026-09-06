@@ -15,5 +15,6 @@ node_modules
 
 outputs/phase1_4_2026-09-05/
 outputs/project_review_2026-09-05/
+outputs/business_actual_import_preview_*/
 __pycache__/
 *.py[cod]
