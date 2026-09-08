@@ -1,0 +1,220 @@
+{
+ "tools": [
+  {
+   "name": "get_capabilities",
+   "desc": "\n    Get a full list of all available tools, current auth status, and how to get started.\n    ALWAYS call this first when asked what tools are available, what t",
+   "params": []
+  },
+  {
+   "name": "list_properties",
+   "desc": "\n    List all Google Search Console (GSC) properties and sites the user has access to.\n    Use this to see all verified sites, domain properties, and URL-prefix",
+   "params": []
+  },
+  {
+   "name": "add_site",
+   "desc": "\n    Add a site to your Search Console properties.\n    \n    Args:\n        site_url: The URL of the site to add (must be exact match e.g. https://example.com, or",
+   "params": [
+    "site_url"
+   ]
+  },
+  {
+   "name": "delete_site",
+   "desc": "\n    Remove a site from your Search Console properties.\n    \n    Args:\n        site_url: The URL of the site to remove (must be exact match e.g. https://example",
+   "params": [
+    "site_url"
+   ]
+  },
+  {
+   "name": "get_search_analytics",
+   "desc": "\n    Get search analytics data for a specific property.\n    \n    Args:\n        site_url: Exact GSC property URL from list_properties (e.g. \"https://example.com/",
+   "params": [
+    "site_url",
+    "days",
+    "dimensions",
+    "row_limit"
+   ]
+  },
+  {
+   "name": "get_site_details",
+   "desc": "\n    Get detailed information about a specific Search Console property.\n    \n    Args:\n        site_url: Exact GSC property URL from list_properties (e.g. \"http",
+   "params": [
+    "site_url"
+   ]
+  },
+  {
+   "name": "get_sitemaps",
+   "desc": "\n    List all sitemaps for a specific Search Console property.\n    \n    Args:\n        site_url: Exact GSC property URL from list_properties (e.g. \"https://examp",
+   "params": [
+    "site_url"
+   ]
+  },
+  {
+   "name": "inspect_url_enhanced",
+   "desc": "\n    Enhanced URL inspection to check indexing status and rich results in Google.\n    \n    Args:\n        site_url: Exact GSC property URL from list_properties (",
+   "params": [
+    "site_url",
+    "page_url"
+   ]
+  },
+  {
+   "name": "batch_url_inspection",
+   "desc": "\n    Inspect multiple URLs in batch (within API limits).\n    \n    Args:\n        site_url: Exact GSC property URL from list_properties (e.g. \"https://example.com",
+   "params": [
+    "site_url",
+    "urls"
+   ]
+  },
+  {
+   "name": "check_indexing_issues",
+   "desc": "\n    Check for specific indexing issues across multiple URLs.\n    \n    Args:\n        site_url: Exact GSC property URL from list_properties (e.g. \"https://exampl",
+   "params": [
+    "site_url",
+    "urls"
+   ]
+  },
+  {
+   "name": "get_performance_overview",
+   "desc": "\n    Get a performance overview for a specific property.\n    \n    Args:\n        site_url: Exact GSC property URL from list_properties (e.g. \"https://example.com",
+   "params": [
+    "site_url",
+    "days"
+   ]
+  },
+  {
+   "name": "get_advanced_search_analytics",
+   "desc": "\n    Get advanced search analytics data with sorting, filtering, and pagination.\n    \n    Args:\n        site_url: Exact GSC property URL from list_properties (e",
+   "params": [
+    "site_url",
+    "start_date",
+    "end_date",
+    "dimensions",
+    "search_type",
+    "row_limit",
+    "start_row",
+    "sort_by",
+    "sort_direction",
+    "filter_dimension",
+    "filter_operator",
+    "filter_expression",
+    "filters",
+    "data_state"
+   ]
+  },
+  {
+   "name": "compare_search_periods",
+   "desc": "\n    Compare search analytics data between two time periods.\n    \n    Args:\n        site_url: Exact GSC property URL from list_properties (e.g. \"https://example",
+   "params": [
+    "site_url",
+    "period1_start",
+    "period1_end",
+    "period2_start",
+    "period2_end",
+    "dimensions",
+    "limit"
+   ]
+  },
+  {
+   "name": "get_search_by_page_query",
+   "desc": "\n    Get search analytics data for a specific page, broken down by query.\n    \n    Args:\n        site_url: Exact GSC property URL from list_properties (e.g. \"ht",
+   "params": [
+    "site_url",
+    "page_url",
+    "days",
+    "row_limit"
+   ]
+  },
+  {
+   "name": "list_sitemaps_enhanced",
+   "desc": "\n    List all sitemaps for a specific Search Console property with detailed information.\n    \n    Args:\n        site_url: Exact GSC property URL from list_prope",
+   "params": [
+    "site_url",
+    "sitemap_index"
+   ]
+  },
+  {
+   "name": "get_sitemap_details",
+   "desc": "\n    Get detailed information about a specific sitemap.\n    \n    Args:\n        site_url: Exact GSC property URL from list_properties (e.g. \"https://example.com/",
+   "params": [
+    "site_url",
+    "sitemap_url"
+   ]
+  },
+  {
+   "name": "submit_sitemap",
+   "desc": "\n    Submit a new sitemap or resubmit an existing one to Google.\n    \n    Args:\n        site_url: Exact GSC property URL from list_properties (e.g. \"https://exa",
+   "params": [
+    "site_url",
+    "sitemap_url"
+   ]
+  },
+  {
+   "name": "delete_sitemap",
+   "desc": "\n    Delete (unsubmit) a sitemap from Google Search Console.\n    \n    Args:\n        site_url: Exact GSC property URL from list_properties (e.g. \"https://example",
+   "params": [
+    "site_url",
+    "sitemap_url"
+   ]
+  },
+  {
+   "name": "manage_sitemaps",
+   "desc": "\n    All-in-one tool to manage sitemaps (list, get details, submit, delete).\n    \n    Args:\n        site_url: Exact GSC property URL from list_properties (e.g. ",
+   "params": [
+    "site_url",
+    "action",
+    "sitemap_url",
+    "sitemap_index"
+   ]
+  },
+  {
+   "name": "get_creator_info",
+   "desc": "\n    Provides information about Amin Foroutan, the creator of the MCP-GSC tool.\n    ",
+   "params": []
+  },
+  {
+   "name": "reauthenticate",
+   "desc": "\n    Perform a logout and new login sequence.\n    Deletes the current OAuth token file and triggers the browser authentication flow.\n    Useful when you need to",
+   "params": []
+  }
+ ],
+ "results": [
+  {
+   "call": {
+    "name": "get_sitemap_details",
+    "args": {
+     "site_url": "https://shopline.tw/",
+     "sitemap_url": "https://shopline.tw/sitemap.xml"
+    }
+   },
+   "isError": false,
+   "text": [
+    "{\"sitemap_url\": \"https://shopline.tw/sitemap.xml\", \"site_url\": \"https://shopline.tw/\", \"type\": \"Sitemap\", \"status\": \"processed\", \"last_submitted\": \"2026-07-10 08:45\", \"last_downloaded\": \"2026-08-27 17:50\", \"errors\": 0, \"warnings\": 0, \"content_breakdown\": [{\"type\": \"WEB\", \"submitted\": \"97\", \"indexed\": \"0\"}], \"is_index\": false}"
+   ]
+  },
+  {
+   "call": {
+    "name": "get_sitemap_details",
+    "args": {
+     "site_url": "https://shopline.tw/",
+     "sitemap_url": "https://shopline.tw/sitemap.xml.gz"
+    }
+   },
+   "isError": false,
+   "text": [
+    "{\"sitemap_url\": \"https://shopline.tw/sitemap.xml.gz\", \"site_url\": \"https://shopline.tw/\", \"type\": \"Sitemap\", \"status\": \"processed\", \"last_submitted\": \"2019-09-23 07:38\", \"last_downloaded\": \"2023-03-06 04:47\", \"errors\": 1, \"warnings\": 5, \"content_breakdown\": [{\"type\": \"WEB\", \"submitted\": \"65\", \"indexed\": \"28\"}], \"is_index\": false}"
+   ]
+  },
+  {
+   "call": {
+    "name": "get_sitemap_details",
+    "args": {
+     "site_url": "sc-domain:blog.shopline.tw",
+     "sitemap_url": "https://blog.shopline.tw/sitemap_index.xml"
+    }
+   },
+   "isError": false,
+   "text": [
+    "{\"sitemap_url\": \"https://blog.shopline.tw/sitemap_index.xml\", \"site_url\": \"sc-domain:blog.shopline.tw\", \"type\": \"Index\", \"status\": \"processed\", \"last_submitted\": \"2022-12-06 07:02\", \"last_downloaded\": \"2026-09-05 16:01\", \"errors\": 0, \"warnings\": 1, \"content_breakdown\": [{\"type\": \"WEB\", \"submitted\": \"1188\", \"indexed\": \"0\"}, {\"type\": \"IMAGE\", \"submitted\": \"5452\", \"indexed\": \"0\"}], \"is_index\": true}"
+   ]
+  }
+ ]
+}

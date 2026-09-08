@@ -1,0 +1,9 @@
+{"command": "/Users/pohsunhuang/Library/CloudStorage/GoogleDrive-james.ph.huang@shopline.com/我的雲端硬碟/SEO／GEO Reporting/97_Runtime/gsc-mcp/bin/python3.12",
+ "args": ["-c", "import sys; sys.argv=['mcp-search-console']; from gsc_server import main; main()"],
+ "env": {"GSC_CONFIG_DIR": "/Users/pohsunhuang/Library/CloudStorage/GoogleDrive-james.ph.huang@shopline.com/我的雲端硬碟/SEO／GEO Reporting/98_環境設定/gsc",
+         "GSC_OAUTH_CLIENT_SECRETS_FILE": "/Users/pohsunhuang/Library/CloudStorage/GoogleDrive-james.ph.huang@shopline.com/我的雲端硬碟/SEO／GEO Reporting/98_環境設定/gsc/oauth_client.json"},
+ "calls": [
+   {"name": "get_sitemap_details", "args": {"site_url": "https://shopline.tw/", "sitemap_url": "https://shopline.tw/sitemap.xml"}},
+   {"name": "get_sitemap_details", "args": {"site_url": "https://shopline.tw/", "sitemap_url": "https://shopline.tw/sitemap.xml.gz"}},
+   {"name": "get_sitemap_details", "args": {"site_url": "sc-domain:blog.shopline.tw", "sitemap_url": "https://blog.shopline.tw/sitemap_index.xml"}}
+ ]}

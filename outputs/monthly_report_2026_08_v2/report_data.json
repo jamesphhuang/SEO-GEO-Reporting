@@ -1,0 +1,4587 @@
+{
+ "generatedAt": "2026-09-08T09:24:43Z",
+ "period": {
+  "current": "2026-08",
+  "previous": "2026-07"
+ },
+ "business": {
+  "label": "Non-Paid Leads",
+  "julTarget": 537,
+  "julActual": 477,
+  "julReach": 0.888268156424581,
+  "augTarget": 620,
+  "augActual": 448,
+  "augReach": 0.7225806451612903,
+  "momChange": -0.06079664570230603,
+  "gap": 172,
+  "sepTarget": 570,
+  "asOf": "2026-09-08T09:24:43Z",
+  "sourceTab": "2026 lead gen distribution",
+  "sourceRow": 119,
+  "spreadsheetId": "1lfbDAu-YHBiRk9qOFUpKO7y2TFEmzDkaOxzuepJ6Ny8",
+  "sqlStatus": "OK",
+  "sqlLabel": "*SQL",
+  "sqlTarget": 106,
+  "sqlActual": 72,
+  "sqlMatureOn": "2026-10-30",
+  "sqlIsMature": false,
+  "sqlReach": null,
+  "sqlPrevActual": null,
+  "sqlMomChange": null,
+  "sqlSourceStatus": "SOURCE_NOT_CONFIRMED",
+  "sqlApprovalState": "RECORDED_NOT_APPROVED",
+  "sqlSourceRow": 120
+ },
+ "gscMonthly": [
+  {
+   "site": "https://shopline.tw/",
+   "siteLabel": "主站 shopline.tw",
+   "month": "03",
+   "monthLabel": "3 月",
+   "days": 31,
+   "clicks": 9874,
+   "impressions": 106625,
+   "ctr": 0.09260492379835873,
+   "position": 6.60802532239156
+  },
+  {
+   "site": "https://shopline.tw/",
+   "siteLabel": "主站 shopline.tw",
+   "month": "04",
+   "monthLabel": "4 月",
+   "days": 30,
+   "clicks": 8730,
+   "impressions": 88467,
+   "ctr": 0.09868086405100207,
+   "position": 5.4501814235816735
+  },
+  {
+   "site": "https://shopline.tw/",
+   "siteLabel": "主站 shopline.tw",
+   "month": "05",
+   "monthLabel": "5 月",
+   "days": 31,
+   "clicks": 7578,
+   "impressions": 90334,
+   "ctr": 0.08388867978834104,
+   "position": 5.282638873513849
+  },
+  {
+   "site": "https://shopline.tw/",
+   "siteLabel": "主站 shopline.tw",
+   "month": "06",
+   "monthLabel": "6 月",
+   "days": 30,
+   "clicks": 10233,
+   "impressions": 103131,
+   "ctr": 0.09922331791604852,
+   "position": 4.399720743520377
+  },
+  {
+   "site": "https://shopline.tw/",
+   "siteLabel": "主站 shopline.tw",
+   "month": "07",
+   "monthLabel": "7 月",
+   "days": 31,
+   "clicks": 9146,
+   "impressions": 105840,
+   "ctr": 0.08641345427059713,
+   "position": 4.534221466364324
+  },
+  {
+   "site": "https://shopline.tw/",
+   "siteLabel": "主站 shopline.tw",
+   "month": "08",
+   "monthLabel": "8 月",
+   "days": 31,
+   "clicks": 8283,
+   "impressions": 90703,
+   "ctr": 0.09132002249098707,
+   "position": 4.381275150766789
+  },
+  {
+   "site": "sc-domain:blog.shopline.tw",
+   "siteLabel": "部落格 blog.shopline.tw",
+   "month": "03",
+   "monthLabel": "3 月",
+   "days": 31,
+   "clicks": 18688,
+   "impressions": 1027930,
+   "ctr": 0.01818022627999961,
+   "position": 6.4478767036665925
+  },
+  {
+   "site": "sc-domain:blog.shopline.tw",
+   "siteLabel": "部落格 blog.shopline.tw",
+   "month": "04",
+   "monthLabel": "4 月",
+   "days": 30,
+   "clicks": 15740,
+   "impressions": 971132,
+   "ctr": 0.016207889349748542,
+   "position": 6.74768383700671
+  },
+  {
+   "site": "sc-domain:blog.shopline.tw",
+   "siteLabel": "部落格 blog.shopline.tw",
+   "month": "05",
+   "monthLabel": "5 月",
+   "days": 31,
+   "clicks": 14710,
+   "impressions": 963403,
+   "ctr": 0.015268791980095557,
+   "position": 7.52649161358227
+  },
+  {
+   "site": "sc-domain:blog.shopline.tw",
+   "siteLabel": "部落格 blog.shopline.tw",
+   "month": "06",
+   "monthLabel": "6 月",
+   "days": 30,
+   "clicks": 12666,
+   "impressions": 1069929,
+   "ctr": 0.011838168700913799,
+   "position": 7.421862946045953
+  },
+  {
+   "site": "sc-domain:blog.shopline.tw",
+   "siteLabel": "部落格 blog.shopline.tw",
+   "month": "07",
+   "monthLabel": "7 月",
+   "days": 31,
+   "clicks": 11453,
+   "impressions": 1119300,
+   "ctr": 0.010232288037166085,
+   "position": 6.853774591262394
+  },
+  {
+   "site": "sc-domain:blog.shopline.tw",
+   "siteLabel": "部落格 blog.shopline.tw",
+   "month": "08",
+   "monthLabel": "8 月",
+   "days": 31,
+   "clicks": 10989,
+   "impressions": 1007621,
+   "ctr": 0.010905886240957662,
+   "position": 6.787901006429996
+  }
+ ],
+ "gscDeltas": [
+  {
+   "site": "https://shopline.tw/",
+   "siteLabel": "主站 shopline.tw",
+   "clicksJul": 9146,
+   "clicksAug": 8283,
+   "clicksChange": -0.09435818937240326,
+   "imprJul": 105840,
+   "imprAug": 90703,
+   "imprChange": -0.14301776266061983,
+   "ctrJul": 0.08641345427059713,
+   "ctrAug": 0.09132002249098707,
+   "ctrChangePt": 0.49065682203899424,
+   "posJul": 4.534221466364324,
+   "posAug": 4.381275150766789,
+   "posChange": -0.1529463155975348
+  },
+  {
+   "site": "sc-domain:blog.shopline.tw",
+   "siteLabel": "部落格 blog.shopline.tw",
+   "clicksJul": 11453,
+   "clicksAug": 10989,
+   "clicksChange": -0.040513402601938364,
+   "imprJul": 1119300,
+   "imprAug": 1007621,
+   "imprChange": -0.09977575270258199,
+   "ctrJul": 0.010232288037166085,
+   "ctrAug": 0.010905886240957662,
+   "ctrChangePt": 0.06735982037915766,
+   "posJul": 6.853774591262394,
+   "posAug": 6.787901006429996,
+   "posChange": -0.06587358483239836
+  }
+ ],
+ "gscPages": [
+  {
+   "siteLabel": "主站 shopline.tw",
+   "page": "https://shopline.tw/",
+   "clicks": 5656,
+   "impressions": 48370,
+   "ctr": 0.1169,
+   "position": 3.3
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "page": "https://blog.shopline.tw/ads-article-threads-marketing/",
+   "clicks": 1088,
+   "impressions": 340056,
+   "ctr": 0.0032,
+   "position": 5.1
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "page": "https://blog.shopline.tw/post-image-size-gh/",
+   "clicks": 555,
+   "impressions": 16545,
+   "ctr": 0.0335,
+   "position": 4.1
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "page": "https://blog.shopline.tw/instagram-image-sizes/",
+   "clicks": 348,
+   "impressions": 23796,
+   "ctr": 0.0146,
+   "position": 4.9
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "page": "https://shopline.tw/about/pricing",
+   "clicks": 319,
+   "impressions": 20747,
+   "ctr": 0.0154,
+   "position": 1.5
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "page": "https://shopline.tw/payments",
+   "clicks": 253,
+   "impressions": 3184,
+   "ctr": 0.0795,
+   "position": 2.9
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "page": "https://blog.shopline.tw/free-stock-marketing-content/",
+   "clicks": 210,
+   "impressions": 10433,
+   "ctr": 0.0201,
+   "position": 6.9
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "page": "https://blog.shopline.tw/ig-story-2018/",
+   "clicks": 197,
+   "impressions": 35224,
+   "ctr": 0.0056,
+   "position": 6.2
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "page": "https://blog.shopline.tw/online-shopping-fraud-case-countermeasure/",
+   "clicks": 191,
+   "impressions": 6507,
+   "ctr": 0.0294,
+   "position": 7.3
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "page": "https://shopline.tw/about",
+   "clicks": 140,
+   "impressions": 20556,
+   "ctr": 0.0068,
+   "position": 1.4
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "page": "https://blog.shopline.tw/what-is-pos/",
+   "clicks": 137,
+   "impressions": 8846,
+   "ctr": 0.0155,
+   "position": 4.5
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "page": "https://shopline.tw/showcase",
+   "clicks": 96,
+   "impressions": 18354,
+   "ctr": 0.0052,
+   "position": 1.2
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "page": "https://shopline.tw/news/shopline-app-store",
+   "clicks": 56,
+   "impressions": 355,
+   "ctr": 0.1577,
+   "position": 4.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "page": "https://blog.shopline.tw/brand-business-plan/",
+   "clicks": 56,
+   "impressions": 2437,
+   "ctr": 0.023,
+   "position": 8.4
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "page": "https://blog.shopline.tw/5-popular-product-type/",
+   "clicks": 48,
+   "impressions": 1762,
+   "ctr": 0.0272,
+   "position": 6.8
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "page": "https://shopline.tw/faq/overview",
+   "clicks": 47,
+   "impressions": 804,
+   "ctr": 0.0585,
+   "position": 2.6
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "page": "https://blog.shopline.tw/group-buying-guideline/",
+   "clicks": 47,
+   "impressions": 3245,
+   "ctr": 0.0145,
+   "position": 9.7
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "page": "https://blog.shopline.tw/cross-border-vietnam-ec-platform-2021/",
+   "clicks": 33,
+   "impressions": 394,
+   "ctr": 0.0838,
+   "position": 4.2
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "page": "https://blog.shopline.tw/ads-article-google-demand-gen-campaign/",
+   "clicks": 31,
+   "impressions": 840,
+   "ctr": 0.0369,
+   "position": 5.2
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "page": "https://shopline.tw/faq/pos",
+   "clicks": 27,
+   "impressions": 325,
+   "ctr": 0.0831,
+   "position": 6.4
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "page": "https://blog.shopline.tw/2022-anti-fraud/",
+   "clicks": 21,
+   "impressions": 633,
+   "ctr": 0.0332,
+   "position": 2.9
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "page": "https://blog.shopline.tw/6-live-platform-compare/",
+   "clicks": 21,
+   "impressions": 3253,
+   "ctr": 0.0065,
+   "position": 9.4
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "page": "https://blog.shopline.tw/ga4-gtm-faq/",
+   "clicks": 21,
+   "impressions": 2620,
+   "ctr": 0.008,
+   "position": 8.5
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "page": "https://blog.shopline.tw/partner-showcase-bebit-tech/",
+   "clicks": 21,
+   "impressions": 916,
+   "ctr": 0.0229,
+   "position": 6.3
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "page": "https://blog.shopline.tw/what-is-threads/",
+   "clicks": 21,
+   "impressions": 9623,
+   "ctr": 0.0022,
+   "position": 10.8
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "page": "https://shopline.tw/online-store/health-and-supplements",
+   "clicks": 20,
+   "impressions": 11868,
+   "ctr": 0.0017,
+   "position": 1.3
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "page": "https://shopline.tw/shopper-app",
+   "clicks": 20,
+   "impressions": 3166,
+   "ctr": 0.0063,
+   "position": 2.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "page": "https://blog.shopline.tw/merchant-showcase-nozzle-quiz/",
+   "clicks": 20,
+   "impressions": 2285,
+   "ctr": 0.0088,
+   "position": 7.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "page": "https://blog.shopline.tw/shopline-mcp-launch/",
+   "clicks": 20,
+   "impressions": 121,
+   "ctr": 0.1653,
+   "position": 3.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "page": "https://blog.shopline.tw/12-brand-archetypes/",
+   "clicks": 19,
+   "impressions": 13313,
+   "ctr": 0.0014,
+   "position": 7.2
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "page": "https://blog.shopline.tw/12-brand-archetypes/?related_post_from=35588",
+   "clicks": 19,
+   "impressions": 2886,
+   "ctr": 0.0066,
+   "position": 4.6
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "page": "https://blog.shopline.tw/geo-aeo-traffic-enhance-strategy/",
+   "clicks": 18,
+   "impressions": 1023,
+   "ctr": 0.0176,
+   "position": 12.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "page": "https://blog.shopline.tw/manage-your-inventory/",
+   "clicks": 18,
+   "impressions": 1342,
+   "ctr": 0.0134,
+   "position": 8.8
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "page": "https://blog.shopline.tw/shopline-mcp-inside/",
+   "clicks": 18,
+   "impressions": 218,
+   "ctr": 0.0826,
+   "position": 3.1
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "page": "https://blog.shopline.tw/2026-retail-and-marketing-trend-insight/",
+   "clicks": 17,
+   "impressions": 893,
+   "ctr": 0.019,
+   "position": 14.4
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "page": "https://shopline.tw/faq/about",
+   "clicks": 16,
+   "impressions": 11729,
+   "ctr": 0.0014,
+   "position": 1.4
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "page": "https://shopline.tw/faq/plans",
+   "clicks": 16,
+   "impressions": 805,
+   "ctr": 0.0199,
+   "position": 4.4
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "page": "https://shopline.tw/online-store/shop-builder",
+   "clicks": 15,
+   "impressions": 169,
+   "ctr": 0.0888,
+   "position": 6.7
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "page": "https://shopline.tw/pos/features",
+   "clicks": 14,
+   "impressions": 376,
+   "ctr": 0.0372,
+   "position": 11.6
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "page": "https://shopline.tw/ai",
+   "clicks": 10,
+   "impressions": 435,
+   "ctr": 0.023,
+   "position": 4.9
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "page": "https://shopline.tw/showcase/fashion-brand",
+   "clicks": 8,
+   "impressions": 1758,
+   "ctr": 0.0046,
+   "position": 1.5
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "page": "https://shopline.tw/smart-omo",
+   "clicks": 7,
+   "impressions": 79,
+   "ctr": 0.0886,
+   "position": 6.1
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "page": "https://shopline.tw/social-commerce",
+   "clicks": 7,
+   "impressions": 404,
+   "ctr": 0.0173,
+   "position": 8.2
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "page": "https://shopline.tw/online-store-setup",
+   "clicks": 6,
+   "impressions": 3243,
+   "ctr": 0.0019,
+   "position": 9.1
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "page": "https://shopline.tw/selectedpartners",
+   "clicks": 6,
+   "impressions": 55,
+   "ctr": 0.1091,
+   "position": 11.5
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "page": "https://shopline.tw/news/shopline-payments-aftee",
+   "clicks": 5,
+   "impressions": 1137,
+   "ctr": 0.0044,
+   "position": 8.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "page": "https://shopline.tw/online-store/features",
+   "clicks": 5,
+   "impressions": 14617,
+   "ctr": 0.0003,
+   "position": 1.8
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "page": "https://shopline.tw/templates",
+   "clicks": 5,
+   "impressions": 215,
+   "ctr": 0.0233,
+   "position": 2.6
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "page": "https://shopline.tw/logistics",
+   "clicks": 4,
+   "impressions": 125,
+   "ctr": 0.032,
+   "position": 20.5
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "page": "https://shopline.tw/showcase/health-and-supplements",
+   "clicks": 4,
+   "impressions": 259,
+   "ctr": 0.0154,
+   "position": 7.2
+  }
+ ],
+ "gscQueries": [
+  {
+   "siteLabel": "主站 shopline.tw",
+   "query": "shopline",
+   "clicks": 4877,
+   "impressions": 18496,
+   "ctr": 0.2637,
+   "position": 1.1
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "query": "脆",
+   "clicks": 850,
+   "impressions": 274411,
+   "ctr": 0.0031,
+   "position": 4.3
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "query": "shopline後台",
+   "clicks": 157,
+   "impressions": 7206,
+   "ctr": 0.0218,
+   "position": 3.5
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "query": "免費圖庫",
+   "clicks": 135,
+   "impressions": 3914,
+   "ctr": 0.0345,
+   "position": 4.9
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "query": "shopline payments",
+   "clicks": 118,
+   "impressions": 642,
+   "ctr": 0.1838,
+   "position": 1.8
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "query": "shop line",
+   "clicks": 108,
+   "impressions": 391,
+   "ctr": 0.2762,
+   "position": 1.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "query": "ig 限時動態",
+   "clicks": 84,
+   "impressions": 9659,
+   "ctr": 0.0087,
+   "position": 6.3
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "query": "shopline 後台",
+   "clicks": 82,
+   "impressions": 3205,
+   "ctr": 0.0256,
+   "position": 4.1
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "query": "shopline是什麼",
+   "clicks": 77,
+   "impressions": 573,
+   "ctr": 0.1344,
+   "position": 1.4
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "query": "threads",
+   "clicks": 68,
+   "impressions": 48998,
+   "ctr": 0.0014,
+   "position": 8.9
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "query": "shopline payment",
+   "clicks": 65,
+   "impressions": 411,
+   "ctr": 0.1582,
+   "position": 1.1
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "query": "shopline admin",
+   "clicks": 49,
+   "impressions": 1024,
+   "ctr": 0.0479,
+   "position": 2.4
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "query": "ig尺寸",
+   "clicks": 49,
+   "impressions": 1108,
+   "ctr": 0.0442,
+   "position": 1.6
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "query": "shopline 方案",
+   "clicks": 46,
+   "impressions": 337,
+   "ctr": 0.1365,
+   "position": 10.3
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "query": "shopline 費用",
+   "clicks": 46,
+   "impressions": 216,
+   "ctr": 0.213,
+   "position": 1.2
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "query": "shopline 後台 登入",
+   "clicks": 37,
+   "impressions": 550,
+   "ctr": 0.0673,
+   "position": 2.3
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "query": "shopline api",
+   "clicks": 36,
+   "impressions": 204,
+   "ctr": 0.1765,
+   "position": 3.1
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "query": "shopline 購物",
+   "clicks": 36,
+   "impressions": 191,
+   "ctr": 0.1885,
+   "position": 1.1
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "query": "shopline 官網",
+   "clicks": 34,
+   "impressions": 141,
+   "ctr": 0.2411,
+   "position": 1.7
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "query": "shopline mcp",
+   "clicks": 34,
+   "impressions": 233,
+   "ctr": 0.1459,
+   "position": 2.5
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "query": "脆是什麼",
+   "clicks": 34,
+   "impressions": 1936,
+   "ctr": 0.0176,
+   "position": 7.3
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "query": "shopline-sl",
+   "clicks": 29,
+   "impressions": 184,
+   "ctr": 0.1576,
+   "position": 1.1
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "query": "fb尺寸",
+   "clicks": 29,
+   "impressions": 381,
+   "ctr": 0.0761,
+   "position": 1.4
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "query": "電商平台",
+   "clicks": 28,
+   "impressions": 1276,
+   "ctr": 0.0219,
+   "position": 2.1
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "query": "pos系統",
+   "clicks": 28,
+   "impressions": 904,
+   "ctr": 0.031,
+   "position": 1.7
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "query": "shopline pos",
+   "clicks": 27,
+   "impressions": 117,
+   "ctr": 0.2308,
+   "position": 3.2
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "query": "shipline",
+   "clicks": 26,
+   "impressions": 55,
+   "ctr": 0.4727,
+   "position": 1.1
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "query": "fb貼文尺寸",
+   "clicks": 26,
+   "impressions": 784,
+   "ctr": 0.0332,
+   "position": 1.5
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "query": "商線",
+   "clicks": 25,
+   "impressions": 312,
+   "ctr": 0.0801,
+   "position": 1.1
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "query": "ig圖片尺寸",
+   "clicks": 25,
+   "impressions": 390,
+   "ctr": 0.0641,
+   "position": 2.4
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "query": "團購",
+   "clicks": 25,
+   "impressions": 2106,
+   "ctr": 0.0119,
+   "position": 10.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "query": "臉書尺寸",
+   "clicks": 25,
+   "impressions": 148,
+   "ctr": 0.1689,
+   "position": 1.4
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "query": "fb 尺寸",
+   "clicks": 24,
+   "impressions": 178,
+   "ctr": 0.1348,
+   "position": 3.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "query": "pos機是什麼",
+   "clicks": 24,
+   "impressions": 726,
+   "ctr": 0.0331,
+   "position": 1.6
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "query": "ｓｈｏｐｌｉｎｅ",
+   "clicks": 23,
+   "impressions": 137,
+   "ctr": 0.1679,
+   "position": 1.1
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "query": "ig 尺寸",
+   "clicks": 22,
+   "impressions": 535,
+   "ctr": 0.0411,
+   "position": 1.5
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "query": "shopline 詐騙",
+   "clicks": 22,
+   "impressions": 359,
+   "ctr": 0.0613,
+   "position": 1.9
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "query": "shopline方案",
+   "clicks": 21,
+   "impressions": 57,
+   "ctr": 0.3684,
+   "position": 1
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "query": "先科技有限公司",
+   "clicks": 21,
+   "impressions": 600,
+   "ctr": 0.035,
+   "position": 2.3
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "query": "脆threads",
+   "clicks": 20,
+   "impressions": 5611,
+   "ctr": 0.0036,
+   "position": 6.6
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "query": "先科技",
+   "clicks": 19,
+   "impressions": 285,
+   "ctr": 0.0667,
+   "position": 1.8
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "query": "圖庫",
+   "clicks": 19,
+   "impressions": 2016,
+   "ctr": 0.0094,
+   "position": 7.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "query": "shopline 店家",
+   "clicks": 18,
+   "impressions": 33,
+   "ctr": 0.5455,
+   "position": 1.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "query": "shopline 是 什麼",
+   "clicks": 17,
+   "impressions": 171,
+   "ctr": 0.0994,
+   "position": 1.2
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "query": "脆是什麼平台",
+   "clicks": 17,
+   "impressions": 341,
+   "ctr": 0.0499,
+   "position": 4.4
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "query": "脆是哪國的",
+   "clicks": 17,
+   "impressions": 738,
+   "ctr": 0.023,
+   "position": 3.6
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "query": "臉書圖片尺寸",
+   "clicks": 17,
+   "impressions": 106,
+   "ctr": 0.1604,
+   "position": 1.2
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "query": "fb banner 尺寸",
+   "clicks": 16,
+   "impressions": 406,
+   "ctr": 0.0394,
+   "position": 2.8
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "query": "nozzle quiz",
+   "clicks": 16,
+   "impressions": 1705,
+   "ctr": 0.0094,
+   "position": 5.9
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "query": "pos 系統",
+   "clicks": 16,
+   "impressions": 453,
+   "ctr": 0.0353,
+   "position": 1.8
+  }
+ ],
+ "ga4Channels": [
+  {
+   "propertyId": "257016301",
+   "siteLabel": "主站 shopline.tw",
+   "hostname": "shopline.tw",
+   "channel": "Organic Search",
+   "sessionsJul": 13957,
+   "sessionsAug": 12446,
+   "sessionsChange": -0.10826108762628073,
+   "usersAug": 5990,
+   "engagementJul": 0.3950705739055671,
+   "engagementAug": 0.39771814237506026
+  },
+  {
+   "propertyId": "257016301",
+   "siteLabel": "主站 shopline.tw",
+   "hostname": "shopline.tw",
+   "channel": "AI Assistant",
+   "sessionsJul": 323,
+   "sessionsAug": 413,
+   "sessionsChange": 0.2786377708978329,
+   "usersAug": 321,
+   "engagementJul": 0.4179566563467492,
+   "engagementAug": 0.5520581113801453
+  },
+  {
+   "propertyId": "399614424",
+   "siteLabel": "部落格 blog.shopline.tw",
+   "hostname": "blog.shopline.tw",
+   "channel": "Organic Search",
+   "sessionsJul": 17139,
+   "sessionsAug": 15533,
+   "sessionsChange": -0.09370441682711939,
+   "usersAug": 11814,
+   "engagementJul": 0.4486842872979754,
+   "engagementAug": 0.4652031159466941
+  },
+  {
+   "propertyId": "399614424",
+   "siteLabel": "部落格 blog.shopline.tw",
+   "hostname": "blog.shopline.tw",
+   "channel": "AI Assistant",
+   "sessionsJul": 187,
+   "sessionsAug": 208,
+   "sessionsChange": 0.11229946524064172,
+   "usersAug": 138,
+   "engagementJul": 0.3850267379679144,
+   "engagementAug": 0.3605769230769231
+  }
+ ],
+ "ga4Monthly": [
+  {
+   "propertyId": "257016301",
+   "siteLabel": "主站 shopline.tw",
+   "hostname": "shopline.tw",
+   "month": "2026-06",
+   "monthLabel": "6 月",
+   "channel": "Organic Search",
+   "sessions": 14381,
+   "shareOfOrganic": null
+  },
+  {
+   "propertyId": "257016301",
+   "siteLabel": "主站 shopline.tw",
+   "hostname": "shopline.tw",
+   "month": "2026-06",
+   "monthLabel": "6 月",
+   "channel": "AI Assistant",
+   "sessions": 697,
+   "shareOfOrganic": 0.048466726931367776
+  },
+  {
+   "propertyId": "257016301",
+   "siteLabel": "主站 shopline.tw",
+   "hostname": "shopline.tw",
+   "month": "2026-07",
+   "monthLabel": "7 月",
+   "channel": "Organic Search",
+   "sessions": 13957,
+   "shareOfOrganic": null
+  },
+  {
+   "propertyId": "257016301",
+   "siteLabel": "主站 shopline.tw",
+   "hostname": "shopline.tw",
+   "month": "2026-07",
+   "monthLabel": "7 月",
+   "channel": "AI Assistant",
+   "sessions": 323,
+   "shareOfOrganic": 0.023142509135200974
+  },
+  {
+   "propertyId": "257016301",
+   "siteLabel": "主站 shopline.tw",
+   "hostname": "shopline.tw",
+   "month": "2026-08",
+   "monthLabel": "8 月",
+   "channel": "Organic Search",
+   "sessions": 12446,
+   "shareOfOrganic": null
+  },
+  {
+   "propertyId": "257016301",
+   "siteLabel": "主站 shopline.tw",
+   "hostname": "shopline.tw",
+   "month": "2026-08",
+   "monthLabel": "8 月",
+   "channel": "AI Assistant",
+   "sessions": 413,
+   "shareOfOrganic": 0.033183352080989874
+  },
+  {
+   "propertyId": "399614424",
+   "siteLabel": "部落格 blog.shopline.tw",
+   "hostname": "blog.shopline.tw",
+   "month": "2026-06",
+   "monthLabel": "6 月",
+   "channel": "Organic Search",
+   "sessions": 18231,
+   "shareOfOrganic": null
+  },
+  {
+   "propertyId": "399614424",
+   "siteLabel": "部落格 blog.shopline.tw",
+   "hostname": "blog.shopline.tw",
+   "month": "2026-06",
+   "monthLabel": "6 月",
+   "channel": "AI Assistant",
+   "sessions": 135,
+   "shareOfOrganic": 0.007404969557347376
+  },
+  {
+   "propertyId": "399614424",
+   "siteLabel": "部落格 blog.shopline.tw",
+   "hostname": "blog.shopline.tw",
+   "month": "2026-07",
+   "monthLabel": "7 月",
+   "channel": "Organic Search",
+   "sessions": 17139,
+   "shareOfOrganic": null
+  },
+  {
+   "propertyId": "399614424",
+   "siteLabel": "部落格 blog.shopline.tw",
+   "hostname": "blog.shopline.tw",
+   "month": "2026-07",
+   "monthLabel": "7 月",
+   "channel": "AI Assistant",
+   "sessions": 187,
+   "shareOfOrganic": 0.010910788260691988
+  },
+  {
+   "propertyId": "399614424",
+   "siteLabel": "部落格 blog.shopline.tw",
+   "hostname": "blog.shopline.tw",
+   "month": "2026-08",
+   "monthLabel": "8 月",
+   "channel": "Organic Search",
+   "sessions": 15533,
+   "shareOfOrganic": null
+  },
+  {
+   "propertyId": "399614424",
+   "siteLabel": "部落格 blog.shopline.tw",
+   "hostname": "blog.shopline.tw",
+   "month": "2026-08",
+   "monthLabel": "8 月",
+   "channel": "AI Assistant",
+   "sessions": 208,
+   "shareOfOrganic": 0.01339084529710938
+  }
+ ],
+ "aiChannel": [
+  {
+   "month": "2026-06",
+   "monthLabel": "6 月",
+   "leads": 52,
+   "sql": 11,
+   "cvr": 0.21153846153846154,
+   "sqlMatureOn": "2026-08-29",
+   "sqlIsMature": true,
+   "sourceLabel": "source=chatgpt.com"
+  },
+  {
+   "month": "2026-07",
+   "monthLabel": "7 月",
+   "leads": 14,
+   "sql": 5,
+   "cvr": 0.35714285714285715,
+   "sqlMatureOn": "2026-09-29",
+   "sqlIsMature": false,
+   "sourceLabel": "source=chatgpt.com"
+  },
+  {
+   "month": "2026-08",
+   "monthLabel": "8 月",
+   "leads": 18,
+   "sql": 6,
+   "cvr": 0.3333333333333333,
+   "sqlMatureOn": "2026-10-30",
+   "sqlIsMature": false,
+   "sourceLabel": "source=chatgpt.com"
+  }
+ ],
+ "geo": [
+  {
+   "entity": "SHOPLINE",
+   "visibilityJul": 0.7744970834945065,
+   "visibilityAug": 0.7084951716074036,
+   "visibilityChangePt": -6.6001911887102915,
+   "sovJul": 0.2502079304641741,
+   "sovAug": 0.2370321990339219,
+   "mentionsAug": 2905,
+   "daysAug": 31
+  },
+  {
+   "entity": "CYBERBIZ Corp.",
+   "visibilityJul": 0.5521297974408389,
+   "visibilityAug": 0.4762452400876844,
+   "visibilityChangePt": -7.588455735315453,
+   "sovJul": 0.1779759076026855,
+   "sovAug": 0.15914873802072352,
+   "mentionsAug": 1521,
+   "daysAug": 31
+  },
+  {
+   "entity": "Shopify Inc.",
+   "visibilityJul": 0.5020734619075168,
+   "visibilityAug": 0.4417298289123862,
+   "visibilityChangePt": -6.034363299513057,
+   "sovJul": 0.16177730951841848,
+   "sovAug": 0.1478696837690894,
+   "mentionsAug": 1567,
+   "daysAug": 31
+  },
+  {
+   "entity": "91APP Inc.",
+   "visibilityJul": 0.3912836210865345,
+   "visibilityAug": 0.39503029076456225,
+   "visibilityChangePt": 0.37466696780277253,
+   "sovJul": 0.12637671487236926,
+   "sovAug": 0.13195746319572038,
+   "mentionsAug": 1302,
+   "daysAug": 31
+  },
+  {
+   "entity": "WACA",
+   "visibilityJul": 0.3136564919479295,
+   "visibilityAug": 0.36394215655037176,
+   "visibilityChangePt": 5.028566460244227,
+   "sovJul": 0.10153938641882397,
+   "sovAug": 0.12151441672089265,
+   "mentionsAug": 1071,
+   "daysAug": 31
+  },
+  {
+   "entity": "EasyStore",
+   "visibilityJul": 0.31425929862820806,
+   "visibilityAug": 0.31102389910184314,
+   "visibilityChangePt": -0.3235399526364924,
+   "sovJul": 0.10174826860992409,
+   "sovAug": 0.10390377757694226,
+   "mentionsAug": 897,
+   "daysAug": 31
+  },
+  {
+   "entity": "BV SHOP",
+   "visibilityJul": 0.12104030858498566,
+   "visibilityAug": 0.15740064521464375,
+   "visibilityChangePt": 3.6360336629658097,
+   "sovJul": 0.039184718383107865,
+   "sovAug": 0.052669386376303876,
+   "mentionsAug": 549,
+   "daysAug": 31
+  },
+  {
+   "entity": "Meepshop",
+   "visibilityJul": 0.12591123907753296,
+   "visibilityAug": 0.13734387669752587,
+   "visibilityChangePt": 1.1432637619992914,
+   "sovJul": 0.040733846746435605,
+   "sovAug": 0.04590433530640619,
+   "mentionsAug": 515,
+   "daysAug": 31
+  },
+  {
+   "entity": "Shopify TW",
+   "visibilityJul": 0.0003665689149560129,
+   "visibilityAug": 0.0,
+   "visibilityChangePt": -0.03665689149560129,
+   "sovJul": 0.00011859582542694484,
+   "sovAug": 0.0,
+   "mentionsAug": 0,
+   "daysAug": 31
+  },
+  {
+   "entity": "Pinzap",
+   "visibilityJul": 0.0010675655245994228,
+   "visibilityAug": 0.0,
+   "visibilityChangePt": -0.10675655245994228,
+   "sovJul": 0.00033732155863425357,
+   "sovAug": 0.0,
+   "mentionsAug": 90,
+   "daysAug": 31
+  }
+ ],
+ "sitemaps": [
+  {
+   "siteLabel": "主站 shopline.tw",
+   "path": "https://shopline.tw/sitemap.xml",
+   "status": "Valid",
+   "errors": 0,
+   "warnings": 0,
+   "lastSubmitted": "2026-07-10 08:45",
+   "lastDownloaded": "2026-09-07 23:54",
+   "submittedCount": 97,
+   "indexedCount": 0,
+   "staleDays": 0,
+   "note": null
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "path": "https://blog.shopline.tw/sitemap_index.xml",
+   "status": "Has warnings",
+   "errors": 0,
+   "warnings": 1,
+   "lastSubmitted": "2022-12-06 07:02",
+   "lastDownloaded": "2026-09-05 16:01",
+   "submittedCount": 6638,
+   "indexedCount": 0,
+   "staleDays": 2,
+   "note": "本月仍有錯誤或警告，Google 近期仍在抓取。"
+  }
+ ],
+ "geoSnapshotAt": "2026-09-06T10:03:33.270Z",
+ "technical": [
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "severity": "高",
+   "issue": "圖片超過 100 kB",
+   "count": 4373,
+   "share": 0.5147999999999999,
+   "scope": "Images with 2xx response",
+   "note": "大圖直接影響 LCP 與 Core Web Vitals，是可量化的載入速度負擔。"
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "severity": "高",
+   "issue": "內部連結指向轉址",
+   "count": 1298,
+   "share": 0.061399999999999996,
+   "scope": "All Internal Crawled URLs",
+   "note": "站內連結指到會轉址的網址，浪費爬取預算並稀釋連結權重；應直接改指最終網址。"
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "severity": "高",
+   "issue": "缺少 H1",
+   "count": 889,
+   "share": 0.3556,
+   "scope": "Internal HTML pages with 2xx response",
+   "note": "內容頁沒有 H1，主題訊號完全缺失，是本次最值得優先處理的項目。"
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "severity": "高",
+   "issue": "圖片超過 100 kB",
+   "count": 147,
+   "share": 0.6335999999999999,
+   "scope": "Images with 2xx response",
+   "note": "大圖直接影響 LCP 與 Core Web Vitals，是可量化的載入速度負擔。"
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "severity": "高",
+   "issue": "內部連結指向轉址",
+   "count": 2,
+   "share": 0.0027,
+   "scope": "All Internal Crawled URLs",
+   "note": "站內連結指到會轉址的網址，浪費爬取預算並稀釋連結權重；應直接改指最終網址。"
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "severity": "中",
+   "issue": "描述在搜尋結果會被截斷",
+   "count": 1940,
+   "share": 0.7759999999999999,
+   "scope": "Internal HTML pages with 2xx response",
+   "note": "超過 985 像素會被截斷或改由 Google 自行擷取。"
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "severity": "中",
+   "issue": "標題在搜尋結果會被截斷",
+   "count": 1359,
+   "share": 0.5436,
+   "scope": "Internal HTML pages with 2xx response",
+   "note": "超過 561 像素，SERP 顯示會被截掉，影響點閱。與本月 CTR 議題直接相關。"
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "severity": "中",
+   "issue": "圖片缺少 alt 文字",
+   "count": 1090,
+   "share": 0.1283,
+   "scope": "Images with 2xx response",
+   "note": "影響無障礙與圖片搜尋能見度。"
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "severity": "中",
+   "issue": "連外死連結 4xx",
+   "count": 819,
+   "share": 0.0388,
+   "scope": "All External Crawled URLs",
+   "note": "站上連出去的網址已失效，影響使用者體驗；非站內頁面本身的錯誤。"
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "severity": "中",
+   "issue": "頁面被 canonical 指到別處",
+   "count": 145,
+   "share": 0.057999999999999996,
+   "scope": "Internal HTML or PDF pages with 2xx response",
+   "note": "這些頁面主動放棄自己的索引資格；需確認是刻意去重還是設定錯誤。"
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "severity": "中",
+   "issue": "缺少 x-default hreflang",
+   "count": 83,
+   "share": 0.8556999999999999,
+   "scope": "Internal pages with 2xx response",
+   "note": "多語系站台未指定 x-default，未匹配到語系的使用者沒有 fallback 版本。"
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "severity": "中",
+   "issue": "連外死連結 4xx",
+   "count": 82,
+   "share": 0.10949999999999999,
+   "scope": "All External Crawled URLs",
+   "note": "站上連出去的網址已失效，影響使用者體驗；非站內頁面本身的錯誤。"
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "severity": "中",
+   "issue": "canonical 指向不可索引網址",
+   "count": 61,
+   "share": 0.024399999999999998,
+   "scope": "Internal HTML or PDF pages with 2xx response",
+   "note": "canonical 指到 noindex 或非 200 的網址，Google 可能忽略該指示或整批不收錄。"
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "severity": "中",
+   "issue": "描述在搜尋結果會被截斷",
+   "count": 56,
+   "share": 0.5772999999999999,
+   "scope": "Internal HTML pages with 2xx response",
+   "note": "超過 985 像素會被截斷或改由 Google 自行擷取。"
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "severity": "中",
+   "issue": "標題在搜尋結果會被截斷",
+   "count": 43,
+   "share": 0.44329999999999997,
+   "scope": "Internal HTML pages with 2xx response",
+   "note": "超過 561 像素，SERP 顯示會被截掉，影響點閱。與本月 CTR 議題直接相關。"
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "severity": "中",
+   "issue": "H1 重複",
+   "count": 12,
+   "share": 0.12369999999999999,
+   "scope": "Internal HTML pages with 2xx response",
+   "note": "多頁共用相同 H1，主題區隔不明確。"
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "severity": "中",
+   "issue": "單頁多個 H1",
+   "count": 9,
+   "share": 0.0928,
+   "scope": "Internal HTML pages with 2xx response",
+   "note": "單頁出現多個 H1，標題層級的主題訊號被分散。"
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "severity": "中",
+   "issue": "單頁多個 H1",
+   "count": 4,
+   "share": 0.0016,
+   "scope": "Internal HTML pages with 2xx response",
+   "note": "單頁出現多個 H1，標題層級的主題訊號被分散。"
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "severity": "中",
+   "issue": "H1 重複",
+   "count": 2,
+   "share": 0.0008,
+   "scope": "Internal HTML pages with 2xx response",
+   "note": "多頁共用相同 H1，主題區隔不明確。"
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "severity": "低",
+   "issue": "缺少 HSTS 標頭",
+   "count": 11429,
+   "share": 0.8974,
+   "scope": "All internal and non-HTML external URLs",
+   "note": "安全性標頭，對排名影響有限，屬基礎設定建議。"
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "severity": "低",
+   "issue": "缺少 CSP 標頭",
+   "count": 11429,
+   "share": 0.8974,
+   "scope": "All internal and non-HTML external URLs",
+   "note": "安全性標頭，對排名影響有限。"
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "severity": "低",
+   "issue": "不安全的跨來源連結",
+   "count": 2500,
+   "share": 0.1963,
+   "scope": "All internal and non-HTML external URLs",
+   "note": "target=_blank 未搭配 rel=noopener，屬安全性建議。"
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "severity": "低",
+   "issue": "標題與 H1 完全相同",
+   "count": 374,
+   "share": 0.1496,
+   "scope": "Internal HTML pages with 2xx response",
+   "note": "不是錯誤，但標題與 H1 可分別針對搜尋意圖與版面閱讀優化。"
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "severity": "低",
+   "issue": "H2 重複",
+   "count": 307,
+   "share": 0.12279999999999999,
+   "scope": "Internal HTML pages with 2xx response",
+   "note": "多數由版型固定區塊造成，優先度低。"
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "severity": "低",
+   "issue": "缺少 HSTS 標頭",
+   "count": 97,
+   "share": 0.951,
+   "scope": "All internal and non-HTML external URLs",
+   "note": "安全性標頭，對排名影響有限，屬基礎設定建議。"
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "severity": "低",
+   "issue": "不安全的跨來源連結",
+   "count": 97,
+   "share": 0.951,
+   "scope": "All internal and non-HTML external URLs",
+   "note": "target=_blank 未搭配 rel=noopener，屬安全性建議。"
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "severity": "低",
+   "issue": "描述重複",
+   "count": 75,
+   "share": 0.03,
+   "scope": "Internal HTML pages with 2xx response",
+   "note": "多頁共用相同描述，Google 較可能改為自行擷取。"
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "severity": "低",
+   "issue": "H2 重複",
+   "count": 48,
+   "share": 0.49479999999999996,
+   "scope": "Internal HTML pages with 2xx response",
+   "note": "多數由版型固定區塊造成，優先度低。"
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "severity": "低",
+   "issue": "連外 5xx",
+   "count": 10,
+   "share": 0.0005,
+   "scope": "All External Crawled URLs",
+   "note": "外部網址回傳伺服器錯誤，可能是對方暫時故障，建議複查後再決定是否移除。"
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "severity": "低",
+   "issue": "標題與 H1 完全相同",
+   "count": 2,
+   "share": 0.0206,
+   "scope": "Internal HTML pages with 2xx response",
+   "note": "不是錯誤，但標題與 H1 可分別針對搜尋意圖與版面閱讀優化。"
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "severity": "低",
+   "issue": "標題重複",
+   "count": 2,
+   "share": 0.0008,
+   "scope": "Internal HTML pages with 2xx response",
+   "note": "多頁共用相同標題，彼此競爭同一組查詢。"
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "severity": "低",
+   "issue": "低內容頁面",
+   "count": 1,
+   "share": 0.0103,
+   "scope": "Internal HTML pages with 2xx response",
+   "note": "內容量偏少的頁面，需人工判斷是否為功能頁。"
+  }
+ ],
+ "technicalCrawls": [
+  {
+   "siteLabel": "主站 shopline.tw",
+   "siteCrawled": "https://shopline.tw/",
+   "crawlDate": "2026-09-06 20:24:42",
+   "elapsed": "00:03:07",
+   "urlsEncountered": 749,
+   "urlsCrawled": 741,
+   "internalUrls": 102,
+   "internalIndexable": 97,
+   "internalNonIndexable": 5
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "siteCrawled": "https://blog.shopline.tw/",
+   "crawlDate": "2026-09-06 21:17:53",
+   "elapsed": "00:50:49",
+   "urlsEncountered": 21133,
+   "urlsCrawled": 19929,
+   "internalUrls": 12736,
+   "internalIndexable": 10958,
+   "internalNonIndexable": 1778
+  }
+ ],
+ "technicalStatus": "OK",
+ "technicalExcluded": [
+  {
+   "item": "Meta Keywords: Missing",
+   "reason": "Google 不使用 meta keywords，缺少不是問題。"
+  },
+  {
+   "item": "Canonicals: Self Referencing / Contains Canonical",
+   "reason": "自我參照 canonical 是正確狀態，非缺陷。"
+  },
+  {
+   "item": "H1 / H2: Non-Sequential",
+   "reason": "多為版型標籤順序造成，實務上極少影響搜尋表現。"
+  },
+  {
+   "item": "Page Titles / Meta Description: Below N Characters",
+   "reason": "長度偏短不必然是問題，需看查詢意圖，不列為缺陷。"
+  },
+  {
+   "item": "URL: Non ASCII Characters",
+   "reason": "中文網址為刻意設計，非錯誤。"
+  },
+  {
+   "item": "Security: HTTPS URLs",
+   "reason": "全站 100% HTTPS，屬健康狀態。"
+  }
+ ],
+ "cwv": [
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "group": "Core Web Vitals",
+   "metricLabel": "LCP 最大內容繪製",
+   "metricShort": "LCP",
+   "unit": "s",
+   "p75": 1486.0,
+   "rating": "良好",
+   "goodShare": 0.9077,
+   "needsShare": 0.0587,
+   "poorShare": 0.0337,
+   "goodThreshold": 2500,
+   "poorThreshold": 4000,
+   "prevP75": 1600.0,
+   "prevEnd": "2026-08-08",
+   "change": -0.07125000000000004,
+   "periodFirst": "2026-08-09",
+   "periodLast": "2026-09-05"
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "group": "Core Web Vitals",
+   "metricLabel": "INP 互動到下次繪製",
+   "metricShort": "INP",
+   "unit": "ms",
+   "p75": 155.0,
+   "rating": "良好",
+   "goodShare": 0.8365,
+   "needsShare": 0.1346,
+   "poorShare": 0.0288,
+   "goodThreshold": 200,
+   "poorThreshold": 500,
+   "prevP75": 167.0,
+   "prevEnd": "2026-08-08",
+   "change": -0.07185628742514971,
+   "periodFirst": "2026-08-09",
+   "periodLast": "2026-09-05"
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "group": "Core Web Vitals",
+   "metricLabel": "CLS 累積版面位移",
+   "metricShort": "CLS",
+   "unit": "score",
+   "p75": 0.0,
+   "rating": "良好",
+   "goodShare": 0.9122,
+   "needsShare": 0.0263,
+   "poorShare": 0.0614,
+   "goodThreshold": 0.1,
+   "poorThreshold": 0.25,
+   "prevP75": 0.0,
+   "prevEnd": "2026-08-08",
+   "change": null,
+   "periodFirst": "2026-08-09",
+   "periodLast": "2026-09-05"
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "group": "輔助診斷",
+   "metricLabel": "FCP 首次內容繪製",
+   "metricShort": "FCP",
+   "unit": "s",
+   "p75": 1402.0,
+   "rating": "良好",
+   "goodShare": 0.8482,
+   "needsShare": 0.1063,
+   "poorShare": 0.0455,
+   "goodThreshold": 1800,
+   "poorThreshold": 3000,
+   "prevP75": 1506.0,
+   "prevEnd": "2026-08-08",
+   "change": -0.06905710491367867,
+   "periodFirst": "2026-08-09",
+   "periodLast": "2026-09-05"
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "group": "輔助診斷",
+   "metricLabel": "TTFB 首位元組時間",
+   "metricShort": "TTFB",
+   "unit": "ms",
+   "p75": 734.0,
+   "rating": "良好",
+   "goodShare": 0.7777,
+   "needsShare": 0.1735,
+   "poorShare": 0.0488,
+   "goodThreshold": 800,
+   "poorThreshold": 1800,
+   "prevP75": 803.0,
+   "prevEnd": "2026-08-08",
+   "change": -0.08592777085927772,
+   "periodFirst": "2026-08-09",
+   "periodLast": "2026-09-05"
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "group": "Core Web Vitals",
+   "metricLabel": "LCP 最大內容繪製",
+   "metricShort": "LCP",
+   "unit": "s",
+   "p75": 1152.0,
+   "rating": "良好",
+   "goodShare": 0.9486,
+   "needsShare": 0.0326,
+   "poorShare": 0.0188,
+   "goodThreshold": 2500,
+   "poorThreshold": 4000,
+   "prevP75": 1148.0,
+   "prevEnd": "2026-08-08",
+   "change": 0.0034843205574912606,
+   "periodFirst": "2026-08-09",
+   "periodLast": "2026-09-05"
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "group": "Core Web Vitals",
+   "metricLabel": "INP 互動到下次繪製",
+   "metricShort": "INP",
+   "unit": "ms",
+   "p75": 66.0,
+   "rating": "良好",
+   "goodShare": 0.975,
+   "needsShare": 0.0195,
+   "poorShare": 0.0054,
+   "goodThreshold": 200,
+   "poorThreshold": 500,
+   "prevP75": 61.0,
+   "prevEnd": "2026-08-08",
+   "change": 0.08196721311475419,
+   "periodFirst": "2026-08-09",
+   "periodLast": "2026-09-05"
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "group": "Core Web Vitals",
+   "metricLabel": "CLS 累積版面位移",
+   "metricShort": "CLS",
+   "unit": "score",
+   "p75": 0.0,
+   "rating": "良好",
+   "goodShare": 0.9886,
+   "needsShare": 0.0082,
+   "poorShare": 0.0032,
+   "goodThreshold": 0.1,
+   "poorThreshold": 0.25,
+   "prevP75": 0.0,
+   "prevEnd": "2026-08-08",
+   "change": null,
+   "periodFirst": "2026-08-09",
+   "periodLast": "2026-09-05"
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "group": "輔助診斷",
+   "metricLabel": "FCP 首次內容繪製",
+   "metricShort": "FCP",
+   "unit": "s",
+   "p75": 1109.0,
+   "rating": "良好",
+   "goodShare": 0.9141,
+   "needsShare": 0.0568,
+   "poorShare": 0.0291,
+   "goodThreshold": 1800,
+   "poorThreshold": 3000,
+   "prevP75": 1101.0,
+   "prevEnd": "2026-08-08",
+   "change": 0.0072661217075387086,
+   "periodFirst": "2026-08-09",
+   "periodLast": "2026-09-05"
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "group": "輔助診斷",
+   "metricLabel": "TTFB 首位元組時間",
+   "metricShort": "TTFB",
+   "unit": "ms",
+   "p75": 470.0,
+   "rating": "良好",
+   "goodShare": 0.8951,
+   "needsShare": 0.0827,
+   "poorShare": 0.0222,
+   "goodThreshold": 800,
+   "poorThreshold": 1800,
+   "prevP75": 486.0,
+   "prevEnd": "2026-08-08",
+   "change": -0.03292181069958844,
+   "periodFirst": "2026-08-09",
+   "periodLast": "2026-09-05"
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "group": "Core Web Vitals",
+   "metricLabel": "LCP 最大內容繪製",
+   "metricShort": "LCP",
+   "unit": "s",
+   "p75": 3614.0,
+   "rating": "需改善",
+   "goodShare": 0.5855,
+   "needsShare": 0.2033,
+   "poorShare": 0.2112,
+   "goodThreshold": 2500,
+   "poorThreshold": 4000,
+   "prevP75": 2571.0,
+   "prevEnd": "2026-08-08",
+   "change": 0.4056787242318165,
+   "periodFirst": "2026-08-09",
+   "periodLast": "2026-09-05"
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "group": "Core Web Vitals",
+   "metricLabel": "INP 互動到下次繪製",
+   "metricShort": "INP",
+   "unit": "ms",
+   "p75": 195.0,
+   "rating": "良好",
+   "goodShare": 0.7616,
+   "needsShare": 0.2046,
+   "poorShare": 0.0338,
+   "goodThreshold": 200,
+   "poorThreshold": 500,
+   "prevP75": 168.0,
+   "prevEnd": "2026-08-08",
+   "change": 0.1607142857142858,
+   "periodFirst": "2026-08-09",
+   "periodLast": "2026-09-05"
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "group": "Core Web Vitals",
+   "metricLabel": "CLS 累積版面位移",
+   "metricShort": "CLS",
+   "unit": "score",
+   "p75": 0.0,
+   "rating": "良好",
+   "goodShare": 0.9798,
+   "needsShare": 0.0051,
+   "poorShare": 0.0152,
+   "goodThreshold": 0.1,
+   "poorThreshold": 0.25,
+   "prevP75": 0.0,
+   "prevEnd": "2026-08-08",
+   "change": null,
+   "periodFirst": "2026-08-09",
+   "periodLast": "2026-09-05"
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "group": "輔助診斷",
+   "metricLabel": "FCP 首次內容繪製",
+   "metricShort": "FCP",
+   "unit": "s",
+   "p75": 2946.0,
+   "rating": "需改善",
+   "goodShare": 0.468,
+   "needsShare": 0.2894,
+   "poorShare": 0.2426,
+   "goodThreshold": 1800,
+   "poorThreshold": 3000,
+   "prevP75": 2170.0,
+   "prevEnd": "2026-08-08",
+   "change": 0.35760368663594466,
+   "periodFirst": "2026-08-09",
+   "periodLast": "2026-09-05"
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "group": "輔助診斷",
+   "metricLabel": "TTFB 首位元組時間",
+   "metricShort": "TTFB",
+   "unit": "ms",
+   "p75": 1775.0,
+   "rating": "需改善",
+   "goodShare": 0.3576,
+   "needsShare": 0.3908,
+   "poorShare": 0.2516,
+   "goodThreshold": 800,
+   "poorThreshold": 1800,
+   "prevP75": 1199.0,
+   "prevEnd": "2026-08-08",
+   "change": 0.4804003336113427,
+   "periodFirst": "2026-08-09",
+   "periodLast": "2026-09-05"
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "group": "Core Web Vitals",
+   "metricLabel": "LCP 最大內容繪製",
+   "metricShort": "LCP",
+   "unit": "s",
+   "p75": 2217.0,
+   "rating": "良好",
+   "goodShare": 0.7961,
+   "needsShare": 0.1022,
+   "poorShare": 0.1017,
+   "goodThreshold": 2500,
+   "poorThreshold": 4000,
+   "prevP75": 1738.0,
+   "prevEnd": "2026-08-08",
+   "change": 0.27560414269275024,
+   "periodFirst": "2026-08-09",
+   "periodLast": "2026-09-05"
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "group": "Core Web Vitals",
+   "metricLabel": "INP 互動到下次繪製",
+   "metricShort": "INP",
+   "unit": "ms",
+   "p75": 77.0,
+   "rating": "良好",
+   "goodShare": 0.9473,
+   "needsShare": 0.0355,
+   "poorShare": 0.0172,
+   "goodThreshold": 200,
+   "poorThreshold": 500,
+   "prevP75": 69.0,
+   "prevEnd": "2026-08-08",
+   "change": 0.11594202898550732,
+   "periodFirst": "2026-08-09",
+   "periodLast": "2026-09-05"
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "group": "Core Web Vitals",
+   "metricLabel": "CLS 累積版面位移",
+   "metricShort": "CLS",
+   "unit": "score",
+   "p75": 0.02,
+   "rating": "良好",
+   "goodShare": 0.9253,
+   "needsShare": 0.0664,
+   "poorShare": 0.0083,
+   "goodThreshold": 0.1,
+   "poorThreshold": 0.25,
+   "prevP75": 0.02,
+   "prevEnd": "2026-08-08",
+   "change": 0.0,
+   "periodFirst": "2026-08-09",
+   "periodLast": "2026-09-05"
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "group": "輔助診斷",
+   "metricLabel": "FCP 首次內容繪製",
+   "metricShort": "FCP",
+   "unit": "s",
+   "p75": 1954.0,
+   "rating": "需改善",
+   "goodShare": 0.7119,
+   "needsShare": 0.1571,
+   "poorShare": 0.131,
+   "goodThreshold": 1800,
+   "poorThreshold": 3000,
+   "prevP75": 1577.0,
+   "prevEnd": "2026-08-08",
+   "change": 0.2390615091946735,
+   "periodFirst": "2026-08-09",
+   "periodLast": "2026-09-05"
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "group": "輔助診斷",
+   "metricLabel": "TTFB 首位元組時間",
+   "metricShort": "TTFB",
+   "unit": "ms",
+   "p75": 1254.0,
+   "rating": "需改善",
+   "goodShare": 0.5036,
+   "needsShare": 0.3114,
+   "poorShare": 0.185,
+   "goodThreshold": 800,
+   "poorThreshold": 1800,
+   "prevP75": 970.0,
+   "prevEnd": "2026-08-08",
+   "change": 0.29278350515463925,
+   "periodFirst": "2026-08-09",
+   "periodLast": "2026-09-05"
+  }
+ ],
+ "cwvTrend": [
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-03-14",
+   "p75": 1285.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-03-21",
+   "p75": 1283.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-03-28",
+   "p75": 1268.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-04-04",
+   "p75": 1243.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-04-11",
+   "p75": 1270.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-04-18",
+   "p75": 1263.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-04-25",
+   "p75": 1280.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-05-02",
+   "p75": 1294.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-05-09",
+   "p75": 1292.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-05-16",
+   "p75": 1317.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-05-23",
+   "p75": 1396.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-05-30",
+   "p75": 1445.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-06-06",
+   "p75": 1477.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-06-13",
+   "p75": 1468.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-06-20",
+   "p75": 1386.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-06-27",
+   "p75": 1343.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-07-04",
+   "p75": 1351.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-07-11",
+   "p75": 1351.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-07-18",
+   "p75": 1353.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-07-25",
+   "p75": 1412.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-08-01",
+   "p75": 1451.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-08-08",
+   "p75": 1600.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-08-15",
+   "p75": 1631.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-08-22",
+   "p75": 1606.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-08-29",
+   "p75": 1553.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-09-05",
+   "p75": 1486.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-03-14",
+   "p75": 145.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-03-21",
+   "p75": 144.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-03-28",
+   "p75": 138.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-04-04",
+   "p75": 137.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-04-11",
+   "p75": 134.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-04-18",
+   "p75": 131.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-04-25",
+   "p75": 137.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-05-02",
+   "p75": 138.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-05-09",
+   "p75": 143.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-05-16",
+   "p75": 147.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-05-23",
+   "p75": 156.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-05-30",
+   "p75": 157.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-06-06",
+   "p75": 156.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-06-13",
+   "p75": 154.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-06-20",
+   "p75": 153.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-06-27",
+   "p75": 146.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-07-04",
+   "p75": 149.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-07-11",
+   "p75": 138.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-07-18",
+   "p75": 137.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-07-25",
+   "p75": 146.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-08-01",
+   "p75": 144.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-08-08",
+   "p75": 167.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-08-15",
+   "p75": 171.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-08-22",
+   "p75": 164.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-08-29",
+   "p75": 163.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-09-05",
+   "p75": 155.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-03-14",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-03-21",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-03-28",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-04-04",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-04-11",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-04-18",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-04-25",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-05-02",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-05-09",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-05-16",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-05-23",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-05-30",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-06-06",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-06-13",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-06-20",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-06-27",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-07-04",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-07-11",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-07-18",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-07-25",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-08-01",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-08-08",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-08-15",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-08-22",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-08-29",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-09-05",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-03-14",
+   "p75": 1049.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-03-21",
+   "p75": 1027.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-03-28",
+   "p75": 1022.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-04-04",
+   "p75": 1021.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-04-11",
+   "p75": 1025.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-04-18",
+   "p75": 1022.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-04-25",
+   "p75": 1023.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-05-02",
+   "p75": 1034.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-05-09",
+   "p75": 1056.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-05-16",
+   "p75": 1077.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-05-23",
+   "p75": 1102.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-05-30",
+   "p75": 1123.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-06-06",
+   "p75": 1132.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-06-13",
+   "p75": 1137.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-06-20",
+   "p75": 1137.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-06-27",
+   "p75": 1133.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-07-04",
+   "p75": 1125.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-07-11",
+   "p75": 1136.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-07-18",
+   "p75": 1141.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-07-25",
+   "p75": 1147.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-08-01",
+   "p75": 1153.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-08-08",
+   "p75": 1148.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-08-15",
+   "p75": 1147.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-08-22",
+   "p75": 1144.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-08-29",
+   "p75": 1152.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-09-05",
+   "p75": 1152.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-03-14",
+   "p75": 63.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-03-21",
+   "p75": 62.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-03-28",
+   "p75": 62.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-04-04",
+   "p75": 62.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-04-11",
+   "p75": 62.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-04-18",
+   "p75": 62.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-04-25",
+   "p75": 62.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-05-02",
+   "p75": 62.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-05-09",
+   "p75": 62.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-05-16",
+   "p75": 62.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-05-23",
+   "p75": 62.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-05-30",
+   "p75": 62.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-06-06",
+   "p75": 63.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-06-13",
+   "p75": 62.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-06-20",
+   "p75": 63.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-06-27",
+   "p75": 63.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-07-04",
+   "p75": 62.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-07-11",
+   "p75": 63.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-07-18",
+   "p75": 62.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-07-25",
+   "p75": 61.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-08-01",
+   "p75": 61.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-08-08",
+   "p75": 61.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-08-15",
+   "p75": 62.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-08-22",
+   "p75": 63.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-08-29",
+   "p75": 65.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-09-05",
+   "p75": 66.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-03-14",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-03-21",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-03-28",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-04-04",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-04-11",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-04-18",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-04-25",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-05-02",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-05-09",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-05-16",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-05-23",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-05-30",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-06-06",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-06-13",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-06-20",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-06-27",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-07-04",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-07-11",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-07-18",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-07-25",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-08-01",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-08-08",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-08-15",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-08-22",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-08-29",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "主站 shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-09-05",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-03-14",
+   "p75": 2400.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-03-21",
+   "p75": 2346.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-03-28",
+   "p75": 2320.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-04-04",
+   "p75": 2337.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-04-11",
+   "p75": 2353.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-04-18",
+   "p75": 2366.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-04-25",
+   "p75": 2403.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-05-02",
+   "p75": 2408.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-05-09",
+   "p75": 2410.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-05-16",
+   "p75": 2441.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-05-23",
+   "p75": 2384.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-05-30",
+   "p75": 2372.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-06-06",
+   "p75": 2384.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-06-13",
+   "p75": 2444.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-06-20",
+   "p75": 2483.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-06-27",
+   "p75": 2572.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-07-04",
+   "p75": 2619.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-07-11",
+   "p75": 2599.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-07-18",
+   "p75": 2610.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-07-25",
+   "p75": 2588.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-08-01",
+   "p75": 2567.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-08-08",
+   "p75": 2571.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-08-15",
+   "p75": 2816.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-08-22",
+   "p75": 3467.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-08-29",
+   "p75": 3654.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-09-05",
+   "p75": 3614.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-03-14",
+   "p75": 205.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-03-21",
+   "p75": 204.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-03-28",
+   "p75": 202.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-04-04",
+   "p75": 204.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-04-11",
+   "p75": 208.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-04-18",
+   "p75": 213.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-04-25",
+   "p75": 213.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-05-02",
+   "p75": 205.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-05-09",
+   "p75": 200.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-05-16",
+   "p75": 196.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-05-23",
+   "p75": 187.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-05-30",
+   "p75": 191.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-06-06",
+   "p75": 187.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-06-13",
+   "p75": 194.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-06-20",
+   "p75": 194.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-06-27",
+   "p75": 192.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-07-04",
+   "p75": 194.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-07-11",
+   "p75": 191.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-07-18",
+   "p75": 173.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-07-25",
+   "p75": 162.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-08-01",
+   "p75": 171.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-08-08",
+   "p75": 168.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-08-15",
+   "p75": 189.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-08-22",
+   "p75": 200.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-08-29",
+   "p75": 194.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-09-05",
+   "p75": 195.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-03-14",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-03-21",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-03-28",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-04-04",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-04-11",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-04-18",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-04-25",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-05-02",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-05-09",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-05-16",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-05-23",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-05-30",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-06-06",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-06-13",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-06-20",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-06-27",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-07-04",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-07-11",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-07-18",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-07-25",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-08-01",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-08-08",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-08-15",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-08-22",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-08-29",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "行動裝置",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-09-05",
+   "p75": 0.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-03-14",
+   "p75": 1727.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-03-21",
+   "p75": 1668.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-03-28",
+   "p75": 1632.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-04-04",
+   "p75": 1629.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-04-11",
+   "p75": 1617.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-04-18",
+   "p75": 1632.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-04-25",
+   "p75": 1627.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-05-02",
+   "p75": 1651.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-05-09",
+   "p75": 1670.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-05-16",
+   "p75": 1636.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-05-23",
+   "p75": 1667.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-05-30",
+   "p75": 1633.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-06-06",
+   "p75": 1643.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-06-13",
+   "p75": 1658.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-06-20",
+   "p75": 1659.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-06-27",
+   "p75": 1677.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-07-04",
+   "p75": 1663.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-07-11",
+   "p75": 1685.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-07-18",
+   "p75": 1679.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-07-25",
+   "p75": 1707.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-08-01",
+   "p75": 1709.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-08-08",
+   "p75": 1738.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-08-15",
+   "p75": 1946.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-08-22",
+   "p75": 2202.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-08-29",
+   "p75": 2219.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "LCP",
+   "unit": "s",
+   "periodEnd": "2026-09-05",
+   "p75": 2217.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-03-14",
+   "p75": 68.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-03-21",
+   "p75": 68.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-03-28",
+   "p75": 66.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-04-04",
+   "p75": 67.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-04-11",
+   "p75": 65.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-04-18",
+   "p75": 65.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-04-25",
+   "p75": 67.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-05-02",
+   "p75": 67.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-05-09",
+   "p75": 68.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-05-16",
+   "p75": 68.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-05-23",
+   "p75": 68.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-05-30",
+   "p75": 69.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-06-06",
+   "p75": 70.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-06-13",
+   "p75": 71.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-06-20",
+   "p75": 68.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-06-27",
+   "p75": 69.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-07-04",
+   "p75": 67.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-07-11",
+   "p75": 66.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-07-18",
+   "p75": 67.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-07-25",
+   "p75": 66.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-08-01",
+   "p75": 65.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-08-08",
+   "p75": 69.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-08-15",
+   "p75": 70.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-08-22",
+   "p75": 72.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-08-29",
+   "p75": 77.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "INP",
+   "unit": "ms",
+   "periodEnd": "2026-09-05",
+   "p75": 77.0
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-03-14",
+   "p75": 0.03
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-03-21",
+   "p75": 0.03
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-03-28",
+   "p75": 0.03
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-04-04",
+   "p75": 0.03
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-04-11",
+   "p75": 0.03
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-04-18",
+   "p75": 0.03
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-04-25",
+   "p75": 0.03
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-05-02",
+   "p75": 0.03
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-05-09",
+   "p75": 0.03
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-05-16",
+   "p75": 0.03
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-05-23",
+   "p75": 0.03
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-05-30",
+   "p75": 0.03
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-06-06",
+   "p75": 0.03
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-06-13",
+   "p75": 0.03
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-06-20",
+   "p75": 0.03
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-06-27",
+   "p75": 0.03
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-07-04",
+   "p75": 0.03
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-07-11",
+   "p75": 0.03
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-07-18",
+   "p75": 0.03
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-07-25",
+   "p75": 0.03
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-08-01",
+   "p75": 0.02
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-08-08",
+   "p75": 0.02
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-08-15",
+   "p75": 0.02
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-08-22",
+   "p75": 0.02
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-08-29",
+   "p75": 0.02
+  },
+  {
+   "siteLabel": "部落格 blog.shopline.tw",
+   "formLabel": "電腦",
+   "metricShort": "CLS",
+   "unit": "score",
+   "periodEnd": "2026-09-05",
+   "p75": 0.02
+  }
+ ],
+ "cwvMissing": [],
+ "cwvStatus": "OK",
+ "cwvPeriod": "2026-08-09 – 2026-09-05",
+ "cwvRetrievedAt": "2026-09-07T07:20:28Z"
+}
