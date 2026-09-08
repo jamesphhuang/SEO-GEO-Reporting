@@ -1,0 +1,334 @@
+{
+  "https://shopline.tw/": {
+    "site_url": "https://shopline.tw/",
+    "date_range": {
+      "start": "2026-08-01",
+      "end": "2026-08-31"
+    },
+    "search_type": "WEB",
+    "dimensions": [
+      "page"
+    ],
+    "filters_applied": [
+      {
+        "dimension": "country",
+        "operator": "equals",
+        "expression": "twn"
+      }
+    ],
+    "pagination": {
+      "start_row": 0,
+      "row_count": 20,
+      "has_more": true,
+      "next_start_row": 20
+    },
+    "rows": [
+      {
+        "page": "https://shopline.tw/",
+        "clicks": 5656,
+        "impressions": 48370,
+        "ctr": 0.1169,
+        "position": 3.3
+      },
+      {
+        "page": "https://shopline.tw/about/pricing",
+        "clicks": 319,
+        "impressions": 20747,
+        "ctr": 0.0154,
+        "position": 1.5
+      },
+      {
+        "page": "https://shopline.tw/payments",
+        "clicks": 253,
+        "impressions": 3184,
+        "ctr": 0.0795,
+        "position": 2.9
+      },
+      {
+        "page": "https://shopline.tw/about",
+        "clicks": 140,
+        "impressions": 20556,
+        "ctr": 0.0068,
+        "position": 1.4
+      },
+      {
+        "page": "https://shopline.tw/showcase",
+        "clicks": 96,
+        "impressions": 18354,
+        "ctr": 0.0052,
+        "position": 1.2
+      },
+      {
+        "page": "https://shopline.tw/news/shopline-app-store",
+        "clicks": 56,
+        "impressions": 355,
+        "ctr": 0.1577,
+        "position": 4
+      },
+      {
+        "page": "https://shopline.tw/faq/overview",
+        "clicks": 47,
+        "impressions": 804,
+        "ctr": 0.0585,
+        "position": 2.6
+      },
+      {
+        "page": "https://shopline.tw/faq/pos",
+        "clicks": 27,
+        "impressions": 325,
+        "ctr": 0.0831,
+        "position": 6.4
+      },
+      {
+        "page": "https://shopline.tw/online-store/health-and-supplements",
+        "clicks": 20,
+        "impressions": 11868,
+        "ctr": 0.0017,
+        "position": 1.3
+      },
+      {
+        "page": "https://shopline.tw/shopper-app",
+        "clicks": 20,
+        "impressions": 3166,
+        "ctr": 0.0063,
+        "position": 2
+      },
+      {
+        "page": "https://shopline.tw/faq/about",
+        "clicks": 16,
+        "impressions": 11729,
+        "ctr": 0.0014,
+        "position": 1.4
+      },
+      {
+        "page": "https://shopline.tw/faq/plans",
+        "clicks": 16,
+        "impressions": 805,
+        "ctr": 0.0199,
+        "position": 4.4
+      },
+      {
+        "page": "https://shopline.tw/online-store/shop-builder",
+        "clicks": 15,
+        "impressions": 169,
+        "ctr": 0.0888,
+        "position": 6.7
+      },
+      {
+        "page": "https://shopline.tw/pos/features",
+        "clicks": 14,
+        "impressions": 376,
+        "ctr": 0.0372,
+        "position": 11.6
+      },
+      {
+        "page": "https://shopline.tw/ai",
+        "clicks": 10,
+        "impressions": 435,
+        "ctr": 0.023,
+        "position": 4.9
+      },
+      {
+        "page": "https://shopline.tw/showcase/fashion-brand",
+        "clicks": 8,
+        "impressions": 1758,
+        "ctr": 0.0046,
+        "position": 1.5
+      },
+      {
+        "page": "https://shopline.tw/smart-omo",
+        "clicks": 7,
+        "impressions": 79,
+        "ctr": 0.0886,
+        "position": 6.1
+      },
+      {
+        "page": "https://shopline.tw/social-commerce",
+        "clicks": 7,
+        "impressions": 404,
+        "ctr": 0.0173,
+        "position": 8.2
+      },
+      {
+        "page": "https://shopline.tw/online-store-setup",
+        "clicks": 6,
+        "impressions": 3243,
+        "ctr": 0.0019,
+        "position": 9.1
+      },
+      {
+        "page": "https://shopline.tw/selectedpartners",
+        "clicks": 6,
+        "impressions": 55,
+        "ctr": 0.1091,
+        "position": 11.5
+      }
+    ]
+  },
+  "sc-domain:blog.shopline.tw": {
+    "site_url": "sc-domain:blog.shopline.tw",
+    "date_range": {
+      "start": "2026-08-01",
+      "end": "2026-08-31"
+    },
+    "search_type": "WEB",
+    "dimensions": [
+      "page"
+    ],
+    "filters_applied": [
+      {
+        "dimension": "country",
+        "operator": "equals",
+        "expression": "twn"
+      }
+    ],
+    "pagination": {
+      "start_row": 0,
+      "row_count": 20,
+      "has_more": true,
+      "next_start_row": 20
+    },
+    "rows": [
+      {
+        "page": "https://blog.shopline.tw/ads-article-threads-marketing/",
+        "clicks": 1088,
+        "impressions": 340056,
+        "ctr": 0.0032,
+        "position": 5.1
+      },
+      {
+        "page": "https://blog.shopline.tw/post-image-size-gh/",
+        "clicks": 555,
+        "impressions": 16545,
+        "ctr": 0.0335,
+        "position": 4.1
+      },
+      {
+        "page": "https://blog.shopline.tw/instagram-image-sizes/",
+        "clicks": 348,
+        "impressions": 23796,
+        "ctr": 0.0146,
+        "position": 4.9
+      },
+      {
+        "page": "https://blog.shopline.tw/free-stock-marketing-content/",
+        "clicks": 210,
+        "impressions": 10433,
+        "ctr": 0.0201,
+        "position": 6.9
+      },
+      {
+        "page": "https://blog.shopline.tw/ig-story-2018/",
+        "clicks": 197,
+        "impressions": 35224,
+        "ctr": 0.0056,
+        "position": 6.2
+      },
+      {
+        "page": "https://blog.shopline.tw/online-shopping-fraud-case-countermeasure/",
+        "clicks": 191,
+        "impressions": 6507,
+        "ctr": 0.0294,
+        "position": 7.3
+      },
+      {
+        "page": "https://blog.shopline.tw/what-is-pos/",
+        "clicks": 137,
+        "impressions": 8846,
+        "ctr": 0.0155,
+        "position": 4.5
+      },
+      {
+        "page": "https://blog.shopline.tw/brand-business-plan/",
+        "clicks": 56,
+        "impressions": 2437,
+        "ctr": 0.023,
+        "position": 8.4
+      },
+      {
+        "page": "https://blog.shopline.tw/5-popular-product-type/",
+        "clicks": 48,
+        "impressions": 1762,
+        "ctr": 0.0272,
+        "position": 6.8
+      },
+      {
+        "page": "https://blog.shopline.tw/group-buying-guideline/",
+        "clicks": 47,
+        "impressions": 3245,
+        "ctr": 0.0145,
+        "position": 9.7
+      },
+      {
+        "page": "https://blog.shopline.tw/cross-border-vietnam-ec-platform-2021/",
+        "clicks": 33,
+        "impressions": 394,
+        "ctr": 0.0838,
+        "position": 4.2
+      },
+      {
+        "page": "https://blog.shopline.tw/ads-article-google-demand-gen-campaign/",
+        "clicks": 31,
+        "impressions": 840,
+        "ctr": 0.0369,
+        "position": 5.2
+      },
+      {
+        "page": "https://blog.shopline.tw/2022-anti-fraud/",
+        "clicks": 21,
+        "impressions": 633,
+        "ctr": 0.0332,
+        "position": 2.9
+      },
+      {
+        "page": "https://blog.shopline.tw/6-live-platform-compare/",
+        "clicks": 21,
+        "impressions": 3253,
+        "ctr": 0.0065,
+        "position": 9.4
+      },
+      {
+        "page": "https://blog.shopline.tw/ga4-gtm-faq/",
+        "clicks": 21,
+        "impressions": 2620,
+        "ctr": 0.008,
+        "position": 8.5
+      },
+      {
+        "page": "https://blog.shopline.tw/partner-showcase-bebit-tech/",
+        "clicks": 21,
+        "impressions": 916,
+        "ctr": 0.0229,
+        "position": 6.3
+      },
+      {
+        "page": "https://blog.shopline.tw/what-is-threads/",
+        "clicks": 21,
+        "impressions": 9623,
+        "ctr": 0.0022,
+        "position": 10.8
+      },
+      {
+        "page": "https://blog.shopline.tw/merchant-showcase-nozzle-quiz/",
+        "clicks": 20,
+        "impressions": 2285,
+        "ctr": 0.0088,
+        "position": 7
+      },
+      {
+        "page": "https://blog.shopline.tw/shopline-mcp-launch/",
+        "clicks": 20,
+        "impressions": 121,
+        "ctr": 0.1653,
+        "position": 3
+      },
+      {
+        "page": "https://blog.shopline.tw/12-brand-archetypes/",
+        "clicks": 19,
+        "impressions": 13313,
+        "ctr": 0.0014,
+        "position": 7.2
+      }
+    ]
+  }
+}

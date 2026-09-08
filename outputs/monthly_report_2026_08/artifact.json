@@ -1,0 +1,1448 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "SHOPLINE 台灣 SEO／GEO 月報｜2026 年 8 月",
+    "description": "2026 年 8 月對 7 月｜正式業務成果、搜尋表現、AI 導流與品牌監測",
+    "generatedAt": "2026-09-06T10:03:33.270Z",
+    "blocks": [
+      {
+        "id": "title",
+        "type": "markdown",
+        "body": "# SHOPLINE 台灣 SEO／GEO 月報｜2026 年 8 月"
+      },
+      {
+        "id": "summary",
+        "type": "markdown",
+        "body": "## Executive Summary\n\n- **Non-paid 名單未達標。** 8 月 450 筆，達成率 72.58%，較 7 月減少 5.66%，距目標 620 筆尚差 170 筆。\n- **自然搜尋量下降。** GA4 主站 Organic Search 工作階段較 7 月減少 10.83%，部落格減少 9.37%；GSC 台灣搜尋兩站曝光均下滑，CTR 則提高。\n- **AI 導流與品牌可見度不同步。** 主站 AI Assistant 工作階段成長 27.86%，但 Workduo SHOPLINE 每日平均可見度下降 6.60 個百分點。\n- **9 月優先恢復搜尋曝光，並查證轉換。** 先檢視重點頁面的查詢結構與搜尋結果，再追蹤導流品質；尚未確認的 SQL 與成功轉換不作成果宣稱。"
+      },
+      {
+        "id": "headlines",
+        "type": "metric-strip",
+        "cardIds": [
+          "npl"
+        ]
+      },
+      {
+        "id": "business-text",
+        "type": "markdown",
+        "body": "## 名單缺口 170 筆，先以正式業務數據追蹤\n\n8 月 Non-paid Leads 為 **450 筆**，7 月為 **477 筆**，減少 27 筆；目標由 537 筆提高至 620 筆，達成率由 88.83% 降至 72.58%。目標提高與 Actual 下降共同擴大缺口。\n\n此指標涵蓋全部非付費渠道，不能直接視為 SEO 或 AI 帶來的名單，也不能將 GA4 工作階段當成此漏斗的分母。舊報表快照曾記為 347，本次 MCP 重讀正式來源 G119 為 450；差異原因未解，不覆寫歷史快照。",
+        "sourceId": "business"
+      },
+      {
+        "id": "leads-block",
+        "type": "chart",
+        "chartId": "leads"
+      },
+      {
+        "id": "scope",
+        "type": "markdown",
+        "body": "## 閱讀範圍：搜尋、導流與業務成果分開衡量\n\n比較期間為 7 月 1–31 日與 8 月 1–31 日，兩者皆 31 天。GSC 限台灣 WEB 搜尋；GA4 依既有合約只限制主機，涵蓋所有國家，因此兩者不能逐筆對帳。GA4 主站與部落格使用不同 property，以下不跨 property 加總。\n\nGA4 sessions 是指定 hostname × session channel 的診斷切分；engagedSessions / sessions 為互動率。Workduo 指標限台灣監測專案，反映樣本中的品牌出現情況。"
+      },
+      {
+        "id": "search-text",
+        "type": "markdown",
+        "body": "## 搜尋曝光收縮，CTR 上升尚未補回點擊\n\n主站台灣搜尋點擊由 9,146 降至 **8,283（−9.44%）**，曝光由 105,840 降至 **90,703（−14.30%）**；CTR 由 8.64% 升至 9.13%。部落格點擊由 11,453 降至 **10,989（−4.05%）**，曝光由 1,119,300 降至 **1,007,621（−9.98%）**；CTR 由 1.02% 升至 1.09%。\n\n兩站皆是曝光下降、CTR 上升。曝光加權近似排名也略有改善，尚不支持「全站排名全面惡化」的結論；搜尋需求、查詢組合與頁面能見度變化仍需拆解。這是月度比較，不代表已證實原因。",
+        "sourceId": "gsc"
+      },
+      {
+        "id": "search-clicks-block",
+        "type": "chart",
+        "chartId": "search-clicks"
+      },
+      {
+        "id": "search-detail-block",
+        "type": "table",
+        "tableId": "search-detail"
+      },
+      {
+        "id": "ga-text0",
+        "type": "markdown",
+        "body": "## 主站：自然搜尋減少，AI 流量規模仍小\n\nOrganic Search 工作階段由 **13,957 降至 12,446（−10.83%）**，互動率由 39.51% 升至 39.77%。AI Assistant 則由 **323 升至 413（+27.86%）**，互動工作階段由 135 升至 228，互動率由 41.80% 升至 55.21%。\n\nAI 工作階段增加 90，與自然搜尋減少 1,511 的規模有落差。應追蹤 AI 訪客的後續行為，但互動率提高不等於成功轉換增加。",
+        "sourceId": "ga0"
+      },
+      {
+        "id": "ga0organic-block",
+        "type": "chart",
+        "chartId": "ga0organic"
+      },
+      {
+        "id": "ga0ai-block",
+        "type": "chart",
+        "chartId": "ga0ai"
+      },
+      {
+        "id": "ga-table0-block",
+        "type": "table",
+        "tableId": "ga-table0"
+      },
+      {
+        "id": "ga-text1",
+        "type": "markdown",
+        "body": "## 部落格：自然搜尋仍是主要流量來源\n\nOrganic Search 工作階段由 **17,139 降至 15,533（−9.37%）**，互動率由 44.87% 升至 46.52%。AI Assistant 由 **187 升至 208（+11.23%）**，互動率由 38.50% 降至 36.06%。\n\nAI 工作階段僅增加 21，且互動率未同步成長；內容工作優先支持搜尋需求與通往產品資訊的路徑，再觀察 AI 導流品質。兩站的 AI 品質走勢不同，不宜合併成一個「AI 成效成長」結論。",
+        "sourceId": "ga1"
+      },
+      {
+        "id": "ga1organic-block",
+        "type": "chart",
+        "chartId": "ga1organic"
+      },
+      {
+        "id": "ga1ai-block",
+        "type": "chart",
+        "chartId": "ga1ai"
+      },
+      {
+        "id": "ga-table1-block",
+        "type": "table",
+        "tableId": "ga-table1"
+      },
+      {
+        "id": "geo-text",
+        "type": "markdown",
+        "body": "## GEO：品牌可見度走弱，需回到固定題目檢查\n\nSHOPLINE 的 **每日平均可見度由 77.45% 降至 70.85%（−6.60 個百分點）**，每日平均 SOV 由 25.02% 降至 23.70%（−1.32 個百分點）。每月均取得 31 天、10 個實體的監測列。\n\n這裡對每天比率做等權平均，並非整月回覆量加權的可見度；來源未提供本次比率的底層分母，也未核對兩月提示題目、模型與平台是否完全相同。因此可描述監測數值下降，不能直接推論品牌在所有 AI 搜尋中的占比下降，更不能與 GA4 AI Assistant 導流畫上等號。",
+        "sourceId": "geo"
+      },
+      {
+        "id": "geo-visibility-block",
+        "type": "chart",
+        "chartId": "geo-visibility"
+      },
+      {
+        "id": "geo-comparison-block",
+        "type": "table",
+        "tableId": "geo-comparison"
+      },
+      {
+        "id": "page-text",
+        "type": "markdown",
+        "body": "## 優先檢視高曝光頁面的搜尋意圖\n\n部落格 Threads 行銷文章取得 **340,056 次曝光、1,088 次點擊，CTR 0.32%**；主站定價頁取得 **20,747 次曝光、319 次點擊，CTR 1.54%**。前者可檢查查詢意圖與摘要，後者可確認價格與方案資訊是否清楚對應搜尋需求。\n\n這是 8 月依點擊排序的 Top 20 頁面機會清單，沒有逐頁 7 月對照，不能宣稱它們造成全站下滑。不同查詢、裝置與搜尋結果版位的 CTR 不宜直接套用同一基準；頁面曝光也不可加總後與 property 曝光對帳。",
+        "sourceId": "pages"
+      },
+      {
+        "id": "page-detail-block",
+        "type": "table",
+        "tableId": "page-detail"
+      },
+      {
+        "id": "actions",
+        "type": "markdown",
+        "body": "## 9 月行動順序\n\n1. **先診斷搜尋曝光流失。** 建議 SEO 負責人於 9 月 11 日前，按頁面 × 查詢 × 裝置比較 7、8 月；拆分品牌與非品牌，找出曝光損失最大的組合，才決定修改內容或標題。\n2. **檢視重點頁面資訊。** 建議內容與產品行銷負責人於 9 月 18 日前檢查 Threads 行銷文與定價頁，確認資料時效、摘要及產品資訊路徑；完成後用相同查詢組追蹤曝光與 CTR。\n3. **固定 GEO 樣本。** 建議 GEO 負責人於 9 月 11 日前核對提示題目、平台、模型及成功回覆數，建立可比較的題目組，定位下降發生在哪些品牌比較題。\n4. **驗證成功轉換。** 建議分析與 Sales Ops 負責人釐清諮詢成功事件、跨網域與去重，再對帳正式名單；未確認前不以 CTA 點擊替代成功轉換。\n\n以上為建議時程與角色，尚未派工或承諾完成。"
+      },
+      {
+        "id": "questions",
+        "type": "markdown",
+        "body": "## 尚待釐清的問題\n\n- 曝光下降主要來自需求減少、查詢組合變化，或特定頁面流失？目前總量只能縮小方向。\n- GEO 兩月是否使用相同提示題目與平台組合？需固定樣本後再解讀月變化。\n- Non-paid Leads 450 與舊快照 347 的差異何時產生？目前無法判定為延遲修正或舊快照錯誤。\n- 正式 SQL 與成功轉換的來源、範圍及成熟規則何時能完成確認？"
+      },
+      {
+        "id": "caveats",
+        "type": "markdown",
+        "body": "## 資料限制與假設\n\n本報表為 2026 年 9 月 6 日擷取的 8 月最新來源快照，不代表 8 月 31 日當時凍結的數字。SQL 與成功轉換依既有資料合約維持未確認，不顯示推測值。未納入 Ahrefs 估算流量或當月 Screaming Frog 技術稽核，故本報表不判斷技術問題是否於 8 月修復。\n\nGA4 回傳無抽樣 metadata、data_loss_from_other_row=false；這不等同保證事件埋設、同意模式或渠道歸因完整。GSC 各月均有 31 天最終資料，CTR 以總點擊除以總曝光重新計算，未平均每日 CTR。\n\n月增率 = 8 月值 / 7 月值 − 1；比率變化以百分點表示。沒有因果實驗或跨渠道名單歸因，因此流量變化不能視為名單差異的已證實原因。"
+      }
+    ],
+    "cards": [
+      {
+        "id": "npl",
+        "dataset": "headline",
+        "sourceId": "business",
+        "description": "全 Non-paid 業務名單；與 SEO、GEO 流量分開判讀。",
+        "metrics": [
+          {
+            "label": "8 月 Non-paid Leads",
+            "field": "actual",
+            "format": "number"
+          },
+          {
+            "label": "目標",
+            "field": "target",
+            "format": "number"
+          },
+          {
+            "label": "達成率",
+            "field": "attainment",
+            "format": "percent"
+          },
+          {
+            "label": "較 7 月",
+            "field": "mom",
+            "format": "percent"
+          }
+        ]
+      }
+    ],
+    "charts": [
+      {
+        "id": "leads",
+        "title": "Non-paid Leads：Actual 與 Target",
+        "subtitle": "2026 年 7、8 月｜單位：筆；TW 全非付費渠道",
+        "headerMarkdown": "Non-paid Leads：Actual 與 Target\n\n2026 年 7、8 月｜單位：筆；TW 全非付費渠道",
+        "type": "bar",
+        "dataset": "business",
+        "sourceId": "business",
+        "encodings": {
+          "x": {
+            "field": "month",
+            "type": "ordinal",
+            "label": "月份"
+          },
+          "y": {
+            "field": "leads",
+            "type": "quantitative",
+            "label": "筆",
+            "format": "number"
+          },
+          "color": {
+            "field": "series",
+            "type": "nominal",
+            "label": "系列"
+          }
+        }
+      },
+      {
+        "id": "search-clicks",
+        "title": "台灣搜尋點擊",
+        "subtitle": "2026 年 7、8 月｜WEB、country=twn；單位：次",
+        "headerMarkdown": "台灣搜尋點擊\n\n2026 年 7、8 月｜WEB、country=twn；單位：次",
+        "type": "bar",
+        "dataset": "search",
+        "sourceId": "gsc",
+        "encodings": {
+          "x": {
+            "field": "siteLabel",
+            "type": "ordinal",
+            "label": "站點"
+          },
+          "y": {
+            "field": "clicks",
+            "type": "quantitative",
+            "label": "次",
+            "format": "number"
+          },
+          "color": {
+            "field": "period",
+            "type": "nominal",
+            "label": "系列"
+          }
+        }
+      },
+      {
+        "id": "ga0organic",
+        "title": "shopline.tw｜Organic Search 工作階段",
+        "subtitle": "2026 年 7、8 月｜所有國家；主機診斷口徑；單位：次",
+        "headerMarkdown": "shopline.tw｜Organic Search 工作階段\n\n2026 年 7、8 月｜所有國家；主機診斷口徑；單位：次",
+        "type": "bar",
+        "dataset": "ga0organic",
+        "sourceId": "ga0",
+        "encodings": {
+          "x": {
+            "field": "period",
+            "type": "ordinal",
+            "label": "月份"
+          },
+          "y": {
+            "field": "sessions",
+            "type": "quantitative",
+            "label": "次",
+            "format": "number"
+          }
+        }
+      },
+      {
+        "id": "ga0ai",
+        "title": "shopline.tw｜AI Assistant 工作階段",
+        "subtitle": "2026 年 7、8 月｜所有國家；主機診斷口徑；單位：次",
+        "headerMarkdown": "shopline.tw｜AI Assistant 工作階段\n\n2026 年 7、8 月｜所有國家；主機診斷口徑；單位：次",
+        "type": "bar",
+        "dataset": "ga0ai",
+        "sourceId": "ga0",
+        "encodings": {
+          "x": {
+            "field": "period",
+            "type": "ordinal",
+            "label": "月份"
+          },
+          "y": {
+            "field": "sessions",
+            "type": "quantitative",
+            "label": "次",
+            "format": "number"
+          }
+        }
+      },
+      {
+        "id": "ga1organic",
+        "title": "blog.shopline.tw｜Organic Search 工作階段",
+        "subtitle": "2026 年 7、8 月｜所有國家；主機診斷口徑；單位：次",
+        "headerMarkdown": "blog.shopline.tw｜Organic Search 工作階段\n\n2026 年 7、8 月｜所有國家；主機診斷口徑；單位：次",
+        "type": "bar",
+        "dataset": "ga1organic",
+        "sourceId": "ga1",
+        "encodings": {
+          "x": {
+            "field": "period",
+            "type": "ordinal",
+            "label": "月份"
+          },
+          "y": {
+            "field": "sessions",
+            "type": "quantitative",
+            "label": "次",
+            "format": "number"
+          }
+        }
+      },
+      {
+        "id": "ga1ai",
+        "title": "blog.shopline.tw｜AI Assistant 工作階段",
+        "subtitle": "2026 年 7、8 月｜所有國家；主機診斷口徑；單位：次",
+        "headerMarkdown": "blog.shopline.tw｜AI Assistant 工作階段\n\n2026 年 7、8 月｜所有國家；主機診斷口徑；單位：次",
+        "type": "bar",
+        "dataset": "ga1ai",
+        "sourceId": "ga1",
+        "encodings": {
+          "x": {
+            "field": "period",
+            "type": "ordinal",
+            "label": "月份"
+          },
+          "y": {
+            "field": "sessions",
+            "type": "quantitative",
+            "label": "次",
+            "format": "number"
+          }
+        }
+      },
+      {
+        "id": "geo-visibility",
+        "title": "SHOPLINE 每日平均可見度",
+        "subtitle": "2026 年 7、8 月｜TW 監測樣本、每日等權平均；單位：%；非整月加權比率",
+        "headerMarkdown": "SHOPLINE 每日平均可見度\n\n2026 年 7、8 月｜TW 監測樣本、每日等權平均；單位：%；非整月加權比率",
+        "type": "bar",
+        "dataset": "geo-shopline",
+        "sourceId": "geo",
+        "encodings": {
+          "x": {
+            "field": "period",
+            "type": "ordinal",
+            "label": "月份"
+          },
+          "y": {
+            "field": "visibilityPct",
+            "type": "quantitative",
+            "label": "%",
+            "format": "number"
+          }
+        }
+      }
+    ],
+    "tables": [
+      {
+        "id": "search-detail",
+        "title": "搜尋明細（排名為近似值）",
+        "dataset": "search",
+        "sourceId": "gsc",
+        "columns": [
+          {
+            "field": "siteLabel",
+            "label": "站點",
+            "format": "text"
+          },
+          {
+            "field": "period",
+            "label": "月份",
+            "format": "text"
+          },
+          {
+            "field": "clicks",
+            "label": "點擊",
+            "format": "number"
+          },
+          {
+            "field": "impressions",
+            "label": "曝光",
+            "format": "number"
+          },
+          {
+            "field": "ctr",
+            "label": "CTR",
+            "format": "percent"
+          },
+          {
+            "field": "position",
+            "label": "平均排名≈",
+            "format": "number"
+          }
+        ],
+        "defaultSort": {
+          "field": "clicks",
+          "direction": "desc"
+        }
+      },
+      {
+        "id": "ga-table0",
+        "title": "渠道互動明細",
+        "dataset": "ga0",
+        "sourceId": "ga0",
+        "columns": [
+          {
+            "field": "channel",
+            "label": "渠道",
+            "format": "text"
+          },
+          {
+            "field": "period",
+            "label": "月份",
+            "format": "text"
+          },
+          {
+            "field": "sessions",
+            "label": "工作階段",
+            "format": "number"
+          },
+          {
+            "field": "engaged",
+            "label": "互動工作階段",
+            "format": "number"
+          },
+          {
+            "field": "engagementRate",
+            "label": "互動率",
+            "format": "percent"
+          }
+        ],
+        "defaultSort": {
+          "field": "sessions",
+          "direction": "desc"
+        }
+      },
+      {
+        "id": "ga-table1",
+        "title": "渠道互動明細",
+        "dataset": "ga1",
+        "sourceId": "ga1",
+        "columns": [
+          {
+            "field": "channel",
+            "label": "渠道",
+            "format": "text"
+          },
+          {
+            "field": "period",
+            "label": "月份",
+            "format": "text"
+          },
+          {
+            "field": "sessions",
+            "label": "工作階段",
+            "format": "number"
+          },
+          {
+            "field": "engaged",
+            "label": "互動工作階段",
+            "format": "number"
+          },
+          {
+            "field": "engagementRate",
+            "label": "互動率",
+            "format": "percent"
+          }
+        ],
+        "defaultSort": {
+          "field": "sessions",
+          "direction": "desc"
+        }
+      },
+      {
+        "id": "geo-comparison",
+        "title": "監測品牌比較｜每日等權平均",
+        "dataset": "geo",
+        "sourceId": "geo",
+        "columns": [
+          {
+            "field": "entity",
+            "label": "品牌",
+            "format": "text"
+          },
+          {
+            "field": "period",
+            "label": "月份",
+            "format": "text"
+          },
+          {
+            "field": "visibility",
+            "label": "每日平均可見度",
+            "format": "percent"
+          },
+          {
+            "field": "sov",
+            "label": "每日平均 SOV",
+            "format": "percent"
+          },
+          {
+            "field": "days",
+            "label": "天數",
+            "format": "number"
+          }
+        ],
+        "defaultSort": {
+          "field": "visibility",
+          "direction": "desc"
+        }
+      },
+      {
+        "id": "page-detail",
+        "title": "8 月頁面機會清單｜各站 Top 20",
+        "dataset": "pages",
+        "sourceId": "pages",
+        "columns": [
+          {
+            "field": "page",
+            "label": "頁面 URL",
+            "format": "text"
+          },
+          {
+            "field": "clicks",
+            "label": "點擊",
+            "format": "number"
+          },
+          {
+            "field": "impressions",
+            "label": "曝光",
+            "format": "number"
+          },
+          {
+            "field": "ctr",
+            "label": "CTR",
+            "format": "percent"
+          }
+        ],
+        "defaultSort": {
+          "field": "clicks",
+          "direction": "desc"
+        }
+      }
+    ],
+    "sources": [
+      {
+        "id": "business",
+        "label": "正式業務來源｜2026 lead gen distribution",
+        "path": "https://docs.google.com/spreadsheets/d/1lfbDAu-YHBiRk9qOFUpKO7y2TFEmzDkaOxzuepJ6Ny8/edit#gid=1999633447",
+        "query": {
+          "description": "Google Drive MCP get_spreadsheet_cells；讀取 A111:L120。Non-Paid Leads：7 月 C119、8 月 G119；Target：B119、F119。達成率 = Actual / Target，月增率 = August / July - 1。",
+          "executed_at": "2026-09-06T10:03:33.270Z",
+          "filters": [
+            "TW；all_non_paid；原始數字儲存格；非 SEO 單一渠道",
+            "來源時區 Asia/Shanghai；2026 年 7、8 月"
+          ],
+          "tables_used": [
+            "mcp_evidence"
+          ],
+          "sql": "WITH cells AS (\n SELECT json_extract(payload, '$.business.sheets[0].data[0].rowData[8].values[6].userEnteredValue.numberValue') AS actual,\n json_extract(payload, '$.business.sheets[0].data[0].rowData[8].values[5].userEnteredValue.numberValue') AS target,\n json_extract(payload, '$.business.sheets[0].data[0].rowData[8].values[2].userEnteredValue.numberValue') AS prior\n FROM mcp_evidence)\n SELECT actual, target, 1.0*actual/target AS attainment, 1.0*actual/prior-1 AS mom, target-actual AS gap FROM cells",
+          "engine": "SQLite JSON1",
+          "language": "sql"
+        }
+      },
+      {
+        "id": "gsc",
+        "label": "Google Search Console MCP｜兩站台灣搜尋",
+        "path": "evidence.json",
+        "query": {
+          "description": "get_advanced_search_analytics；主站 https://shopline.tw/、部落格 sc-domain:blog.shopline.tw。dimensions=date，每月加總 clicks、impressions；CTR = sum(clicks)/sum(impressions)。平均排名依曝光加權，原始每日排名已四捨五入，僅為近似。",
+          "executed_at": "2026-09-06T10:03:33.270Z",
+          "filters": [
+            "2026-07-01–07-31 與 2026-08-01–08-31；各 31 天",
+            "WEB；country=twn；data_state=final；row_limit=100；無分頁剩餘",
+            "GSC 日界以來源太平洋時間為準"
+          ],
+          "tables_used": [
+            "mcp_evidence"
+          ],
+          "sql": "SELECT site.key AS sourceKey,\n CASE WHEN json_extract(site.value,'$.site_url') LIKE 'https:%' THEN '主站' ELSE '部落格' END AS siteLabel,\n substr(json_extract(site.value,'$.date_range.start'),6,2)||' 月' AS period,\n SUM(json_extract(day.value,'$.clicks')) AS clicks,\n SUM(json_extract(day.value,'$.impressions')) AS impressions,\n 1.0*SUM(json_extract(day.value,'$.clicks'))/SUM(json_extract(day.value,'$.impressions')) AS ctr,\n SUM(json_extract(day.value,'$.position')*json_extract(day.value,'$.impressions'))/SUM(json_extract(day.value,'$.impressions')) AS position\n FROM mcp_evidence, json_each(payload,'$.gsc') site, json_each(site.value,'$.rows') day GROUP BY site.key",
+          "engine": "SQLite JSON1",
+          "language": "sql"
+        }
+      },
+      {
+        "id": "ga0",
+        "label": "GA4 MCP｜shopline.tw",
+        "path": "https://analytics.google.com/analytics/web/#/p257016301",
+        "query": {
+          "description": "run_report；dimensions=hostName,sessionDefaultChannelGroup；metrics=sessions,engagedSessions,totalUsers。hostname 精確比對、不分大小寫；取 Organic Search、AI Assistant。互動率 = engagedSessions/sessions；保留工作階段渠道歸屬。",
+          "executed_at": "2026-09-06T10:03:33.270Z",
+          "filters": [
+            "2026 年 7、8 月；Asia/Taipei；未加 country 篩選，包含所有國家",
+            "各 property 分開報告；不跨 property 加總",
+            "hostName 為事件主機診斷切分，不等同 landing-session 口徑"
+          ],
+          "tables_used": [
+            "mcp_evidence"
+          ],
+          "sql": "SELECT json_extract(r.value,'$.dimension_values[0].value') AS host,\n json_extract(r.value,'$.dimension_values[1].value') AS channel,\n CASE json_extract(r.value,'$.dimension_values[2].value') WHEN 'July' THEN '7 月' ELSE '8 月' END AS period,\n CAST(json_extract(r.value,'$.metric_values[0].value') AS INTEGER) AS sessions,\n CAST(json_extract(r.value,'$.metric_values[1].value') AS INTEGER) AS engaged,\n CAST(json_extract(r.value,'$.metric_values[2].value') AS INTEGER) AS users,\n 1.0*json_extract(r.value,'$.metric_values[1].value')/json_extract(r.value,'$.metric_values[0].value') AS engagementRate\n FROM mcp_evidence, json_each(payload,'$.ga4[0].rows') r\n WHERE json_extract(r.value,'$.dimension_values[1].value') IN ('Organic Search','AI Assistant')",
+          "engine": "SQLite JSON1",
+          "language": "sql"
+        }
+      },
+      {
+        "id": "ga1",
+        "label": "GA4 MCP｜blog.shopline.tw",
+        "path": "https://analytics.google.com/analytics/web/#/p399614424",
+        "query": {
+          "description": "run_report；dimensions=hostName,sessionDefaultChannelGroup；metrics=sessions,engagedSessions,totalUsers。hostname 精確比對、不分大小寫；取 Organic Search、AI Assistant。互動率 = engagedSessions/sessions；保留工作階段渠道歸屬。",
+          "executed_at": "2026-09-06T10:03:33.270Z",
+          "filters": [
+            "2026 年 7、8 月；Asia/Taipei；未加 country 篩選，包含所有國家",
+            "各 property 分開報告；不跨 property 加總",
+            "hostName 為事件主機診斷切分，不等同 landing-session 口徑"
+          ],
+          "tables_used": [
+            "mcp_evidence"
+          ],
+          "sql": "SELECT json_extract(r.value,'$.dimension_values[0].value') AS host,\n json_extract(r.value,'$.dimension_values[1].value') AS channel,\n CASE json_extract(r.value,'$.dimension_values[2].value') WHEN 'July' THEN '7 月' ELSE '8 月' END AS period,\n CAST(json_extract(r.value,'$.metric_values[0].value') AS INTEGER) AS sessions,\n CAST(json_extract(r.value,'$.metric_values[1].value') AS INTEGER) AS engaged,\n CAST(json_extract(r.value,'$.metric_values[2].value') AS INTEGER) AS users,\n 1.0*json_extract(r.value,'$.metric_values[1].value')/json_extract(r.value,'$.metric_values[0].value') AS engagementRate\n FROM mcp_evidence, json_each(payload,'$.ga4[1].rows') r\n WHERE json_extract(r.value,'$.dimension_values[1].value') IN ('Organic Search','AI Assistant')",
+          "engine": "SQLite JSON1",
+          "language": "sql"
+        }
+      },
+      {
+        "id": "geo",
+        "label": "Workduo MCP｜SHOPLINE 台灣專案",
+        "path": "evidence.json",
+        "query": {
+          "description": "get_metrics；projectId=cmp2adkpz000gw209tj6025jc；metric=all；dimension=entity；interval=daily。每日 visibility、sov 取等權算術平均；mentions 逐日加總。這是每日平均監測指標，不是整月去重或按回覆量加權的比率。",
+          "executed_at": "2026-09-06T10:03:33.270Z",
+          "filters": [
+            "custom；2026 年 7、8 月；region=TW；onlyTrackedEntity=true",
+            "ignorePagination=true；pageSize=500；各 310 列、10 entities × 31 日；nextPageToken=null",
+            "提示題目與平台組成尚未做固定樣本對齊；僅描述監測樣本，不能推論全市場"
+          ],
+          "tables_used": [
+            "mcp_evidence"
+          ],
+          "sql": "SELECT json_extract(day.value,'$.dimensionValue') AS entity, month.key||' 月' AS period,\n COUNT(DISTINCT json_extract(day.value,'$.date')) AS days,\n AVG(json_extract(day.value,'$.visibility')) AS visibility, AVG(json_extract(day.value,'$.sov')) AS sov\n FROM mcp_evidence, json_each(payload,'$.geo') month, json_each(month.value,'$.data') day\n GROUP BY month.key, entity",
+          "engine": "SQLite JSON1",
+          "language": "sql"
+        }
+      },
+      {
+        "id": "pages",
+        "label": "Google Search Console MCP｜8 月頁面",
+        "path": "pages.json",
+        "query": {
+          "description": "get_advanced_search_analytics；dimensions=page；依 clicks 降序；row_limit=20。頁面 CTR = clicks/impressions；輸出 Top 20 作機會清單，不能用來推算全站總量或月降幅來源。",
+          "executed_at": "2026-09-06T10:03:33.270Z",
+          "filters": [
+            "2026-08-01–08-31；WEB；country=twn；data_state=final",
+            "主站與部落格各 Top 20；未取得 7 月逐頁對照"
+          ],
+          "tables_used": [
+            "mcp_pages"
+          ],
+          "sql": "SELECT site.key AS site, json_extract(page.value,'$.page') AS page,\n json_extract(page.value,'$.clicks') AS clicks, json_extract(page.value,'$.impressions') AS impressions,\n 1.0*json_extract(page.value,'$.clicks')/json_extract(page.value,'$.impressions') AS ctr\n FROM mcp_pages, json_each(payload) site, json_each(site.value,'$.rows') page",
+          "engine": "SQLite JSON1",
+          "language": "sql"
+        }
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "generatedAt": "2026-09-06T10:03:33.270Z",
+    "status": "partial",
+    "datasets": {
+      "business": [
+        {
+          "month": "7 月",
+          "series": "Actual",
+          "leads": 477
+        },
+        {
+          "month": "7 月",
+          "series": "Target",
+          "leads": 537
+        },
+        {
+          "month": "8 月",
+          "series": "Actual",
+          "leads": 450
+        },
+        {
+          "month": "8 月",
+          "series": "Target",
+          "leads": 620
+        }
+      ],
+      "headline": [
+        {
+          "actual": 450,
+          "target": 620,
+          "attainment": 0.7258064516129032,
+          "mom": -0.05660377358490565,
+          "gap": 170
+        }
+      ],
+      "search": [
+        {
+          "sourceKey": "https://shopline.tw/07",
+          "siteLabel": "主站",
+          "period": "07 月",
+          "clicks": 9146,
+          "impressions": 105840,
+          "ctr": 0.08641345427059713,
+          "position": 4.534221466364324
+        },
+        {
+          "sourceKey": "https://shopline.tw/08",
+          "siteLabel": "主站",
+          "period": "08 月",
+          "clicks": 8283,
+          "impressions": 90703,
+          "ctr": 0.09132002249098707,
+          "position": 4.381275150766788
+        },
+        {
+          "sourceKey": "sc-domain:blog.shopline.tw07",
+          "siteLabel": "部落格",
+          "period": "07 月",
+          "clicks": 11453,
+          "impressions": 1119300,
+          "ctr": 0.010232288037166085,
+          "position": 6.853774591262397
+        },
+        {
+          "sourceKey": "sc-domain:blog.shopline.tw08",
+          "siteLabel": "部落格",
+          "period": "08 月",
+          "clicks": 10989,
+          "impressions": 1007621,
+          "ctr": 0.010905886240957662,
+          "position": 6.787901006429997
+        }
+      ],
+      "ga0": [
+        {
+          "host": "shopline.tw",
+          "channel": "Organic Search",
+          "period": "7 月",
+          "sessions": 13957,
+          "engaged": 5514,
+          "users": 7028,
+          "engagementRate": 0.3950705739055671
+        },
+        {
+          "host": "shopline.tw",
+          "channel": "Organic Search",
+          "period": "8 月",
+          "sessions": 12446,
+          "engaged": 4950,
+          "users": 5990,
+          "engagementRate": 0.39771814237506026
+        },
+        {
+          "host": "shopline.tw",
+          "channel": "AI Assistant",
+          "period": "8 月",
+          "sessions": 413,
+          "engaged": 228,
+          "users": 321,
+          "engagementRate": 0.5520581113801453
+        },
+        {
+          "host": "shopline.tw",
+          "channel": "AI Assistant",
+          "period": "7 月",
+          "sessions": 323,
+          "engaged": 135,
+          "users": 223,
+          "engagementRate": 0.4179566563467492
+        }
+      ],
+      "ga0organic": [
+        {
+          "host": "shopline.tw",
+          "channel": "Organic Search",
+          "period": "7 月",
+          "sessions": 13957,
+          "engaged": 5514,
+          "users": 7028,
+          "engagementRate": 0.3950705739055671
+        },
+        {
+          "host": "shopline.tw",
+          "channel": "Organic Search",
+          "period": "8 月",
+          "sessions": 12446,
+          "engaged": 4950,
+          "users": 5990,
+          "engagementRate": 0.39771814237506026
+        }
+      ],
+      "ga0ai": [
+        {
+          "host": "shopline.tw",
+          "channel": "AI Assistant",
+          "period": "7 月",
+          "sessions": 323,
+          "engaged": 135,
+          "users": 223,
+          "engagementRate": 0.4179566563467492
+        },
+        {
+          "host": "shopline.tw",
+          "channel": "AI Assistant",
+          "period": "8 月",
+          "sessions": 413,
+          "engaged": 228,
+          "users": 321,
+          "engagementRate": 0.5520581113801453
+        }
+      ],
+      "ga1": [
+        {
+          "host": "blog.shopline.tw",
+          "channel": "Organic Search",
+          "period": "7 月",
+          "sessions": 17139,
+          "engaged": 7690,
+          "users": 12617,
+          "engagementRate": 0.4486842872979754
+        },
+        {
+          "host": "blog.shopline.tw",
+          "channel": "Organic Search",
+          "period": "8 月",
+          "sessions": 15533,
+          "engaged": 7226,
+          "users": 11814,
+          "engagementRate": 0.4652031159466941
+        },
+        {
+          "host": "blog.shopline.tw",
+          "channel": "AI Assistant",
+          "period": "8 月",
+          "sessions": 208,
+          "engaged": 75,
+          "users": 138,
+          "engagementRate": 0.3605769230769231
+        },
+        {
+          "host": "blog.shopline.tw",
+          "channel": "AI Assistant",
+          "period": "7 月",
+          "sessions": 187,
+          "engaged": 72,
+          "users": 131,
+          "engagementRate": 0.3850267379679144
+        }
+      ],
+      "ga1organic": [
+        {
+          "host": "blog.shopline.tw",
+          "channel": "Organic Search",
+          "period": "7 月",
+          "sessions": 17139,
+          "engaged": 7690,
+          "users": 12617,
+          "engagementRate": 0.4486842872979754
+        },
+        {
+          "host": "blog.shopline.tw",
+          "channel": "Organic Search",
+          "period": "8 月",
+          "sessions": 15533,
+          "engaged": 7226,
+          "users": 11814,
+          "engagementRate": 0.4652031159466941
+        }
+      ],
+      "ga1ai": [
+        {
+          "host": "blog.shopline.tw",
+          "channel": "AI Assistant",
+          "period": "7 月",
+          "sessions": 187,
+          "engaged": 72,
+          "users": 131,
+          "engagementRate": 0.3850267379679144
+        },
+        {
+          "host": "blog.shopline.tw",
+          "channel": "AI Assistant",
+          "period": "8 月",
+          "sessions": 208,
+          "engaged": 75,
+          "users": 138,
+          "engagementRate": 0.3605769230769231
+        }
+      ],
+      "geo": [
+        {
+          "entity": "91APP Inc.",
+          "period": "07 月",
+          "days": 31,
+          "visibility": 0.39128362108653447,
+          "sov": 0.12637671487236926
+        },
+        {
+          "entity": "BV SHOP",
+          "period": "07 月",
+          "days": 31,
+          "visibility": 0.12104030858498567,
+          "sov": 0.039184718383107865
+        },
+        {
+          "entity": "CYBERBIZ Corp.",
+          "period": "07 月",
+          "days": 31,
+          "visibility": 0.5521297974408388,
+          "sov": 0.17797590760268547
+        },
+        {
+          "entity": "EasyStore",
+          "period": "07 月",
+          "days": 31,
+          "visibility": 0.3142592986282081,
+          "sov": 0.10174826860992411
+        },
+        {
+          "entity": "Meepshop",
+          "period": "07 月",
+          "days": 31,
+          "visibility": 0.12591123907753293,
+          "sov": 0.04073384674643561
+        },
+        {
+          "entity": "Pinzap",
+          "period": "07 月",
+          "days": 31,
+          "visibility": 0.0010675655245994226,
+          "sov": 0.0003373215586342535
+        },
+        {
+          "entity": "SHOPLINE",
+          "period": "07 月",
+          "days": 31,
+          "visibility": 0.7744970834945065,
+          "sov": 0.25020793046417406
+        },
+        {
+          "entity": "Shopify Inc.",
+          "period": "07 月",
+          "days": 31,
+          "visibility": 0.5020734619075167,
+          "sov": 0.16177730951841846
+        },
+        {
+          "entity": "Shopify TW",
+          "period": "07 月",
+          "days": 31,
+          "visibility": 0.0003665689149560129,
+          "sov": 0.00011859582542694484
+        },
+        {
+          "entity": "WACA",
+          "period": "07 月",
+          "days": 31,
+          "visibility": 0.3136564919479295,
+          "sov": 0.101539386418824
+        },
+        {
+          "entity": "91APP Inc.",
+          "period": "08 月",
+          "days": 31,
+          "visibility": 0.3950302907645624,
+          "sov": 0.1319574631957204
+        },
+        {
+          "entity": "BV SHOP",
+          "period": "08 月",
+          "days": 31,
+          "visibility": 0.15740064521464373,
+          "sov": 0.05266938637630387
+        },
+        {
+          "entity": "CYBERBIZ Corp.",
+          "period": "08 月",
+          "days": 31,
+          "visibility": 0.4762452400876845,
+          "sov": 0.15914873802072352
+        },
+        {
+          "entity": "EasyStore",
+          "period": "08 月",
+          "days": 31,
+          "visibility": 0.31102389910184314,
+          "sov": 0.10390377757694229
+        },
+        {
+          "entity": "Meepshop",
+          "period": "08 月",
+          "days": 31,
+          "visibility": 0.1373438766975259,
+          "sov": 0.0459043353064062
+        },
+        {
+          "entity": "Pinzap",
+          "period": "08 月",
+          "days": 31,
+          "visibility": 0.0,
+          "sov": 0.0
+        },
+        {
+          "entity": "SHOPLINE",
+          "period": "08 月",
+          "days": 31,
+          "visibility": 0.7084951716074036,
+          "sov": 0.23703219903392184
+        },
+        {
+          "entity": "Shopify Inc.",
+          "period": "08 月",
+          "days": 31,
+          "visibility": 0.44172982891238627,
+          "sov": 0.1478696837690894
+        },
+        {
+          "entity": "Shopify TW",
+          "period": "08 月",
+          "days": 31,
+          "visibility": 0.0,
+          "sov": 0.0
+        },
+        {
+          "entity": "WACA",
+          "period": "08 月",
+          "days": 31,
+          "visibility": 0.36394215655037176,
+          "sov": 0.12151441672089265
+        }
+      ],
+      "geo-shopline": [
+        {
+          "entity": "SHOPLINE",
+          "period": "07 月",
+          "days": 31,
+          "visibility": 0.7744970834945065,
+          "sov": 0.25020793046417406,
+          "visibilityPct": 77.44970834945065
+        },
+        {
+          "entity": "SHOPLINE",
+          "period": "08 月",
+          "days": 31,
+          "visibility": 0.7084951716074036,
+          "sov": 0.23703219903392184,
+          "visibilityPct": 70.84951716074036
+        }
+      ],
+      "pages": [
+        {
+          "site": "https://shopline.tw/",
+          "page": "https://shopline.tw/",
+          "clicks": 5656,
+          "impressions": 48370,
+          "ctr": 0.11693198263386397
+        },
+        {
+          "site": "https://shopline.tw/",
+          "page": "https://shopline.tw/about/pricing",
+          "clicks": 319,
+          "impressions": 20747,
+          "ctr": 0.015375716971128356
+        },
+        {
+          "site": "https://shopline.tw/",
+          "page": "https://shopline.tw/payments",
+          "clicks": 253,
+          "impressions": 3184,
+          "ctr": 0.07945979899497488
+        },
+        {
+          "site": "https://shopline.tw/",
+          "page": "https://shopline.tw/about",
+          "clicks": 140,
+          "impressions": 20556,
+          "ctr": 0.006810663553220471
+        },
+        {
+          "site": "https://shopline.tw/",
+          "page": "https://shopline.tw/showcase",
+          "clicks": 96,
+          "impressions": 18354,
+          "ctr": 0.005230467473030402
+        },
+        {
+          "site": "https://shopline.tw/",
+          "page": "https://shopline.tw/news/shopline-app-store",
+          "clicks": 56,
+          "impressions": 355,
+          "ctr": 0.15774647887323945
+        },
+        {
+          "site": "https://shopline.tw/",
+          "page": "https://shopline.tw/faq/overview",
+          "clicks": 47,
+          "impressions": 804,
+          "ctr": 0.05845771144278607
+        },
+        {
+          "site": "https://shopline.tw/",
+          "page": "https://shopline.tw/faq/pos",
+          "clicks": 27,
+          "impressions": 325,
+          "ctr": 0.08307692307692308
+        },
+        {
+          "site": "https://shopline.tw/",
+          "page": "https://shopline.tw/online-store/health-and-supplements",
+          "clicks": 20,
+          "impressions": 11868,
+          "ctr": 0.0016852039096730705
+        },
+        {
+          "site": "https://shopline.tw/",
+          "page": "https://shopline.tw/shopper-app",
+          "clicks": 20,
+          "impressions": 3166,
+          "ctr": 0.006317119393556538
+        },
+        {
+          "site": "https://shopline.tw/",
+          "page": "https://shopline.tw/faq/about",
+          "clicks": 16,
+          "impressions": 11729,
+          "ctr": 0.001364140165401995
+        },
+        {
+          "site": "https://shopline.tw/",
+          "page": "https://shopline.tw/faq/plans",
+          "clicks": 16,
+          "impressions": 805,
+          "ctr": 0.01987577639751553
+        },
+        {
+          "site": "https://shopline.tw/",
+          "page": "https://shopline.tw/online-store/shop-builder",
+          "clicks": 15,
+          "impressions": 169,
+          "ctr": 0.08875739644970414
+        },
+        {
+          "site": "https://shopline.tw/",
+          "page": "https://shopline.tw/pos/features",
+          "clicks": 14,
+          "impressions": 376,
+          "ctr": 0.03723404255319149
+        },
+        {
+          "site": "https://shopline.tw/",
+          "page": "https://shopline.tw/ai",
+          "clicks": 10,
+          "impressions": 435,
+          "ctr": 0.022988505747126436
+        },
+        {
+          "site": "https://shopline.tw/",
+          "page": "https://shopline.tw/showcase/fashion-brand",
+          "clicks": 8,
+          "impressions": 1758,
+          "ctr": 0.004550625711035267
+        },
+        {
+          "site": "https://shopline.tw/",
+          "page": "https://shopline.tw/smart-omo",
+          "clicks": 7,
+          "impressions": 79,
+          "ctr": 0.08860759493670886
+        },
+        {
+          "site": "https://shopline.tw/",
+          "page": "https://shopline.tw/social-commerce",
+          "clicks": 7,
+          "impressions": 404,
+          "ctr": 0.017326732673267328
+        },
+        {
+          "site": "https://shopline.tw/",
+          "page": "https://shopline.tw/online-store-setup",
+          "clicks": 6,
+          "impressions": 3243,
+          "ctr": 0.0018501387604070306
+        },
+        {
+          "site": "https://shopline.tw/",
+          "page": "https://shopline.tw/selectedpartners",
+          "clicks": 6,
+          "impressions": 55,
+          "ctr": 0.10909090909090909
+        },
+        {
+          "site": "sc-domain:blog.shopline.tw",
+          "page": "https://blog.shopline.tw/ads-article-threads-marketing/",
+          "clicks": 1088,
+          "impressions": 340056,
+          "ctr": 0.0031994730279718635
+        },
+        {
+          "site": "sc-domain:blog.shopline.tw",
+          "page": "https://blog.shopline.tw/post-image-size-gh/",
+          "clicks": 555,
+          "impressions": 16545,
+          "ctr": 0.033544877606527655
+        },
+        {
+          "site": "sc-domain:blog.shopline.tw",
+          "page": "https://blog.shopline.tw/instagram-image-sizes/",
+          "clicks": 348,
+          "impressions": 23796,
+          "ctr": 0.014624306606152295
+        },
+        {
+          "site": "sc-domain:blog.shopline.tw",
+          "page": "https://blog.shopline.tw/free-stock-marketing-content/",
+          "clicks": 210,
+          "impressions": 10433,
+          "ctr": 0.020128438608262245
+        },
+        {
+          "site": "sc-domain:blog.shopline.tw",
+          "page": "https://blog.shopline.tw/ig-story-2018/",
+          "clicks": 197,
+          "impressions": 35224,
+          "ctr": 0.005592777651601181
+        },
+        {
+          "site": "sc-domain:blog.shopline.tw",
+          "page": "https://blog.shopline.tw/online-shopping-fraud-case-countermeasure/",
+          "clicks": 191,
+          "impressions": 6507,
+          "ctr": 0.029353004456738895
+        },
+        {
+          "site": "sc-domain:blog.shopline.tw",
+          "page": "https://blog.shopline.tw/what-is-pos/",
+          "clicks": 137,
+          "impressions": 8846,
+          "ctr": 0.015487225864797649
+        },
+        {
+          "site": "sc-domain:blog.shopline.tw",
+          "page": "https://blog.shopline.tw/brand-business-plan/",
+          "clicks": 56,
+          "impressions": 2437,
+          "ctr": 0.022979072630283134
+        },
+        {
+          "site": "sc-domain:blog.shopline.tw",
+          "page": "https://blog.shopline.tw/5-popular-product-type/",
+          "clicks": 48,
+          "impressions": 1762,
+          "ctr": 0.02724177071509648
+        },
+        {
+          "site": "sc-domain:blog.shopline.tw",
+          "page": "https://blog.shopline.tw/group-buying-guideline/",
+          "clicks": 47,
+          "impressions": 3245,
+          "ctr": 0.01448382126348228
+        },
+        {
+          "site": "sc-domain:blog.shopline.tw",
+          "page": "https://blog.shopline.tw/cross-border-vietnam-ec-platform-2021/",
+          "clicks": 33,
+          "impressions": 394,
+          "ctr": 0.08375634517766498
+        },
+        {
+          "site": "sc-domain:blog.shopline.tw",
+          "page": "https://blog.shopline.tw/ads-article-google-demand-gen-campaign/",
+          "clicks": 31,
+          "impressions": 840,
+          "ctr": 0.036904761904761905
+        },
+        {
+          "site": "sc-domain:blog.shopline.tw",
+          "page": "https://blog.shopline.tw/2022-anti-fraud/",
+          "clicks": 21,
+          "impressions": 633,
+          "ctr": 0.03317535545023697
+        },
+        {
+          "site": "sc-domain:blog.shopline.tw",
+          "page": "https://blog.shopline.tw/6-live-platform-compare/",
+          "clicks": 21,
+          "impressions": 3253,
+          "ctr": 0.00645557946510913
+        },
+        {
+          "site": "sc-domain:blog.shopline.tw",
+          "page": "https://blog.shopline.tw/ga4-gtm-faq/",
+          "clicks": 21,
+          "impressions": 2620,
+          "ctr": 0.00801526717557252
+        },
+        {
+          "site": "sc-domain:blog.shopline.tw",
+          "page": "https://blog.shopline.tw/partner-showcase-bebit-tech/",
+          "clicks": 21,
+          "impressions": 916,
+          "ctr": 0.02292576419213974
+        },
+        {
+          "site": "sc-domain:blog.shopline.tw",
+          "page": "https://blog.shopline.tw/what-is-threads/",
+          "clicks": 21,
+          "impressions": 9623,
+          "ctr": 0.0021822716408604385
+        },
+        {
+          "site": "sc-domain:blog.shopline.tw",
+          "page": "https://blog.shopline.tw/merchant-showcase-nozzle-quiz/",
+          "clicks": 20,
+          "impressions": 2285,
+          "ctr": 0.0087527352297593
+        },
+        {
+          "site": "sc-domain:blog.shopline.tw",
+          "page": "https://blog.shopline.tw/shopline-mcp-launch/",
+          "clicks": 20,
+          "impressions": 121,
+          "ctr": 0.1652892561983471
+        },
+        {
+          "site": "sc-domain:blog.shopline.tw",
+          "page": "https://blog.shopline.tw/12-brand-archetypes/",
+          "clicks": 19,
+          "impressions": 13313,
+          "ctr": 0.0014271764440772178
+        }
+      ]
+    },
+    "accessIssues": [
+      {
+        "id": "business-definition",
+        "message": "SQL 與成功轉換的正式來源／口徑尚未確認；本期不提供這兩項成果。"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "business",
+      "label": "正式業務來源｜2026 lead gen distribution",
+      "path": "https://docs.google.com/spreadsheets/d/1lfbDAu-YHBiRk9qOFUpKO7y2TFEmzDkaOxzuepJ6Ny8/edit#gid=1999633447",
+      "query": {
+        "description": "Google Drive MCP get_spreadsheet_cells；讀取 A111:L120。Non-Paid Leads：7 月 C119、8 月 G119；Target：B119、F119。達成率 = Actual / Target，月增率 = August / July - 1。",
+        "executed_at": "2026-09-06T10:03:33.270Z",
+        "filters": [
+          "TW；all_non_paid；原始數字儲存格；非 SEO 單一渠道",
+          "來源時區 Asia/Shanghai；2026 年 7、8 月"
+        ],
+        "tables_used": [
+          "mcp_evidence"
+        ],
+        "sql": "WITH cells AS (\n SELECT json_extract(payload, '$.business.sheets[0].data[0].rowData[8].values[6].userEnteredValue.numberValue') AS actual,\n json_extract(payload, '$.business.sheets[0].data[0].rowData[8].values[5].userEnteredValue.numberValue') AS target,\n json_extract(payload, '$.business.sheets[0].data[0].rowData[8].values[2].userEnteredValue.numberValue') AS prior\n FROM mcp_evidence)\n SELECT actual, target, 1.0*actual/target AS attainment, 1.0*actual/prior-1 AS mom, target-actual AS gap FROM cells",
+        "engine": "SQLite JSON1",
+        "language": "sql"
+      }
+    },
+    {
+      "id": "gsc",
+      "label": "Google Search Console MCP｜兩站台灣搜尋",
+      "path": "evidence.json",
+      "query": {
+        "description": "get_advanced_search_analytics；主站 https://shopline.tw/、部落格 sc-domain:blog.shopline.tw。dimensions=date，每月加總 clicks、impressions；CTR = sum(clicks)/sum(impressions)。平均排名依曝光加權，原始每日排名已四捨五入，僅為近似。",
+        "executed_at": "2026-09-06T10:03:33.270Z",
+        "filters": [
+          "2026-07-01–07-31 與 2026-08-01–08-31；各 31 天",
+          "WEB；country=twn；data_state=final；row_limit=100；無分頁剩餘",
+          "GSC 日界以來源太平洋時間為準"
+        ],
+        "tables_used": [
+          "mcp_evidence"
+        ],
+        "sql": "SELECT site.key AS sourceKey,\n CASE WHEN json_extract(site.value,'$.site_url') LIKE 'https:%' THEN '主站' ELSE '部落格' END AS siteLabel,\n substr(json_extract(site.value,'$.date_range.start'),6,2)||' 月' AS period,\n SUM(json_extract(day.value,'$.clicks')) AS clicks,\n SUM(json_extract(day.value,'$.impressions')) AS impressions,\n 1.0*SUM(json_extract(day.value,'$.clicks'))/SUM(json_extract(day.value,'$.impressions')) AS ctr,\n SUM(json_extract(day.value,'$.position')*json_extract(day.value,'$.impressions'))/SUM(json_extract(day.value,'$.impressions')) AS position\n FROM mcp_evidence, json_each(payload,'$.gsc') site, json_each(site.value,'$.rows') day GROUP BY site.key",
+        "engine": "SQLite JSON1",
+        "language": "sql"
+      }
+    },
+    {
+      "id": "ga0",
+      "label": "GA4 MCP｜shopline.tw",
+      "path": "https://analytics.google.com/analytics/web/#/p257016301",
+      "query": {
+        "description": "run_report；dimensions=hostName,sessionDefaultChannelGroup；metrics=sessions,engagedSessions,totalUsers。hostname 精確比對、不分大小寫；取 Organic Search、AI Assistant。互動率 = engagedSessions/sessions；保留工作階段渠道歸屬。",
+        "executed_at": "2026-09-06T10:03:33.270Z",
+        "filters": [
+          "2026 年 7、8 月；Asia/Taipei；未加 country 篩選，包含所有國家",
+          "各 property 分開報告；不跨 property 加總",
+          "hostName 為事件主機診斷切分，不等同 landing-session 口徑"
+        ],
+        "tables_used": [
+          "mcp_evidence"
+        ],
+        "sql": "SELECT json_extract(r.value,'$.dimension_values[0].value') AS host,\n json_extract(r.value,'$.dimension_values[1].value') AS channel,\n CASE json_extract(r.value,'$.dimension_values[2].value') WHEN 'July' THEN '7 月' ELSE '8 月' END AS period,\n CAST(json_extract(r.value,'$.metric_values[0].value') AS INTEGER) AS sessions,\n CAST(json_extract(r.value,'$.metric_values[1].value') AS INTEGER) AS engaged,\n CAST(json_extract(r.value,'$.metric_values[2].value') AS INTEGER) AS users,\n 1.0*json_extract(r.value,'$.metric_values[1].value')/json_extract(r.value,'$.metric_values[0].value') AS engagementRate\n FROM mcp_evidence, json_each(payload,'$.ga4[0].rows') r\n WHERE json_extract(r.value,'$.dimension_values[1].value') IN ('Organic Search','AI Assistant')",
+        "engine": "SQLite JSON1",
+        "language": "sql"
+      }
+    },
+    {
+      "id": "ga1",
+      "label": "GA4 MCP｜blog.shopline.tw",
+      "path": "https://analytics.google.com/analytics/web/#/p399614424",
+      "query": {
+        "description": "run_report；dimensions=hostName,sessionDefaultChannelGroup；metrics=sessions,engagedSessions,totalUsers。hostname 精確比對、不分大小寫；取 Organic Search、AI Assistant。互動率 = engagedSessions/sessions；保留工作階段渠道歸屬。",
+        "executed_at": "2026-09-06T10:03:33.270Z",
+        "filters": [
+          "2026 年 7、8 月；Asia/Taipei；未加 country 篩選，包含所有國家",
+          "各 property 分開報告；不跨 property 加總",
+          "hostName 為事件主機診斷切分，不等同 landing-session 口徑"
+        ],
+        "tables_used": [
+          "mcp_evidence"
+        ],
+        "sql": "SELECT json_extract(r.value,'$.dimension_values[0].value') AS host,\n json_extract(r.value,'$.dimension_values[1].value') AS channel,\n CASE json_extract(r.value,'$.dimension_values[2].value') WHEN 'July' THEN '7 月' ELSE '8 月' END AS period,\n CAST(json_extract(r.value,'$.metric_values[0].value') AS INTEGER) AS sessions,\n CAST(json_extract(r.value,'$.metric_values[1].value') AS INTEGER) AS engaged,\n CAST(json_extract(r.value,'$.metric_values[2].value') AS INTEGER) AS users,\n 1.0*json_extract(r.value,'$.metric_values[1].value')/json_extract(r.value,'$.metric_values[0].value') AS engagementRate\n FROM mcp_evidence, json_each(payload,'$.ga4[1].rows') r\n WHERE json_extract(r.value,'$.dimension_values[1].value') IN ('Organic Search','AI Assistant')",
+        "engine": "SQLite JSON1",
+        "language": "sql"
+      }
+    },
+    {
+      "id": "geo",
+      "label": "Workduo MCP｜SHOPLINE 台灣專案",
+      "path": "evidence.json",
+      "query": {
+        "description": "get_metrics；projectId=cmp2adkpz000gw209tj6025jc；metric=all；dimension=entity；interval=daily。每日 visibility、sov 取等權算術平均；mentions 逐日加總。這是每日平均監測指標，不是整月去重或按回覆量加權的比率。",
+        "executed_at": "2026-09-06T10:03:33.270Z",
+        "filters": [
+          "custom；2026 年 7、8 月；region=TW；onlyTrackedEntity=true",
+          "ignorePagination=true；pageSize=500；各 310 列、10 entities × 31 日；nextPageToken=null",
+          "提示題目與平台組成尚未做固定樣本對齊；僅描述監測樣本，不能推論全市場"
+        ],
+        "tables_used": [
+          "mcp_evidence"
+        ],
+        "sql": "SELECT json_extract(day.value,'$.dimensionValue') AS entity, month.key||' 月' AS period,\n COUNT(DISTINCT json_extract(day.value,'$.date')) AS days,\n AVG(json_extract(day.value,'$.visibility')) AS visibility, AVG(json_extract(day.value,'$.sov')) AS sov\n FROM mcp_evidence, json_each(payload,'$.geo') month, json_each(month.value,'$.data') day\n GROUP BY month.key, entity",
+        "engine": "SQLite JSON1",
+        "language": "sql"
+      }
+    },
+    {
+      "id": "pages",
+      "label": "Google Search Console MCP｜8 月頁面",
+      "path": "pages.json",
+      "query": {
+        "description": "get_advanced_search_analytics；dimensions=page；依 clicks 降序；row_limit=20。頁面 CTR = clicks/impressions；輸出 Top 20 作機會清單，不能用來推算全站總量或月降幅來源。",
+        "executed_at": "2026-09-06T10:03:33.270Z",
+        "filters": [
+          "2026-08-01–08-31；WEB；country=twn；data_state=final",
+          "主站與部落格各 Top 20；未取得 7 月逐頁對照"
+        ],
+        "tables_used": [
+          "mcp_pages"
+        ],
+        "sql": "SELECT site.key AS site, json_extract(page.value,'$.page') AS page,\n json_extract(page.value,'$.clicks') AS clicks, json_extract(page.value,'$.impressions') AS impressions,\n 1.0*json_extract(page.value,'$.clicks')/json_extract(page.value,'$.impressions') AS ctr\n FROM mcp_pages, json_each(payload) site, json_each(site.value,'$.rows') page",
+        "engine": "SQLite JSON1",
+        "language": "sql"
+      }
+    }
+  ]
+}
