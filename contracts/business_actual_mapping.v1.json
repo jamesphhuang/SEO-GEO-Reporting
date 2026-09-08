@@ -3,6 +3,13 @@
   "effective_date": "2026-09-06",
   "authority": "Read-only source inventory of the user-approved actuals workbook",
   "base_data_contract_version": "1.0.0",
+  "revision_log": [
+    {
+      "date": "2026-09-08",
+      "context": "Executive-overview report design review",
+      "change": "Additive evidence record only: located the candidate Non-Paid Leads SQL rows under unresolved_metrics.sql. No mapping was added, changed or removed; no status changed; mapping_version is intentionally unchanged."
+    }
+  ],
   "workbook": {
     "title": "2022-2026 TW MKT Monthly Reporting",
     "spreadsheet_id": "1lfbDAu-YHBiRk9qOFUpKO7y2TFEmzDkaOxzuepJ6Ny8",
@@ -90,7 +97,73 @@
     {
       "metric": "sql",
       "status": "SOURCE_NOT_CONFIRMED",
-      "reason": "Candidate rows include Salesforce SQL for 2023, Leads Acquisition Analysis SQL by product funnel, and year tabs with *SQL/*Qualified rows; no approved single total and segment definition is evidenced for the formal KPI."
+      "reason": "Candidate rows include Salesforce SQL for 2023, Leads Acquisition Analysis SQL by product funnel, and year tabs with *SQL/*Qualified rows; no approved single total and segment definition is evidenced for the formal KPI.",
+      "located_candidate": {
+        "recorded_on": "2026-09-08",
+        "recorded_by": "Executive-overview report design review",
+        "approval_state": "RECORDED_NOT_APPROVED",
+        "note": "Locating a row does not resolve the metric. Status remains SOURCE_NOT_CONFIRMED and this candidate must not be imported until the business owner confirms the segment definition and the cross-year label change recorded below.",
+        "candidate_segment": "non_paid_leads_sql",
+        "placement_rule": "One row immediately below the Non-Paid Leads row of the same block, using the same month columns as its parent row; C/G/K hold Actual.",
+        "source_tabs": [
+          {
+            "title": "2024 lead gen distribution",
+            "sheet_id": 848244723,
+            "row_label": "*Qualified",
+            "blocks": [
+              {"parent_data_row": 15, "data_row": 16, "month_columns": {"01": "C", "02": "G", "03": "K"}},
+              {"parent_data_row": 59, "data_row": 60, "month_columns": {"04": "C", "05": "G", "06": "K"}},
+              {"parent_data_row": 103, "data_row": 104, "month_columns": {"07": "C", "08": "G", "09": "K"}},
+              {"parent_data_row": 147, "data_row": 148, "month_columns": {"10": "C", "11": "G", "12": "K"}}
+            ]
+          },
+          {
+            "title": "2025 lead gen distribution",
+            "sheet_id": 1206034988,
+            "row_label": "*Qualified",
+            "blocks": [
+              {"parent_data_row": 15, "data_row": 16, "month_columns": {"01": "C", "02": "G", "03": "K"}},
+              {"parent_data_row": 59, "data_row": 60, "month_columns": {"04": "C", "05": "G", "06": "K"}},
+              {"parent_data_row": 103, "data_row": 104, "month_columns": {"07": "C", "08": "G", "09": "K"}},
+              {"parent_data_row": 147, "data_row": 148, "month_columns": {"10": "C", "11": "G", "12": "K"}}
+            ]
+          },
+          {
+            "title": "2026 lead gen distribution",
+            "sheet_id": 1999633447,
+            "row_label": "*SQL",
+            "blocks": [
+              {"parent_data_row": 23, "data_row": 24, "month_columns": {"01": "C", "02": "G", "03": "K"}},
+              {"parent_data_row": 71, "data_row": 72, "month_columns": {"04": "C", "05": "G", "06": "K"}},
+              {"parent_data_row": 119, "data_row": 120, "month_columns": {"07": "C", "08": "G", "09": "K"}},
+              {"parent_data_row": 163, "data_row": 164, "month_columns": {"10": "C", "11": "G", "12": "K"}}
+            ]
+          }
+        ],
+        "observed_2026": [
+          {"month": "01", "target": 90, "actual": 71},
+          {"month": "02", "target": 73, "actual": 50},
+          {"month": "03", "target": 114, "actual": 96},
+          {"month": "04", "target": 101, "actual": 98},
+          {"month": "05", "target": 108, "actual": 100},
+          {"month": "06", "target": 117, "actual": 118},
+          {"month": "07", "target": 102, "actual": 108},
+          {"month": "08", "target": 106, "actual": 72},
+          {"month": "09", "target": 97, "actual": 3},
+          {"month": "10", "target": 97, "actual": null},
+          {"month": "11", "target": 106, "actual": null},
+          {"month": "12", "target": 117, "actual": null}
+        ],
+        "observation_notes": [
+          "Observed 2026-09-08. The 09 actual is a partial month and the 10-12 actual cells are empty; their Reach Rate cells render 0 by formula, which must not be read as a zero actual.",
+          "Non-Paid Leads actuals in the same tab were restated on 2026-09-07, moving 2026-08 from 450 to 448, so these SQL figures are equally subject to restatement."
+        ],
+        "open_questions": [
+          "The row label is *Qualified in the 2024 and 2025 tabs and *SQL in the 2026 tab. Whether these name the same measure is not evidenced; a cross-year series would splice two differently-labelled rows.",
+          "Whether this row is the approved SQL KPI or only one funnel segment of it is not evidenced. Sibling rows carrying the same label exist under Inbound Total, Paid Leads, Trial Leads, Consultation and Feature Leads within the same blocks.",
+          "Maturity is governed by data_contract.v1.json sql_maturity, which is the lead month plus 60 calendar days. As of 2026-09-08 the most recent mature lead month is 2026-06; 2026-07 matures 2026-09-29 and 2026-08 matures 2026-10-30. Target attainment, formal trend and RAG remain excluded for immature months."
+        ]
+      }
     }
   ]
 }
