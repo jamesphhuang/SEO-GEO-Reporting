@@ -1,0 +1,125 @@
+{
+ "command": "/Users/pohsunhuang/Library/CloudStorage/GoogleDrive-james.ph.huang@shopline.com/我的雲端硬碟/SEO／GEO Reporting/97_Runtime/ga4-mcp/bin/google-analytics-mcp",
+ "args": [],
+ "env": {
+  "GOOGLE_APPLICATION_CREDENTIALS": "/Users/pohsunhuang/Library/CloudStorage/GoogleDrive-james.ph.huang@shopline.com/我的雲端硬碟/SEO／GEO Reporting/98_環境設定/ga4/application_default_credentials.json"
+ },
+ "calls": [
+  {
+   "name": "run_report",
+   "args": {
+    "property_id": "257016301",
+    "date_ranges": [
+     {
+      "start_date": "2026-07-01",
+      "end_date": "2026-07-31",
+      "name": "jul"
+     },
+     {
+      "start_date": "2026-08-01",
+      "end_date": "2026-08-31",
+      "name": "aug"
+     }
+    ],
+    "dimensions": [
+     "hostName",
+     "sessionDefaultChannelGroup"
+    ],
+    "metrics": [
+     "sessions",
+     "engagedSessions",
+     "totalUsers"
+    ],
+    "limit": 200
+   }
+  },
+  {
+   "name": "run_report",
+   "args": {
+    "property_id": "399614424",
+    "date_ranges": [
+     {
+      "start_date": "2026-07-01",
+      "end_date": "2026-07-31",
+      "name": "jul"
+     },
+     {
+      "start_date": "2026-08-01",
+      "end_date": "2026-08-31",
+      "name": "aug"
+     }
+    ],
+    "dimensions": [
+     "hostName",
+     "sessionDefaultChannelGroup"
+    ],
+    "metrics": [
+     "sessions",
+     "engagedSessions",
+     "totalUsers"
+    ],
+    "limit": 200
+   }
+  },
+  {
+   "name": "run_report",
+   "args": {
+    "property_id": "257016301",
+    "date_ranges": [
+     {
+      "start_date": "2026-06-01",
+      "end_date": "2026-08-31"
+     }
+    ],
+    "dimensions": [
+     "yearMonth",
+     "hostName",
+     "sessionDefaultChannelGroup"
+    ],
+    "metrics": [
+     "sessions"
+    ],
+    "dimension_filter": {
+     "filter": {
+      "field_name": "hostName",
+      "string_filter": {
+       "match_type": "EXACT",
+       "value": "shopline.tw"
+      }
+     }
+    },
+    "limit": 5000
+   }
+  },
+  {
+   "name": "run_report",
+   "args": {
+    "property_id": "399614424",
+    "date_ranges": [
+     {
+      "start_date": "2026-06-01",
+      "end_date": "2026-08-31"
+     }
+    ],
+    "dimensions": [
+     "yearMonth",
+     "hostName",
+     "sessionDefaultChannelGroup"
+    ],
+    "metrics": [
+     "sessions"
+    ],
+    "dimension_filter": {
+     "filter": {
+      "field_name": "hostName",
+      "string_filter": {
+       "match_type": "EXACT",
+       "value": "blog.shopline.tw"
+      }
+     }
+    },
+    "limit": 5000
+   }
+  }
+ ]
+}

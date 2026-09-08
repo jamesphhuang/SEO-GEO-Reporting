@@ -1,0 +1,1262 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SHOPLINE 台灣 SEO／GEO 月報｜2026 年 8 月</title></head><body><!-- Rendered by Code.gs doGet(); every figure comes from this workbook's tabs. -->
+<style>
+  :root {
+    --bg: #f6f7f9; --surface: #ffffff; --raised: #fbfcfd; --border: #e2e5eb;
+    --text: #12151c; --muted: #5b6373; --faint: #8a92a3;
+    --accent: #3563e9; --pos: #1c7f58; --neg: #c0433b;
+    --c1: #3563e9; --c2: #e0932c; --c3: #2b9c78; --c4: #9a5194;
+    --grid: #ecEEF2; --shadow: 0 1px 2px rgba(18,21,28,.06), 0 8px 24px rgba(18,21,28,.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1115; --surface: #171a21; --raised: #1d212a; --border: #2a2f3a;
+      --text: #e8eaef; --muted: #9aa2b1; --faint: #6f7887;
+      --accent: #6b8dff; --pos: #4cc38a; --neg: #f0776d;
+      --c1: #6b8dff; --c2: #f0b357; --c3: #4cc38a; --c4: #c07ab8;
+      --grid: #262b35; --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.6 -apple-system, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 28px 20px 72px; }
+
+  header.top { margin-bottom: 26px; }
+  h1 { font-size: 26px; line-height: 1.28; margin: 0 0 10px; letter-spacing: -.01em; font-weight: 650; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    font-size: 12.5px; color: var(--muted); background: var(--surface);
+    border: 1px solid var(--border); border-radius: 999px; padding: 3px 11px;
+    /* No nowrap: the source list grows as sources are added and must wrap on narrow screens. */
+    max-width: 100%;
+  }
+
+  nav.toc { display: flex; flex-wrap: wrap; gap: 6px; margin: 20px 0 30px; }
+  nav.toc a {
+    font-size: 13px; text-decoration: none; color: var(--muted); background: var(--surface);
+    border: 1px solid var(--border); border-radius: 7px; padding: 5px 11px;
+  }
+  nav.toc a:hover { color: var(--accent); border-color: var(--accent); }
+
+  section { margin: 0 0 40px; scroll-margin-top: 16px; }
+  h2 {
+    font-size: 18px; font-weight: 640; margin: 0 0 4px; letter-spacing: -.005em;
+    padding-bottom: 8px; border-bottom: 1px solid var(--border);
+  }
+  h2 .n { color: var(--faint); font-weight: 500; margin-right: 8px; font-variant-numeric: tabular-nums; }
+  .lede { color: var(--muted); font-size: 14px; margin: 10px 0 18px; max-width: 74ch; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(168px, 1fr)); gap: 12px; margin-bottom: 20px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 11px;
+    padding: 14px 16px; box-shadow: var(--shadow);
+  }
+  .card .k { font-size: 12.5px; color: var(--muted); margin-bottom: 6px; }
+  .card .v { font-size: 25px; font-weight: 620; font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+  .card .s { font-size: 12.5px; color: var(--faint); margin-top: 4px; font-variant-numeric: tabular-nums; }
+  .pos { color: var(--pos); } .neg { color: var(--neg); }
+
+  .panel {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 11px;
+    padding: 16px 18px; box-shadow: var(--shadow); margin-bottom: 16px;
+  }
+  .panel > h3 { font-size: 14.5px; font-weight: 620; margin: 0 0 2px; }
+  .panel > .sub { font-size: 12.5px; color: var(--muted); margin: 0 0 14px; }
+  svg.chart { display: block; width: 100%; height: auto; }
+  .legend { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 10px; font-size: 12.5px; color: var(--muted); }
+  .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+
+  .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table { border-collapse: collapse; width: 100%; font-size: 13.5px; min-width: 520px; }
+  th, td { text-align: right; padding: 8px 11px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  th { color: var(--muted); font-weight: 600; font-size: 12.5px; background: var(--raised); position: sticky; top: 0; }
+  th:first-child, td:first-child, th.l, td.l { text-align: left; }
+  td { font-variant-numeric: tabular-nums; }
+  tbody tr:hover td { background: var(--raised); }
+  td.l a { color: var(--accent); text-decoration: none; }
+  td.l a:hover { text-decoration: underline; }
+  .trunc { max-width: 420px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; vertical-align: bottom; }
+
+  .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
+  .toolbar button {
+    font: inherit; font-size: 12.5px; color: var(--muted); background: var(--surface);
+    border: 1px solid var(--border); border-radius: 7px; padding: 4px 11px; cursor: pointer;
+  }
+  .toolbar button[aria-pressed="true"] { color: #fff; background: var(--accent); border-color: var(--accent); }
+
+  .note {
+    background: var(--raised); border: 1px solid var(--border); border-left: 3px solid var(--c2);
+    border-radius: 8px; padding: 12px 14px; font-size: 13.5px; color: var(--muted);
+  }
+  h3.subhead {
+    font-size: 15px; font-weight: 640; margin: 28px 0 14px; padding-top: 18px;
+    border-top: 1px solid var(--border);
+  }
+  h3.subhead:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+  h3.subhead .q { color: var(--faint); font-weight: 500; font-size: 12.5px; margin-left: 9px; }
+  .src { margin: 0 0 14px; }
+  .src:last-child { margin-bottom: 0; }
+  .src .id { font-size: 12px; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+  .src .lb { font-size: 14px; font-weight: 600; margin: 2px 0 6px; }
+  .src p { margin: 0 0 5px; font-size: 13px; color: var(--muted); }
+  ul.tight { margin: 0; padding-left: 20px; }
+  ul.tight li { margin-bottom: 7px; font-size: 13.5px; color: var(--muted); }
+  ul.tight li strong { color: var(--text); }
+  footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 12.5px; color: var(--faint); }
+  footer a { color: var(--accent); }
+  @media (max-width: 560px) {
+    .wrap { padding: 20px 14px 56px; }
+    h1 { font-size: 21px; }
+    .card .v { font-size: 22px; }
+  }
+  /* actions, badges and the collapsible notes block used by the exec view */
+  ul.actions { list-style: none; margin: 0; padding: 0; }
+  ul.actions li {
+    padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 14px;
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline;
+  }
+  ul.actions li:last-child { border-bottom: 0; }
+  .tag {
+    flex: none; font-size: 11.5px; color: var(--muted); background: var(--raised);
+    border: 1px solid var(--border); border-radius: 4px; padding: 1px 7px;
+  }
+  .badge { flex: none; font-size: 11.5px; border-radius: 4px; padding: 1px 7px; background: var(--raised); color: var(--muted); }
+  .badge.pos { color: var(--pos); } .badge.neg { color: var(--neg); }
+  .ref { flex: none; font-size: 11px; color: var(--faint); font-variant-numeric: tabular-nums; }
+  .card.box { text-align: left; }
+  .card.box .row {
+    display: flex; justify-content: space-between; gap: 12px; padding: 5px 0;
+    font-size: 13.5px; color: var(--muted); border-top: 1px solid var(--border);
+  }
+  .card.box .row:first-of-type { border-top: 0; }
+  .card.box .row b { font-weight: 620; color: var(--text); font-variant-numeric: tabular-nums; }
+  .card.box .row b.pos { color: var(--pos); } .card.box .row b.neg { color: var(--neg); }
+  details.notes { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 0 16px; margin-top: 26px; }
+  details.notes > summary { cursor: pointer; padding: 13px 0; font-size: 13.5px; color: var(--muted); font-weight: 560; }
+  details.notes ul { margin: 0 0 14px; padding-left: 20px; font-size: 13px; color: var(--muted); }
+  details.notes li { margin-bottom: 7px; }
+  @media print {
+    details.notes { border-color: var(--border); }
+    details.notes > summary { list-style: none; }
+  }
+</style>
+
+<div class="wrap" id="root">載入中…</div>
+
+<script>
+var PAYLOAD = {"meta": {"reportTitle": "SHOPLINE 台灣 SEO／GEO 月報｜2026 年 8 月", "periodCurrent": "2026-08", "periodPrevious": "2026-07", "generatedAt": "2026-09-08T09:24:43Z", "geoSnapshotAt": "2026-09-06T10:03:33.270Z", "technicalStatus": "OK", "cwvStatus": "OK", "cwvPeriod": "2026-08-09 – 2026-09-05", "cwvRetrievedAt": "2026-09-07T07:20:28Z", "businessSpreadsheetId": "1lfbDAu-YHBiRk9qOFUpKO7y2TFEmzDkaOxzuepJ6Ny8", "businessSourceTab": "2026 lead gen distribution", "businessSourceRow": 119, "businessAsOf": "2026-09-08T09:24:43Z"}, "tables": {"Business": [{"label": "Non-Paid Leads", "julTarget": 537, "julActual": 477, "julReach": 0.888268156424581, "augTarget": 620, "augActual": 448, "augReach": 0.7225806451612903, "momChange": -0.06079664570230603, "gap": 172, "sepTarget": 570, "sqlStatus": "OK", "sqlLabel": "*SQL", "sqlTarget": 106, "sqlActual": 72, "sqlMatureOn": "2026-10-30", "sqlIsMature": false, "sqlReach": null, "sqlMomChange": null, "sqlSourceStatus": "SOURCE_NOT_CONFIRMED", "sqlSourceRow": 120}], "GSC_Monthly": [{"siteLabel": "主站 shopline.tw", "month": "03", "monthLabel": "3 月", "days": 31, "clicks": 9874, "impressions": 106625, "ctr": 0.09260492379835873, "position": 6.60802532239156}, {"siteLabel": "主站 shopline.tw", "month": "04", "monthLabel": "4 月", "days": 30, "clicks": 8730, "impressions": 88467, "ctr": 0.09868086405100207, "position": 5.4501814235816735}, {"siteLabel": "主站 shopline.tw", "month": "05", "monthLabel": "5 月", "days": 31, "clicks": 7578, "impressions": 90334, "ctr": 0.08388867978834104, "position": 5.282638873513849}, {"siteLabel": "主站 shopline.tw", "month": "06", "monthLabel": "6 月", "days": 30, "clicks": 10233, "impressions": 103131, "ctr": 0.09922331791604852, "position": 4.399720743520377}, {"siteLabel": "主站 shopline.tw", "month": "07", "monthLabel": "7 月", "days": 31, "clicks": 9146, "impressions": 105840, "ctr": 0.08641345427059713, "position": 4.534221466364324}, {"siteLabel": "主站 shopline.tw", "month": "08", "monthLabel": "8 月", "days": 31, "clicks": 8283, "impressions": 90703, "ctr": 0.09132002249098707, "position": 4.381275150766789}, {"siteLabel": "部落格 blog.shopline.tw", "month": "03", "monthLabel": "3 月", "days": 31, "clicks": 18688, "impressions": 1027930, "ctr": 0.01818022627999961, "position": 6.4478767036665925}, {"siteLabel": "部落格 blog.shopline.tw", "month": "04", "monthLabel": "4 月", "days": 30, "clicks": 15740, "impressions": 971132, "ctr": 0.016207889349748542, "position": 6.74768383700671}, {"siteLabel": "部落格 blog.shopline.tw", "month": "05", "monthLabel": "5 月", "days": 31, "clicks": 14710, "impressions": 963403, "ctr": 0.015268791980095557, "position": 7.52649161358227}, {"siteLabel": "部落格 blog.shopline.tw", "month": "06", "monthLabel": "6 月", "days": 30, "clicks": 12666, "impressions": 1069929, "ctr": 0.011838168700913799, "position": 7.421862946045953}, {"siteLabel": "部落格 blog.shopline.tw", "month": "07", "monthLabel": "7 月", "days": 31, "clicks": 11453, "impressions": 1119300, "ctr": 0.010232288037166085, "position": 6.853774591262394}, {"siteLabel": "部落格 blog.shopline.tw", "month": "08", "monthLabel": "8 月", "days": 31, "clicks": 10989, "impressions": 1007621, "ctr": 0.010905886240957662, "position": 6.787901006429996}], "GSC_Delta": [{"siteLabel": "主站 shopline.tw", "clicksJul": 9146, "clicksAug": 8283, "clicksChange": -0.09435818937240326, "imprJul": 105840, "imprAug": 90703, "imprChange": -0.14301776266061983, "ctrJul": 0.08641345427059713, "ctrAug": 0.09132002249098707, "ctrChangePt": 0.49065682203899424, "posJul": 4.534221466364324, "posAug": 4.381275150766789, "posChange": -0.1529463155975348}, {"siteLabel": "部落格 blog.shopline.tw", "clicksJul": 11453, "clicksAug": 10989, "clicksChange": -0.040513402601938364, "imprJul": 1119300, "imprAug": 1007621, "imprChange": -0.09977575270258199, "ctrJul": 0.010232288037166085, "ctrAug": 0.010905886240957662, "ctrChangePt": 0.06735982037915766, "posJul": 6.853774591262394, "posAug": 6.787901006429996, "posChange": -0.06587358483239836}], "GSC_Pages": [{"siteLabel": "主站 shopline.tw", "page": "https://shopline.tw/", "clicks": 5656, "impressions": 48370, "ctr": 0.1169, "position": 3.3}, {"siteLabel": "部落格 blog.shopline.tw", "page": "https://blog.shopline.tw/ads-article-threads-marketing/", "clicks": 1088, "impressions": 340056, "ctr": 0.0032, "position": 5.1}, {"siteLabel": "部落格 blog.shopline.tw", "page": "https://blog.shopline.tw/post-image-size-gh/", "clicks": 555, "impressions": 16545, "ctr": 0.0335, "position": 4.1}, {"siteLabel": "部落格 blog.shopline.tw", "page": "https://blog.shopline.tw/instagram-image-sizes/", "clicks": 348, "impressions": 23796, "ctr": 0.0146, "position": 4.9}, {"siteLabel": "主站 shopline.tw", "page": "https://shopline.tw/about/pricing", "clicks": 319, "impressions": 20747, "ctr": 0.0154, "position": 1.5}, {"siteLabel": "主站 shopline.tw", "page": "https://shopline.tw/payments", "clicks": 253, "impressions": 3184, "ctr": 0.0795, "position": 2.9}, {"siteLabel": "部落格 blog.shopline.tw", "page": "https://blog.shopline.tw/free-stock-marketing-content/", "clicks": 210, "impressions": 10433, "ctr": 0.0201, "position": 6.9}, {"siteLabel": "部落格 blog.shopline.tw", "page": "https://blog.shopline.tw/ig-story-2018/", "clicks": 197, "impressions": 35224, "ctr": 0.0056, "position": 6.2}, {"siteLabel": "部落格 blog.shopline.tw", "page": "https://blog.shopline.tw/online-shopping-fraud-case-countermeasure/", "clicks": 191, "impressions": 6507, "ctr": 0.0294, "position": 7.3}, {"siteLabel": "主站 shopline.tw", "page": "https://shopline.tw/about", "clicks": 140, "impressions": 20556, "ctr": 0.0068, "position": 1.4}, {"siteLabel": "部落格 blog.shopline.tw", "page": "https://blog.shopline.tw/what-is-pos/", "clicks": 137, "impressions": 8846, "ctr": 0.0155, "position": 4.5}, {"siteLabel": "主站 shopline.tw", "page": "https://shopline.tw/showcase", "clicks": 96, "impressions": 18354, "ctr": 0.0052, "position": 1.2}, {"siteLabel": "主站 shopline.tw", "page": "https://shopline.tw/news/shopline-app-store", "clicks": 56, "impressions": 355, "ctr": 0.1577, "position": 4}, {"siteLabel": "部落格 blog.shopline.tw", "page": "https://blog.shopline.tw/brand-business-plan/", "clicks": 56, "impressions": 2437, "ctr": 0.023, "position": 8.4}, {"siteLabel": "部落格 blog.shopline.tw", "page": "https://blog.shopline.tw/5-popular-product-type/", "clicks": 48, "impressions": 1762, "ctr": 0.0272, "position": 6.8}, {"siteLabel": "主站 shopline.tw", "page": "https://shopline.tw/faq/overview", "clicks": 47, "impressions": 804, "ctr": 0.0585, "position": 2.6}, {"siteLabel": "部落格 blog.shopline.tw", "page": "https://blog.shopline.tw/group-buying-guideline/", "clicks": 47, "impressions": 3245, "ctr": 0.0145, "position": 9.7}, {"siteLabel": "部落格 blog.shopline.tw", "page": "https://blog.shopline.tw/cross-border-vietnam-ec-platform-2021/", "clicks": 33, "impressions": 394, "ctr": 0.0838, "position": 4.2}, {"siteLabel": "部落格 blog.shopline.tw", "page": "https://blog.shopline.tw/ads-article-google-demand-gen-campaign/", "clicks": 31, "impressions": 840, "ctr": 0.0369, "position": 5.2}, {"siteLabel": "主站 shopline.tw", "page": "https://shopline.tw/faq/pos", "clicks": 27, "impressions": 325, "ctr": 0.0831, "position": 6.4}, {"siteLabel": "部落格 blog.shopline.tw", "page": "https://blog.shopline.tw/2022-anti-fraud/", "clicks": 21, "impressions": 633, "ctr": 0.0332, "position": 2.9}, {"siteLabel": "部落格 blog.shopline.tw", "page": "https://blog.shopline.tw/6-live-platform-compare/", "clicks": 21, "impressions": 3253, "ctr": 0.0065, "position": 9.4}, {"siteLabel": "部落格 blog.shopline.tw", "page": "https://blog.shopline.tw/ga4-gtm-faq/", "clicks": 21, "impressions": 2620, "ctr": 0.008, "position": 8.5}, {"siteLabel": "部落格 blog.shopline.tw", "page": "https://blog.shopline.tw/partner-showcase-bebit-tech/", "clicks": 21, "impressions": 916, "ctr": 0.0229, "position": 6.3}, {"siteLabel": "部落格 blog.shopline.tw", "page": "https://blog.shopline.tw/what-is-threads/", "clicks": 21, "impressions": 9623, "ctr": 0.0022, "position": 10.8}, {"siteLabel": "主站 shopline.tw", "page": "https://shopline.tw/online-store/health-and-supplements", "clicks": 20, "impressions": 11868, "ctr": 0.0017, "position": 1.3}, {"siteLabel": "主站 shopline.tw", "page": "https://shopline.tw/shopper-app", "clicks": 20, "impressions": 3166, "ctr": 0.0063, "position": 2}, {"siteLabel": "部落格 blog.shopline.tw", "page": "https://blog.shopline.tw/merchant-showcase-nozzle-quiz/", "clicks": 20, "impressions": 2285, "ctr": 0.0088, "position": 7}, {"siteLabel": "部落格 blog.shopline.tw", "page": "https://blog.shopline.tw/shopline-mcp-launch/", "clicks": 20, "impressions": 121, "ctr": 0.1653, "position": 3}, {"siteLabel": "部落格 blog.shopline.tw", "page": "https://blog.shopline.tw/12-brand-archetypes/", "clicks": 19, "impressions": 13313, "ctr": 0.0014, "position": 7.2}, {"siteLabel": "部落格 blog.shopline.tw", "page": "https://blog.shopline.tw/12-brand-archetypes/?related_post_from=35588", "clicks": 19, "impressions": 2886, "ctr": 0.0066, "position": 4.6}, {"siteLabel": "部落格 blog.shopline.tw", "page": "https://blog.shopline.tw/geo-aeo-traffic-enhance-strategy/", "clicks": 18, "impressions": 1023, "ctr": 0.0176, "position": 12}, {"siteLabel": "部落格 blog.shopline.tw", "page": "https://blog.shopline.tw/manage-your-inventory/", "clicks": 18, "impressions": 1342, "ctr": 0.0134, "position": 8.8}, {"siteLabel": "部落格 blog.shopline.tw", "page": "https://blog.shopline.tw/shopline-mcp-inside/", "clicks": 18, "impressions": 218, "ctr": 0.0826, "position": 3.1}, {"siteLabel": "部落格 blog.shopline.tw", "page": "https://blog.shopline.tw/2026-retail-and-marketing-trend-insight/", "clicks": 17, "impressions": 893, "ctr": 0.019, "position": 14.4}, {"siteLabel": "主站 shopline.tw", "page": "https://shopline.tw/faq/about", "clicks": 16, "impressions": 11729, "ctr": 0.0014, "position": 1.4}, {"siteLabel": "主站 shopline.tw", "page": "https://shopline.tw/faq/plans", "clicks": 16, "impressions": 805, "ctr": 0.0199, "position": 4.4}, {"siteLabel": "主站 shopline.tw", "page": "https://shopline.tw/online-store/shop-builder", "clicks": 15, "impressions": 169, "ctr": 0.0888, "position": 6.7}, {"siteLabel": "主站 shopline.tw", "page": "https://shopline.tw/pos/features", "clicks": 14, "impressions": 376, "ctr": 0.0372, "position": 11.6}, {"siteLabel": "主站 shopline.tw", "page": "https://shopline.tw/ai", "clicks": 10, "impressions": 435, "ctr": 0.023, "position": 4.9}, {"siteLabel": "主站 shopline.tw", "page": "https://shopline.tw/showcase/fashion-brand", "clicks": 8, "impressions": 1758, "ctr": 0.0046, "position": 1.5}, {"siteLabel": "主站 shopline.tw", "page": "https://shopline.tw/smart-omo", "clicks": 7, "impressions": 79, "ctr": 0.0886, "position": 6.1}, {"siteLabel": "主站 shopline.tw", "page": "https://shopline.tw/social-commerce", "clicks": 7, "impressions": 404, "ctr": 0.0173, "position": 8.2}, {"siteLabel": "主站 shopline.tw", "page": "https://shopline.tw/online-store-setup", "clicks": 6, "impressions": 3243, "ctr": 0.0019, "position": 9.1}, {"siteLabel": "主站 shopline.tw", "page": "https://shopline.tw/selectedpartners", "clicks": 6, "impressions": 55, "ctr": 0.1091, "position": 11.5}, {"siteLabel": "主站 shopline.tw", "page": "https://shopline.tw/news/shopline-payments-aftee", "clicks": 5, "impressions": 1137, "ctr": 0.0044, "position": 8}, {"siteLabel": "主站 shopline.tw", "page": "https://shopline.tw/online-store/features", "clicks": 5, "impressions": 14617, "ctr": 0.0003, "position": 1.8}, {"siteLabel": "主站 shopline.tw", "page": "https://shopline.tw/templates", "clicks": 5, "impressions": 215, "ctr": 0.0233, "position": 2.6}, {"siteLabel": "主站 shopline.tw", "page": "https://shopline.tw/logistics", "clicks": 4, "impressions": 125, "ctr": 0.032, "position": 20.5}, {"siteLabel": "主站 shopline.tw", "page": "https://shopline.tw/showcase/health-and-supplements", "clicks": 4, "impressions": 259, "ctr": 0.0154, "position": 7.2}], "GSC_Queries": [{"siteLabel": "主站 shopline.tw", "query": "shopline", "clicks": 4877, "impressions": 18496, "ctr": 0.2637, "position": 1.1}, {"siteLabel": "部落格 blog.shopline.tw", "query": "脆", "clicks": 850, "impressions": 274411, "ctr": 0.0031, "position": 4.3}, {"siteLabel": "主站 shopline.tw", "query": "shopline後台", "clicks": 157, "impressions": 7206, "ctr": 0.0218, "position": 3.5}, {"siteLabel": "部落格 blog.shopline.tw", "query": "免費圖庫", "clicks": 135, "impressions": 3914, "ctr": 0.0345, "position": 4.9}, {"siteLabel": "主站 shopline.tw", "query": "shopline payments", "clicks": 118, "impressions": 642, "ctr": 0.1838, "position": 1.8}, {"siteLabel": "主站 shopline.tw", "query": "shop line", "clicks": 108, "impressions": 391, "ctr": 0.2762, "position": 1}, {"siteLabel": "部落格 blog.shopline.tw", "query": "ig 限時動態", "clicks": 84, "impressions": 9659, "ctr": 0.0087, "position": 6.3}, {"siteLabel": "主站 shopline.tw", "query": "shopline 後台", "clicks": 82, "impressions": 3205, "ctr": 0.0256, "position": 4.1}, {"siteLabel": "主站 shopline.tw", "query": "shopline是什麼", "clicks": 77, "impressions": 573, "ctr": 0.1344, "position": 1.4}, {"siteLabel": "部落格 blog.shopline.tw", "query": "threads", "clicks": 68, "impressions": 48998, "ctr": 0.0014, "position": 8.9}, {"siteLabel": "主站 shopline.tw", "query": "shopline payment", "clicks": 65, "impressions": 411, "ctr": 0.1582, "position": 1.1}, {"siteLabel": "主站 shopline.tw", "query": "shopline admin", "clicks": 49, "impressions": 1024, "ctr": 0.0479, "position": 2.4}, {"siteLabel": "部落格 blog.shopline.tw", "query": "ig尺寸", "clicks": 49, "impressions": 1108, "ctr": 0.0442, "position": 1.6}, {"siteLabel": "主站 shopline.tw", "query": "shopline 方案", "clicks": 46, "impressions": 337, "ctr": 0.1365, "position": 10.3}, {"siteLabel": "主站 shopline.tw", "query": "shopline 費用", "clicks": 46, "impressions": 216, "ctr": 0.213, "position": 1.2}, {"siteLabel": "主站 shopline.tw", "query": "shopline 後台 登入", "clicks": 37, "impressions": 550, "ctr": 0.0673, "position": 2.3}, {"siteLabel": "主站 shopline.tw", "query": "shopline api", "clicks": 36, "impressions": 204, "ctr": 0.1765, "position": 3.1}, {"siteLabel": "主站 shopline.tw", "query": "shopline 購物", "clicks": 36, "impressions": 191, "ctr": 0.1885, "position": 1.1}, {"siteLabel": "主站 shopline.tw", "query": "shopline 官網", "clicks": 34, "impressions": 141, "ctr": 0.2411, "position": 1.7}, {"siteLabel": "部落格 blog.shopline.tw", "query": "shopline mcp", "clicks": 34, "impressions": 233, "ctr": 0.1459, "position": 2.5}, {"siteLabel": "部落格 blog.shopline.tw", "query": "脆是什麼", "clicks": 34, "impressions": 1936, "ctr": 0.0176, "position": 7.3}, {"siteLabel": "主站 shopline.tw", "query": "shopline-sl", "clicks": 29, "impressions": 184, "ctr": 0.1576, "position": 1.1}, {"siteLabel": "部落格 blog.shopline.tw", "query": "fb尺寸", "clicks": 29, "impressions": 381, "ctr": 0.0761, "position": 1.4}, {"siteLabel": "主站 shopline.tw", "query": "電商平台", "clicks": 28, "impressions": 1276, "ctr": 0.0219, "position": 2.1}, {"siteLabel": "部落格 blog.shopline.tw", "query": "pos系統", "clicks": 28, "impressions": 904, "ctr": 0.031, "position": 1.7}, {"siteLabel": "主站 shopline.tw", "query": "shopline pos", "clicks": 27, "impressions": 117, "ctr": 0.2308, "position": 3.2}, {"siteLabel": "主站 shopline.tw", "query": "shipline", "clicks": 26, "impressions": 55, "ctr": 0.4727, "position": 1.1}, {"siteLabel": "部落格 blog.shopline.tw", "query": "fb貼文尺寸", "clicks": 26, "impressions": 784, "ctr": 0.0332, "position": 1.5}, {"siteLabel": "主站 shopline.tw", "query": "商線", "clicks": 25, "impressions": 312, "ctr": 0.0801, "position": 1.1}, {"siteLabel": "部落格 blog.shopline.tw", "query": "ig圖片尺寸", "clicks": 25, "impressions": 390, "ctr": 0.0641, "position": 2.4}, {"siteLabel": "部落格 blog.shopline.tw", "query": "團購", "clicks": 25, "impressions": 2106, "ctr": 0.0119, "position": 10}, {"siteLabel": "部落格 blog.shopline.tw", "query": "臉書尺寸", "clicks": 25, "impressions": 148, "ctr": 0.1689, "position": 1.4}, {"siteLabel": "部落格 blog.shopline.tw", "query": "fb 尺寸", "clicks": 24, "impressions": 178, "ctr": 0.1348, "position": 3}, {"siteLabel": "部落格 blog.shopline.tw", "query": "pos機是什麼", "clicks": 24, "impressions": 726, "ctr": 0.0331, "position": 1.6}, {"siteLabel": "主站 shopline.tw", "query": "ｓｈｏｐｌｉｎｅ", "clicks": 23, "impressions": 137, "ctr": 0.1679, "position": 1.1}, {"siteLabel": "部落格 blog.shopline.tw", "query": "ig 尺寸", "clicks": 22, "impressions": 535, "ctr": 0.0411, "position": 1.5}, {"siteLabel": "部落格 blog.shopline.tw", "query": "shopline 詐騙", "clicks": 22, "impressions": 359, "ctr": 0.0613, "position": 1.9}, {"siteLabel": "主站 shopline.tw", "query": "shopline方案", "clicks": 21, "impressions": 57, "ctr": 0.3684, "position": 1}, {"siteLabel": "主站 shopline.tw", "query": "先科技有限公司", "clicks": 21, "impressions": 600, "ctr": 0.035, "position": 2.3}, {"siteLabel": "部落格 blog.shopline.tw", "query": "脆threads", "clicks": 20, "impressions": 5611, "ctr": 0.0036, "position": 6.6}, {"siteLabel": "主站 shopline.tw", "query": "先科技", "clicks": 19, "impressions": 285, "ctr": 0.0667, "position": 1.8}, {"siteLabel": "部落格 blog.shopline.tw", "query": "圖庫", "clicks": 19, "impressions": 2016, "ctr": 0.0094, "position": 7}, {"siteLabel": "主站 shopline.tw", "query": "shopline 店家", "clicks": 18, "impressions": 33, "ctr": 0.5455, "position": 1}, {"siteLabel": "主站 shopline.tw", "query": "shopline 是 什麼", "clicks": 17, "impressions": 171, "ctr": 0.0994, "position": 1.2}, {"siteLabel": "部落格 blog.shopline.tw", "query": "脆是什麼平台", "clicks": 17, "impressions": 341, "ctr": 0.0499, "position": 4.4}, {"siteLabel": "部落格 blog.shopline.tw", "query": "脆是哪國的", "clicks": 17, "impressions": 738, "ctr": 0.023, "position": 3.6}, {"siteLabel": "部落格 blog.shopline.tw", "query": "臉書圖片尺寸", "clicks": 17, "impressions": 106, "ctr": 0.1604, "position": 1.2}, {"siteLabel": "部落格 blog.shopline.tw", "query": "fb banner 尺寸", "clicks": 16, "impressions": 406, "ctr": 0.0394, "position": 2.8}, {"siteLabel": "部落格 blog.shopline.tw", "query": "nozzle quiz", "clicks": 16, "impressions": 1705, "ctr": 0.0094, "position": 5.9}, {"siteLabel": "部落格 blog.shopline.tw", "query": "pos 系統", "clicks": 16, "impressions": 453, "ctr": 0.0353, "position": 1.8}], "GA4_Channels": [{"propertyId": "257016301", "siteLabel": "主站 shopline.tw", "hostname": "shopline.tw", "channel": "Organic Search", "sessionsJul": 13957, "sessionsAug": 12446, "sessionsChange": -0.10826108762628073, "usersAug": 5990, "engagementJul": 0.3950705739055671, "engagementAug": 0.39771814237506026}, {"propertyId": "257016301", "siteLabel": "主站 shopline.tw", "hostname": "shopline.tw", "channel": "AI Assistant", "sessionsJul": 323, "sessionsAug": 413, "sessionsChange": 0.2786377708978329, "usersAug": 321, "engagementJul": 0.4179566563467492, "engagementAug": 0.5520581113801453}, {"propertyId": "399614424", "siteLabel": "部落格 blog.shopline.tw", "hostname": "blog.shopline.tw", "channel": "Organic Search", "sessionsJul": 17139, "sessionsAug": 15533, "sessionsChange": -0.09370441682711939, "usersAug": 11814, "engagementJul": 0.4486842872979754, "engagementAug": 0.4652031159466941}, {"propertyId": "399614424", "siteLabel": "部落格 blog.shopline.tw", "hostname": "blog.shopline.tw", "channel": "AI Assistant", "sessionsJul": 187, "sessionsAug": 208, "sessionsChange": 0.11229946524064172, "usersAug": 138, "engagementJul": 0.3850267379679144, "engagementAug": 0.3605769230769231}], "GEO_Workduo": [{"entity": "SHOPLINE", "visibilityJul": 0.7744970834945065, "visibilityAug": 0.7084951716074036, "visibilityChangePt": -6.6001911887102915, "sovJul": 0.2502079304641741, "sovAug": 0.2370321990339219, "mentionsAug": 2905, "daysAug": 31}, {"entity": "CYBERBIZ Corp.", "visibilityJul": 0.5521297974408389, "visibilityAug": 0.4762452400876844, "visibilityChangePt": -7.588455735315453, "sovJul": 0.1779759076026855, "sovAug": 0.15914873802072352, "mentionsAug": 1521, "daysAug": 31}, {"entity": "Shopify Inc.", "visibilityJul": 0.5020734619075168, "visibilityAug": 0.4417298289123862, "visibilityChangePt": -6.034363299513057, "sovJul": 0.16177730951841848, "sovAug": 0.1478696837690894, "mentionsAug": 1567, "daysAug": 31}, {"entity": "91APP Inc.", "visibilityJul": 0.3912836210865345, "visibilityAug": 0.39503029076456225, "visibilityChangePt": 0.37466696780277253, "sovJul": 0.12637671487236926, "sovAug": 0.13195746319572038, "mentionsAug": 1302, "daysAug": 31}, {"entity": "WACA", "visibilityJul": 0.3136564919479295, "visibilityAug": 0.36394215655037176, "visibilityChangePt": 5.028566460244227, "sovJul": 0.10153938641882397, "sovAug": 0.12151441672089265, "mentionsAug": 1071, "daysAug": 31}, {"entity": "EasyStore", "visibilityJul": 0.31425929862820806, "visibilityAug": 0.31102389910184314, "visibilityChangePt": -0.3235399526364924, "sovJul": 0.10174826860992409, "sovAug": 0.10390377757694226, "mentionsAug": 897, "daysAug": 31}, {"entity": "BV SHOP", "visibilityJul": 0.12104030858498566, "visibilityAug": 0.15740064521464375, "visibilityChangePt": 3.6360336629658097, "sovJul": 0.039184718383107865, "sovAug": 0.052669386376303876, "mentionsAug": 549, "daysAug": 31}, {"entity": "Meepshop", "visibilityJul": 0.12591123907753296, "visibilityAug": 0.13734387669752587, "visibilityChangePt": 1.1432637619992914, "sovJul": 0.040733846746435605, "sovAug": 0.04590433530640619, "mentionsAug": 515, "daysAug": 31}, {"entity": "Shopify TW", "visibilityJul": 0.0003665689149560129, "visibilityAug": 0, "visibilityChangePt": -0.03665689149560129, "sovJul": 0.00011859582542694484, "sovAug": 0, "mentionsAug": 0, "daysAug": 31}, {"entity": "Pinzap", "visibilityJul": 0.0010675655245994228, "visibilityAug": 0, "visibilityChangePt": -0.10675655245994228, "sovJul": 0.00033732155863425357, "sovAug": 0, "mentionsAug": 90, "daysAug": 31}], "Sitemaps": [{"siteLabel": "主站 shopline.tw", "path": "https://shopline.tw/sitemap.xml", "status": "Valid", "warnings": 0, "errors": 0, "lastSubmitted": "2026-07-10 08:45", "lastDownloaded": "2026-09-07 23:54", "staleDays": 0, "submittedCount": 97, "note": null}, {"siteLabel": "部落格 blog.shopline.tw", "path": "https://blog.shopline.tw/sitemap_index.xml", "status": "Has warnings", "warnings": 1, "errors": 0, "lastSubmitted": "2022-12-06 07:02", "lastDownloaded": "2026-09-05 16:01", "staleDays": 2, "submittedCount": 6638, "note": "本月仍有錯誤或警告，Google 近期仍在抓取。"}], "CWV": [{"group": "Core Web Vitals", "siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricLabel": "LCP 最大內容繪製", "metricShort": "LCP", "unit": "s", "p75": 1486, "rating": "良好", "goodShare": 0.9077, "needsShare": 0.0587, "poorShare": 0.0337, "goodThreshold": 2500, "poorThreshold": 4000, "prevP75": 1600, "prevEnd": "2026-08-08", "change": -0.07125000000000004, "periodFirst": "2026-08-09", "periodLast": "2026-09-05"}, {"group": "Core Web Vitals", "siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricLabel": "INP 互動到下次繪製", "metricShort": "INP", "unit": "ms", "p75": 155, "rating": "良好", "goodShare": 0.8365, "needsShare": 0.1346, "poorShare": 0.0288, "goodThreshold": 200, "poorThreshold": 500, "prevP75": 167, "prevEnd": "2026-08-08", "change": -0.07185628742514971, "periodFirst": "2026-08-09", "periodLast": "2026-09-05"}, {"group": "Core Web Vitals", "siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricLabel": "CLS 累積版面位移", "metricShort": "CLS", "unit": "score", "p75": 0, "rating": "良好", "goodShare": 0.9122, "needsShare": 0.0263, "poorShare": 0.0614, "goodThreshold": 0.1, "poorThreshold": 0.25, "prevP75": 0, "prevEnd": "2026-08-08", "change": null, "periodFirst": "2026-08-09", "periodLast": "2026-09-05"}, {"group": "輔助診斷", "siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricLabel": "FCP 首次內容繪製", "metricShort": "FCP", "unit": "s", "p75": 1402, "rating": "良好", "goodShare": 0.8482, "needsShare": 0.1063, "poorShare": 0.0455, "goodThreshold": 1800, "poorThreshold": 3000, "prevP75": 1506, "prevEnd": "2026-08-08", "change": -0.06905710491367867, "periodFirst": "2026-08-09", "periodLast": "2026-09-05"}, {"group": "輔助診斷", "siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricLabel": "TTFB 首位元組時間", "metricShort": "TTFB", "unit": "ms", "p75": 734, "rating": "良好", "goodShare": 0.7777, "needsShare": 0.1735, "poorShare": 0.0488, "goodThreshold": 800, "poorThreshold": 1800, "prevP75": 803, "prevEnd": "2026-08-08", "change": -0.08592777085927772, "periodFirst": "2026-08-09", "periodLast": "2026-09-05"}, {"group": "Core Web Vitals", "siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricLabel": "LCP 最大內容繪製", "metricShort": "LCP", "unit": "s", "p75": 1152, "rating": "良好", "goodShare": 0.9486, "needsShare": 0.0326, "poorShare": 0.0188, "goodThreshold": 2500, "poorThreshold": 4000, "prevP75": 1148, "prevEnd": "2026-08-08", "change": 0.0034843205574912606, "periodFirst": "2026-08-09", "periodLast": "2026-09-05"}, {"group": "Core Web Vitals", "siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricLabel": "INP 互動到下次繪製", "metricShort": "INP", "unit": "ms", "p75": 66, "rating": "良好", "goodShare": 0.975, "needsShare": 0.0195, "poorShare": 0.0054, "goodThreshold": 200, "poorThreshold": 500, "prevP75": 61, "prevEnd": "2026-08-08", "change": 0.08196721311475419, "periodFirst": "2026-08-09", "periodLast": "2026-09-05"}, {"group": "Core Web Vitals", "siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricLabel": "CLS 累積版面位移", "metricShort": "CLS", "unit": "score", "p75": 0, "rating": "良好", "goodShare": 0.9886, "needsShare": 0.0082, "poorShare": 0.0032, "goodThreshold": 0.1, "poorThreshold": 0.25, "prevP75": 0, "prevEnd": "2026-08-08", "change": null, "periodFirst": "2026-08-09", "periodLast": "2026-09-05"}, {"group": "輔助診斷", "siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricLabel": "FCP 首次內容繪製", "metricShort": "FCP", "unit": "s", "p75": 1109, "rating": "良好", "goodShare": 0.9141, "needsShare": 0.0568, "poorShare": 0.0291, "goodThreshold": 1800, "poorThreshold": 3000, "prevP75": 1101, "prevEnd": "2026-08-08", "change": 0.0072661217075387086, "periodFirst": "2026-08-09", "periodLast": "2026-09-05"}, {"group": "輔助診斷", "siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricLabel": "TTFB 首位元組時間", "metricShort": "TTFB", "unit": "ms", "p75": 470, "rating": "良好", "goodShare": 0.8951, "needsShare": 0.0827, "poorShare": 0.0222, "goodThreshold": 800, "poorThreshold": 1800, "prevP75": 486, "prevEnd": "2026-08-08", "change": -0.03292181069958844, "periodFirst": "2026-08-09", "periodLast": "2026-09-05"}, {"group": "Core Web Vitals", "siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricLabel": "LCP 最大內容繪製", "metricShort": "LCP", "unit": "s", "p75": 3614, "rating": "需改善", "goodShare": 0.5855, "needsShare": 0.2033, "poorShare": 0.2112, "goodThreshold": 2500, "poorThreshold": 4000, "prevP75": 2571, "prevEnd": "2026-08-08", "change": 0.4056787242318165, "periodFirst": "2026-08-09", "periodLast": "2026-09-05"}, {"group": "Core Web Vitals", "siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricLabel": "INP 互動到下次繪製", "metricShort": "INP", "unit": "ms", "p75": 195, "rating": "良好", "goodShare": 0.7616, "needsShare": 0.2046, "poorShare": 0.0338, "goodThreshold": 200, "poorThreshold": 500, "prevP75": 168, "prevEnd": "2026-08-08", "change": 0.1607142857142858, "periodFirst": "2026-08-09", "periodLast": "2026-09-05"}, {"group": "Core Web Vitals", "siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricLabel": "CLS 累積版面位移", "metricShort": "CLS", "unit": "score", "p75": 0, "rating": "良好", "goodShare": 0.9798, "needsShare": 0.0051, "poorShare": 0.0152, "goodThreshold": 0.1, "poorThreshold": 0.25, "prevP75": 0, "prevEnd": "2026-08-08", "change": null, "periodFirst": "2026-08-09", "periodLast": "2026-09-05"}, {"group": "輔助診斷", "siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricLabel": "FCP 首次內容繪製", "metricShort": "FCP", "unit": "s", "p75": 2946, "rating": "需改善", "goodShare": 0.468, "needsShare": 0.2894, "poorShare": 0.2426, "goodThreshold": 1800, "poorThreshold": 3000, "prevP75": 2170, "prevEnd": "2026-08-08", "change": 0.35760368663594466, "periodFirst": "2026-08-09", "periodLast": "2026-09-05"}, {"group": "輔助診斷", "siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricLabel": "TTFB 首位元組時間", "metricShort": "TTFB", "unit": "ms", "p75": 1775, "rating": "需改善", "goodShare": 0.3576, "needsShare": 0.3908, "poorShare": 0.2516, "goodThreshold": 800, "poorThreshold": 1800, "prevP75": 1199, "prevEnd": "2026-08-08", "change": 0.4804003336113427, "periodFirst": "2026-08-09", "periodLast": "2026-09-05"}, {"group": "Core Web Vitals", "siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricLabel": "LCP 最大內容繪製", "metricShort": "LCP", "unit": "s", "p75": 2217, "rating": "良好", "goodShare": 0.7961, "needsShare": 0.1022, "poorShare": 0.1017, "goodThreshold": 2500, "poorThreshold": 4000, "prevP75": 1738, "prevEnd": "2026-08-08", "change": 0.27560414269275024, "periodFirst": "2026-08-09", "periodLast": "2026-09-05"}, {"group": "Core Web Vitals", "siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricLabel": "INP 互動到下次繪製", "metricShort": "INP", "unit": "ms", "p75": 77, "rating": "良好", "goodShare": 0.9473, "needsShare": 0.0355, "poorShare": 0.0172, "goodThreshold": 200, "poorThreshold": 500, "prevP75": 69, "prevEnd": "2026-08-08", "change": 0.11594202898550732, "periodFirst": "2026-08-09", "periodLast": "2026-09-05"}, {"group": "Core Web Vitals", "siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricLabel": "CLS 累積版面位移", "metricShort": "CLS", "unit": "score", "p75": 0.02, "rating": "良好", "goodShare": 0.9253, "needsShare": 0.0664, "poorShare": 0.0083, "goodThreshold": 0.1, "poorThreshold": 0.25, "prevP75": 0.02, "prevEnd": "2026-08-08", "change": 0, "periodFirst": "2026-08-09", "periodLast": "2026-09-05"}, {"group": "輔助診斷", "siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricLabel": "FCP 首次內容繪製", "metricShort": "FCP", "unit": "s", "p75": 1954, "rating": "需改善", "goodShare": 0.7119, "needsShare": 0.1571, "poorShare": 0.131, "goodThreshold": 1800, "poorThreshold": 3000, "prevP75": 1577, "prevEnd": "2026-08-08", "change": 0.2390615091946735, "periodFirst": "2026-08-09", "periodLast": "2026-09-05"}, {"group": "輔助診斷", "siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricLabel": "TTFB 首位元組時間", "metricShort": "TTFB", "unit": "ms", "p75": 1254, "rating": "需改善", "goodShare": 0.5036, "needsShare": 0.3114, "poorShare": 0.185, "goodThreshold": 800, "poorThreshold": 1800, "prevP75": 970, "prevEnd": "2026-08-08", "change": 0.29278350515463925, "periodFirst": "2026-08-09", "periodLast": "2026-09-05"}], "CWV_Trend": [{"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-03-14", "p75": 1285}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-03-21", "p75": 1283}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-03-28", "p75": 1268}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-04-04", "p75": 1243}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-04-11", "p75": 1270}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-04-18", "p75": 1263}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-04-25", "p75": 1280}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-05-02", "p75": 1294}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-05-09", "p75": 1292}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-05-16", "p75": 1317}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-05-23", "p75": 1396}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-05-30", "p75": 1445}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-06-06", "p75": 1477}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-06-13", "p75": 1468}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-06-20", "p75": 1386}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-06-27", "p75": 1343}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-07-04", "p75": 1351}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-07-11", "p75": 1351}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-07-18", "p75": 1353}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-07-25", "p75": 1412}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-08-01", "p75": 1451}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-08-08", "p75": 1600}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-08-15", "p75": 1631}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-08-22", "p75": 1606}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-08-29", "p75": 1553}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-09-05", "p75": 1486}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-03-14", "p75": 145}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-03-21", "p75": 144}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-03-28", "p75": 138}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-04-04", "p75": 137}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-04-11", "p75": 134}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-04-18", "p75": 131}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-04-25", "p75": 137}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-05-02", "p75": 138}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-05-09", "p75": 143}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-05-16", "p75": 147}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-05-23", "p75": 156}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-05-30", "p75": 157}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-06-06", "p75": 156}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-06-13", "p75": 154}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-06-20", "p75": 153}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-06-27", "p75": 146}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-07-04", "p75": 149}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-07-11", "p75": 138}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-07-18", "p75": 137}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-07-25", "p75": 146}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-08-01", "p75": 144}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-08-08", "p75": 167}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-08-15", "p75": 171}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-08-22", "p75": 164}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-08-29", "p75": 163}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-09-05", "p75": 155}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-03-14", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-03-21", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-03-28", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-04-04", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-04-11", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-04-18", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-04-25", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-05-02", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-05-09", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-05-16", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-05-23", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-05-30", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-06-06", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-06-13", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-06-20", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-06-27", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-07-04", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-07-11", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-07-18", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-07-25", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-08-01", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-08-08", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-08-15", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-08-22", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-08-29", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-09-05", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-03-14", "p75": 1049}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-03-21", "p75": 1027}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-03-28", "p75": 1022}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-04-04", "p75": 1021}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-04-11", "p75": 1025}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-04-18", "p75": 1022}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-04-25", "p75": 1023}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-05-02", "p75": 1034}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-05-09", "p75": 1056}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-05-16", "p75": 1077}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-05-23", "p75": 1102}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-05-30", "p75": 1123}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-06-06", "p75": 1132}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-06-13", "p75": 1137}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-06-20", "p75": 1137}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-06-27", "p75": 1133}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-07-04", "p75": 1125}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-07-11", "p75": 1136}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-07-18", "p75": 1141}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-07-25", "p75": 1147}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-08-01", "p75": 1153}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-08-08", "p75": 1148}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-08-15", "p75": 1147}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-08-22", "p75": 1144}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-08-29", "p75": 1152}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-09-05", "p75": 1152}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-03-14", "p75": 63}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-03-21", "p75": 62}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-03-28", "p75": 62}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-04-04", "p75": 62}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-04-11", "p75": 62}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-04-18", "p75": 62}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-04-25", "p75": 62}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-05-02", "p75": 62}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-05-09", "p75": 62}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-05-16", "p75": 62}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-05-23", "p75": 62}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-05-30", "p75": 62}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-06-06", "p75": 63}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-06-13", "p75": 62}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-06-20", "p75": 63}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-06-27", "p75": 63}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-07-04", "p75": 62}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-07-11", "p75": 63}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-07-18", "p75": 62}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-07-25", "p75": 61}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-08-01", "p75": 61}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-08-08", "p75": 61}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-08-15", "p75": 62}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-08-22", "p75": 63}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-08-29", "p75": 65}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-09-05", "p75": 66}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-03-14", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-03-21", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-03-28", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-04-04", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-04-11", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-04-18", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-04-25", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-05-02", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-05-09", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-05-16", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-05-23", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-05-30", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-06-06", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-06-13", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-06-20", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-06-27", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-07-04", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-07-11", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-07-18", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-07-25", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-08-01", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-08-08", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-08-15", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-08-22", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-08-29", "p75": 0}, {"siteLabel": "主站 shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-09-05", "p75": 0}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-03-14", "p75": 2400}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-03-21", "p75": 2346}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-03-28", "p75": 2320}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-04-04", "p75": 2337}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-04-11", "p75": 2353}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-04-18", "p75": 2366}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-04-25", "p75": 2403}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-05-02", "p75": 2408}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-05-09", "p75": 2410}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-05-16", "p75": 2441}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-05-23", "p75": 2384}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-05-30", "p75": 2372}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-06-06", "p75": 2384}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-06-13", "p75": 2444}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-06-20", "p75": 2483}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-06-27", "p75": 2572}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-07-04", "p75": 2619}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-07-11", "p75": 2599}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-07-18", "p75": 2610}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-07-25", "p75": 2588}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-08-01", "p75": 2567}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-08-08", "p75": 2571}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-08-15", "p75": 2816}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-08-22", "p75": 3467}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-08-29", "p75": 3654}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-09-05", "p75": 3614}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-03-14", "p75": 205}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-03-21", "p75": 204}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-03-28", "p75": 202}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-04-04", "p75": 204}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-04-11", "p75": 208}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-04-18", "p75": 213}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-04-25", "p75": 213}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-05-02", "p75": 205}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-05-09", "p75": 200}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-05-16", "p75": 196}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-05-23", "p75": 187}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-05-30", "p75": 191}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-06-06", "p75": 187}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-06-13", "p75": 194}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-06-20", "p75": 194}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-06-27", "p75": 192}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-07-04", "p75": 194}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-07-11", "p75": 191}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-07-18", "p75": 173}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-07-25", "p75": 162}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-08-01", "p75": 171}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-08-08", "p75": 168}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-08-15", "p75": 189}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-08-22", "p75": 200}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-08-29", "p75": 194}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-09-05", "p75": 195}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-03-14", "p75": 0}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-03-21", "p75": 0}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-03-28", "p75": 0}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-04-04", "p75": 0}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-04-11", "p75": 0}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-04-18", "p75": 0}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-04-25", "p75": 0}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-05-02", "p75": 0}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-05-09", "p75": 0}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-05-16", "p75": 0}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-05-23", "p75": 0}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-05-30", "p75": 0}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-06-06", "p75": 0}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-06-13", "p75": 0}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-06-20", "p75": 0}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-06-27", "p75": 0}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-07-04", "p75": 0}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-07-11", "p75": 0}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-07-18", "p75": 0}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-07-25", "p75": 0}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-08-01", "p75": 0}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-08-08", "p75": 0}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-08-15", "p75": 0}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-08-22", "p75": 0}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-08-29", "p75": 0}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "行動裝置", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-09-05", "p75": 0}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-03-14", "p75": 1727}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-03-21", "p75": 1668}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-03-28", "p75": 1632}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-04-04", "p75": 1629}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-04-11", "p75": 1617}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-04-18", "p75": 1632}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-04-25", "p75": 1627}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-05-02", "p75": 1651}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-05-09", "p75": 1670}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-05-16", "p75": 1636}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-05-23", "p75": 1667}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-05-30", "p75": 1633}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-06-06", "p75": 1643}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-06-13", "p75": 1658}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-06-20", "p75": 1659}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-06-27", "p75": 1677}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-07-04", "p75": 1663}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-07-11", "p75": 1685}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-07-18", "p75": 1679}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-07-25", "p75": 1707}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-08-01", "p75": 1709}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-08-08", "p75": 1738}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-08-15", "p75": 1946}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-08-22", "p75": 2202}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-08-29", "p75": 2219}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "LCP", "unit": "s", "periodEnd": "2026-09-05", "p75": 2217}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-03-14", "p75": 68}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-03-21", "p75": 68}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-03-28", "p75": 66}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-04-04", "p75": 67}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-04-11", "p75": 65}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-04-18", "p75": 65}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-04-25", "p75": 67}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-05-02", "p75": 67}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-05-09", "p75": 68}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-05-16", "p75": 68}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-05-23", "p75": 68}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-05-30", "p75": 69}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-06-06", "p75": 70}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-06-13", "p75": 71}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-06-20", "p75": 68}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-06-27", "p75": 69}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-07-04", "p75": 67}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-07-11", "p75": 66}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-07-18", "p75": 67}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-07-25", "p75": 66}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-08-01", "p75": 65}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-08-08", "p75": 69}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-08-15", "p75": 70}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-08-22", "p75": 72}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-08-29", "p75": 77}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "INP", "unit": "ms", "periodEnd": "2026-09-05", "p75": 77}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-03-14", "p75": 0.03}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-03-21", "p75": 0.03}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-03-28", "p75": 0.03}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-04-04", "p75": 0.03}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-04-11", "p75": 0.03}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-04-18", "p75": 0.03}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-04-25", "p75": 0.03}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-05-02", "p75": 0.03}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-05-09", "p75": 0.03}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-05-16", "p75": 0.03}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-05-23", "p75": 0.03}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-05-30", "p75": 0.03}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-06-06", "p75": 0.03}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-06-13", "p75": 0.03}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-06-20", "p75": 0.03}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-06-27", "p75": 0.03}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-07-04", "p75": 0.03}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-07-11", "p75": 0.03}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-07-18", "p75": 0.03}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-07-25", "p75": 0.03}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-08-01", "p75": 0.02}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-08-08", "p75": 0.02}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-08-15", "p75": 0.02}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-08-22", "p75": 0.02}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-08-29", "p75": 0.02}, {"siteLabel": "部落格 blog.shopline.tw", "formLabel": "電腦", "metricShort": "CLS", "unit": "score", "periodEnd": "2026-09-05", "p75": 0.02}], "CWV_Missing": [], "Technical_SF": [{"severity": "高", "siteLabel": "部落格 blog.shopline.tw", "issue": "圖片超過 100 kB", "count": 4373, "share": 0.5147999999999999, "scope": "Images with 2xx response", "note": "大圖直接影響 LCP 與 Core Web Vitals，是可量化的載入速度負擔。"}, {"severity": "高", "siteLabel": "部落格 blog.shopline.tw", "issue": "內部連結指向轉址", "count": 1298, "share": 0.061399999999999996, "scope": "All Internal Crawled URLs", "note": "站內連結指到會轉址的網址，浪費爬取預算並稀釋連結權重；應直接改指最終網址。"}, {"severity": "高", "siteLabel": "部落格 blog.shopline.tw", "issue": "缺少 H1", "count": 889, "share": 0.3556, "scope": "Internal HTML pages with 2xx response", "note": "內容頁沒有 H1，主題訊號完全缺失，是本次最值得優先處理的項目。"}, {"severity": "高", "siteLabel": "主站 shopline.tw", "issue": "圖片超過 100 kB", "count": 147, "share": 0.6335999999999999, "scope": "Images with 2xx response", "note": "大圖直接影響 LCP 與 Core Web Vitals，是可量化的載入速度負擔。"}, {"severity": "高", "siteLabel": "主站 shopline.tw", "issue": "內部連結指向轉址", "count": 2, "share": 0.0027, "scope": "All Internal Crawled URLs", "note": "站內連結指到會轉址的網址，浪費爬取預算並稀釋連結權重；應直接改指最終網址。"}, {"severity": "中", "siteLabel": "部落格 blog.shopline.tw", "issue": "描述在搜尋結果會被截斷", "count": 1940, "share": 0.7759999999999999, "scope": "Internal HTML pages with 2xx response", "note": "超過 985 像素會被截斷或改由 Google 自行擷取。"}, {"severity": "中", "siteLabel": "部落格 blog.shopline.tw", "issue": "標題在搜尋結果會被截斷", "count": 1359, "share": 0.5436, "scope": "Internal HTML pages with 2xx response", "note": "超過 561 像素，SERP 顯示會被截掉，影響點閱。與本月 CTR 議題直接相關。"}, {"severity": "中", "siteLabel": "部落格 blog.shopline.tw", "issue": "圖片缺少 alt 文字", "count": 1090, "share": 0.1283, "scope": "Images with 2xx response", "note": "影響無障礙與圖片搜尋能見度。"}, {"severity": "中", "siteLabel": "部落格 blog.shopline.tw", "issue": "連外死連結 4xx", "count": 819, "share": 0.0388, "scope": "All External Crawled URLs", "note": "站上連出去的網址已失效，影響使用者體驗；非站內頁面本身的錯誤。"}, {"severity": "中", "siteLabel": "部落格 blog.shopline.tw", "issue": "頁面被 canonical 指到別處", "count": 145, "share": 0.057999999999999996, "scope": "Internal HTML or PDF pages with 2xx response", "note": "這些頁面主動放棄自己的索引資格；需確認是刻意去重還是設定錯誤。"}, {"severity": "中", "siteLabel": "主站 shopline.tw", "issue": "缺少 x-default hreflang", "count": 83, "share": 0.8556999999999999, "scope": "Internal pages with 2xx response", "note": "多語系站台未指定 x-default，未匹配到語系的使用者沒有 fallback 版本。"}, {"severity": "中", "siteLabel": "主站 shopline.tw", "issue": "連外死連結 4xx", "count": 82, "share": 0.10949999999999999, "scope": "All External Crawled URLs", "note": "站上連出去的網址已失效，影響使用者體驗；非站內頁面本身的錯誤。"}, {"severity": "中", "siteLabel": "部落格 blog.shopline.tw", "issue": "canonical 指向不可索引網址", "count": 61, "share": 0.024399999999999998, "scope": "Internal HTML or PDF pages with 2xx response", "note": "canonical 指到 noindex 或非 200 的網址，Google 可能忽略該指示或整批不收錄。"}, {"severity": "中", "siteLabel": "主站 shopline.tw", "issue": "描述在搜尋結果會被截斷", "count": 56, "share": 0.5772999999999999, "scope": "Internal HTML pages with 2xx response", "note": "超過 985 像素會被截斷或改由 Google 自行擷取。"}, {"severity": "中", "siteLabel": "主站 shopline.tw", "issue": "標題在搜尋結果會被截斷", "count": 43, "share": 0.44329999999999997, "scope": "Internal HTML pages with 2xx response", "note": "超過 561 像素，SERP 顯示會被截掉，影響點閱。與本月 CTR 議題直接相關。"}, {"severity": "中", "siteLabel": "主站 shopline.tw", "issue": "H1 重複", "count": 12, "share": 0.12369999999999999, "scope": "Internal HTML pages with 2xx response", "note": "多頁共用相同 H1，主題區隔不明確。"}, {"severity": "中", "siteLabel": "主站 shopline.tw", "issue": "單頁多個 H1", "count": 9, "share": 0.0928, "scope": "Internal HTML pages with 2xx response", "note": "單頁出現多個 H1，標題層級的主題訊號被分散。"}, {"severity": "中", "siteLabel": "部落格 blog.shopline.tw", "issue": "單頁多個 H1", "count": 4, "share": 0.0016, "scope": "Internal HTML pages with 2xx response", "note": "單頁出現多個 H1，標題層級的主題訊號被分散。"}, {"severity": "中", "siteLabel": "部落格 blog.shopline.tw", "issue": "H1 重複", "count": 2, "share": 0.0008, "scope": "Internal HTML pages with 2xx response", "note": "多頁共用相同 H1，主題區隔不明確。"}, {"severity": "低", "siteLabel": "部落格 blog.shopline.tw", "issue": "缺少 HSTS 標頭", "count": 11429, "share": 0.8974, "scope": "All internal and non-HTML external URLs", "note": "安全性標頭，對排名影響有限，屬基礎設定建議。"}, {"severity": "低", "siteLabel": "部落格 blog.shopline.tw", "issue": "缺少 CSP 標頭", "count": 11429, "share": 0.8974, "scope": "All internal and non-HTML external URLs", "note": "安全性標頭，對排名影響有限。"}, {"severity": "低", "siteLabel": "部落格 blog.shopline.tw", "issue": "不安全的跨來源連結", "count": 2500, "share": 0.1963, "scope": "All internal and non-HTML external URLs", "note": "target=_blank 未搭配 rel=noopener，屬安全性建議。"}, {"severity": "低", "siteLabel": "部落格 blog.shopline.tw", "issue": "標題與 H1 完全相同", "count": 374, "share": 0.1496, "scope": "Internal HTML pages with 2xx response", "note": "不是錯誤，但標題與 H1 可分別針對搜尋意圖與版面閱讀優化。"}, {"severity": "低", "siteLabel": "部落格 blog.shopline.tw", "issue": "H2 重複", "count": 307, "share": 0.12279999999999999, "scope": "Internal HTML pages with 2xx response", "note": "多數由版型固定區塊造成，優先度低。"}, {"severity": "低", "siteLabel": "主站 shopline.tw", "issue": "缺少 HSTS 標頭", "count": 97, "share": 0.951, "scope": "All internal and non-HTML external URLs", "note": "安全性標頭，對排名影響有限，屬基礎設定建議。"}, {"severity": "低", "siteLabel": "主站 shopline.tw", "issue": "不安全的跨來源連結", "count": 97, "share": 0.951, "scope": "All internal and non-HTML external URLs", "note": "target=_blank 未搭配 rel=noopener，屬安全性建議。"}, {"severity": "低", "siteLabel": "部落格 blog.shopline.tw", "issue": "描述重複", "count": 75, "share": 0.03, "scope": "Internal HTML pages with 2xx response", "note": "多頁共用相同描述，Google 較可能改為自行擷取。"}, {"severity": "低", "siteLabel": "主站 shopline.tw", "issue": "H2 重複", "count": 48, "share": 0.49479999999999996, "scope": "Internal HTML pages with 2xx response", "note": "多數由版型固定區塊造成，優先度低。"}, {"severity": "低", "siteLabel": "部落格 blog.shopline.tw", "issue": "連外 5xx", "count": 10, "share": 0.0005, "scope": "All External Crawled URLs", "note": "外部網址回傳伺服器錯誤，可能是對方暫時故障，建議複查後再決定是否移除。"}, {"severity": "低", "siteLabel": "主站 shopline.tw", "issue": "標題與 H1 完全相同", "count": 2, "share": 0.0206, "scope": "Internal HTML pages with 2xx response", "note": "不是錯誤，但標題與 H1 可分別針對搜尋意圖與版面閱讀優化。"}, {"severity": "低", "siteLabel": "部落格 blog.shopline.tw", "issue": "標題重複", "count": 2, "share": 0.0008, "scope": "Internal HTML pages with 2xx response", "note": "多頁共用相同標題，彼此競爭同一組查詢。"}, {"severity": "低", "siteLabel": "主站 shopline.tw", "issue": "低內容頁面", "count": 1, "share": 0.0103, "scope": "Internal HTML pages with 2xx response", "note": "內容量偏少的頁面，需人工判斷是否為功能頁。"}], "SF_Crawls": [{"siteLabel": "主站 shopline.tw", "siteCrawled": "https://shopline.tw/", "crawlDate": "2026-09-06 20:24:42", "elapsed": "00:03:07", "urlsEncountered": 749, "urlsCrawled": 741, "internalUrls": 102, "internalIndexable": 97, "internalNonIndexable": 5}, {"siteLabel": "部落格 blog.shopline.tw", "siteCrawled": "https://blog.shopline.tw/", "crawlDate": "2026-09-06 21:17:53", "elapsed": "00:50:49", "urlsEncountered": 21133, "urlsCrawled": 19929, "internalUrls": 12736, "internalIndexable": 10958, "internalNonIndexable": 1778}], "SF_Excluded": [{"item": "Meta Keywords: Missing", "reason": "Google 不使用 meta keywords，缺少不是問題。"}, {"item": "Canonicals: Self Referencing / Contains Canonical", "reason": "自我參照 canonical 是正確狀態，非缺陷。"}, {"item": "H1 / H2: Non-Sequential", "reason": "多為版型標籤順序造成，實務上極少影響搜尋表現。"}, {"item": "Page Titles / Meta Description: Below N Characters", "reason": "長度偏短不必然是問題，需看查詢意圖，不列為缺陷。"}, {"item": "URL: Non ASCII Characters", "reason": "中文網址為刻意設計，非錯誤。"}, {"item": "Security: HTTPS URLs", "reason": "全站 100% HTTPS，屬健康狀態。"}], "GA4_Monthly": [{"siteLabel": "主站 shopline.tw", "month": "2026-06", "monthLabel": "6 月", "channel": "Organic Search", "sessions": 14381, "shareOfOrganic": null}, {"siteLabel": "主站 shopline.tw", "month": "2026-06", "monthLabel": "6 月", "channel": "AI Assistant", "sessions": 697, "shareOfOrganic": 0.048466726931367776}, {"siteLabel": "主站 shopline.tw", "month": "2026-07", "monthLabel": "7 月", "channel": "Organic Search", "sessions": 13957, "shareOfOrganic": null}, {"siteLabel": "主站 shopline.tw", "month": "2026-07", "monthLabel": "7 月", "channel": "AI Assistant", "sessions": 323, "shareOfOrganic": 0.023142509135200974}, {"siteLabel": "主站 shopline.tw", "month": "2026-08", "monthLabel": "8 月", "channel": "Organic Search", "sessions": 12446, "shareOfOrganic": null}, {"siteLabel": "主站 shopline.tw", "month": "2026-08", "monthLabel": "8 月", "channel": "AI Assistant", "sessions": 413, "shareOfOrganic": 0.033183352080989874}, {"siteLabel": "部落格 blog.shopline.tw", "month": "2026-06", "monthLabel": "6 月", "channel": "Organic Search", "sessions": 18231, "shareOfOrganic": null}, {"siteLabel": "部落格 blog.shopline.tw", "month": "2026-06", "monthLabel": "6 月", "channel": "AI Assistant", "sessions": 135, "shareOfOrganic": 0.007404969557347376}, {"siteLabel": "部落格 blog.shopline.tw", "month": "2026-07", "monthLabel": "7 月", "channel": "Organic Search", "sessions": 17139, "shareOfOrganic": null}, {"siteLabel": "部落格 blog.shopline.tw", "month": "2026-07", "monthLabel": "7 月", "channel": "AI Assistant", "sessions": 187, "shareOfOrganic": 0.010910788260691988}, {"siteLabel": "部落格 blog.shopline.tw", "month": "2026-08", "monthLabel": "8 月", "channel": "Organic Search", "sessions": 15533, "shareOfOrganic": null}, {"siteLabel": "部落格 blog.shopline.tw", "month": "2026-08", "monthLabel": "8 月", "channel": "AI Assistant", "sessions": 208, "shareOfOrganic": 0.01339084529710938}], "AI_Channel": [{"month": "2026-06", "monthLabel": "6 月", "leads": 52, "sql": 11, "cvr": 0.21153846153846154, "sqlIsMature": true, "sqlMatureOn": "2026-08-29", "sourceLabel": "source=chatgpt.com"}, {"month": "2026-07", "monthLabel": "7 月", "leads": 14, "sql": 5, "cvr": 0.35714285714285715, "sqlIsMature": false, "sqlMatureOn": "2026-09-29", "sourceLabel": "source=chatgpt.com"}, {"month": "2026-08", "monthLabel": "8 月", "leads": 18, "sql": 6, "cvr": 0.3333333333333333, "sqlIsMature": false, "sqlMatureOn": "2026-10-30", "sourceLabel": "source=chatgpt.com"}], "Sources": [{"id": "business", "label": "正式業務來源｜2026 lead gen distribution", "method": "Google Sheets API values.batchGet；工作表「2026 lead gen distribution」第 119 列。7 月實績 C、8 月實績 G；目標 B、F。達成率 = 實績 / 目標，月增率 = 8 月 / 7 月 − 1。", "filters": "TW；all_non_paid；原始數字儲存格，非公式結果；非 SEO 單一渠道。來源時區 Asia/Shanghai。"}, {"id": "gsc", "label": "Google Search Console MCP｜兩站台灣搜尋", "method": "get_advanced_search_analytics；dimensions=date，逐日加總 clicks 與 impressions。CTR = 總點擊 / 總曝光；平均排名以曝光加權，來源每日排名已四捨五入，僅為近似。", "filters": "2026-07-01–07-31 與 2026-08-01–08-31，各 31 天；search_type=web；country=twn；data_state=final；row_limit=100，has_more=false。GSC 日界以來源太平洋時間為準。"}, {"id": "ga4", "label": "GA4 MCP｜主站 257016301／部落格 399614424", "method": "run_report；dimensions=hostName,sessionDefaultChannelGroup；metrics=sessions,engagedSessions,totalUsers。hostname 精確比對、不分大小寫；僅取 Organic Search 與 AI Assistant。互動率 = engagedSessions / sessions。", "filters": "2026 年 7、8 月；Asia/Taipei；未加國別篩選，包含所有國家。兩個 property 分開報告，依 ga4_scope.v1.json 禁止跨 property 加總。hostName 是事件主機診斷切分，不等同 landing-session 口徑。"}, {"id": "ga4Monthly", "label": "GA4 MCP｜主站與部落格逐月渠道工作階段", "method": "run_report；dimensions=yearMonth,hostName,sessionDefaultChannelGroup；metrics=sessions；以 dimension_filter 在 API 端限定 hostName 精確相符。「相對 Organic」= 該渠道工作階段 / 同站同月 Organic Search 工作階段。", "filters": "2026 年 6～8 月；僅取 Organic Search 與 AI Assistant 兩個渠道群組。Google 自 2026-05 起才開始套用 AI Assistant 渠道群組，此前的 AI 來源流量被分類為 Referral 或 Unassigned 且未回溯重新分類，因此本序列不往前延伸，也不能與 2026-04 以前比較。2026-09-08 以 sessionSource 另行核對：2025-09～2026-04 平均約 102 次／月，2026-05 起跳升至數百次；該核對僅供判讀脈絡，非本報表採用的口徑。分母 Organic Search 本身正在下滑，佔比上升不必然代表 AI 流量成長，須與絕對值並看。"}, {"id": "aiChannel", "label": "業務活頁簿｜AI Channel leads 頁籤（chatgpt.com）", "method": "Google Sheets API values.batchGet 讀取「AI Channel leads」頁籤；首欄為該月一日的序列日期，其餘為名單數、SQL 與 CVR，數值原樣取用未重算。", "filters": "該頁籤 B 欄標頭自述 source=chatgpt.com，僅涵蓋 chatgpt.com 單一來源，不等於 GA4 的 AI Assistant 渠道群組，也不等於整體 AI 搜尋，兩者不可互相對帳。資料自 2026-06 起；進行中的當月為部分月，已排除不列。SQL 沿用 data_contract 的成熟規則（名單月結束後 60 天），未成熟月份僅供累計參考。"}, {"id": "geo", "label": "Workduo MCP｜SHOPLINE 台灣專案（2026-09-06 快照）", "method": "get_metrics；projectId=cmp2adkpz000gw209tj6025jc；metric=all；dimension=entity；interval=daily。每日 visibility 與 sov 取等權算術平均，mentions 逐日加總。這是每日平均監測指標，不是整月去重或按回覆量加權的比率。", "filters": "region=TW；onlyTrackedEntity=true；2026 年 7、8 月各 310 列（10 entities × 31 日）；nextPageToken=null。本次執行環境未連線 Workduo MCP，沿用 2026-09-06T10:03:33.270Z 的快照。提示題目與平台組成尚未做固定樣本對齊，僅描述監測樣本，不能推論全市場。"}, {"id": "pages", "label": "Google Search Console MCP｜8 月頁面與查詢", "method": "get_advanced_search_analytics；dimensions=page 與 query；依 clicks 降序取前 25。作為機會清單使用，不能用來推算全站總量或月降幅來源。", "filters": "2026-08-01–08-31；search_type=web；country=twn；data_state=final；未取得 7 月逐頁對照。"}, {"id": "sitemaps", "label": "Google Search Console MCP｜Sitemap 狀態", "method": "get_sitemaps 列出各站已提交的 sitemap；get_sitemap_details 逐一查詢取得 last_submitted、last_downloaded 與 content_breakdown 的 submitted／indexed 筆數。停滯天數 = 資料擷取時間 − last_downloaded，用來判斷警告／錯誤是否為近期問題。", "filters": "content_breakdown 的 indexed 筆數在三筆 sitemap 中有兩筆回傳 0（含近期正常運作的 sitemap.xml），判斷該欄位不可靠，故報表不採用『已索引筆數』做比較，只用狀態與最後抓取時間。"}, {"id": "cwv", "label": "Chrome UX Report API｜Core Web Vitals 實際使用者資料", "method": "records:queryRecord 取每個來源網域 × 裝置的當期紀錄，records:queryHistoryRecord 取前 25 期。p75、良好／需改善／不佳占比全部直接取自 CrUX，未自行由分布重算。評級用 Google 公布門檻：LCP ≤ 2500ms、INP ≤ 200ms、CLS ≤ 0.1 為良好，> 4000ms／> 500ms／> 0.25 為不佳。整體通過需三項核心指標同時良好。『前一期』是結束日早於當期起始日的最近一期，也就是緊鄰當期之前、與當期不重疊的 28 天窗口；queryHistoryRecord 的序列可能落後當期一週，因此以日期挑選而非固定往前數幾期。", "filters": "來源網域層級（非單頁），PHONE 與 DESKTOP 分開，未加國別篩選，包含所有國家的 Chrome 使用者。CrUX 為滾動 28 天窗口，本次為 2026-08-09 – 2026-09-05，與報表月份不一致，不能當成 8 月單月數值，也不能與 GSC／GA4 的月度口徑對帳。樣本僅含已啟用回報的 Chrome 使用者，不含 Safari 等其他瀏覽器。Search Console 的 Core Web Vitals 報表同樣以 CrUX 為基礎，但其網址分組方式不同，數字不會完全一致。"}, {"id": "technical", "label": "Screaming Frog SEO Spider MCP｜技術稽核", "method": "export_crawl；save_report=Crawl Overview，讀取兩站已完成爬取的 crawl_overview.csv。數量與佔比直接取自 Screaming Frog 的統計，分母沿用其原始定義（見 Technical_SF 的「分母」欄），未自行重算。優先度為人工判定，非 Screaming Frog 原生欄位。", "filters": "主站 db f2215f0d（2026-09-06 20:24 完成，749 網址）；部落格 db 1af9795a（2026-09-06 21:17 完成，21,133 網址）。Crawl Overview 追蹤的所有篩選中，僅列入 sf_technical.py 的 CATALOGUE 允許清單；刻意排除的項目與原因見 SF_Excluded 分頁。爬取為單一時點快照，無 7 月對照，不能據此判斷月變化。"}], "Recommendations": [], "Next_Steps": []}, "rowCounts": {"_Meta": 13, "Business": 1, "GSC_Monthly": 12, "GSC_Delta": 2, "GSC_Pages": 50, "GSC_Queries": 50, "GA4_Channels": 4, "GEO_Workduo": 10, "Sitemaps": 2, "CWV": 20, "CWV_Trend": 312, "CWV_Missing": 0, "Technical_SF": 32, "SF_Crawls": 2, "SF_Excluded": 6, "GA4_Monthly": 12, "AI_Channel": 3, "Sources": 10, "Recommendations": 0, "Next_Steps": 0}, "workbookUrl": "https://docs.google.com/spreadsheets/d/14lyC4zotKGBGg90CExf3q-hPk7awRAvUgIoEYAn1QtI/edit", "renderedAt": "2026-09-08 18:29", "timeZone": "Asia/Taipei", "view": "exec", "scriptUrl": ""};
+</script>
+<script>
+(function () {
+  var M = PAYLOAD, T = M.tables || {}, meta = M.meta || {};
+  var CUR = meta.periodCurrent || '2026-08', PREV = meta.periodPrevious || '2026-07';
+  var CUR_M = Number(String(CUR).slice(5, 7)), PREV_M = Number(String(PREV).slice(5, 7));
+
+  function num(v) { return typeof v === 'number' && isFinite(v); }
+  function int(v) { return num(v) ? v.toLocaleString('zh-TW') : '—'; }
+  function dec(v, d) { return num(v) ? v.toFixed(d === undefined ? 2 : d) : '—'; }
+  function pct(v) { return num(v) ? (v * 100).toFixed(2) + '%' : '—'; }
+  function delta(v) { return num(v) ? (v >= 0 ? '+' : '') + (v * 100).toFixed(2) + '%' : '—'; }
+  function point(v) { return num(v) ? (v >= 0 ? '+' : '') + v.toFixed(2) + ' pt' : '—'; }
+  function signCls(v, invert) { if (!num(v) || v === 0) return ''; return (invert ? v < 0 : v > 0) ? 'pos' : 'neg'; }
+  function esc(s) {
+    return String(s === null || s === undefined ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  function el(html) { var d = document.createElement('div'); d.innerHTML = html; return d.firstElementChild; }
+
+  /* ---------- charts (inline SVG, no dependencies) ---------- */
+
+  var PALETTE = ['var(--c1)', 'var(--c2)', 'var(--c3)', 'var(--c4)'];
+
+  function niceMax(value) {
+    if (!(value > 0)) return 1;
+    var exp = Math.pow(10, Math.floor(Math.log(value) / Math.LN10));
+    var steps = [1, 1.25, 1.5, 2, 2.5, 3, 4, 5, 7.5, 10];
+    for (var i = 0; i < steps.length; i++) {
+      if (steps[i] * exp >= value) return steps[i] * exp;
+    }
+    return 10 * exp;
+  }
+
+  function groupedBars(cfg) {
+    var W = 860, padL = 74, padR = 16, padT = 14, padB = 54;
+    var rows = cfg.categories.length, series = cfg.series;
+    var bodyH = Math.max(150, rows * series.length * 26 + rows * 16);
+    var H = bodyH + padT + padB;
+    var plotW = W - padL - padR;
+    var max = niceMax(series.reduce(function (m, s) {
+      return s.values.reduce(function (n, v) { return Math.max(n, num(v) ? v : 0); }, m);
+    }, 0));
+    var groupH = bodyH / rows, barH = Math.min(22, (groupH - 14) / series.length);
+    var svg = ['<svg class="chart" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + esc(cfg.title || '') + '">'];
+
+    for (var t = 0; t <= 4; t++) {
+      var gx = padL + plotW * t / 4, gv = max * t / 4;
+      svg.push('<line x1="' + gx.toFixed(1) + '" y1="' + padT + '" x2="' + gx.toFixed(1) + '" y2="' + (padT + bodyH) +
+               '" stroke="var(--grid)" stroke-width="1"/>');
+      svg.push('<text x="' + gx.toFixed(1) + '" y="' + (padT + bodyH + 18) + '" fill="var(--faint)" font-size="11" text-anchor="middle">' +
+               esc(cfg.axis ? cfg.axis(gv) : int(Math.round(gv))) + '</text>');
+    }
+
+    cfg.categories.forEach(function (label, r) {
+      var top = padT + r * groupH;
+      var stackH = series.length * barH + (series.length - 1) * 3;
+      var y0 = top + (groupH - stackH) / 2;
+      svg.push('<text x="' + (padL - 10) + '" y="' + (top + groupH / 2 + 4).toFixed(1) +
+               '" fill="var(--muted)" font-size="12" text-anchor="end">' + esc(label) + '</text>');
+      series.forEach(function (s, i) {
+        var v = s.values[r], w = num(v) && max ? Math.max(v / max * plotW, v > 0 ? 2 : 0) : 0;
+        var y = y0 + i * (barH + 3);
+        /* cfg.colors lets one category stand out (our own brand among competitors)
+           without turning it into a second series and doubling the rows. */
+        var fill = (cfg.colors && cfg.colors[r]) || s.color || PALETTE[i % 4];
+        svg.push('<rect x="' + padL + '" y="' + y.toFixed(1) + '" width="' + w.toFixed(1) + '" height="' + barH.toFixed(1) +
+                 '" rx="2" fill="' + fill + '"/>');
+        if (num(v)) {
+          var label2 = cfg.value ? cfg.value(v) : int(v);
+          var inside = w > 62;
+          svg.push('<text x="' + (padL + w + (inside ? -8 : 7)).toFixed(1) + '" y="' + (y + barH / 2 + 4).toFixed(1) +
+                   '" font-size="11.5" font-weight="600" text-anchor="' + (inside ? 'end' : 'start') +
+                   '" fill="' + (inside ? '#fff' : 'var(--muted)') + '">' + esc(label2) + '</text>');
+        }
+      });
+    });
+
+    svg.push('<line x1="' + padL + '" y1="' + (padT + bodyH) + '" x2="' + (W - padR) + '" y2="' + (padT + bodyH) +
+             '" stroke="var(--border)" stroke-width="1"/>');
+    svg.push('</svg>');
+    return svg.join('') + legendHtml(series);
+  }
+
+
+  /* 100%-stacked horizontal bars: the good / needs-improvement / poor split CrUX reports. */
+  function stackedBars(cfg) {
+    var W = 860, padL = 215, padR = 16, padT = 6, padB = 8;
+    var rowH = 30, bodyH = cfg.categories.length * rowH;
+    var H = bodyH + padT + padB, plotW = W - padL - padR;
+    var svg = ['<svg class="chart" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + esc(cfg.title || '') + '">'];
+    cfg.categories.forEach(function (label, r) {
+      var barH = rowH - 12, y = padT + r * rowH + 6, cursor = padL;
+      var total = cfg.series.reduce(function (sum, s) { return sum + (num(s.values[r]) ? s.values[r] : 0); }, 0);
+      svg.push('<text x="' + (padL - 10) + '" y="' + (y + barH / 2 + 4).toFixed(1) +
+               '" fill="var(--muted)" font-size="11.5" text-anchor="end">' + esc(label) + '</text>');
+      cfg.series.forEach(function (s, i) {
+        var v = num(s.values[r]) ? s.values[r] : 0, w = total ? v / total * plotW : 0;
+        if (w <= 0) return;
+        svg.push('<rect x="' + cursor.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + w.toFixed(1) +
+                 '" height="' + barH + '" fill="' + (s.color || PALETTE[i % 4]) + '"/>');
+        if (w > 46) {
+          svg.push('<text x="' + (cursor + w / 2).toFixed(1) + '" y="' + (y + barH / 2 + 4).toFixed(1) +
+                   '" font-size="11" font-weight="600" text-anchor="middle" fill="#fff">' +
+                   (v / total * 100).toFixed(0) + '%</text>');
+        }
+        cursor += w;
+      });
+    });
+    svg.push('</svg>');
+    return svg.join('') + legendHtml(cfg.series);
+  }
+
+  /* Line chart for an evenly spaced series, with an optional dashed threshold line. */
+  function lineChart(cfg) {
+    var n = cfg.labels.length;
+    if (!n) return '';
+    var W = 860, padL = 66, padR = 18, padT = 14, padB = 38;
+    var bodyH = 210, H = bodyH + padT + padB, plotW = W - padL - padR;
+    var threshold = cfg.threshold && num(cfg.threshold.value) ? cfg.threshold.value : 0;
+    var max = niceMax(cfg.series.reduce(function (m, s) {
+      return s.values.reduce(function (x, v) { return num(v) ? Math.max(x, v) : x; }, m);
+    }, threshold));
+    var xAt = function (i) { return padL + (n > 1 ? plotW * i / (n - 1) : plotW / 2); };
+    var yAt = function (v) { return padT + bodyH - (max ? v / max * bodyH : 0); };
+    var svg = ['<svg class="chart" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + esc(cfg.title || '') + '">'];
+    for (var t = 0; t <= 4; t++) {
+      var gv = max * t / 4, gy = yAt(gv);
+      svg.push('<line x1="' + padL + '" y1="' + gy.toFixed(1) + '" x2="' + (W - padR) + '" y2="' + gy.toFixed(1) +
+               '" stroke="var(--grid)" stroke-width="1"/>');
+      svg.push('<text x="' + (padL - 9) + '" y="' + (gy + 4).toFixed(1) +
+               '" fill="var(--faint)" font-size="11" text-anchor="end">' +
+               esc(cfg.axis ? cfg.axis(gv) : int(Math.round(gv))) + '</text>');
+    }
+    if (threshold && threshold <= max) {
+      var ty = yAt(threshold);
+      svg.push('<line x1="' + padL + '" y1="' + ty.toFixed(1) + '" x2="' + (W - padR) + '" y2="' + ty.toFixed(1) +
+               '" stroke="var(--pos)" stroke-width="1.5" stroke-dasharray="5 4"/>');
+      svg.push('<text x="' + (W - padR) + '" y="' + (ty - 6).toFixed(1) +
+               '" fill="var(--pos)" font-size="11" text-anchor="end">' + esc(cfg.threshold.label) + '</text>');
+    }
+    cfg.series.forEach(function (s, i) {
+      var color = s.color || PALETTE[i % 4], points = [], last = -1;
+      s.values.forEach(function (v, idx) {
+        if (!num(v)) return;
+        points.push(xAt(idx).toFixed(1) + ',' + yAt(v).toFixed(1));
+        last = idx;
+      });
+      if (!points.length) return;
+      svg.push('<polyline fill="none" stroke="' + color + '" stroke-width="2" stroke-linejoin="round" points="' +
+               points.join(' ') + '"/>');
+      svg.push('<circle cx="' + xAt(last).toFixed(1) + '" cy="' + yAt(s.values[last]).toFixed(1) +
+               '" r="3.5" fill="' + color + '"/>');
+    });
+    var step = Math.max(1, Math.ceil(n / 5));
+    for (var i = 0; i < n; i += step) {
+      svg.push('<text x="' + xAt(i).toFixed(1) + '" y="' + (padT + bodyH + 18) +
+               '" fill="var(--faint)" font-size="11" text-anchor="middle">' + esc(cfg.labels[i]) + '</text>');
+    }
+    svg.push('<line x1="' + padL + '" y1="' + (padT + bodyH) + '" x2="' + (W - padR) + '" y2="' + (padT + bodyH) +
+             '" stroke="var(--border)" stroke-width="1"/>');
+    svg.push('</svg>');
+    return svg.join('') + legendHtml(cfg.series);
+  }
+
+  /* Vertical bars on the left scale with a line on the right: a volume and a rate in one
+     frame. Both scales start at zero. Zooming the rate axis would turn a 1.5pt band into a
+     dramatic slope, and the honest reading of this data is that the rate has been roughly
+     flat — so each point carries its own value label instead of borrowing steepness. */
+  function comboChart(cfg) {
+    var n = cfg.labels.length;
+    if (!n) return '';
+    var W = 860, padL = 72, padR = 68, padT = 22, padB = 38;
+    var bodyH = 210, H = bodyH + padT + padB, plotW = W - padL - padR;
+    var barMax = niceMax(cfg.bar.values.reduce(function (m, v) { return num(v) ? Math.max(m, v) : m; }, 0));
+    var lineMax = niceMax(cfg.line.values.reduce(function (m, v) { return num(v) ? Math.max(m, v) : m; }, 0));
+    var slot = plotW / n, barW = Math.min(56, slot * 0.5);
+    var xMid = function (i) { return padL + slot * (i + 0.5); };
+    var yBar = function (v) { return padT + bodyH - (barMax ? v / barMax * bodyH : 0); };
+    var yLine = function (v) { return padT + bodyH - (lineMax ? v / lineMax * bodyH : 0); };
+    var barColor = cfg.bar.color || PALETTE[0], lineColor = cfg.line.color || PALETTE[1];
+    var svg = ['<svg class="chart" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + esc(cfg.title || '') + '">'];
+
+    for (var t = 0; t <= 4; t++) {
+      var gy = padT + bodyH - bodyH * t / 4;
+      svg.push('<line x1="' + padL + '" y1="' + gy.toFixed(1) + '" x2="' + (W - padR) + '" y2="' + gy.toFixed(1) +
+               '" stroke="var(--grid)" stroke-width="1"/>');
+      svg.push('<text x="' + (padL - 9) + '" y="' + (gy + 4).toFixed(1) + '" fill="' + barColor +
+               '" font-size="11" text-anchor="end">' + esc(cfg.bar.axis(barMax * t / 4)) + '</text>');
+      svg.push('<text x="' + (W - padR + 9) + '" y="' + (gy + 4).toFixed(1) + '" fill="' + lineColor +
+               '" font-size="11" text-anchor="start">' + esc(cfg.line.axis(lineMax * t / 4)) + '</text>');
+    }
+
+    cfg.bar.values.forEach(function (v, i) {
+      if (!num(v)) return;
+      var h = Math.max(barMax ? v / barMax * bodyH : 0, v > 0 ? 2 : 0);
+      svg.push('<rect x="' + (xMid(i) - barW / 2).toFixed(1) + '" y="' + yBar(v).toFixed(1) +
+               '" width="' + barW.toFixed(1) + '" height="' + h.toFixed(1) + '" rx="2" fill="' + barColor + '"/>');
+      svg.push('<text x="' + xMid(i).toFixed(1) + '" y="' + (yBar(v) - 6).toFixed(1) + '" fill="var(--muted)" ' +
+               'font-size="11" text-anchor="middle">' + esc(cfg.bar.value(v)) + '</text>');
+    });
+
+    var pts = [];
+    cfg.line.values.forEach(function (v, i) { if (num(v)) pts.push(xMid(i).toFixed(1) + ',' + yLine(v).toFixed(1)); });
+    if (pts.length > 1) {
+      svg.push('<polyline fill="none" stroke="' + lineColor + '" stroke-width="2" stroke-linejoin="round" points="' +
+               pts.join(' ') + '"/>');
+    }
+    cfg.line.values.forEach(function (v, i) {
+      if (!num(v)) return;
+      svg.push('<circle cx="' + xMid(i).toFixed(1) + '" cy="' + yLine(v).toFixed(1) + '" r="3.5" fill="' + lineColor + '"/>');
+      svg.push('<text x="' + xMid(i).toFixed(1) + '" y="' + (yLine(v) - 9).toFixed(1) + '" fill="' + lineColor +
+               '" font-size="11" font-weight="600" text-anchor="middle">' + esc(cfg.line.value(v)) + '</text>');
+    });
+
+    cfg.labels.forEach(function (label, i) {
+      svg.push('<text x="' + xMid(i).toFixed(1) + '" y="' + (padT + bodyH + 18) +
+               '" fill="var(--faint)" font-size="11" text-anchor="middle">' + esc(label) + '</text>');
+    });
+    svg.push('<line x1="' + padL + '" y1="' + (padT + bodyH) + '" x2="' + (W - padR) + '" y2="' + (padT + bodyH) +
+             '" stroke="var(--border)" stroke-width="1"/>');
+    svg.push('</svg>');
+    return svg.join('') + legendHtml([{name: cfg.bar.name, color: barColor}, {name: cfg.line.name, color: lineColor}]);
+  }
+
+  function legendHtml(series) {
+    return '<div class="legend">' + series.map(function (s, i) {
+      return '<span><i style="background:' + (s.color || PALETTE[i % 4]) + '"></i>' + esc(s.name) + '</span>';
+    }).join('') + '</div>';
+  }
+
+  function panel(title, sub, body) {
+    return '<div class="panel"><h3>' + esc(title) + '</h3>' +
+           (sub ? '<p class="sub">' + esc(sub) + '</p>' : '') + body + '</div>';
+  }
+
+  function tableHtml(columns, rows, minWidth) {
+    if (!rows.length) return '';
+    var head = columns.map(function (c) {
+      return '<th' + (c.left ? ' class="l"' : '') + '>' + esc(c.label) + '</th>';
+    }).join('');
+    var body = rows.map(function (row) {
+      return '<tr>' + columns.map(function (c) {
+        var out = c.render(row);
+        return '<td' + (c.left ? ' class="l"' : '') + (out.cls ? ' class="' + out.cls + '"' : '') + '>' + out.html + '</td>';
+      }).join('') + '</tr>';
+    }).join('');
+    return '<div class="scroll"><table' + (minWidth ? ' style="min-width:' + minWidth + 'px"' : '') +
+           '><thead><tr>' + head + '</tr></thead><tbody>' + body + '</tbody></table></div>';
+  }
+  function cell(html, cls) { return {html: html, cls: cls || ''}; }
+
+  /* ---------- human-authored actions ---------- */
+
+  var recommendations = T.Recommendations || [], nextSteps = T.Next_Steps || [];
+  var DETAIL_SECTIONS = ['business', 'gsc', 'ga4', 'geo', 'technical'];
+  var EXEC_SECTIONS = ['business', 'gsc', 'geo', 'technical'];
+  var SECTION_LABEL = {business: '業務成果', gsc: '搜尋表現', ga4: '導流結構', geo: 'GEO 品牌可見度', technical: '技術項目'};
+
+  function trim(v) { return String(v == null ? '' : v).trim(); }
+
+  /* Recommendations own the status. A Next Step naming one shows that status rather than
+     its own, so the two hand-edited tabs cannot report different progress for the same
+     work. A sourceRef matching nothing still renders — dropping a commitment silently is
+     worse than showing it with a broken link — and every break is listed in the notes. */
+  function resolveActions() {
+    var byId = {}, out = {steps: [], prior: [], recs: [], broken: [], unknown: []};
+    recommendations.forEach(function (r) {
+      var id = trim(r.id);
+      if (id) byId[id] = r;
+      if (trim(r.period) !== CUR) return;
+      if (DETAIL_SECTIONS.indexOf(trim(r.section)) < 0) out.unknown.push(id || trim(r.text) || '(未命名建議)');
+      else out.recs.push(r);
+    });
+    nextSteps.forEach(function (row) {
+      var period = trim(row.period), section = trim(row.section), ref = trim(row.sourceRef);
+      var source = ref ? byId[ref] : null;
+      if (ref && !source) out.broken.push({period: period, ref: ref, text: trim(row.text)});
+      var item = {
+        section: section, order: Number(row.order) || 0, text: trim(row.text), sourceRef: ref,
+        sourceMissing: !!(ref && !source),
+        status: source ? trim(source.status) : trim(row.status),
+        statusFrom: source ? 'Recommendations' : 'Next_Steps'
+      };
+      if (period === CUR) {
+        if (EXEC_SECTIONS.indexOf(section) < 0) { out.unknown.push(ref || item.text || '(未命名 Next Step)'); return; }
+        out.steps.push(item);
+      } else if (period === PREV) {
+        out.prior.push(item);
+      }
+    });
+    out.steps.sort(function (a, b) { return a.order - b.order; });
+    out.prior.sort(function (a, b) { return a.order - b.order; });
+    return out;
+  }
+
+  function statusChip(item) {
+    if (item.sourceMissing) return '<span class="badge neg">來源遺失</span>';
+    if (!item.status) return '';
+    var cls = item.status === '完成' ? ' pos' : (item.status === '取消' ? '' : '');
+    return '<span class="badge' + cls + '">' + esc(item.status) + '</span>';
+  }
+
+  function actionList(items, emptyNote) {
+    if (!items.length) return '<p class="sub">' + esc(emptyNote || '') + '</p>';
+    return '<ul class="actions">' + items.map(function (a) {
+      return '<li><span class="tag">' + esc(SECTION_LABEL[a.section] || a.section) + '</span>' +
+             '<span style="flex:1 1 260px">' + esc(a.text) + '</span>' + statusChip(a) +
+             (a.sourceRef ? '<span class="ref">' + esc(a.sourceRef) + '</span>' : '') + '</li>';
+    }).join('') + '</ul>';
+  }
+
+  /* ---------- sections ---------- */
+
+  var sections = [];
+  function section(id, label, html) { sections.push({id: id, label: label, html: html}); }
+
+  var biz = (T.Business || [])[0];
+  var gscDelta = T.GSC_Delta || [], gscMonthly = T.GSC_Monthly || [];
+  var ga4 = T.GA4_Channels || [], geo = T.GEO_Workduo || [];
+  var technical = T.Technical_SF || [], sitemaps = T.Sitemaps || [], sources = T.Sources || [];
+  var cwvRows = T.CWV || [], cwvTrend = T.CWV_Trend || [], cwvMissing = T.CWV_Missing || [];
+
+  /* Core Web Vitals thresholds and units travel with the rows, so formatting and the
+     pass/fail verdict here never hard-code a metric name or a millisecond boundary. */
+  function cwvValue(row, value) {
+    if (!num(value)) return '—';
+    if (row.unit === 'score') return value.toFixed(3);
+    if (row.unit === 's') return (value / 1000).toFixed(2) + ' 秒';
+    return Math.round(value).toLocaleString('zh-TW') + ' ms';
+  }
+  function ratingCls(rating) { return rating === '良好' ? 'pos' : (rating === '不佳' ? 'neg' : ''); }
+
+  /* Google assesses each form factor separately and an origin passes only when all three
+     vitals are rated good, so the verdict is per origin x form factor, never site-wide. */
+  function cwvGroups() {
+    var groups = [], index = {};
+    cwvRows.forEach(function (r) {
+      if (r.group !== 'Core Web Vitals') return;
+      var key = r.siteLabel + ' · ' + r.formLabel;
+      if (!index[key]) {
+        index[key] = {key: key, siteLabel: r.siteLabel, formLabel: r.formLabel, rows: []};
+        groups.push(index[key]);
+      }
+      index[key].rows.push(r);
+    });
+    groups.forEach(function (g) {
+      g.failing = g.rows.filter(function (r) { return r.rating && r.rating !== '良好'; });
+      g.verdict = g.rows.length < 3 ? '資料不足' : (g.failing.length ? '未通過' : '通過');
+    });
+    return groups;
+  }
+
+  /* 1. Executive summary — every bullet is derived, not written by hand. */
+  (function () {
+    var bullets = [];
+    if (biz) {
+      bullets.push('<li><strong>' + CUR_M + ' 月 Non-paid 名單 ' + int(biz.augActual) + ' 筆，達成率 ' +
+        pct(biz.augReach) + '。</strong>目標 ' + int(biz.augTarget) + ' 筆，差距 ' + int(biz.gap) +
+        ' 筆；較 ' + PREV_M + ' 月 <span class="' + signCls(biz.momChange) + '">' + delta(biz.momChange) + '</span>。</li>');
+    }
+    gscDelta.forEach(function (r) {
+      bullets.push('<li><strong>' + esc(r.siteLabel) + ' 台灣搜尋曝光 <span class="' + signCls(r.imprChange) + '">' +
+        delta(r.imprChange) + '</span>。</strong>點擊 <span class="' + signCls(r.clicksChange) + '">' +
+        delta(r.clicksChange) + '</span>，CTR ' + pct(r.ctrJul) + ' → ' + pct(r.ctrAug) +
+        '（<span class="' + signCls(r.ctrChangePt) + '">' + point(r.ctrChangePt) + '</span>），平均排名 ' +
+        dec(r.posJul) + ' → ' + dec(r.posAug) + '。</li>');
+    });
+    var organic = ga4.filter(function (r) { return r.channel === 'Organic Search'; });
+    var ai = ga4.filter(function (r) { return r.channel === 'AI Assistant'; });
+    if (organic.length) {
+      bullets.push('<li><strong>GA4 Organic Search 工作階段同步下滑。</strong>' + organic.map(function (r) {
+        return esc(r.siteLabel) + ' <span class="' + signCls(r.sessionsChange) + '">' + delta(r.sessionsChange) + '</span>';
+      }).join('、') + '。兩個 property 分開計算，未跨站加總。</li>');
+    }
+    if (ai.length) {
+      bullets.push('<li><strong>AI Assistant 導流仍在成長。</strong>' + ai.map(function (r) {
+        return esc(r.siteLabel) + ' ' + int(r.sessionsJul) + ' → ' + int(r.sessionsAug) +
+          ' 次（<span class="' + signCls(r.sessionsChange) + '">' + delta(r.sessionsChange) + '</span>）';
+      }).join('、') + '。基期小，單月變化不足以視為趨勢。</li>');
+    }
+    var own = geo.filter(function (r) { return String(r.entity).toUpperCase().indexOf('SHOPLINE') === 0; })[0];
+    if (own) {
+      bullets.push('<li><strong>GEO 品牌可見度下降 ' + point(own.visibilityChangePt) + '。</strong>' +
+        esc(own.entity) + ' 每日平均可見度 ' + pct(own.visibilityJul) + ' → ' + pct(own.visibilityAug) +
+        '，仍是監測樣本中最高者；同期多數競品亦下滑，屬樣本共同變動而非單一品牌現象。</li>');
+    }
+    var cwvVerdicts = cwvGroups();
+    if (cwvVerdicts.length) {
+      var passed = cwvVerdicts.filter(function (g) { return g.verdict === '通過'; });
+      var failed = cwvVerdicts.filter(function (g) { return g.verdict === '未通過'; });
+      bullets.push('<li><strong>Core Web Vitals ' + passed.length + '／' + cwvVerdicts.length +
+        ' 組通過（站點 × 裝置）。</strong>' +
+        (failed.length ? failed.map(function (g) {
+          return esc(g.key) + ' ' + g.failing.map(function (r) {
+            return esc(r.metricShort) + ' ' + cwvValue(r, r.p75) + ' ' + esc(r.rating);
+          }).join('、');
+        }).join('；') + '。' : '') +
+        'CrUX 實際使用者資料，滾動 28 天窗口' + (meta.cwvPeriod ? '（' + esc(meta.cwvPeriod) + '）' : '') +
+        '，不是 ' + CUR_M + ' 月單月數值。</li>');
+    }
+    var highTech = technical.filter(function (r) { return r.severity === '高'; });
+    if (highTech.length) {
+      bullets.push('<li><strong>技術面有 ' + highTech.length + ' 項高優先度問題。</strong>' +
+        highTech.map(function (r) {
+          return esc(r.issue) + '（' + esc(r.siteLabel.replace(/^(主站|部落格)\s*/, '')) + ' ' +
+            int(r.count) + (num(r.share) ? '、' + pct(r.share) : '') + '）';
+        }).join('；') + '。為單一時點快照，描述現況而非月變化。</li>');
+    }
+    section('summary', '摘要', '<ul class="tight">' + bullets.join('') + '</ul>');
+  })();
+
+  /* 2. Business */
+  if (biz) {
+    var cards =
+      '<div class="cards">' +
+      '<div class="card"><div class="k">' + CUR_M + ' 月 Non-paid Leads</div><div class="v">' + int(biz.augActual) +
+        '</div><div class="s">目標 ' + int(biz.augTarget) + ' 筆</div></div>' +
+      '<div class="card"><div class="k">達成率</div><div class="v ' + (biz.augReach >= 1 ? 'pos' : 'neg') + '">' +
+        pct(biz.augReach) + '</div><div class="s">差距 ' + int(biz.gap) + ' 筆</div></div>' +
+      '<div class="card"><div class="k">較 ' + PREV_M + ' 月</div><div class="v ' + signCls(biz.momChange) + '">' +
+        delta(biz.momChange) + '</div><div class="s">' + int(biz.julActual) + ' → ' + int(biz.augActual) + ' 筆</div></div>' +
+      '<div class="card"><div class="k">' + PREV_M + ' 月達成率</div><div class="v">' + pct(biz.julReach) +
+        '</div><div class="s">' + int(biz.julActual) + ' / ' + int(biz.julTarget) + ' 筆</div></div>' +
+      '</div>';
+    var chart = groupedBars({
+      title: 'Non-paid Leads 目標與實績',
+      categories: [PREV_M + ' 月', CUR_M + ' 月'],
+      series: [{name: '實績 Actual', values: [biz.julActual, biz.augActual]},
+               {name: '目標 Target', values: [biz.julTarget, biz.augTarget], color: 'var(--c2)'}]
+    });
+    section('business', '業務成果',
+      cards +
+      panel('Non-paid Leads 目標與實績', '單位：筆。全 Non-paid 業務名單，與 SEO、GEO 流量分開判讀。', chart) +
+      '<div class="note">這是全渠道 Non-paid 名單，不是 SEO 單一渠道成果。' + CUR_M + ' 月未達標，' +
+      (num(biz.sepTarget) ? (CUR_M + 1) + ' 月目標為 ' + int(biz.sepTarget) + ' 筆。' : '') +
+      '成功轉換與 SQL 口徑尚未確認，本報表不作轉換成果宣稱。</div>');
+  }
+
+  /* 3. GSC */
+  if (gscDelta.length) {
+    var sites = gscMonthly.reduce(function (acc, r) {
+      if (acc.indexOf(r.siteLabel) < 0) acc.push(r.siteLabel);
+      return acc;
+    }, []);
+    function monthSeries(field) {
+      return [PREV_M, CUR_M].map(function (m, i) {
+        return {
+          name: m + ' 月', color: i === 0 ? 'var(--c4)' : 'var(--c1)',
+          values: sites.map(function (site) {
+            var row = gscMonthly.filter(function (r) {
+              return r.siteLabel === site && Number(String(r.monthLabel).replace(/\D/g, '')) === m;
+            })[0];
+            return row ? row[field] : null;
+          })
+        };
+      });
+    }
+    var gscTable = tableHtml([
+      {label: '站點', left: true, render: function (r) { return cell(esc(r.siteLabel)); }},
+      {label: PREV_M + ' 月點擊', render: function (r) { return cell(int(r.clicksJul)); }},
+      {label: CUR_M + ' 月點擊', render: function (r) { return cell(int(r.clicksAug)); }},
+      {label: '點擊變化', render: function (r) { return cell(delta(r.clicksChange), signCls(r.clicksChange)); }},
+      {label: PREV_M + ' 月曝光', render: function (r) { return cell(int(r.imprJul)); }},
+      {label: CUR_M + ' 月曝光', render: function (r) { return cell(int(r.imprAug)); }},
+      {label: '曝光變化', render: function (r) { return cell(delta(r.imprChange), signCls(r.imprChange)); }},
+      {label: 'CTR', render: function (r) { return cell(pct(r.ctrJul) + ' → ' + pct(r.ctrAug)); }},
+      {label: 'CTR 變化', render: function (r) { return cell(point(r.ctrChangePt), signCls(r.ctrChangePt)); }},
+      {label: '平均排名', render: function (r) { return cell(dec(r.posJul) + ' → ' + dec(r.posAug)); }},
+      {label: '排名變化', render: function (r) { return cell(point(r.posChange), signCls(r.posChange, true)); }}
+    ], gscDelta, 980);
+    section('gsc', '搜尋表現（GSC・台灣 WEB）',
+      '<p class="lede">限台灣、WEB 搜尋、data_state=final。CTR 由當月總點擊除以總曝光計算；平均排名以曝光加權，來源每日排名已四捨五入，僅為近似值。</p>' +
+      panel('點擊', '單位：次', groupedBars({title: '點擊', categories: sites, series: monthSeries('clicks')})) +
+      panel('曝光', '單位：次', groupedBars({title: '曝光', categories: sites, series: monthSeries('impressions')})) +
+      panel('逐站對照', '', gscTable));
+  }
+
+  /* 4. GA4 */
+  if (ga4.length) {
+    var labels = ga4.map(function (r) { return r.siteLabel.replace(/^(主站|部落格)\s*/, '') + ' · ' + r.channel; });
+    var ga4Chart = groupedBars({
+      title: 'GA4 工作階段',
+      categories: labels,
+      series: [{name: PREV_M + ' 月', color: 'var(--c4)', values: ga4.map(function (r) { return r.sessionsJul; })},
+               {name: CUR_M + ' 月', color: 'var(--c1)', values: ga4.map(function (r) { return r.sessionsAug; })}]
+    });
+    var ga4Table = tableHtml([
+      {label: '站點', left: true, render: function (r) { return cell(esc(r.siteLabel)); }},
+      {label: '渠道', left: true, render: function (r) { return cell(esc(r.channel)); }},
+      {label: 'Property', render: function (r) { return cell(esc(r.propertyId)); }},
+      {label: PREV_M + ' 月工作階段', render: function (r) { return cell(int(r.sessionsJul)); }},
+      {label: CUR_M + ' 月工作階段', render: function (r) { return cell(int(r.sessionsAug)); }},
+      {label: '變化', render: function (r) { return cell(delta(r.sessionsChange), signCls(r.sessionsChange)); }},
+      {label: CUR_M + ' 月使用者', render: function (r) { return cell(int(r.usersAug)); }},
+      {label: '互動率', render: function (r) { return cell(pct(r.engagementJul) + ' → ' + pct(r.engagementAug)); }}
+    ], ga4, 880);
+    section('ga4', '導流結構（GA4）',
+      '<p class="lede">依 ga4_scope.v1.json：hostname 精確比對，只取 Organic Search 與 AI Assistant，涵蓋所有國家，' +
+      '兩個 property 分開報告且禁止跨 property 加總。hostName 是事件主機的診斷切分，不等同 landing-session 口徑，' +
+      '因此無法與 GSC 逐筆對帳。</p>' +
+      panel('工作階段', '單位：次', ga4Chart) +
+      panel('渠道明細', '', ga4Table));
+  }
+
+  /* 5. GEO */
+  if (geo.length) {
+    var geoChart = groupedBars({
+      title: 'Workduo 每日平均可見度',
+      categories: geo.map(function (r) { return r.entity; }),
+      series: [{name: PREV_M + ' 月', color: 'var(--c4)', values: geo.map(function (r) { return r.visibilityJul; })},
+               {name: CUR_M + ' 月', color: 'var(--c3)', values: geo.map(function (r) { return r.visibilityAug; })}],
+      axis: function (v) { return (v * 100).toFixed(0) + '%'; },
+      value: function (v) { return (v * 100).toFixed(1) + '%'; }
+    });
+    var geoTable = tableHtml([
+      {label: '品牌', left: true, render: function (r) { return cell(esc(r.entity)); }},
+      {label: PREV_M + ' 月可見度', render: function (r) { return cell(pct(r.visibilityJul)); }},
+      {label: CUR_M + ' 月可見度', render: function (r) { return cell(pct(r.visibilityAug)); }},
+      {label: '可見度變化', render: function (r) { return cell(point(r.visibilityChangePt), signCls(r.visibilityChangePt)); }},
+      {label: PREV_M + ' 月 SOV', render: function (r) { return cell(pct(r.sovJul)); }},
+      {label: CUR_M + ' 月 SOV', render: function (r) { return cell(pct(r.sovAug)); }},
+      {label: CUR_M + ' 月提及數', render: function (r) { return cell(int(r.mentionsAug)); }},
+      {label: '觀測天數', render: function (r) { return cell(int(r.daysAug)); }}
+    ], geo, 820);
+    section('geo', 'GEO 品牌可見度（Workduo）',
+      '<p class="lede">限台灣監測專案、onlyTrackedEntity。可見度與 SOV 取每日等權算術平均，提及數逐日加總。' +
+      '這是監測樣本內的品牌出現情況，不是整月去重或按回覆量加權的比率，也不能推論全市場。</p>' +
+      panel('每日平均可見度', '依 ' + CUR_M + ' 月可見度排序', geoChart) +
+      panel('品牌明細', '', geoTable) +
+      (meta.geoSnapshotAt ? '<div class="note">本次執行環境未連線 Workduo MCP，沿用 ' +
+        esc(String(meta.geoSnapshotAt).slice(0, 10)) + ' 透過 Workduo MCP 取得的快照（' + PREV_M + '、' + CUR_M +
+        ' 月各 310 列）。數值未經本次重抓驗證。</div>' : ''));
+  }
+
+  /* 6. Technical audit */
+  (function () {
+    /* Core Web Vitals first: CrUX is field data — what real Chrome users experienced — and
+       is the same basis as Search Console's own Core Web Vitals report. The Screaming Frog
+       findings below are a lab-side crawl and are reported separately, never merged. */
+    var cwvHtml = (function () {
+      if (!cwvRows.length) {
+        return '<div class="note"><strong>Core Web Vitals 尚未取得（' + esc(meta.cwvStatus || 'PENDING') +
+          '）。</strong>CrUX API 只接受 Google API key，本專案現有的 OAuth 憑證會被拒絕。' +
+          '設定 CRUX_API_KEY 後執行 pull_cwv.py 並重跑發佈流程，本段會自動顯示，不需修改程式。</div>';
+      }
+      var groups = cwvGroups();
+      var core = cwvRows.filter(function (r) { return r.group === 'Core Web Vitals'; });
+      var shortSite = function (label) { return String(label).replace(/^(主站|部落格)\s*/, ''); };
+
+      var cards = '<div class="cards">' + groups.map(function (g) {
+        return '<div class="card"><div class="k">' + esc(g.key) + '</div><div class="v ' +
+          (g.verdict === '通過' ? 'pos' : (g.verdict === '未通過' ? 'neg' : '')) + '">' + esc(g.verdict) +
+          '</div><div class="s">' + (g.failing.length
+            ? g.failing.map(function (r) { return esc(r.metricShort) + ' ' + esc(r.rating); }).join('、')
+            : g.rows.map(function (r) { return esc(r.metricShort); }).join(' · ') + ' 皆良好') +
+          '</div></div>';
+      }).join('') + '</div>';
+
+      var distribution = panel('使用者體驗分布',
+        '每一列是 CrUX 回報的良好／需改善／不佳占比，直接取自來源，未由 p75 反推。',
+        stackedBars({
+          title: 'Core Web Vitals 分布',
+          categories: core.map(function (r) {
+            return shortSite(r.siteLabel) + ' · ' + r.formLabel + ' · ' + r.metricShort; }),
+          series: [
+            {name: '良好', values: core.map(function (r) { return r.goodShare; }), color: 'var(--pos)'},
+            {name: '需改善', values: core.map(function (r) { return r.needsShare; }), color: 'var(--c2)'},
+            {name: '不佳', values: core.map(function (r) { return r.poorShare; }), color: 'var(--neg)'}
+          ]
+        }));
+
+      /* The 25 history windows are the only real trend in this section — the crawl beside
+         it is a single point in time. Charted for the metric that carries the most weight. */
+      var trendHtml = '';
+      var trendMetric = 'LCP', trendDevice = (cwvTrend[0] || {}).formLabel;
+      var trendRows = cwvTrend.filter(function (r) {
+        return r.metricShort === trendMetric && r.formLabel === trendDevice; });
+      if (trendRows.length) {
+        var labels = [];
+        trendRows.forEach(function (r) { if (labels.indexOf(r.periodEnd) < 0) labels.push(r.periodEnd); });
+        labels.sort();
+        var sites = [];
+        trendRows.forEach(function (r) { if (sites.indexOf(r.siteLabel) < 0) sites.push(r.siteLabel); });
+        var sample = core.filter(function (r) { return r.metricShort === trendMetric; })[0];
+        trendHtml = panel(trendMetric + ' p75 趨勢（' + esc(trendDevice) + '）',
+          '每期為 28 天窗口、每週前進一週，因此相鄰期會重疊。橫軸為窗口結束日，最後一點為當期。',
+          lineChart({
+            title: trendMetric + ' p75 趨勢',
+            labels: labels.map(function (d) { return String(d).slice(5); }),
+            axis: function (v) { return (v / 1000).toFixed(1) + ' 秒'; },
+            threshold: sample && num(sample.goodThreshold)
+              ? {value: sample.goodThreshold, label: '良好門檻 ' + cwvValue(sample, sample.goodThreshold)} : null,
+            series: sites.map(function (site) {
+              return {name: shortSite(site), values: labels.map(function (day) {
+                var hit = trendRows.filter(function (r) { return r.siteLabel === site && r.periodEnd === day; })[0];
+                return hit ? hit.p75 : null;
+              })};
+            })
+          }));
+      }
+
+      var table = panel('指標明細',
+        '評級門檻為 Google 公布值。「前一期」是緊鄰當期之前、與當期不重疊的 28 天窗口；'
+        + '所有指標都是越低越好，因此下降為改善。',
+        tableHtml([
+          {label: '類別', left: true, render: function (r) { return cell(esc(r.group)); }},
+          {label: '站點', left: true, render: function (r) { return cell(esc(r.siteLabel)); }},
+          {label: '裝置', left: true, render: function (r) { return cell(esc(r.formLabel)); }},
+          {label: '指標', left: true, render: function (r) { return cell(esc(r.metricLabel)); }},
+          {label: 'p75', render: function (r) { return cell(cwvValue(r, r.p75), ratingCls(r.rating)); }},
+          {label: '評級', render: function (r) { return cell(esc(r.rating) || '—', ratingCls(r.rating)); }},
+          {label: '良好', render: function (r) { return cell(pct(r.goodShare)); }},
+          {label: '需改善', render: function (r) { return cell(pct(r.needsShare)); }},
+          {label: '不佳', render: function (r) { return cell(pct(r.poorShare)); }},
+          {label: '良好門檻', render: function (r) { return cell('≤ ' + cwvValue(r, r.goodThreshold)); }},
+          {label: '前一期 p75', render: function (r) { return cell(cwvValue(r, r.prevP75)); }},
+          {label: '變化', render: function (r) {
+            return cell(delta(r.change), signCls(r.change, true)); }}
+        ], cwvRows, 1180));
+
+      var missing = cwvMissing.length ? '<div class="note"><strong>無資料的組合：</strong>' +
+        cwvMissing.map(function (r) {
+          return esc(r.siteLabel) + ' · ' + esc(r.formLabel) + '（' + esc(r.reason) + '）';
+        }).join('；') + '</div>' : '';
+
+      return '<p class="lede">Core Web Vitals 是<strong>實際使用者</strong>的體驗數據：Google 以真實 Chrome ' +
+        '使用者最近 28 天的第 75 百分位評級，Search Console 的 Core Web Vitals 報表也是以同一份 CrUX ' +
+        '資料為基礎。每個來源網域、每種裝置各自評級，三項核心指標全部良好才算通過。</p>' +
+        cards + distribution + trendHtml + table + missing +
+        '<div class="note">窗口為 CrUX <strong>滾動 28 天</strong>' +
+        (meta.cwvPeriod ? '（' + esc(meta.cwvPeriod) + '）' : '') + '，與報表月份不一致，' +
+        '不能當成 ' + CUR_M + ' 月單月數值，也不能與 GSC／GA4 的月度口徑對帳。' +
+        '樣本為來源網域層級（非單頁）、未分國別，且僅含已啟用回報的 Chrome 使用者，不含其他瀏覽器。' +
+        '下方 Screaming Frog 為爬取端的單一時點快照，兩者口徑不同，不做因果歸因。</div>';
+    })();
+
+    var body, crawls = T.SF_Crawls || [];
+    if (technical.length) {
+      var high = technical.filter(function (r) { return r.severity === '高'; });
+      var counts = ['高', '中', '低'].map(function (s) {
+        return {severity: s, n: technical.filter(function (r) { return r.severity === s; }).length};
+      });
+      var summary = '<div class="cards">' + counts.map(function (c) {
+        return '<div class="card"><div class="k">' + c.severity + '優先度項目</div><div class="v ' +
+          (c.severity === '高' && c.n ? 'neg' : '') + '">' + c.n + '</div></div>';
+      }).join('') + '<div class="card"><div class="k">爬取網址合計</div><div class="v">' +
+        int(crawls.reduce(function (sum, c) { return sum + (num(c.urlsEncountered) ? c.urlsEncountered : 0); }, 0)) +
+        '</div><div class="s">' + crawls.length + ' 個站點</div></div></div>';
+
+      var lede = high.length ? '<div class="note"><strong>優先處理：</strong>' + high.map(function (r) {
+        return esc(r.issue) + '（' + esc(r.siteLabel.replace(/^(主站|部落格)\s*/, '')) + ' ' +
+          int(r.count) + (num(r.share) ? '、' + pct(r.share) : '') + '）';
+      }).join('；') + '。</div>' : '';
+
+      var table = panel('技術項目', '依優先度排序。佔比的分母沿用 Screaming Frog 原始定義，未自行重算；優先度為人工判定。',
+        tableHtml([
+          {label: '優先度', render: function (r) {
+            return cell(esc(r.severity), r.severity === '高' ? 'neg' : ''); }},
+          {label: '站點', left: true, render: function (r) { return cell(esc(r.siteLabel)); }},
+          {label: '項目', left: true, render: function (r) { return cell(esc(r.issue)); }},
+          {label: '數量', render: function (r) { return cell(int(r.count)); }},
+          {label: '佔比', render: function (r) { return cell(pct(r.share)); }},
+          {label: '分母', left: true, render: function (r) {
+            return cell('<span class="trunc" style="max-width:230px">' + esc(r.scope) + '</span>'); }},
+          {label: '說明', left: true, render: function (r) { return cell(esc(r.note)); }}
+        ], technical, 1080));
+
+      var crawlTable = crawls.length ? panel('爬取範圍', '單一時點快照，無 7 月對照，不能據此判斷月變化。', tableHtml([
+        {label: '站點', left: true, render: function (r) { return cell(esc(r.siteLabel)); }},
+        {label: '完成時間', render: function (r) { return cell(esc(r.crawlDate)); }},
+        {label: '耗時', render: function (r) { return cell(esc(r.elapsed)); }},
+        {label: '發現網址', render: function (r) { return cell(int(r.urlsEncountered)); }},
+        {label: '實際爬取', render: function (r) { return cell(int(r.urlsCrawled)); }},
+        {label: '站內網址', render: function (r) { return cell(int(r.internalUrls)); }},
+        {label: '站內可索引', render: function (r) { return cell(int(r.internalIndexable)); }},
+        {label: '站內不可索引', render: function (r) { return cell(int(r.internalNonIndexable)); }}
+      ], crawls, 860)) : '';
+
+      var excluded = T.SF_Excluded || [];
+      var excludedHtml = excluded.length ? panel('刻意未列入的項目', 'Crawl Overview 有統計但判定為健康狀態或已知誤報，因此不列為缺陷。',
+        tableHtml([
+          {label: '未列入項目', left: true, render: function (r) { return cell(esc(r.item)); }},
+          {label: '原因', left: true, render: function (r) { return cell(esc(r.reason)); }}
+        ], excluded, 720)) : '';
+
+      body = summary + lede + table + crawlTable + excludedHtml;
+    } else {
+      body = '<div class="note">Screaming Frog 技術稽核尚未匯出（' + esc(meta.technicalStatus || 'PENDING') +
+        '）。SF MCP 在 Screaming Frog 桌面程式執行中時會拒絕匯出。' +
+        '資料補上後重新執行發佈流程，本段會自動顯示，不需修改程式。</div>';
+    }
+    var sitemapTable = sitemaps.length ? panel('Sitemap 狀態', '來源：GSC MCP get_sitemaps + get_sitemap_details。停滯天數 = 資料擷取時間 − 最後抓取時間。', tableHtml([
+      {label: '站點', left: true, render: function (r) { return cell(esc(r.siteLabel)); }},
+      {label: 'Sitemap', left: true, render: function (r) {
+        return cell('<a href="' + esc(r.path) + '" target="_blank" rel="noopener"><span class="trunc">' +
+          esc(r.path) + '</span></a>'); }},
+      {label: '狀態', left: true, render: function (r) { return cell(esc(r.status), r.errors ? 'neg' : (r.warnings ? '' : 'pos')); }},
+      {label: '警告', render: function (r) { return cell(int(r.warnings), r.warnings ? 'neg' : ''); }},
+      {label: '錯誤', render: function (r) { return cell(int(r.errors), r.errors ? 'neg' : ''); }},
+      {label: '最後提交', render: function (r) { return cell(esc(r.lastSubmitted) || '—'); }},
+      {label: '最後抓取', render: function (r) { return cell(esc(r.lastDownloaded) || '—'); }},
+      {label: '停滯天數', render: function (r) { return cell(num(r.staleDays) ? int(r.staleDays) : '—', num(r.staleDays) && r.staleDays > 180 ? 'neg' : ''); }}
+    ], sitemaps, 780)) : '';
+    var sitemapNotes = sitemaps.filter(function (r) { return r.note; });
+    var sitemapNoteHtml = sitemapNotes.length ? '<div class="note">' + sitemapNotes.map(function (r) {
+      return '<strong>' + esc(r.path.replace(/^https?:\/\//, '')) + '：</strong>' + esc(r.note);
+    }).join('<br>') + '</div>' : '';
+    var subhead = function (title, qualifier) {
+      return '<h3 class="subhead">' + esc(title) + '<span class="q">' + esc(qualifier) + '</span></h3>';
+    };
+    section('technical', '技術稽核與 Sitemap',
+            subhead('Core Web Vitals', cwvRows.length ? '實際使用者資料｜CrUX 滾動 28 天' : '尚未取得') + cwvHtml +
+            subhead('Screaming Frog 稽核', '爬取端單一時點快照' + (crawls.length
+              ? '｜' + String(crawls.map(function (c) { return c.crawlDate; }).sort().pop()).slice(0, 10) : '')) + body +
+            subhead('Sitemap', 'GSC 提交狀態') + sitemapTable + sitemapNoteHtml);
+  })();
+
+  /* 7. Pages and queries, filterable by site */
+  (function () {
+    var pages = T.GSC_Pages || [], queries = T.GSC_Queries || [];
+    if (!pages.length && !queries.length) return;
+
+    function filterable(id, rows, columns, minWidth) {
+      var labels = rows.reduce(function (acc, r) {
+        if (acc.indexOf(r.siteLabel) < 0) acc.push(r.siteLabel);
+        return acc;
+      }, []);
+      var buttons = ['<button data-f="" aria-pressed="true">全部</button>'].concat(labels.map(function (l) {
+        return '<button data-f="' + esc(l) + '" aria-pressed="false">' + esc(l) + '</button>';
+      })).join('');
+      return '<div class="toolbar" data-for="' + id + '">' + buttons + '</div><div id="' + id + '">' +
+             tableHtml(columns, rows, minWidth) + '</div>';
+    }
+    var detailColumns = function (field, label, link) {
+      return [
+        {label: '站點', left: true, render: function (r) { return cell(esc(r.siteLabel)); }},
+        {label: label, left: true, render: function (r) {
+          var text = '<span class="trunc">' + esc(r[field]) + '</span>';
+          return cell(link ? '<a href="' + esc(r[field]) + '" target="_blank" rel="noopener">' + text + '</a>' : text);
+        }},
+        {label: '點擊', render: function (r) { return cell(int(r.clicks)); }},
+        {label: '曝光', render: function (r) { return cell(int(r.impressions)); }},
+        {label: 'CTR', render: function (r) { return cell(pct(r.ctr)); }},
+        {label: '平均排名', render: function (r) { return cell(dec(r.position, 1)); }}
+      ];
+    };
+    section('detail', CUR_M + ' 月重點頁面與查詢',
+      '<p class="lede">各站依點擊降序取前 25 筆，作為機會清單使用。這是 Top-N 切片，不能用來推算全站總量，' +
+      '也未取得 ' + PREV_M + ' 月逐筆對照，因此不足以判斷下滑來源。</p>' +
+      panel('頁面', '單位：次', filterable('pagesBody', pages, detailColumns('page', '網址', true), 760)) +
+      panel('查詢', '單位：次', filterable('queriesBody', queries, detailColumns('query', '查詢', false), 700)));
+    window.__detail = {pagesBody: {rows: pages, columns: detailColumns('page', '網址', true), min: 760},
+                       queriesBody: {rows: queries, columns: detailColumns('query', '查詢', false), min: 700}};
+  })();
+
+  /* 8. Sources */
+  if (sources.length) {
+    section('sources', '來源與方法', '<div class="panel">' + sources.map(function (s) {
+      return '<div class="src"><div class="id">' + esc(s.id) + '</div><div class="lb">' + esc(s.label) + '</div>' +
+             '<p><strong>方法：</strong>' + esc(s.method) + '</p>' +
+             '<p><strong>篩選與限制：</strong>' + esc(s.filters) + '</p></div>';
+    }).join('') + '</div>');
+  }
+
+  /* 9. Limitations */
+  section('limits', '資料限制', '<ul class="tight">' +
+    '<li>GSC 與 GA4 <strong>口徑不同</strong>，不能逐筆對帳：GSC 限台灣 WEB 搜尋，GA4 依合約只限制 hostname、涵蓋所有國家。</li>' +
+    '<li>GA4 兩個 property <strong>分開報告</strong>；沒有去重合約前不做跨 property 加總。</li>' +
+    '<li>GSC 平均排名由每日已四捨五入的排名做曝光加權，<strong>只是近似值</strong>。</li>' +
+    '<li>Non-paid Leads 是<strong>全渠道</strong>業務名單，不是 SEO 單一渠道成果；SQL 與成功轉換口徑尚未確認，不作轉換成果宣稱。</li>' +
+    '<li>GEO 為每日等權平均，提示題目與平台組成<strong>尚未做固定樣本對齊</strong>。本月為沿用快照，未重抓。</li>' +
+    '<li>頁面與查詢僅各站 Top 25，<strong>未取得上月逐筆對照</strong>。</li>' +
+    (technical.length
+      ? '<li>Screaming Frog 為<strong>單一時點快照</strong>，無 7 月對照，只能描述現況、不能判斷月變化；優先度為人工判定。未納入 Ahrefs。</li>'
+      : '<li>本版<strong>未納入</strong> Screaming Frog 技術稽核，亦未納入 Ahrefs。</li>') +
+    (cwvRows.length
+      ? '<li>Core Web Vitals 為 CrUX <strong>滾動 28 天</strong>窗口' +
+        (meta.cwvPeriod ? '（' + esc(meta.cwvPeriod) + '）' : '') +
+        '，與本報表月份不一致，不能與 GSC／GA4 的月度數字對帳；為來源網域層級、未分國別，' +
+        '且僅含已啟用回報的 Chrome 使用者。</li>'
+      : '<li>本版<strong>未納入</strong> Core Web Vitals；CrUX API 需要 Google API key，本專案的 OAuth 憑證不適用。</li>') +
+    '</ul>');
+
+  /* ---------- executive view ---------- */
+
+  function execCard(k, v, sub, cls) {
+    return '<div class="card"><div class="k">' + esc(k) + '</div><div class="v ' + (cls || '') + '">' + v +
+           '</div><div class="s">' + (sub || '') + '</div></div>';
+  }
+
+  function pendingValue(text) {
+    return '<span style="font-size:16px;font-weight:560;color:var(--faint)">' + esc(text) + '</span>';
+  }
+
+  function metricBox(title, rows) {
+    return '<div class="card box"><div class="k">' + esc(title) + '</div>' + rows.map(function (r) {
+      return '<div class="row"><span>' + esc(r[0]) + '</span><b class="' + (r[2] || '') + '">' + r[1] + '</b></div>';
+    }).join('') + '</div>';
+  }
+
+  /* Sheets hands booleans through as real booleans, but a hand-typed TRUE arrives as text. */
+  function isTrue(v) { return v === true || String(v).trim().toUpperCase() === 'TRUE'; }
+
+  function monthNum(label) { return Number(String(label).replace(/\D/g, '')) || 0; }
+
+  function execSections() {
+    var A = resolveActions(), out = [];
+    function push(id, label, html) { out.push({id: id, label: label, html: html}); }
+    var mainLabel = (gscDelta[0] || {}).siteLabel || '主站 shopline.tw';
+    gscDelta.forEach(function (r) { if (String(r.siteLabel).indexOf('主站') === 0) mainLabel = r.siteLabel; });
+
+    /* 01 — the summary IS the Next Steps. Numbers live in the sections below it. */
+    var grouped = {};
+    A.steps.forEach(function (step) { (grouped[step.section] = grouped[step.section] || []).push(step); });
+    var summary = A.steps.length
+      ? EXEC_SECTIONS.filter(function (k) { return grouped[k]; })
+          .map(function (k) { return actionList(grouped[k], ''); }).join('')
+      : '<p class="sub">本期 Next Step 尚未產製。請在活頁簿的 <b>Next_Steps</b> 分頁填入 period ' +
+        esc(CUR) + ' 的項目，重新整理本頁即可顯示。</p>';
+    if (A.prior.length) {
+      summary += '<div class="panel" style="margin-top:18px"><h3>上期項目追蹤（' + esc(PREV) + '）</h3>' +
+                 '<p class="sub">進度以 Recommendations 分頁為準。</p>' + actionList(A.prior, '') + '</div>';
+    }
+    push('summary', '摘要', summary);
+
+    /* 02 — Non-paid Leads in full; its SQL only as far as the maturity rule allows. */
+    if (biz) {
+      var leads = '<div class="cards">' +
+        execCard(CUR_M + ' 月 Non-paid Leads', int(biz.augActual), '目標 ' + int(biz.augTarget) + ' 筆') +
+        execCard('達成率', pct(biz.augReach), '差距 ' + int(biz.gap) + ' 筆', biz.augReach >= 1 ? 'pos' : 'neg') +
+        execCard('較 ' + PREV_M + ' 月', delta(biz.momChange),
+                 int(biz.julActual) + ' → ' + int(biz.augActual) + ' 筆', signCls(biz.momChange)) +
+        '</div>';
+      var sqlBlock;
+      if (biz.sqlStatus !== 'OK') {
+        sqlBlock = '<p class="sub">Non-paid Leads SQL：來源未提供。</p>';
+      } else if (isTrue(biz.sqlIsMature)) {
+        sqlBlock = '<div class="cards">' +
+          execCard(CUR_M + ' 月 Non-paid Leads SQL', int(biz.sqlActual), '目標 ' + int(biz.sqlTarget) + ' 筆') +
+          execCard('SQL 達成率', pct(biz.sqlReach),
+                   '差距 ' + int(biz.sqlTarget - biz.sqlActual) + ' 筆', biz.sqlReach >= 1 ? 'pos' : 'neg') +
+          execCard('SQL 較 ' + PREV_M + ' 月', delta(biz.sqlMomChange),
+                   int(biz.sqlPrevActual) + ' → ' + int(biz.sqlActual) + ' 筆', signCls(biz.sqlMomChange)) +
+          '</div>';
+      } else {
+        sqlBlock = '<div class="cards">' +
+          execCard(CUR_M + ' 月 Non-paid Leads SQL', int(biz.sqlActual), '目標 ' + int(biz.sqlTarget) + ' 筆・累計中') +
+          execCard('SQL 達成率', pendingValue('待成熟'), '成熟日 ' + esc(biz.sqlMatureOn)) +
+          execCard('SQL 較 ' + PREV_M + ' 月', pendingValue('待成熟'), '名單月未滿 60 天，不作月比') +
+          '</div>';
+      }
+      push('business', '業務成果', leads + sqlBlock +
+        '<div class="note">Non-paid Leads 是全渠道業務名單，不是 SEO 單一渠道成果。' +
+        (biz.sqlStatus === 'OK' && !isTrue(biz.sqlIsMature)
+          ? 'SQL 於 ' + esc(biz.sqlMatureOn) + ' 才成熟，在那之前依資料合約只呈現累計筆數，不呈現達成率與月變化。'
+          : '') +
+        (biz.sqlSourceStatus === 'SOURCE_NOT_CONFIRMED' ? 'SQL 來源口徑尚待業務負責人確認。' : '') + '</div>');
+    }
+
+    /* 03 — two site cards plus six months of the main site's volume against its rate. */
+    if (gscDelta.length) {
+      var boxes = '<div class="cards">' + gscDelta.map(function (r) {
+        return metricBox(r.siteLabel, [
+          [CUR_M + ' 月曝光', int(r.imprAug) + ' <span class="' + signCls(r.imprChange) + '">' + delta(r.imprChange) + '</span>'],
+          [CUR_M + ' 月點擊', int(r.clicksAug) + ' <span class="' + signCls(r.clicksChange) + '">' + delta(r.clicksChange) + '</span>'],
+          ['CTR', pct(r.ctrAug) + ' <span class="' + signCls(r.ctrChangePt) + '">' + point(r.ctrChangePt) + '</span>'],
+          ['平均排名', dec(r.posAug) + ' <span class="' + signCls(r.posChange, true) + '">' + point(r.posChange) + '</span>']
+        ]);
+      }).join('') + '</div>';
+
+      var series = gscMonthly.filter(function (r) { return r.siteLabel === mainLabel; })
+        .sort(function (a, b) { return monthNum(a.monthLabel) - monthNum(b.monthLabel); });
+      var trend = series.length > 1 ? panel(mainLabel + '｜近半年曝光與 CTR',
+        '柱為曝光（左軸），折線為 CTR（右軸）。兩軸皆自零起算：把 CTR 軸放大會把約 1.5 個百分點的區間畫成陡坡，' +
+        '因此改為在每個點標出數值。',
+        comboChart({
+          title: mainLabel + ' 近半年曝光與 CTR',
+          labels: series.map(function (r) { return r.monthLabel; }),
+          bar: {name: '曝光', values: series.map(function (r) { return r.impressions; }),
+                color: 'var(--c1)', axis: function (v) { return int(Math.round(v)); }, value: function (v) { return int(v); }},
+          line: {name: 'CTR', values: series.map(function (r) { return r.ctr; }),
+                 color: 'var(--c2)', axis: function (v) { return (v * 100).toFixed(1) + '%'; }, value: function (v) { return pct(v); }}
+        })) : '';
+      push('gsc', '搜尋表現（GSC・台灣 WEB）', boxes + trend +
+        (grouped.gsc ? '<div class="panel"><h3>Next Step</h3>' + actionList(grouped.gsc, '') + '</div>' : ''));
+    }
+
+    /* 04 — brand visibility, then AI traffic, then the chatgpt-only lead table. */
+    var top5 = geo.filter(function (r) { return num(r.visibilityAug) && r.visibilityAug > 0; })
+      .sort(function (a, b) { return b.visibilityAug - a.visibilityAug; }).slice(0, 5);
+    var geoHtml = '';
+    if (top5.length) {
+      geoHtml += panel('品牌可見度 Top 5', '括號內為較 ' + PREV_M + ' 月的變化。可見度為 Workduo 每日等權平均。',
+        groupedBars({
+          title: '品牌可見度 Top 5',
+          categories: top5.map(function (r) { return r.entity + '（' + point(r.visibilityChangePt) + '）'; }),
+          colors: top5.map(function (r) { return /^SHOPLINE/i.test(String(r.entity)) ? 'var(--c1)' : 'var(--c4)'; }),
+          series: [{name: CUR_M + ' 月可見度', values: top5.map(function (r) { return r.visibilityAug; }), color: 'var(--c4)'}],
+          axis: function (v) { return (v * 100).toFixed(0) + '%'; },
+          value: function (v) { return pct(v); }
+        }));
+    }
+    var aiRows = (T.GA4_Monthly || []).filter(function (r) {
+      return r.siteLabel === mainLabel && r.channel === 'AI Assistant';
+    }).sort(function (a, b) { return String(a.month).localeCompare(String(b.month)); });
+    if (aiRows.length) {
+      geoHtml += panel('AI Assistant 導流｜' + mainLabel,
+        '柱為工作階段（左軸），折線為相對同月 Organic Search 的比例（右軸）。' +
+        '分母 Organic Search 本身正在下滑，比例上升不必然代表 AI 流量成長，須與柱高並看。',
+        comboChart({
+          title: 'AI Assistant 工作階段與相對 Organic 比例',
+          labels: aiRows.map(function (r) { return r.monthLabel; }),
+          bar: {name: 'AI Assistant 工作階段', values: aiRows.map(function (r) { return r.sessions; }),
+                color: 'var(--c3)', axis: function (v) { return int(Math.round(v)); }, value: function (v) { return int(v); }},
+          line: {name: '相對 Organic Search', values: aiRows.map(function (r) { return r.shareOfOrganic; }),
+                 color: 'var(--c2)', axis: function (v) { return (v * 100).toFixed(1) + '%'; }, value: function (v) { return pct(v); }}
+        }));
+    }
+    var aiChannel = T.AI_Channel || [];
+    if (aiChannel.length) {
+      geoHtml += panel('chatgpt.com 名單與 SQL',
+        '此表僅涵蓋 chatgpt.com 單一來源，是上方 AI Assistant 渠道的子集，兩者不可互相對帳。',
+        tableHtml([
+          {label: '月份', left: true, render: function (r) { return cell(esc(r.monthLabel)); }},
+          {label: '名單', render: function (r) { return cell(int(r.leads)); }},
+          {label: 'SQL', render: function (r) { return cell(int(r.sql)); }},
+          {label: 'CVR', render: function (r) { return cell(pct(r.cvr)); }},
+          {label: 'SQL 狀態', render: function (r) {
+            return isTrue(r.sqlIsMature) ? cell('已成熟') : cell('累計中（' + esc(r.sqlMatureOn) + ' 成熟）', 'muted');
+          }}
+        ], aiChannel, 520));
+    }
+    if (geoHtml || grouped.geo) {
+      push('geo', 'GEO 品牌可見度（Workduo）', geoHtml +
+        (grouped.geo ? '<div class="panel"><h3>Next Step</h3>' + actionList(grouped.geo, '') + '</div>' : ''));
+    }
+
+    return out;
+  }
+
+  /* Everything the exec view leaves out but a follow-up question would need. Collapsed by
+     default so the page stays short; forced open when printing, because a slide pack that
+     drops its own caveats is the failure mode this block exists to prevent. */
+  function execNotes() {
+    var A = resolveActions(), items = [];
+    if (meta.businessAsOf) {
+      items.push('業務數字為 ' + esc(String(meta.businessAsOf).replace('T', ' ').replace('Z', ' UTC')) +
+                 ' 讀取。來源活頁簿會回溯修訂，同一個月份在不同日期讀到的數字可能不同。');
+    }
+    if (biz && biz.sqlStatus === 'OK' && !isTrue(biz.sqlIsMature)) {
+      items.push('Non-paid Leads SQL 的名單月需滿 60 天才成熟（' + esc(biz.sqlMatureOn) +
+                 '）。依 data_contract 規定，未成熟期間不呈現達成率、月變化與燈號，僅呈現累計筆數。' +
+                 (biz.sqlSourceStatus === 'SOURCE_NOT_CONFIRMED'
+                   ? '此外該列來源在 business_actual_mapping 中仍標記為 SOURCE_NOT_CONFIRMED，尚待業務負責人確認口徑。' : ''));
+    }
+    if (meta.geoSnapshotAt) {
+      items.push('GEO 為 ' + esc(String(meta.geoSnapshotAt).replace('T', ' ').replace('Z', ' UTC')) +
+                 ' 的 Workduo 快照沿用，本次未重抓。');
+    }
+    (T.Sources || []).forEach(function (row) {
+      if (row.id === 'ga4Monthly' || row.id === 'aiChannel') {
+        items.push('<b>' + esc(row.label) + '</b>：' + esc(row.filters));
+      }
+    });
+    A.broken.forEach(function (b) {
+      items.push('<b>來源遺失</b>：Next Step「' + esc(b.text) + '」指向的建議編號 ' + esc(b.ref) +
+                 ' 在 Recommendations 分頁中找不到，該列的進度無法帶入。');
+    });
+    if (A.unknown.length) {
+      items.push('<b>已略過 ' + A.unknown.length + ' 列</b>：section 欄位不在允許值域內（' +
+                 esc(A.unknown.join('、')) + '）。');
+    }
+    items.push('本頁為總覽版。完整的技術稽核、Core Web Vitals、Sitemap、重點頁面與查詢，以及全部來源與資料限制，見詳細版。');
+    return '<details class="notes"><summary>附註與資料限制（' + items.length + ' 項）</summary><ul>' +
+           items.map(function (i) { return '<li>' + i + '</li>'; }).join('') + '</ul></details>';
+  }
+
+  /* ---------- recommendations in the detail view (WP8) ---------- */
+
+  var PRIORITY_ORDER = {'高': 0, '中': 1, '低': 2};
+
+  function recList(items) {
+    return '<ul class="actions">' + items.map(function (r) {
+      return '<li><span class="tag">' + esc(trim(r.priority) || '—') + '</span>' +
+             '<span style="flex:1 1 260px">' + esc(trim(r.text)) + '</span>' +
+             statusChip({status: trim(r.status)}) +
+             (trim(r.id) ? '<span class="ref">' + esc(trim(r.id)) + '</span>' : '') + '</li>';
+    }).join('') + '</ul>';
+  }
+
+  /* Appended after every section is built rather than threaded through five separate
+     builders: the section id already equals the recommendation's section value, so the
+     whole mapping lives here and a new section needs no extra wiring. The same array is
+     rendered again in the roll-up below — duplicated on screen, not in maintenance. */
+  (function () {
+    var A = resolveActions();
+    var bySection = {};
+    A.recs.forEach(function (r) {
+      var key = trim(r.section);
+      (bySection[key] = bySection[key] || []).push(r);
+    });
+    Object.keys(bySection).forEach(function (key) {
+      bySection[key].sort(function (a, b) { return (Number(a.order) || 0) - (Number(b.order) || 0); });
+    });
+
+    sections.forEach(function (sec) {
+      var list = bySection[sec.id];
+      if (!list || !list.length) return;
+      sec.html += '<div class="panel"><h3>本段建議</h3>' +
+                  '<p class="sub">人工判斷，非資料推導。編號可在「優化工作建議彙總」中對照。</p>' +
+                  recList(list) + '</div>';
+    });
+
+    var all = A.recs.slice().sort(function (a, b) {
+      var pa = PRIORITY_ORDER[trim(a.priority)], pb = PRIORITY_ORDER[trim(b.priority)];
+      pa = pa === undefined ? 3 : pa;
+      pb = pb === undefined ? 3 : pb;
+      if (pa !== pb) return pa - pb;
+      var sa = DETAIL_SECTIONS.indexOf(trim(a.section)), sb = DETAIL_SECTIONS.indexOf(trim(b.section));
+      if (sa !== sb) return sa - sb;
+      return (Number(a.order) || 0) - (Number(b.order) || 0);
+    });
+
+    var body = all.length
+      ? tableHtml([
+          {label: '編號', left: true, render: function (r) { return cell(esc(trim(r.id))); }},
+          {label: '優先度', render: function (r) { return cell(esc(trim(r.priority) || '—')); }},
+          {label: '段落', render: function (r) { return cell(esc(SECTION_LABEL[trim(r.section)] || trim(r.section))); }},
+          {label: '建議內容', left: true, render: function (r) { return cell(esc(trim(r.text))); }},
+          {label: '證據來源', left: true, render: function (r) { return cell(esc(trim(r.evidenceRef)) || '—'); }},
+          {label: '狀態', render: function (r) { return cell(statusChip({status: trim(r.status)}) || '—'); }}
+        ], all, 820)
+      : '<p class="sub">本期建議尚未產製。請在活頁簿的 <b>Recommendations</b> 分頁填入 period ' +
+        esc(CUR) + ' 的項目，重新整理本頁即可顯示。</p>';
+
+    var brokenNote = A.broken.length
+      ? '<div class="note">有 ' + A.broken.length + ' 條 Next Step 指向不存在的建議編號（' +
+        A.broken.map(function (b) { return esc(b.ref); }).join('、') + '），該列的進度無法帶入。</div>'
+      : '';
+    var skippedNote = A.unknown.length
+      ? '<div class="note">已略過 ' + A.unknown.length + ' 列：section 欄位不在允許值域內（' +
+        esc(A.unknown.join('、')) + '）。允許值為 ' + DETAIL_SECTIONS.join('、') + '。</div>'
+      : '';
+
+    var rollup = {
+      id: 'actions', label: '優化工作建議彙總',
+      html: '<p class="lede">以上各段為程式推導的數據敘述，本段起為人工判斷。報告本身不宣稱因果；' +
+            '建議與其證據的對應關係記在「證據來源」欄，進度以 Recommendations 分頁為準。</p>' +
+            body + brokenNote + skippedNote
+    };
+    var at = sections.map(function (sec) { return sec.id; }).indexOf('sources');
+    if (at < 0) sections.push(rollup);
+    else sections.splice(at, 0, rollup);
+  })();
+
+  /* ---------- render ---------- */
+
+  /* doGet passes ?view=exec through the payload; anything else renders the full report. */
+  var VIEW = String(M.view || 'full') === 'exec' ? 'exec' : 'full';
+  var pages = VIEW === 'exec' ? execSections() : sections;
+
+  var chips = [];
+  if (VIEW === 'exec') chips.push('總覽版');
+  if (meta.periodCurrent) chips.push('期間 ' + meta.periodCurrent + '（對照 ' + meta.periodPrevious + '）');
+  if (meta.businessAsOf) chips.push('業務數字取數 ' + String(meta.businessAsOf).replace('T', ' ').replace('Z', ' UTC'));
+  if (meta.generatedAt) chips.push('資料擷取 ' + String(meta.generatedAt).replace('T', ' ').replace('Z', ' UTC'));
+  if (M.renderedAt) chips.push('本頁產生 ' + M.renderedAt + '（' + M.timeZone + '）');
+  chips.push('來源 GSC · GA4 · Workduo · Google Sheets' + (technical.length ? ' · Screaming Frog' : '') +
+             (cwvRows.length ? ' · CrUX' : ''));
+
+  document.getElementById('root').innerHTML =
+    '<header class="top"><h1>' + esc(meta.reportTitle || 'SEO／GEO 月報') + '</h1>' +
+    '<div class="chips">' + chips.map(function (c) { return '<span class="chip">' + esc(c) + '</span>'; }).join('') +
+    '</div></header>' +
+    '<nav class="toc">' + pages.map(function (s) {
+      return '<a href="#' + s.id + '">' + esc(s.label) + '</a>';
+    }).join('') + '</nav>' +
+    pages.map(function (s, i) {
+      return '<section id="' + s.id + '"><h2><span class="n">' + String(i + 1).padStart(2, '0') + '</span>' +
+             esc(s.label) + '</h2>' + s.html + '</section>';
+    }).join('') +
+    (VIEW === 'exec' ? execNotes() : '') +
+    '<footer>本頁由試算表資料即時產生；數字全部來自本活頁簿分頁。' +
+    (VIEW === 'exec' && M.scriptUrl
+      ? ' <a href="' + esc(M.scriptUrl) + '?view=full" target="_blank" rel="noopener">開啟詳細版</a>' : '') +
+    (M.workbookUrl ? ' <a href="' + esc(M.workbookUrl) + '" target="_blank" rel="noopener">開啟資料來源活頁簿</a>' : '') +
+    '</footer>';
+
+  /* A collapsed block prints as a heading with nothing under it, so open them first. */
+  window.addEventListener('beforeprint', function () {
+    document.querySelectorAll('details').forEach(function (d) { d.open = true; });
+  });
+
+  /* Site filters for the page/query tables. */
+  document.querySelectorAll('.toolbar[data-for]').forEach(function (bar) {
+    var target = bar.getAttribute('data-for'), spec = (window.__detail || {})[target];
+    if (!spec) return;
+    bar.addEventListener('click', function (event) {
+      var button = event.target.closest('button');
+      if (!button) return;
+      bar.querySelectorAll('button').forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b === button));
+      });
+      var want = button.getAttribute('data-f');
+      var rows = want ? spec.rows.filter(function (r) { return r.siteLabel === want; }) : spec.rows;
+      document.getElementById(target).innerHTML = tableHtml(spec.columns, rows, spec.min);
+    });
+  });
+})();
+</script>
+</body></html>

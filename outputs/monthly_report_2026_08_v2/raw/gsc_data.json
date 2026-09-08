@@ -1,0 +1,588 @@
+{
+ "tools": [
+  {
+   "name": "get_capabilities",
+   "desc": "\n    Get a full list of all available tools, current auth status, and how to get started.\n    ALWAYS call this first when asked what tools are available, what t",
+   "params": []
+  },
+  {
+   "name": "list_properties",
+   "desc": "\n    List all Google Search Console (GSC) properties and sites the user has access to.\n    Use this to see all verified sites, domain properties, and URL-prefix",
+   "params": []
+  },
+  {
+   "name": "add_site",
+   "desc": "\n    Add a site to your Search Console properties.\n    \n    Args:\n        site_url: The URL of the site to add (must be exact match e.g. https://example.com, or",
+   "params": [
+    "site_url"
+   ]
+  },
+  {
+   "name": "delete_site",
+   "desc": "\n    Remove a site from your Search Console properties.\n    \n    Args:\n        site_url: The URL of the site to remove (must be exact match e.g. https://example",
+   "params": [
+    "site_url"
+   ]
+  },
+  {
+   "name": "get_search_analytics",
+   "desc": "\n    Get search analytics data for a specific property.\n    \n    Args:\n        site_url: Exact GSC property URL from list_properties (e.g. \"https://example.com/",
+   "params": [
+    "site_url",
+    "days",
+    "dimensions",
+    "row_limit"
+   ]
+  },
+  {
+   "name": "get_site_details",
+   "desc": "\n    Get detailed information about a specific Search Console property.\n    \n    Args:\n        site_url: Exact GSC property URL from list_properties (e.g. \"http",
+   "params": [
+    "site_url"
+   ]
+  },
+  {
+   "name": "get_sitemaps",
+   "desc": "\n    List all sitemaps for a specific Search Console property.\n    \n    Args:\n        site_url: Exact GSC property URL from list_properties (e.g. \"https://examp",
+   "params": [
+    "site_url"
+   ]
+  },
+  {
+   "name": "inspect_url_enhanced",
+   "desc": "\n    Enhanced URL inspection to check indexing status and rich results in Google.\n    \n    Args:\n        site_url: Exact GSC property URL from list_properties (",
+   "params": [
+    "site_url",
+    "page_url"
+   ]
+  },
+  {
+   "name": "batch_url_inspection",
+   "desc": "\n    Inspect multiple URLs in batch (within API limits).\n    \n    Args:\n        site_url: Exact GSC property URL from list_properties (e.g. \"https://example.com",
+   "params": [
+    "site_url",
+    "urls"
+   ]
+  },
+  {
+   "name": "check_indexing_issues",
+   "desc": "\n    Check for specific indexing issues across multiple URLs.\n    \n    Args:\n        site_url: Exact GSC property URL from list_properties (e.g. \"https://exampl",
+   "params": [
+    "site_url",
+    "urls"
+   ]
+  },
+  {
+   "name": "get_performance_overview",
+   "desc": "\n    Get a performance overview for a specific property.\n    \n    Args:\n        site_url: Exact GSC property URL from list_properties (e.g. \"https://example.com",
+   "params": [
+    "site_url",
+    "days"
+   ]
+  },
+  {
+   "name": "get_advanced_search_analytics",
+   "desc": "\n    Get advanced search analytics data with sorting, filtering, and pagination.\n    \n    Args:\n        site_url: Exact GSC property URL from list_properties (e",
+   "params": [
+    "site_url",
+    "start_date",
+    "end_date",
+    "dimensions",
+    "search_type",
+    "row_limit",
+    "start_row",
+    "sort_by",
+    "sort_direction",
+    "filter_dimension",
+    "filter_operator",
+    "filter_expression",
+    "filters",
+    "data_state"
+   ]
+  },
+  {
+   "name": "compare_search_periods",
+   "desc": "\n    Compare search analytics data between two time periods.\n    \n    Args:\n        site_url: Exact GSC property URL from list_properties (e.g. \"https://example",
+   "params": [
+    "site_url",
+    "period1_start",
+    "period1_end",
+    "period2_start",
+    "period2_end",
+    "dimensions",
+    "limit"
+   ]
+  },
+  {
+   "name": "get_search_by_page_query",
+   "desc": "\n    Get search analytics data for a specific page, broken down by query.\n    \n    Args:\n        site_url: Exact GSC property URL from list_properties (e.g. \"ht",
+   "params": [
+    "site_url",
+    "page_url",
+    "days",
+    "row_limit"
+   ]
+  },
+  {
+   "name": "list_sitemaps_enhanced",
+   "desc": "\n    List all sitemaps for a specific Search Console property with detailed information.\n    \n    Args:\n        site_url: Exact GSC property URL from list_prope",
+   "params": [
+    "site_url",
+    "sitemap_index"
+   ]
+  },
+  {
+   "name": "get_sitemap_details",
+   "desc": "\n    Get detailed information about a specific sitemap.\n    \n    Args:\n        site_url: Exact GSC property URL from list_properties (e.g. \"https://example.com/",
+   "params": [
+    "site_url",
+    "sitemap_url"
+   ]
+  },
+  {
+   "name": "submit_sitemap",
+   "desc": "\n    Submit a new sitemap or resubmit an existing one to Google.\n    \n    Args:\n        site_url: Exact GSC property URL from list_properties (e.g. \"https://exa",
+   "params": [
+    "site_url",
+    "sitemap_url"
+   ]
+  },
+  {
+   "name": "delete_sitemap",
+   "desc": "\n    Delete (unsubmit) a sitemap from Google Search Console.\n    \n    Args:\n        site_url: Exact GSC property URL from list_properties (e.g. \"https://example",
+   "params": [
+    "site_url",
+    "sitemap_url"
+   ]
+  },
+  {
+   "name": "manage_sitemaps",
+   "desc": "\n    All-in-one tool to manage sitemaps (list, get details, submit, delete).\n    \n    Args:\n        site_url: Exact GSC property URL from list_properties (e.g. ",
+   "params": [
+    "site_url",
+    "action",
+    "sitemap_url",
+    "sitemap_index"
+   ]
+  },
+  {
+   "name": "get_creator_info",
+   "desc": "\n    Provides information about Amin Foroutan, the creator of the MCP-GSC tool.\n    ",
+   "params": []
+  },
+  {
+   "name": "reauthenticate",
+   "desc": "\n    Perform a logout and new login sequence.\n    Deletes the current OAuth token file and triggers the browser authentication flow.\n    Useful when you need to",
+   "params": []
+  }
+ ],
+ "results": [
+  {
+   "call": {
+    "name": "get_advanced_search_analytics",
+    "args": {
+     "site_url": "https://shopline.tw/",
+     "start_date": "2026-07-01",
+     "end_date": "2026-07-31",
+     "dimensions": "date",
+     "search_type": "web",
+     "row_limit": 100,
+     "data_state": "final",
+     "filter_dimension": "country",
+     "filter_operator": "equals",
+     "filter_expression": "twn"
+    }
+   },
+   "isError": false,
+   "text": [
+    "{\"site_url\": \"https://shopline.tw/\", \"date_range\": {\"start\": \"2026-07-01\", \"end\": \"2026-07-31\"}, \"search_type\": \"web\", \"dimensions\": [\"date\"], \"filters_applied\": [{\"dimension\": \"country\", \"operator\": \"equals\", \"expression\": \"twn\"}], \"pagination\": {\"start_row\": 0, \"row_count\": 31, \"has_more\": false, \"next_start_row\": null}, \"rows\": [{\"date\": \"2026-07-01\", \"clicks\": 311, \"impressions\": 4055, \"ctr\": 0.0767, \"position\": 4.3}, {\"date\": \"2026-07-02\", \"clicks\": 410, \"impressions\": 4005, \"ctr\": 0.1024, \"position\": 4.1}, {\"date\": \"2026-07-03\", \"clicks\": 276, \"impressions\": 2937, \"ctr\": 0.094, \"position\": 4.9}, {\"date\": \"2026-07-04\", \"clicks\": 165, \"impressions\": 2203, \"ctr\": 0.0749, \"position\": 5.7}, {\"date\": \"2026-07-05\", \"clicks\": 276, \"impressions\": 3483, \"ctr\": 0.0792, \"position\": 4.6}, {\"date\": \"2026-07-06\", \"clicks\": 325, \"impressions\": 4218, \"ctr\": 0.0771, \"position\": 4.3}, {\"date\": \"2026-07-07\", \"clicks\": 365, \"impressions\": 4413, \"ctr\": 0.0827, \"position\": 5.0}, {\"date\": \"2026-07-08\", \"clicks\": 353, \"impressions\": 4104, \"ctr\": 0.086, \"position\": 4.1}, {\"date\": \"2026-07-09\", \"clicks\": 294, \"impressions\": 3475, \"ctr\": 0.0846, \"position\": 4.2}, {\"date\": \"2026-07-10\", \"clicks\": 213, \"impressions\": 2538, \"ctr\": 0.0839, \"position\": 4.3}, {\"date\": \"2026-07-11\", \"clicks\": 178, \"impressions\": 2124, \"ctr\": 0.0838, \"position\": 4.6}, {\"date\": \"2026-07-12\", \"clicks\": 260, \"impressions\": 3233, \"ctr\": 0.0804, \"position\": 4.6}, {\"date\": \"2026-07-13\", \"clicks\": 353, \"impressions\": 3817, \"ctr\": 0.0925, \"position\": 4.2}, {\"date\": \"2026-07-14\", \"clicks\": 347, \"impressions\": 5312, \"ctr\": 0.0653, \"position\": 5.3}, {\"date\": \"2026-07-15\", \"clicks\": 284, \"impressions\": 6738, \"ctr\": 0.0421, \"position\": 5.6}, {\"date\": \"2026-07-16\", \"clicks\": 299, \"impressions\": 3705, \"ctr\": 0.0807, \"position\": 4.1}, {\"date\": \"2026-07-17\", \"clicks\": 196, \"impressions\": 2736, \"ctr\": 0.0716, \"position\": 3.6}, {\"date\": \"2026-07-18\", \"clicks\": 126, \"impressions\": 1855, \"ctr\": 0.0679, \"position\": 4.4}, {\"date\": \"2026-07-19\", \"clicks\": 214, \"impressions\": 2940, \"ctr\": 0.0728, \"position\": 4.4}, {\"date\": \"2026-07-20\", \"clicks\": 245, \"impressions\": 3662, \"ctr\": 0.0669, \"position\": 4.1}, {\"date\": \"2026-07-21\", \"clicks\": 408, \"impressions\": 4157, \"ctr\": 0.0981, \"position\": 4.6}, {\"date\": \"2026-07-22\", \"clicks\": 370, \"impressions\": 3865, \"ctr\": 0.0957, \"position\": 4.0}, {\"date\": \"2026-07-23\", \"clicks\": 393, \"impressions\": 3438, \"ctr\": 0.1143, \"position\": 4.0}, {\"date\": \"2026-07-24\", \"clicks\": 251, \"impressions\": 2472, \"ctr\": 0.1015, \"position\": 4.2}, {\"date\": \"2026-07-25\", \"clicks\": 136, \"impressions\": 1570, \"ctr\": 0.0866, \"position\": 4.7}, {\"date\": \"2026-07-26\", \"clicks\": 224, \"impressions\": 2567, \"ctr\": 0.0873, \"position\": 4.4}, {\"date\": \"2026-07-27\", \"clicks\": 326, \"impressions\": 3482, \"ctr\": 0.0936, \"position\": 4.7}, {\"date\": \"2026-07-28\", \"clicks\": 470, \"impressions\": 3745, \"ctr\": 0.1255, \"position\": 5.0}, {\"date\": \"2026-07-29\", \"clicks\": 381, \"impressions\": 3347, \"ctr\": 0.1138, \"position\": 4.1}, {\"date\": \"2026-07-30\", \"clicks\": 401, \"impressions\": 3297, \"ctr\": 0.1216, \"position\": 4.8}, {\"date\": \"2026-07-31\", \"clicks\": 296, \"impressions\": 2347, \"ctr\": 0.1261, \"position\": 4.6}]}"
+   ]
+  },
+  {
+   "call": {
+    "name": "get_advanced_search_analytics",
+    "args": {
+     "site_url": "https://shopline.tw/",
+     "start_date": "2026-08-01",
+     "end_date": "2026-08-31",
+     "dimensions": "date",
+     "search_type": "web",
+     "row_limit": 100,
+     "data_state": "final",
+     "filter_dimension": "country",
+     "filter_operator": "equals",
+     "filter_expression": "twn"
+    }
+   },
+   "isError": false,
+   "text": [
+    "{\"site_url\": \"https://shopline.tw/\", \"date_range\": {\"start\": \"2026-08-01\", \"end\": \"2026-08-31\"}, \"search_type\": \"web\", \"dimensions\": [\"date\"], \"filters_applied\": [{\"dimension\": \"country\", \"operator\": \"equals\", \"expression\": \"twn\"}], \"pagination\": {\"start_row\": 0, \"row_count\": 31, \"has_more\": false, \"next_start_row\": null}, \"rows\": [{\"date\": \"2026-08-01\", \"clicks\": 143, \"impressions\": 1808, \"ctr\": 0.0791, \"position\": 5.3}, {\"date\": \"2026-08-02\", \"clicks\": 224, \"impressions\": 2723, \"ctr\": 0.0823, \"position\": 4.5}, {\"date\": \"2026-08-03\", \"clicks\": 300, \"impressions\": 3291, \"ctr\": 0.0912, \"position\": 4.2}, {\"date\": \"2026-08-04\", \"clicks\": 297, \"impressions\": 3658, \"ctr\": 0.0812, \"position\": 4.6}, {\"date\": \"2026-08-05\", \"clicks\": 325, \"impressions\": 3441, \"ctr\": 0.0944, \"position\": 4.2}, {\"date\": \"2026-08-06\", \"clicks\": 346, \"impressions\": 3239, \"ctr\": 0.1068, \"position\": 4.7}, {\"date\": \"2026-08-07\", \"clicks\": 170, \"impressions\": 2263, \"ctr\": 0.0751, \"position\": 4.3}, {\"date\": \"2026-08-08\", \"clicks\": 95, \"impressions\": 1558, \"ctr\": 0.061, \"position\": 4.2}, {\"date\": \"2026-08-09\", \"clicks\": 246, \"impressions\": 2690, \"ctr\": 0.0914, \"position\": 4.5}, {\"date\": \"2026-08-10\", \"clicks\": 332, \"impressions\": 3573, \"ctr\": 0.0929, \"position\": 4.6}, {\"date\": \"2026-08-11\", \"clicks\": 363, \"impressions\": 3751, \"ctr\": 0.0968, \"position\": 5.0}, {\"date\": \"2026-08-12\", \"clicks\": 251, \"impressions\": 3337, \"ctr\": 0.0752, \"position\": 4.3}, {\"date\": \"2026-08-13\", \"clicks\": 396, \"impressions\": 3545, \"ctr\": 0.1117, \"position\": 4.7}, {\"date\": \"2026-08-14\", \"clicks\": 209, \"impressions\": 2355, \"ctr\": 0.0887, \"position\": 4.5}, {\"date\": \"2026-08-15\", \"clicks\": 134, \"impressions\": 1701, \"ctr\": 0.0788, \"position\": 4.0}, {\"date\": \"2026-08-16\", \"clicks\": 217, \"impressions\": 2726, \"ctr\": 0.0796, \"position\": 4.0}, {\"date\": \"2026-08-17\", \"clicks\": 265, \"impressions\": 3582, \"ctr\": 0.074, \"position\": 4.5}, {\"date\": \"2026-08-18\", \"clicks\": 405, \"impressions\": 3934, \"ctr\": 0.1029, \"position\": 4.5}, {\"date\": \"2026-08-19\", \"clicks\": 361, \"impressions\": 3527, \"ctr\": 0.1024, \"position\": 4.1}, {\"date\": \"2026-08-20\", \"clicks\": 359, \"impressions\": 3408, \"ctr\": 0.1053, \"position\": 4.1}, {\"date\": \"2026-08-21\", \"clicks\": 290, \"impressions\": 2204, \"ctr\": 0.1316, \"position\": 3.8}, {\"date\": \"2026-08-22\", \"clicks\": 160, \"impressions\": 1584, \"ctr\": 0.101, \"position\": 3.9}, {\"date\": \"2026-08-23\", \"clicks\": 238, \"impressions\": 2664, \"ctr\": 0.0893, \"position\": 3.8}, {\"date\": \"2026-08-24\", \"clicks\": 329, \"impressions\": 3406, \"ctr\": 0.0966, \"position\": 4.1}, {\"date\": \"2026-08-25\", \"clicks\": 339, \"impressions\": 3624, \"ctr\": 0.0935, \"position\": 4.6}, {\"date\": \"2026-08-26\", \"clicks\": 341, \"impressions\": 3158, \"ctr\": 0.108, \"position\": 3.9}, {\"date\": \"2026-08-27\", \"clicks\": 269, \"impressions\": 3325, \"ctr\": 0.0809, \"position\": 4.4}, {\"date\": \"2026-08-28\", \"clicks\": 182, \"impressions\": 2377, \"ctr\": 0.0766, \"position\": 4.4}, {\"date\": \"2026-08-29\", \"clicks\": 135, \"impressions\": 1613, \"ctr\": 0.0837, \"position\": 3.9}, {\"date\": \"2026-08-30\", \"clicks\": 244, \"impressions\": 2768, \"ctr\": 0.0882, \"position\": 4.1}, {\"date\": \"2026-08-31\", \"clicks\": 318, \"impressions\": 3870, \"ctr\": 0.0822, \"position\": 5.1}]}"
+   ]
+  },
+  {
+   "call": {
+    "name": "get_advanced_search_analytics",
+    "args": {
+     "site_url": "https://shopline.tw/",
+     "start_date": "2026-08-01",
+     "end_date": "2026-08-31",
+     "dimensions": "page",
+     "search_type": "web",
+     "row_limit": 25,
+     "sort_by": "clicks",
+     "sort_direction": "descending",
+     "data_state": "final",
+     "filter_dimension": "country",
+     "filter_operator": "equals",
+     "filter_expression": "twn"
+    }
+   },
+   "isError": false,
+   "text": [
+    "{\"site_url\": \"https://shopline.tw/\", \"date_range\": {\"start\": \"2026-08-01\", \"end\": \"2026-08-31\"}, \"search_type\": \"web\", \"dimensions\": [\"page\"], \"filters_applied\": [{\"dimension\": \"country\", \"operator\": \"equals\", \"expression\": \"twn\"}], \"pagination\": {\"start_row\": 0, \"row_count\": 25, \"has_more\": true, \"next_start_row\": 25}, \"rows\": [{\"page\": \"https://shopline.tw/\", \"clicks\": 5656, \"impressions\": 48370, \"ctr\": 0.1169, \"position\": 3.3}, {\"page\": \"https://shopline.tw/about/pricing\", \"clicks\": 319, \"impressions\": 20747, \"ctr\": 0.0154, \"position\": 1.5}, {\"page\": \"https://shopline.tw/payments\", \"clicks\": 253, \"impressions\": 3184, \"ctr\": 0.0795, \"position\": 2.9}, {\"page\": \"https://shopline.tw/about\", \"clicks\": 140, \"impressions\": 20556, \"ctr\": 0.0068, \"position\": 1.4}, {\"page\": \"https://shopline.tw/showcase\", \"clicks\": 96, \"impressions\": 18354, \"ctr\": 0.0052, \"position\": 1.2}, {\"page\": \"https://shopline.tw/news/shopline-app-store\", \"clicks\": 56, \"impressions\": 355, \"ctr\": 0.1577, \"position\": 4.0}, {\"page\": \"https://shopline.tw/faq/overview\", \"clicks\": 47, \"impressions\": 804, \"ctr\": 0.0585, \"position\": 2.6}, {\"page\": \"https://shopline.tw/faq/pos\", \"clicks\": 27, \"impressions\": 325, \"ctr\": 0.0831, \"position\": 6.4}, {\"page\": \"https://shopline.tw/online-store/health-and-supplements\", \"clicks\": 20, \"impressions\": 11868, \"ctr\": 0.0017, \"position\": 1.3}, {\"page\": \"https://shopline.tw/shopper-app\", \"clicks\": 20, \"impressions\": 3166, \"ctr\": 0.0063, \"position\": 2.0}, {\"page\": \"https://shopline.tw/faq/about\", \"clicks\": 16, \"impressions\": 11729, \"ctr\": 0.0014, \"position\": 1.4}, {\"page\": \"https://shopline.tw/faq/plans\", \"clicks\": 16, \"impressions\": 805, \"ctr\": 0.0199, \"position\": 4.4}, {\"page\": \"https://shopline.tw/online-store/shop-builder\", \"clicks\": 15, \"impressions\": 169, \"ctr\": 0.0888, \"position\": 6.7}, {\"page\": \"https://shopline.tw/pos/features\", \"clicks\": 14, \"impressions\": 376, \"ctr\": 0.0372, \"position\": 11.6}, {\"page\": \"https://shopline.tw/ai\", \"clicks\": 10, \"impressions\": 435, \"ctr\": 0.023, \"position\": 4.9}, {\"page\": \"https://shopline.tw/showcase/fashion-brand\", \"clicks\": 8, \"impressions\": 1758, \"ctr\": 0.0046, \"position\": 1.5}, {\"page\": \"https://shopline.tw/smart-omo\", \"clicks\": 7, \"impressions\": 79, \"ctr\": 0.0886, \"position\": 6.1}, {\"page\": \"https://shopline.tw/social-commerce\", \"clicks\": 7, \"impressions\": 404, \"ctr\": 0.0173, \"position\": 8.2}, {\"page\": \"https://shopline.tw/online-store-setup\", \"clicks\": 6, \"impressions\": 3243, \"ctr\": 0.0019, \"position\": 9.1}, {\"page\": \"https://shopline.tw/selectedpartners\", \"clicks\": 6, \"impressions\": 55, \"ctr\": 0.1091, \"position\": 11.5}, {\"page\": \"https://shopline.tw/news/shopline-payments-aftee\", \"clicks\": 5, \"impressions\": 1137, \"ctr\": 0.0044, \"position\": 8.0}, {\"page\": \"https://shopline.tw/online-store/features\", \"clicks\": 5, \"impressions\": 14617, \"ctr\": 0.0003, \"position\": 1.8}, {\"page\": \"https://shopline.tw/templates\", \"clicks\": 5, \"impressions\": 215, \"ctr\": 0.0233, \"position\": 2.6}, {\"page\": \"https://shopline.tw/logistics\", \"clicks\": 4, \"impressions\": 125, \"ctr\": 0.032, \"position\": 20.5}, {\"page\": \"https://shopline.tw/showcase/health-and-supplements\", \"clicks\": 4, \"impressions\": 259, \"ctr\": 0.0154, \"position\": 7.2}]}"
+   ]
+  },
+  {
+   "call": {
+    "name": "get_advanced_search_analytics",
+    "args": {
+     "site_url": "https://shopline.tw/",
+     "start_date": "2026-08-01",
+     "end_date": "2026-08-31",
+     "dimensions": "query",
+     "search_type": "web",
+     "row_limit": 25,
+     "sort_by": "clicks",
+     "sort_direction": "descending",
+     "data_state": "final",
+     "filter_dimension": "country",
+     "filter_operator": "equals",
+     "filter_expression": "twn"
+    }
+   },
+   "isError": false,
+   "text": [
+    "{\"site_url\": \"https://shopline.tw/\", \"date_range\": {\"start\": \"2026-08-01\", \"end\": \"2026-08-31\"}, \"search_type\": \"web\", \"dimensions\": [\"query\"], \"filters_applied\": [{\"dimension\": \"country\", \"operator\": \"equals\", \"expression\": \"twn\"}], \"pagination\": {\"start_row\": 0, \"row_count\": 25, \"has_more\": true, \"next_start_row\": 25}, \"rows\": [{\"query\": \"shopline\", \"clicks\": 4877, \"impressions\": 18496, \"ctr\": 0.2637, \"position\": 1.1}, {\"query\": \"shopline\\u5f8c\\u53f0\", \"clicks\": 157, \"impressions\": 7206, \"ctr\": 0.0218, \"position\": 3.5}, {\"query\": \"shopline payments\", \"clicks\": 118, \"impressions\": 642, \"ctr\": 0.1838, \"position\": 1.8}, {\"query\": \"shop line\", \"clicks\": 108, \"impressions\": 391, \"ctr\": 0.2762, \"position\": 1.0}, {\"query\": \"shopline \\u5f8c\\u53f0\", \"clicks\": 82, \"impressions\": 3205, \"ctr\": 0.0256, \"position\": 4.1}, {\"query\": \"shopline\\u662f\\u4ec0\\u9ebc\", \"clicks\": 77, \"impressions\": 573, \"ctr\": 0.1344, \"position\": 1.4}, {\"query\": \"shopline payment\", \"clicks\": 65, \"impressions\": 411, \"ctr\": 0.1582, \"position\": 1.1}, {\"query\": \"shopline admin\", \"clicks\": 49, \"impressions\": 1024, \"ctr\": 0.0479, \"position\": 2.4}, {\"query\": \"shopline \\u65b9\\u6848\", \"clicks\": 46, \"impressions\": 337, \"ctr\": 0.1365, \"position\": 10.3}, {\"query\": \"shopline \\u8cbb\\u7528\", \"clicks\": 46, \"impressions\": 216, \"ctr\": 0.213, \"position\": 1.2}, {\"query\": \"shopline \\u5f8c\\u53f0 \\u767b\\u5165\", \"clicks\": 37, \"impressions\": 550, \"ctr\": 0.0673, \"position\": 2.3}, {\"query\": \"shopline api\", \"clicks\": 36, \"impressions\": 204, \"ctr\": 0.1765, \"position\": 3.1}, {\"query\": \"shopline \\u8cfc\\u7269\", \"clicks\": 36, \"impressions\": 191, \"ctr\": 0.1885, \"position\": 1.1}, {\"query\": \"shopline \\u5b98\\u7db2\", \"clicks\": 34, \"impressions\": 141, \"ctr\": 0.2411, \"position\": 1.7}, {\"query\": \"shopline-sl\", \"clicks\": 29, \"impressions\": 184, \"ctr\": 0.1576, \"position\": 1.1}, {\"query\": \"\\u96fb\\u5546\\u5e73\\u53f0\", \"clicks\": 28, \"impressions\": 1276, \"ctr\": 0.0219, \"position\": 2.1}, {\"query\": \"shopline pos\", \"clicks\": 27, \"impressions\": 117, \"ctr\": 0.2308, \"position\": 3.2}, {\"query\": \"shipline\", \"clicks\": 26, \"impressions\": 55, \"ctr\": 0.4727, \"position\": 1.1}, {\"query\": \"\\u5546\\u7dda\", \"clicks\": 25, \"impressions\": 312, \"ctr\": 0.0801, \"position\": 1.1}, {\"query\": \"\\uff53\\uff48\\uff4f\\uff50\\uff4c\\uff49\\uff4e\\uff45\", \"clicks\": 23, \"impressions\": 137, \"ctr\": 0.1679, \"position\": 1.1}, {\"query\": \"shopline\\u65b9\\u6848\", \"clicks\": 21, \"impressions\": 57, \"ctr\": 0.3684, \"position\": 1}, {\"query\": \"\\u5148\\u79d1\\u6280\\u6709\\u9650\\u516c\\u53f8\", \"clicks\": 21, \"impressions\": 600, \"ctr\": 0.035, \"position\": 2.3}, {\"query\": \"\\u5148\\u79d1\\u6280\", \"clicks\": 19, \"impressions\": 285, \"ctr\": 0.0667, \"position\": 1.8}, {\"query\": \"shopline \\u5e97\\u5bb6\", \"clicks\": 18, \"impressions\": 33, \"ctr\": 0.5455, \"position\": 1.0}, {\"query\": \"shopline \\u662f \\u4ec0\\u9ebc\", \"clicks\": 17, \"impressions\": 171, \"ctr\": 0.0994, \"position\": 1.2}]}"
+   ]
+  },
+  {
+   "call": {
+    "name": "get_sitemaps",
+    "args": {
+     "site_url": "https://shopline.tw/"
+    }
+   },
+   "isError": false,
+   "text": [
+    "{\"site_url\": \"https://shopline.tw/\", \"count\": 1, \"sitemaps\": [{\"path\": \"https://shopline.tw/sitemap.xml\", \"last_downloaded\": \"2026-09-07 23:54\", \"status\": \"Valid\", \"indexed_urls\": \"97\", \"errors\": 0, \"warnings\": 0}]}"
+   ]
+  },
+  {
+   "call": {
+    "name": "get_advanced_search_analytics",
+    "args": {
+     "site_url": "sc-domain:blog.shopline.tw",
+     "start_date": "2026-07-01",
+     "end_date": "2026-07-31",
+     "dimensions": "date",
+     "search_type": "web",
+     "row_limit": 100,
+     "data_state": "final",
+     "filter_dimension": "country",
+     "filter_operator": "equals",
+     "filter_expression": "twn"
+    }
+   },
+   "isError": false,
+   "text": [
+    "{\"site_url\": \"sc-domain:blog.shopline.tw\", \"date_range\": {\"start\": \"2026-07-01\", \"end\": \"2026-07-31\"}, \"search_type\": \"web\", \"dimensions\": [\"date\"], \"filters_applied\": [{\"dimension\": \"country\", \"operator\": \"equals\", \"expression\": \"twn\"}], \"pagination\": {\"start_row\": 0, \"row_count\": 31, \"has_more\": false, \"next_start_row\": null}, \"rows\": [{\"date\": \"2026-07-01\", \"clicks\": 470, \"impressions\": 44759, \"ctr\": 0.0105, \"position\": 7.1}, {\"date\": \"2026-07-02\", \"clicks\": 442, \"impressions\": 41136, \"ctr\": 0.0107, \"position\": 6.8}, {\"date\": \"2026-07-03\", \"clicks\": 310, \"impressions\": 30420, \"ctr\": 0.0102, \"position\": 6.8}, {\"date\": \"2026-07-04\", \"clicks\": 217, \"impressions\": 25590, \"ctr\": 0.0085, \"position\": 7.2}, {\"date\": \"2026-07-05\", \"clicks\": 380, \"impressions\": 34792, \"ctr\": 0.0109, \"position\": 6.9}, {\"date\": \"2026-07-06\", \"clicks\": 457, \"impressions\": 45682, \"ctr\": 0.01, \"position\": 7.0}, {\"date\": \"2026-07-07\", \"clicks\": 482, \"impressions\": 48258, \"ctr\": 0.01, \"position\": 7.0}, {\"date\": \"2026-07-08\", \"clicks\": 488, \"impressions\": 50865, \"ctr\": 0.0096, \"position\": 6.9}, {\"date\": \"2026-07-09\", \"clicks\": 347, \"impressions\": 32746, \"ctr\": 0.0106, \"position\": 6.8}, {\"date\": \"2026-07-10\", \"clicks\": 249, \"impressions\": 29869, \"ctr\": 0.0083, \"position\": 7.2}, {\"date\": \"2026-07-11\", \"clicks\": 208, \"impressions\": 26300, \"ctr\": 0.0079, \"position\": 7.3}, {\"date\": \"2026-07-12\", \"clicks\": 344, \"impressions\": 38695, \"ctr\": 0.0089, \"position\": 7.3}, {\"date\": \"2026-07-13\", \"clicks\": 447, \"impressions\": 42053, \"ctr\": 0.0106, \"position\": 6.9}, {\"date\": \"2026-07-14\", \"clicks\": 463, \"impressions\": 39697, \"ctr\": 0.0117, \"position\": 6.5}, {\"date\": \"2026-07-15\", \"clicks\": 427, \"impressions\": 46645, \"ctr\": 0.0092, \"position\": 6.9}, {\"date\": \"2026-07-16\", \"clicks\": 421, \"impressions\": 46601, \"ctr\": 0.009, \"position\": 7.1}, {\"date\": \"2026-07-17\", \"clicks\": 273, \"impressions\": 33654, \"ctr\": 0.0081, \"position\": 7.2}, {\"date\": \"2026-07-18\", \"clicks\": 209, \"impressions\": 25918, \"ctr\": 0.0081, \"position\": 7.1}, {\"date\": \"2026-07-19\", \"clicks\": 361, \"impressions\": 31414, \"ctr\": 0.0115, \"position\": 6.4}, {\"date\": \"2026-07-20\", \"clicks\": 422, \"impressions\": 35522, \"ctr\": 0.0119, \"position\": 6.3}, {\"date\": \"2026-07-21\", \"clicks\": 436, \"impressions\": 34975, \"ctr\": 0.0125, \"position\": 6.3}, {\"date\": \"2026-07-22\", \"clicks\": 402, \"impressions\": 38089, \"ctr\": 0.0106, \"position\": 6.4}, {\"date\": \"2026-07-23\", \"clicks\": 412, \"impressions\": 37179, \"ctr\": 0.0111, \"position\": 6.5}, {\"date\": \"2026-07-24\", \"clicks\": 284, \"impressions\": 27603, \"ctr\": 0.0103, \"position\": 6.6}, {\"date\": \"2026-07-25\", \"clicks\": 201, \"impressions\": 23274, \"ctr\": 0.0086, \"position\": 6.6}, {\"date\": \"2026-07-26\", \"clicks\": 310, \"impressions\": 33681, \"ctr\": 0.0092, \"position\": 7.1}, {\"date\": \"2026-07-27\", \"clicks\": 391, \"impressions\": 37135, \"ctr\": 0.0105, \"position\": 7.1}, {\"date\": \"2026-07-28\", \"clicks\": 459, \"impressions\": 38291, \"ctr\": 0.012, \"position\": 7.0}, {\"date\": \"2026-07-29\", \"clicks\": 423, \"impressions\": 34449, \"ctr\": 0.0123, \"position\": 6.4}, {\"date\": \"2026-07-30\", \"clicks\": 430, \"impressions\": 36516, \"ctr\": 0.0118, \"position\": 7.0}, {\"date\": \"2026-07-31\", \"clicks\": 288, \"impressions\": 27492, \"ctr\": 0.0105, \"position\": 6.6}]}"
+   ]
+  },
+  {
+   "call": {
+    "name": "get_advanced_search_analytics",
+    "args": {
+     "site_url": "sc-domain:blog.shopline.tw",
+     "start_date": "2026-08-01",
+     "end_date": "2026-08-31",
+     "dimensions": "date",
+     "search_type": "web",
+     "row_limit": 100,
+     "data_state": "final",
+     "filter_dimension": "country",
+     "filter_operator": "equals",
+     "filter_expression": "twn"
+    }
+   },
+   "isError": false,
+   "text": [
+    "{\"site_url\": \"sc-domain:blog.shopline.tw\", \"date_range\": {\"start\": \"2026-08-01\", \"end\": \"2026-08-31\"}, \"search_type\": \"web\", \"dimensions\": [\"date\"], \"filters_applied\": [{\"dimension\": \"country\", \"operator\": \"equals\", \"expression\": \"twn\"}], \"pagination\": {\"start_row\": 0, \"row_count\": 31, \"has_more\": false, \"next_start_row\": null}, \"rows\": [{\"date\": \"2026-08-01\", \"clicks\": 198, \"impressions\": 23596, \"ctr\": 0.0084, \"position\": 6.7}, {\"date\": \"2026-08-02\", \"clicks\": 374, \"impressions\": 30243, \"ctr\": 0.0124, \"position\": 6.5}, {\"date\": \"2026-08-03\", \"clicks\": 489, \"impressions\": 34853, \"ctr\": 0.014, \"position\": 6.4}, {\"date\": \"2026-08-04\", \"clicks\": 473, \"impressions\": 34834, \"ctr\": 0.0136, \"position\": 6.5}, {\"date\": \"2026-08-05\", \"clicks\": 433, \"impressions\": 34716, \"ctr\": 0.0125, \"position\": 6.4}, {\"date\": \"2026-08-06\", \"clicks\": 439, \"impressions\": 35144, \"ctr\": 0.0125, \"position\": 6.6}, {\"date\": \"2026-08-07\", \"clicks\": 278, \"impressions\": 27344, \"ctr\": 0.0102, \"position\": 6.6}, {\"date\": \"2026-08-08\", \"clicks\": 217, \"impressions\": 21864, \"ctr\": 0.0099, \"position\": 6.9}, {\"date\": \"2026-08-09\", \"clicks\": 380, \"impressions\": 31113, \"ctr\": 0.0122, \"position\": 6.9}, {\"date\": \"2026-08-10\", \"clicks\": 434, \"impressions\": 33324, \"ctr\": 0.013, \"position\": 6.9}, {\"date\": \"2026-08-11\", \"clicks\": 430, \"impressions\": 34826, \"ctr\": 0.0123, \"position\": 7.2}, {\"date\": \"2026-08-12\", \"clicks\": 396, \"impressions\": 40280, \"ctr\": 0.0098, \"position\": 6.9}, {\"date\": \"2026-08-13\", \"clicks\": 428, \"impressions\": 36789, \"ctr\": 0.0116, \"position\": 7.0}, {\"date\": \"2026-08-14\", \"clicks\": 281, \"impressions\": 29656, \"ctr\": 0.0095, \"position\": 6.1}, {\"date\": \"2026-08-15\", \"clicks\": 245, \"impressions\": 32008, \"ctr\": 0.0077, \"position\": 7.2}, {\"date\": \"2026-08-16\", \"clicks\": 377, \"impressions\": 35875, \"ctr\": 0.0105, \"position\": 7.1}, {\"date\": \"2026-08-17\", \"clicks\": 410, \"impressions\": 43294, \"ctr\": 0.0095, \"position\": 7.1}, {\"date\": \"2026-08-18\", \"clicks\": 422, \"impressions\": 46682, \"ctr\": 0.009, \"position\": 7.1}, {\"date\": \"2026-08-19\", \"clicks\": 386, \"impressions\": 41972, \"ctr\": 0.0092, \"position\": 7.1}, {\"date\": \"2026-08-20\", \"clicks\": 399, \"impressions\": 39277, \"ctr\": 0.0102, \"position\": 7.3}, {\"date\": \"2026-08-21\", \"clicks\": 260, \"impressions\": 25058, \"ctr\": 0.0104, \"position\": 6.8}, {\"date\": \"2026-08-22\", \"clicks\": 201, \"impressions\": 21888, \"ctr\": 0.0092, \"position\": 7.2}, {\"date\": \"2026-08-23\", \"clicks\": 303, \"impressions\": 27757, \"ctr\": 0.0109, \"position\": 7.0}, {\"date\": \"2026-08-24\", \"clicks\": 421, \"impressions\": 32944, \"ctr\": 0.0128, \"position\": 6.4}, {\"date\": \"2026-08-25\", \"clicks\": 424, \"impressions\": 33702, \"ctr\": 0.0126, \"position\": 6.4}, {\"date\": \"2026-08-26\", \"clicks\": 404, \"impressions\": 31779, \"ctr\": 0.0127, \"position\": 6.4}, {\"date\": \"2026-08-27\", \"clicks\": 363, \"impressions\": 34842, \"ctr\": 0.0104, \"position\": 6.8}, {\"date\": \"2026-08-28\", \"clicks\": 224, \"impressions\": 26992, \"ctr\": 0.0083, \"position\": 6.7}, {\"date\": \"2026-08-29\", \"clicks\": 228, \"impressions\": 21945, \"ctr\": 0.0104, \"position\": 6.7}, {\"date\": \"2026-08-30\", \"clicks\": 277, \"impressions\": 29053, \"ctr\": 0.0095, \"position\": 6.6}, {\"date\": \"2026-08-31\", \"clicks\": 395, \"impressions\": 33971, \"ctr\": 0.0116, \"position\": 6.5}]}"
+   ]
+  },
+  {
+   "call": {
+    "name": "get_advanced_search_analytics",
+    "args": {
+     "site_url": "sc-domain:blog.shopline.tw",
+     "start_date": "2026-08-01",
+     "end_date": "2026-08-31",
+     "dimensions": "page",
+     "search_type": "web",
+     "row_limit": 25,
+     "sort_by": "clicks",
+     "sort_direction": "descending",
+     "data_state": "final",
+     "filter_dimension": "country",
+     "filter_operator": "equals",
+     "filter_expression": "twn"
+    }
+   },
+   "isError": false,
+   "text": [
+    "{\"site_url\": \"sc-domain:blog.shopline.tw\", \"date_range\": {\"start\": \"2026-08-01\", \"end\": \"2026-08-31\"}, \"search_type\": \"web\", \"dimensions\": [\"page\"], \"filters_applied\": [{\"dimension\": \"country\", \"operator\": \"equals\", \"expression\": \"twn\"}], \"pagination\": {\"start_row\": 0, \"row_count\": 25, \"has_more\": true, \"next_start_row\": 25}, \"rows\": [{\"page\": \"https://blog.shopline.tw/ads-article-threads-marketing/\", \"clicks\": 1088, \"impressions\": 340056, \"ctr\": 0.0032, \"position\": 5.1}, {\"page\": \"https://blog.shopline.tw/post-image-size-gh/\", \"clicks\": 555, \"impressions\": 16545, \"ctr\": 0.0335, \"position\": 4.1}, {\"page\": \"https://blog.shopline.tw/instagram-image-sizes/\", \"clicks\": 348, \"impressions\": 23796, \"ctr\": 0.0146, \"position\": 4.9}, {\"page\": \"https://blog.shopline.tw/free-stock-marketing-content/\", \"clicks\": 210, \"impressions\": 10433, \"ctr\": 0.0201, \"position\": 6.9}, {\"page\": \"https://blog.shopline.tw/ig-story-2018/\", \"clicks\": 197, \"impressions\": 35224, \"ctr\": 0.0056, \"position\": 6.2}, {\"page\": \"https://blog.shopline.tw/online-shopping-fraud-case-countermeasure/\", \"clicks\": 191, \"impressions\": 6507, \"ctr\": 0.0294, \"position\": 7.3}, {\"page\": \"https://blog.shopline.tw/what-is-pos/\", \"clicks\": 137, \"impressions\": 8846, \"ctr\": 0.0155, \"position\": 4.5}, {\"page\": \"https://blog.shopline.tw/brand-business-plan/\", \"clicks\": 56, \"impressions\": 2437, \"ctr\": 0.023, \"position\": 8.4}, {\"page\": \"https://blog.shopline.tw/5-popular-product-type/\", \"clicks\": 48, \"impressions\": 1762, \"ctr\": 0.0272, \"position\": 6.8}, {\"page\": \"https://blog.shopline.tw/group-buying-guideline/\", \"clicks\": 47, \"impressions\": 3245, \"ctr\": 0.0145, \"position\": 9.7}, {\"page\": \"https://blog.shopline.tw/cross-border-vietnam-ec-platform-2021/\", \"clicks\": 33, \"impressions\": 394, \"ctr\": 0.0838, \"position\": 4.2}, {\"page\": \"https://blog.shopline.tw/ads-article-google-demand-gen-campaign/\", \"clicks\": 31, \"impressions\": 840, \"ctr\": 0.0369, \"position\": 5.2}, {\"page\": \"https://blog.shopline.tw/2022-anti-fraud/\", \"clicks\": 21, \"impressions\": 633, \"ctr\": 0.0332, \"position\": 2.9}, {\"page\": \"https://blog.shopline.tw/6-live-platform-compare/\", \"clicks\": 21, \"impressions\": 3253, \"ctr\": 0.0065, \"position\": 9.4}, {\"page\": \"https://blog.shopline.tw/ga4-gtm-faq/\", \"clicks\": 21, \"impressions\": 2620, \"ctr\": 0.008, \"position\": 8.5}, {\"page\": \"https://blog.shopline.tw/partner-showcase-bebit-tech/\", \"clicks\": 21, \"impressions\": 916, \"ctr\": 0.0229, \"position\": 6.3}, {\"page\": \"https://blog.shopline.tw/what-is-threads/\", \"clicks\": 21, \"impressions\": 9623, \"ctr\": 0.0022, \"position\": 10.8}, {\"page\": \"https://blog.shopline.tw/merchant-showcase-nozzle-quiz/\", \"clicks\": 20, \"impressions\": 2285, \"ctr\": 0.0088, \"position\": 7.0}, {\"page\": \"https://blog.shopline.tw/shopline-mcp-launch/\", \"clicks\": 20, \"impressions\": 121, \"ctr\": 0.1653, \"position\": 3.0}, {\"page\": \"https://blog.shopline.tw/12-brand-archetypes/\", \"clicks\": 19, \"impressions\": 13313, \"ctr\": 0.0014, \"position\": 7.2}, {\"page\": \"https://blog.shopline.tw/12-brand-archetypes/?related_post_from=35588\", \"clicks\": 19, \"impressions\": 2886, \"ctr\": 0.0066, \"position\": 4.6}, {\"page\": \"https://blog.shopline.tw/geo-aeo-traffic-enhance-strategy/\", \"clicks\": 18, \"impressions\": 1023, \"ctr\": 0.0176, \"position\": 12.0}, {\"page\": \"https://blog.shopline.tw/manage-your-inventory/\", \"clicks\": 18, \"impressions\": 1342, \"ctr\": 0.0134, \"position\": 8.8}, {\"page\": \"https://blog.shopline.tw/shopline-mcp-inside/\", \"clicks\": 18, \"impressions\": 218, \"ctr\": 0.0826, \"position\": 3.1}, {\"page\": \"https://blog.shopline.tw/2026-retail-and-marketing-trend-insight/\", \"clicks\": 17, \"impressions\": 893, \"ctr\": 0.019, \"position\": 14.4}]}"
+   ]
+  },
+  {
+   "call": {
+    "name": "get_advanced_search_analytics",
+    "args": {
+     "site_url": "sc-domain:blog.shopline.tw",
+     "start_date": "2026-08-01",
+     "end_date": "2026-08-31",
+     "dimensions": "query",
+     "search_type": "web",
+     "row_limit": 25,
+     "sort_by": "clicks",
+     "sort_direction": "descending",
+     "data_state": "final",
+     "filter_dimension": "country",
+     "filter_operator": "equals",
+     "filter_expression": "twn"
+    }
+   },
+   "isError": false,
+   "text": [
+    "{\"site_url\": \"sc-domain:blog.shopline.tw\", \"date_range\": {\"start\": \"2026-08-01\", \"end\": \"2026-08-31\"}, \"search_type\": \"web\", \"dimensions\": [\"query\"], \"filters_applied\": [{\"dimension\": \"country\", \"operator\": \"equals\", \"expression\": \"twn\"}], \"pagination\": {\"start_row\": 0, \"row_count\": 25, \"has_more\": true, \"next_start_row\": 25}, \"rows\": [{\"query\": \"\\u8106\", \"clicks\": 850, \"impressions\": 274411, \"ctr\": 0.0031, \"position\": 4.3}, {\"query\": \"\\u514d\\u8cbb\\u5716\\u5eab\", \"clicks\": 135, \"impressions\": 3914, \"ctr\": 0.0345, \"position\": 4.9}, {\"query\": \"ig \\u9650\\u6642\\u52d5\\u614b\", \"clicks\": 84, \"impressions\": 9659, \"ctr\": 0.0087, \"position\": 6.3}, {\"query\": \"threads\", \"clicks\": 68, \"impressions\": 48998, \"ctr\": 0.0014, \"position\": 8.9}, {\"query\": \"ig\\u5c3a\\u5bf8\", \"clicks\": 49, \"impressions\": 1108, \"ctr\": 0.0442, \"position\": 1.6}, {\"query\": \"shopline mcp\", \"clicks\": 34, \"impressions\": 233, \"ctr\": 0.1459, \"position\": 2.5}, {\"query\": \"\\u8106\\u662f\\u4ec0\\u9ebc\", \"clicks\": 34, \"impressions\": 1936, \"ctr\": 0.0176, \"position\": 7.3}, {\"query\": \"fb\\u5c3a\\u5bf8\", \"clicks\": 29, \"impressions\": 381, \"ctr\": 0.0761, \"position\": 1.4}, {\"query\": \"pos\\u7cfb\\u7d71\", \"clicks\": 28, \"impressions\": 904, \"ctr\": 0.031, \"position\": 1.7}, {\"query\": \"fb\\u8cbc\\u6587\\u5c3a\\u5bf8\", \"clicks\": 26, \"impressions\": 784, \"ctr\": 0.0332, \"position\": 1.5}, {\"query\": \"ig\\u5716\\u7247\\u5c3a\\u5bf8\", \"clicks\": 25, \"impressions\": 390, \"ctr\": 0.0641, \"position\": 2.4}, {\"query\": \"\\u5718\\u8cfc\", \"clicks\": 25, \"impressions\": 2106, \"ctr\": 0.0119, \"position\": 10.0}, {\"query\": \"\\u81c9\\u66f8\\u5c3a\\u5bf8\", \"clicks\": 25, \"impressions\": 148, \"ctr\": 0.1689, \"position\": 1.4}, {\"query\": \"fb \\u5c3a\\u5bf8\", \"clicks\": 24, \"impressions\": 178, \"ctr\": 0.1348, \"position\": 3.0}, {\"query\": \"pos\\u6a5f\\u662f\\u4ec0\\u9ebc\", \"clicks\": 24, \"impressions\": 726, \"ctr\": 0.0331, \"position\": 1.6}, {\"query\": \"ig \\u5c3a\\u5bf8\", \"clicks\": 22, \"impressions\": 535, \"ctr\": 0.0411, \"position\": 1.5}, {\"query\": \"shopline \\u8a50\\u9a19\", \"clicks\": 22, \"impressions\": 359, \"ctr\": 0.0613, \"position\": 1.9}, {\"query\": \"\\u8106threads\", \"clicks\": 20, \"impressions\": 5611, \"ctr\": 0.0036, \"position\": 6.6}, {\"query\": \"\\u5716\\u5eab\", \"clicks\": 19, \"impressions\": 2016, \"ctr\": 0.0094, \"position\": 7.0}, {\"query\": \"\\u8106\\u662f\\u4ec0\\u9ebc\\u5e73\\u53f0\", \"clicks\": 17, \"impressions\": 341, \"ctr\": 0.0499, \"position\": 4.4}, {\"query\": \"\\u8106\\u662f\\u54ea\\u570b\\u7684\", \"clicks\": 17, \"impressions\": 738, \"ctr\": 0.023, \"position\": 3.6}, {\"query\": \"\\u81c9\\u66f8\\u5716\\u7247\\u5c3a\\u5bf8\", \"clicks\": 17, \"impressions\": 106, \"ctr\": 0.1604, \"position\": 1.2}, {\"query\": \"fb banner \\u5c3a\\u5bf8\", \"clicks\": 16, \"impressions\": 406, \"ctr\": 0.0394, \"position\": 2.8}, {\"query\": \"nozzle quiz\", \"clicks\": 16, \"impressions\": 1705, \"ctr\": 0.0094, \"position\": 5.9}, {\"query\": \"pos \\u7cfb\\u7d71\", \"clicks\": 16, \"impressions\": 453, \"ctr\": 0.0353, \"position\": 1.8}]}"
+   ]
+  },
+  {
+   "call": {
+    "name": "get_sitemaps",
+    "args": {
+     "site_url": "sc-domain:blog.shopline.tw"
+    }
+   },
+   "isError": false,
+   "text": [
+    "{\"site_url\": \"sc-domain:blog.shopline.tw\", \"count\": 1, \"sitemaps\": [{\"path\": \"https://blog.shopline.tw/sitemap_index.xml\", \"last_downloaded\": \"2026-09-05 16:01\", \"status\": \"Has warnings\", \"indexed_urls\": \"1188\", \"errors\": 0, \"warnings\": 1}]}"
+   ]
+  },
+  {
+   "call": {
+    "name": "get_sitemap_details",
+    "args": {
+     "site_url": "https://shopline.tw/",
+     "sitemap_url": "https://shopline.tw/sitemap.xml"
+    }
+   },
+   "isError": false,
+   "text": [
+    "{\"sitemap_url\": \"https://shopline.tw/sitemap.xml\", \"site_url\": \"https://shopline.tw/\", \"type\": \"Sitemap\", \"status\": \"processed\", \"last_submitted\": \"2026-07-10 08:45\", \"last_downloaded\": \"2026-09-07 23:54\", \"errors\": 0, \"warnings\": 0, \"content_breakdown\": [{\"type\": \"WEB\", \"submitted\": \"97\", \"indexed\": \"0\"}], \"is_index\": false}"
+   ]
+  },
+  {
+   "call": {
+    "name": "get_sitemap_details",
+    "args": {
+     "site_url": "https://shopline.tw/",
+     "sitemap_url": "https://shopline.tw/sitemap.xml.gz"
+    }
+   },
+   "isError": false,
+   "text": [
+    "Error retrieving sitemap details: <HttpError 404 when requesting https://searchconsole.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fshopline.tw%2F/sitemaps/https%3A%2F%2Fshopline.tw%2Fsitemap.xml.gz?alt=json returned \"'https://shopline.tw/sitemap.xml.gz' is not a submitted or a known sitemap.\". Details: \"[{'message': \"'https://shopline.tw/sitemap.xml.gz' is not a submitted or a known sitemap.\", 'domain': 'global', 'reason': 'notFound', 'location': 'feedpath', 'locationType': 'parameter'}]\">"
+   ]
+  },
+  {
+   "call": {
+    "name": "get_sitemap_details",
+    "args": {
+     "site_url": "sc-domain:blog.shopline.tw",
+     "sitemap_url": "https://blog.shopline.tw/sitemap_index.xml"
+    }
+   },
+   "isError": false,
+   "text": [
+    "{\"sitemap_url\": \"https://blog.shopline.tw/sitemap_index.xml\", \"site_url\": \"sc-domain:blog.shopline.tw\", \"type\": \"Index\", \"status\": \"processed\", \"last_submitted\": \"2022-12-06 07:02\", \"last_downloaded\": \"2026-09-05 16:01\", \"errors\": 0, \"warnings\": 1, \"content_breakdown\": [{\"type\": \"WEB\", \"submitted\": \"1188\", \"indexed\": \"0\"}, {\"type\": \"IMAGE\", \"submitted\": \"5450\", \"indexed\": \"0\"}], \"is_index\": true}"
+   ]
+  },
+  {
+   "call": {
+    "name": "get_advanced_search_analytics",
+    "args": {
+     "site_url": "https://shopline.tw/",
+     "start_date": "2026-03-01",
+     "end_date": "2026-03-31",
+     "dimensions": "date",
+     "search_type": "web",
+     "row_limit": 100,
+     "data_state": "final",
+     "filter_dimension": "country",
+     "filter_operator": "equals",
+     "filter_expression": "twn"
+    }
+   },
+   "isError": false,
+   "text": [
+    "{\"site_url\": \"https://shopline.tw/\", \"date_range\": {\"start\": \"2026-03-01\", \"end\": \"2026-03-31\"}, \"search_type\": \"web\", \"dimensions\": [\"date\"], \"filters_applied\": [{\"dimension\": \"country\", \"operator\": \"equals\", \"expression\": \"twn\"}], \"pagination\": {\"start_row\": 0, \"row_count\": 31, \"has_more\": false, \"next_start_row\": null}, \"rows\": [{\"date\": \"2026-03-01\", \"clicks\": 355, \"impressions\": 3765, \"ctr\": 0.0943, \"position\": 8.8}, {\"date\": \"2026-03-02\", \"clicks\": 378, \"impressions\": 4171, \"ctr\": 0.0906, \"position\": 8.4}, {\"date\": \"2026-03-03\", \"clicks\": 395, \"impressions\": 4336, \"ctr\": 0.0911, \"position\": 7.0}, {\"date\": \"2026-03-04\", \"clicks\": 431, \"impressions\": 4111, \"ctr\": 0.1048, \"position\": 5.6}, {\"date\": \"2026-03-05\", \"clicks\": 402, \"impressions\": 3993, \"ctr\": 0.1007, \"position\": 6.4}, {\"date\": \"2026-03-06\", \"clicks\": 260, \"impressions\": 2653, \"ctr\": 0.098, \"position\": 7.9}, {\"date\": \"2026-03-07\", \"clicks\": 202, \"impressions\": 1994, \"ctr\": 0.1013, \"position\": 6.4}, {\"date\": \"2026-03-08\", \"clicks\": 279, \"impressions\": 2935, \"ctr\": 0.0951, \"position\": 5.3}, {\"date\": \"2026-03-09\", \"clicks\": 395, \"impressions\": 4026, \"ctr\": 0.0981, \"position\": 6.4}, {\"date\": \"2026-03-10\", \"clicks\": 425, \"impressions\": 4398, \"ctr\": 0.0966, \"position\": 6.5}, {\"date\": \"2026-03-11\", \"clicks\": 334, \"impressions\": 3823, \"ctr\": 0.0874, \"position\": 5.6}, {\"date\": \"2026-03-12\", \"clicks\": 423, \"impressions\": 4006, \"ctr\": 0.1056, \"position\": 7.7}, {\"date\": \"2026-03-13\", \"clicks\": 272, \"impressions\": 2641, \"ctr\": 0.103, \"position\": 5.4}, {\"date\": \"2026-03-14\", \"clicks\": 200, \"impressions\": 2051, \"ctr\": 0.0975, \"position\": 5.9}, {\"date\": \"2026-03-15\", \"clicks\": 286, \"impressions\": 3242, \"ctr\": 0.0882, \"position\": 7.2}, {\"date\": \"2026-03-16\", \"clicks\": 360, \"impressions\": 4031, \"ctr\": 0.0893, \"position\": 6.0}, {\"date\": \"2026-03-17\", \"clicks\": 358, \"impressions\": 4173, \"ctr\": 0.0858, \"position\": 8.3}, {\"date\": \"2026-03-18\", \"clicks\": 361, \"impressions\": 3785, \"ctr\": 0.0954, \"position\": 6.5}, {\"date\": \"2026-03-19\", \"clicks\": 358, \"impressions\": 3666, \"ctr\": 0.0977, \"position\": 7.6}, {\"date\": \"2026-03-20\", \"clicks\": 194, \"impressions\": 2422, \"ctr\": 0.0801, \"position\": 6.9}, {\"date\": \"2026-03-21\", \"clicks\": 161, \"impressions\": 1801, \"ctr\": 0.0894, \"position\": 8.2}, {\"date\": \"2026-03-22\", \"clicks\": 273, \"impressions\": 3132, \"ctr\": 0.0872, \"position\": 8.3}, {\"date\": \"2026-03-23\", \"clicks\": 379, \"impressions\": 3985, \"ctr\": 0.0951, \"position\": 5.2}, {\"date\": \"2026-03-24\", \"clicks\": 350, \"impressions\": 4697, \"ctr\": 0.0745, \"position\": 8.4}, {\"date\": \"2026-03-25\", \"clicks\": 334, \"impressions\": 4004, \"ctr\": 0.0834, \"position\": 5.3}, {\"date\": \"2026-03-26\", \"clicks\": 315, \"impressions\": 3633, \"ctr\": 0.0867, \"position\": 5.5}, {\"date\": \"2026-03-27\", \"clicks\": 225, \"impressions\": 2400, \"ctr\": 0.0938, \"position\": 5.5}, {\"date\": \"2026-03-28\", \"clicks\": 161, \"impressions\": 1826, \"ctr\": 0.0882, \"position\": 6.0}, {\"date\": \"2026-03-29\", \"clicks\": 302, \"impressions\": 3202, \"ctr\": 0.0943, \"position\": 5.8}, {\"date\": \"2026-03-30\", \"clicks\": 359, \"impressions\": 3614, \"ctr\": 0.0993, \"position\": 5.0}, {\"date\": \"2026-03-31\", \"clicks\": 347, \"impressions\": 4109, \"ctr\": 0.0844, \"position\": 5.1}]}"
+   ]
+  },
+  {
+   "call": {
+    "name": "get_advanced_search_analytics",
+    "args": {
+     "site_url": "https://shopline.tw/",
+     "start_date": "2026-04-01",
+     "end_date": "2026-04-30",
+     "dimensions": "date",
+     "search_type": "web",
+     "row_limit": 100,
+     "data_state": "final",
+     "filter_dimension": "country",
+     "filter_operator": "equals",
+     "filter_expression": "twn"
+    }
+   },
+   "isError": false,
+   "text": [
+    "{\"site_url\": \"https://shopline.tw/\", \"date_range\": {\"start\": \"2026-04-01\", \"end\": \"2026-04-30\"}, \"search_type\": \"web\", \"dimensions\": [\"date\"], \"filters_applied\": [{\"dimension\": \"country\", \"operator\": \"equals\", \"expression\": \"twn\"}], \"pagination\": {\"start_row\": 0, \"row_count\": 30, \"has_more\": false, \"next_start_row\": null}, \"rows\": [{\"date\": \"2026-04-01\", \"clicks\": 379, \"impressions\": 3808, \"ctr\": 0.0995, \"position\": 4.7}, {\"date\": \"2026-04-02\", \"clicks\": 261, \"impressions\": 2626, \"ctr\": 0.0994, \"position\": 5.7}, {\"date\": \"2026-04-03\", \"clicks\": 169, \"impressions\": 1954, \"ctr\": 0.0865, \"position\": 7.5}, {\"date\": \"2026-04-04\", \"clicks\": 145, \"impressions\": 1612, \"ctr\": 0.09, \"position\": 4.9}, {\"date\": \"2026-04-05\", \"clicks\": 173, \"impressions\": 1898, \"ctr\": 0.0911, \"position\": 4.2}, {\"date\": \"2026-04-06\", \"clicks\": 325, \"impressions\": 3382, \"ctr\": 0.0961, \"position\": 6.0}, {\"date\": \"2026-04-07\", \"clicks\": 330, \"impressions\": 4018, \"ctr\": 0.0821, \"position\": 6.2}, {\"date\": \"2026-04-08\", \"clicks\": 396, \"impressions\": 3901, \"ctr\": 0.1015, \"position\": 5.2}, {\"date\": \"2026-04-09\", \"clicks\": 416, \"impressions\": 4087, \"ctr\": 0.1018, \"position\": 6.0}, {\"date\": \"2026-04-10\", \"clicks\": 245, \"impressions\": 2707, \"ctr\": 0.0905, \"position\": 6.7}, {\"date\": \"2026-04-11\", \"clicks\": 185, \"impressions\": 1841, \"ctr\": 0.1005, \"position\": 7.2}, {\"date\": \"2026-04-12\", \"clicks\": 289, \"impressions\": 2913, \"ctr\": 0.0992, \"position\": 4.7}, {\"date\": \"2026-04-13\", \"clicks\": 359, \"impressions\": 3510, \"ctr\": 0.1023, \"position\": 5.1}, {\"date\": \"2026-04-14\", \"clicks\": 317, \"impressions\": 3657, \"ctr\": 0.0867, \"position\": 5.7}, {\"date\": \"2026-04-15\", \"clicks\": 297, \"impressions\": 3532, \"ctr\": 0.0841, \"position\": 5.2}, {\"date\": \"2026-04-16\", \"clicks\": 380, \"impressions\": 3594, \"ctr\": 0.1057, \"position\": 4.7}, {\"date\": \"2026-04-17\", \"clicks\": 274, \"impressions\": 2413, \"ctr\": 0.1136, \"position\": 5.7}, {\"date\": \"2026-04-18\", \"clicks\": 177, \"impressions\": 1585, \"ctr\": 0.1117, \"position\": 4.7}, {\"date\": \"2026-04-19\", \"clicks\": 269, \"impressions\": 2562, \"ctr\": 0.105, \"position\": 5.2}, {\"date\": \"2026-04-20\", \"clicks\": 387, \"impressions\": 3273, \"ctr\": 0.1182, \"position\": 4.6}, {\"date\": \"2026-04-21\", \"clicks\": 368, \"impressions\": 3810, \"ctr\": 0.0966, \"position\": 6.2}, {\"date\": \"2026-04-22\", \"clicks\": 345, \"impressions\": 3331, \"ctr\": 0.1036, \"position\": 4.7}, {\"date\": \"2026-04-23\", \"clicks\": 356, \"impressions\": 3269, \"ctr\": 0.1089, \"position\": 5.1}, {\"date\": \"2026-04-24\", \"clicks\": 249, \"impressions\": 2321, \"ctr\": 0.1073, \"position\": 5.1}, {\"date\": \"2026-04-25\", \"clicks\": 151, \"impressions\": 1583, \"ctr\": 0.0954, \"position\": 5.2}, {\"date\": \"2026-04-26\", \"clicks\": 254, \"impressions\": 2551, \"ctr\": 0.0996, \"position\": 4.8}, {\"date\": \"2026-04-27\", \"clicks\": 325, \"impressions\": 3232, \"ctr\": 0.1006, \"position\": 5.9}, {\"date\": \"2026-04-28\", \"clicks\": 338, \"impressions\": 3611, \"ctr\": 0.0936, \"position\": 5.8}, {\"date\": \"2026-04-29\", \"clicks\": 338, \"impressions\": 3342, \"ctr\": 0.1011, \"position\": 4.8}, {\"date\": \"2026-04-30\", \"clicks\": 233, \"impressions\": 2544, \"ctr\": 0.0916, \"position\": 6.2}]}"
+   ]
+  },
+  {
+   "call": {
+    "name": "get_advanced_search_analytics",
+    "args": {
+     "site_url": "https://shopline.tw/",
+     "start_date": "2026-05-01",
+     "end_date": "2026-05-31",
+     "dimensions": "date",
+     "search_type": "web",
+     "row_limit": 100,
+     "data_state": "final",
+     "filter_dimension": "country",
+     "filter_operator": "equals",
+     "filter_expression": "twn"
+    }
+   },
+   "isError": false,
+   "text": [
+    "{\"site_url\": \"https://shopline.tw/\", \"date_range\": {\"start\": \"2026-05-01\", \"end\": \"2026-05-31\"}, \"search_type\": \"web\", \"dimensions\": [\"date\"], \"filters_applied\": [{\"dimension\": \"country\", \"operator\": \"equals\", \"expression\": \"twn\"}], \"pagination\": {\"start_row\": 0, \"row_count\": 31, \"has_more\": false, \"next_start_row\": null}, \"rows\": [{\"date\": \"2026-05-01\", \"clicks\": 171, \"impressions\": 1748, \"ctr\": 0.0978, \"position\": 5.0}, {\"date\": \"2026-05-02\", \"clicks\": 149, \"impressions\": 1575, \"ctr\": 0.0946, \"position\": 5.8}, {\"date\": \"2026-05-03\", \"clicks\": 223, \"impressions\": 2657, \"ctr\": 0.0839, \"position\": 4.9}, {\"date\": \"2026-05-04\", \"clicks\": 377, \"impressions\": 3737, \"ctr\": 0.1009, \"position\": 5.3}, {\"date\": \"2026-05-05\", \"clicks\": 356, \"impressions\": 4154, \"ctr\": 0.0857, \"position\": 5.7}, {\"date\": \"2026-05-06\", \"clicks\": 296, \"impressions\": 3628, \"ctr\": 0.0816, \"position\": 5.0}, {\"date\": \"2026-05-07\", \"clicks\": 276, \"impressions\": 3271, \"ctr\": 0.0844, \"position\": 5.6}, {\"date\": \"2026-05-08\", \"clicks\": 204, \"impressions\": 2351, \"ctr\": 0.0868, \"position\": 6.1}, {\"date\": \"2026-05-09\", \"clicks\": 128, \"impressions\": 1526, \"ctr\": 0.0839, \"position\": 5.5}, {\"date\": \"2026-05-10\", \"clicks\": 259, \"impressions\": 2762, \"ctr\": 0.0938, \"position\": 4.8}, {\"date\": \"2026-05-11\", \"clicks\": 285, \"impressions\": 3450, \"ctr\": 0.0826, \"position\": 5.8}, {\"date\": \"2026-05-12\", \"clicks\": 300, \"impressions\": 3730, \"ctr\": 0.0804, \"position\": 6.9}, {\"date\": \"2026-05-13\", \"clicks\": 274, \"impressions\": 3392, \"ctr\": 0.0808, \"position\": 5.6}, {\"date\": \"2026-05-14\", \"clicks\": 250, \"impressions\": 3019, \"ctr\": 0.0828, \"position\": 4.8}, {\"date\": \"2026-05-15\", \"clicks\": 193, \"impressions\": 2106, \"ctr\": 0.0916, \"position\": 5.1}, {\"date\": \"2026-05-16\", \"clicks\": 95, \"impressions\": 1510, \"ctr\": 0.0629, \"position\": 5.7}, {\"date\": \"2026-05-17\", \"clicks\": 219, \"impressions\": 2407, \"ctr\": 0.091, \"position\": 5.0}, {\"date\": \"2026-05-18\", \"clicks\": 288, \"impressions\": 3193, \"ctr\": 0.0902, \"position\": 4.8}, {\"date\": \"2026-05-19\", \"clicks\": 301, \"impressions\": 3577, \"ctr\": 0.0841, \"position\": 5.5}, {\"date\": \"2026-05-20\", \"clicks\": 296, \"impressions\": 3182, \"ctr\": 0.093, \"position\": 4.9}, {\"date\": \"2026-05-21\", \"clicks\": 300, \"impressions\": 3391, \"ctr\": 0.0885, \"position\": 4.8}, {\"date\": \"2026-05-22\", \"clicks\": 204, \"impressions\": 2485, \"ctr\": 0.0821, \"position\": 4.7}, {\"date\": \"2026-05-23\", \"clicks\": 137, \"impressions\": 1693, \"ctr\": 0.0809, \"position\": 4.5}, {\"date\": \"2026-05-24\", \"clicks\": 223, \"impressions\": 3078, \"ctr\": 0.0724, \"position\": 5.0}, {\"date\": \"2026-05-25\", \"clicks\": 298, \"impressions\": 3803, \"ctr\": 0.0784, \"position\": 5.8}, {\"date\": \"2026-05-26\", \"clicks\": 288, \"impressions\": 4075, \"ctr\": 0.0707, \"position\": 6.0}, {\"date\": \"2026-05-27\", \"clicks\": 339, \"impressions\": 3602, \"ctr\": 0.0941, \"position\": 4.9}, {\"date\": \"2026-05-28\", \"clicks\": 267, \"impressions\": 3438, \"ctr\": 0.0777, \"position\": 4.6}, {\"date\": \"2026-05-29\", \"clicks\": 201, \"impressions\": 2731, \"ctr\": 0.0736, \"position\": 5.1}, {\"date\": \"2026-05-30\", \"clicks\": 137, \"impressions\": 2024, \"ctr\": 0.0677, \"position\": 5.1}, {\"date\": \"2026-05-31\", \"clicks\": 244, \"impressions\": 3039, \"ctr\": 0.0803, \"position\": 4.6}]}"
+   ]
+  },
+  {
+   "call": {
+    "name": "get_advanced_search_analytics",
+    "args": {
+     "site_url": "https://shopline.tw/",
+     "start_date": "2026-06-01",
+     "end_date": "2026-06-30",
+     "dimensions": "date",
+     "search_type": "web",
+     "row_limit": 100,
+     "data_state": "final",
+     "filter_dimension": "country",
+     "filter_operator": "equals",
+     "filter_expression": "twn"
+    }
+   },
+   "isError": false,
+   "text": [
+    "{\"site_url\": \"https://shopline.tw/\", \"date_range\": {\"start\": \"2026-06-01\", \"end\": \"2026-06-30\"}, \"search_type\": \"web\", \"dimensions\": [\"date\"], \"filters_applied\": [{\"dimension\": \"country\", \"operator\": \"equals\", \"expression\": \"twn\"}], \"pagination\": {\"start_row\": 0, \"row_count\": 30, \"has_more\": false, \"next_start_row\": null}, \"rows\": [{\"date\": \"2026-06-01\", \"clicks\": 298, \"impressions\": 3742, \"ctr\": 0.0796, \"position\": 4.5}, {\"date\": \"2026-06-02\", \"clicks\": 303, \"impressions\": 3989, \"ctr\": 0.076, \"position\": 5.3}, {\"date\": \"2026-06-03\", \"clicks\": 301, \"impressions\": 3791, \"ctr\": 0.0794, \"position\": 4.2}, {\"date\": \"2026-06-04\", \"clicks\": 294, \"impressions\": 3599, \"ctr\": 0.0817, \"position\": 4.2}, {\"date\": \"2026-06-05\", \"clicks\": 190, \"impressions\": 2553, \"ctr\": 0.0744, \"position\": 4.1}, {\"date\": \"2026-06-06\", \"clicks\": 131, \"impressions\": 1843, \"ctr\": 0.0711, \"position\": 4.0}, {\"date\": \"2026-06-07\", \"clicks\": 236, \"impressions\": 3107, \"ctr\": 0.076, \"position\": 4.5}, {\"date\": \"2026-06-08\", \"clicks\": 310, \"impressions\": 3791, \"ctr\": 0.0818, \"position\": 4.2}, {\"date\": \"2026-06-09\", \"clicks\": 416, \"impressions\": 4106, \"ctr\": 0.1013, \"position\": 4.8}, {\"date\": \"2026-06-10\", \"clicks\": 359, \"impressions\": 3764, \"ctr\": 0.0954, \"position\": 4.2}, {\"date\": \"2026-06-11\", \"clicks\": 476, \"impressions\": 4026, \"ctr\": 0.1182, \"position\": 4.0}, {\"date\": \"2026-06-12\", \"clicks\": 270, \"impressions\": 2844, \"ctr\": 0.0949, \"position\": 3.9}, {\"date\": \"2026-06-13\", \"clicks\": 228, \"impressions\": 2069, \"ctr\": 0.1102, \"position\": 3.5}, {\"date\": \"2026-06-14\", \"clicks\": 374, \"impressions\": 3319, \"ctr\": 0.1127, \"position\": 3.7}, {\"date\": \"2026-06-15\", \"clicks\": 406, \"impressions\": 4248, \"ctr\": 0.0956, \"position\": 4.3}, {\"date\": \"2026-06-16\", \"clicks\": 542, \"impressions\": 4585, \"ctr\": 0.1182, \"position\": 4.8}, {\"date\": \"2026-06-17\", \"clicks\": 459, \"impressions\": 4104, \"ctr\": 0.1118, \"position\": 4.0}, {\"date\": \"2026-06-18\", \"clicks\": 296, \"impressions\": 2891, \"ctr\": 0.1024, \"position\": 4.2}, {\"date\": \"2026-06-19\", \"clicks\": 219, \"impressions\": 2263, \"ctr\": 0.0968, \"position\": 4.5}, {\"date\": \"2026-06-20\", \"clicks\": 225, \"impressions\": 2124, \"ctr\": 0.1059, \"position\": 4.6}, {\"date\": \"2026-06-21\", \"clicks\": 383, \"impressions\": 3348, \"ctr\": 0.1144, \"position\": 4.7}, {\"date\": \"2026-06-22\", \"clicks\": 480, \"impressions\": 4207, \"ctr\": 0.1141, \"position\": 4.0}, {\"date\": \"2026-06-23\", \"clicks\": 393, \"impressions\": 4057, \"ctr\": 0.0969, \"position\": 5.1}, {\"date\": \"2026-06-24\", \"clicks\": 441, \"impressions\": 3910, \"ctr\": 0.1128, \"position\": 4.2}, {\"date\": \"2026-06-25\", \"clicks\": 383, \"impressions\": 3636, \"ctr\": 0.1053, \"position\": 4.4}, {\"date\": \"2026-06-26\", \"clicks\": 324, \"impressions\": 2710, \"ctr\": 0.1196, \"position\": 4.2}, {\"date\": \"2026-06-27\", \"clicks\": 178, \"impressions\": 2329, \"ctr\": 0.0764, \"position\": 5.1}, {\"date\": \"2026-06-28\", \"clicks\": 318, \"impressions\": 3210, \"ctr\": 0.0991, \"position\": 4.6}, {\"date\": \"2026-06-29\", \"clicks\": 498, \"impressions\": 4277, \"ctr\": 0.1164, \"position\": 4.4}, {\"date\": \"2026-06-30\", \"clicks\": 502, \"impressions\": 4689, \"ctr\": 0.1071, \"position\": 5.0}]}"
+   ]
+  },
+  {
+   "call": {
+    "name": "get_advanced_search_analytics",
+    "args": {
+     "site_url": "sc-domain:blog.shopline.tw",
+     "start_date": "2026-03-01",
+     "end_date": "2026-03-31",
+     "dimensions": "date",
+     "search_type": "web",
+     "row_limit": 100,
+     "data_state": "final",
+     "filter_dimension": "country",
+     "filter_operator": "equals",
+     "filter_expression": "twn"
+    }
+   },
+   "isError": false,
+   "text": [
+    "{\"site_url\": \"sc-domain:blog.shopline.tw\", \"date_range\": {\"start\": \"2026-03-01\", \"end\": \"2026-03-31\"}, \"search_type\": \"web\", \"dimensions\": [\"date\"], \"filters_applied\": [{\"dimension\": \"country\", \"operator\": \"equals\", \"expression\": \"twn\"}], \"pagination\": {\"start_row\": 0, \"row_count\": 31, \"has_more\": false, \"next_start_row\": null}, \"rows\": [{\"date\": \"2026-03-01\", \"clicks\": 586, \"impressions\": 36075, \"ctr\": 0.0162, \"position\": 7.1}, {\"date\": \"2026-03-02\", \"clicks\": 748, \"impressions\": 37156, \"ctr\": 0.0201, \"position\": 6.8}, {\"date\": \"2026-03-03\", \"clicks\": 722, \"impressions\": 37571, \"ctr\": 0.0192, \"position\": 6.9}, {\"date\": \"2026-03-04\", \"clicks\": 752, \"impressions\": 38716, \"ctr\": 0.0194, \"position\": 6.0}, {\"date\": \"2026-03-05\", \"clicks\": 680, \"impressions\": 36570, \"ctr\": 0.0186, \"position\": 6.2}, {\"date\": \"2026-03-06\", \"clicks\": 393, \"impressions\": 25451, \"ctr\": 0.0154, \"position\": 6.8}, {\"date\": \"2026-03-07\", \"clicks\": 271, \"impressions\": 24017, \"ctr\": 0.0113, \"position\": 6.5}, {\"date\": \"2026-03-08\", \"clicks\": 493, \"impressions\": 30359, \"ctr\": 0.0162, \"position\": 6.7}, {\"date\": \"2026-03-09\", \"clicks\": 813, \"impressions\": 36314, \"ctr\": 0.0224, \"position\": 6.9}, {\"date\": \"2026-03-10\", \"clicks\": 793, \"impressions\": 38438, \"ctr\": 0.0206, \"position\": 7.1}, {\"date\": \"2026-03-11\", \"clicks\": 765, \"impressions\": 36402, \"ctr\": 0.021, \"position\": 6.3}, {\"date\": \"2026-03-12\", \"clicks\": 765, \"impressions\": 32701, \"ctr\": 0.0234, \"position\": 6.5}, {\"date\": \"2026-03-13\", \"clicks\": 433, \"impressions\": 26402, \"ctr\": 0.0164, \"position\": 6.5}, {\"date\": \"2026-03-14\", \"clicks\": 290, \"impressions\": 24978, \"ctr\": 0.0116, \"position\": 6.2}, {\"date\": \"2026-03-15\", \"clicks\": 558, \"impressions\": 35280, \"ctr\": 0.0158, \"position\": 6.3}, {\"date\": \"2026-03-16\", \"clicks\": 763, \"impressions\": 39921, \"ctr\": 0.0191, \"position\": 6.1}, {\"date\": \"2026-03-17\", \"clicks\": 690, \"impressions\": 41255, \"ctr\": 0.0167, \"position\": 6.6}, {\"date\": \"2026-03-18\", \"clicks\": 731, \"impressions\": 37047, \"ctr\": 0.0197, \"position\": 6.7}, {\"date\": \"2026-03-19\", \"clicks\": 683, \"impressions\": 36135, \"ctr\": 0.0189, \"position\": 6.6}, {\"date\": \"2026-03-20\", \"clicks\": 459, \"impressions\": 26642, \"ctr\": 0.0172, \"position\": 6.5}, {\"date\": \"2026-03-21\", \"clicks\": 318, \"impressions\": 25202, \"ctr\": 0.0126, \"position\": 6.3}, {\"date\": \"2026-03-22\", \"clicks\": 559, \"impressions\": 33136, \"ctr\": 0.0169, \"position\": 6.6}, {\"date\": \"2026-03-23\", \"clicks\": 663, \"impressions\": 36540, \"ctr\": 0.0181, \"position\": 6.3}, {\"date\": \"2026-03-24\", \"clicks\": 666, \"impressions\": 37104, \"ctr\": 0.0179, \"position\": 6.6}, {\"date\": \"2026-03-25\", \"clicks\": 736, \"impressions\": 34477, \"ctr\": 0.0213, \"position\": 6.1}, {\"date\": \"2026-03-26\", \"clicks\": 681, \"impressions\": 32528, \"ctr\": 0.0209, \"position\": 6.1}, {\"date\": \"2026-03-27\", \"clicks\": 426, \"impressions\": 24842, \"ctr\": 0.0171, \"position\": 6.0}, {\"date\": \"2026-03-28\", \"clicks\": 315, \"impressions\": 22501, \"ctr\": 0.014, \"position\": 5.9}, {\"date\": \"2026-03-29\", \"clicks\": 504, \"impressions\": 30786, \"ctr\": 0.0164, \"position\": 6.1}, {\"date\": \"2026-03-30\", \"clicks\": 709, \"impressions\": 35564, \"ctr\": 0.0199, \"position\": 6.1}, {\"date\": \"2026-03-31\", \"clicks\": 723, \"impressions\": 37820, \"ctr\": 0.0191, \"position\": 6.1}]}"
+   ]
+  },
+  {
+   "call": {
+    "name": "get_advanced_search_analytics",
+    "args": {
+     "site_url": "sc-domain:blog.shopline.tw",
+     "start_date": "2026-04-01",
+     "end_date": "2026-04-30",
+     "dimensions": "date",
+     "search_type": "web",
+     "row_limit": 100,
+     "data_state": "final",
+     "filter_dimension": "country",
+     "filter_operator": "equals",
+     "filter_expression": "twn"
+    }
+   },
+   "isError": false,
+   "text": [
+    "{\"site_url\": \"sc-domain:blog.shopline.tw\", \"date_range\": {\"start\": \"2026-04-01\", \"end\": \"2026-04-30\"}, \"search_type\": \"web\", \"dimensions\": [\"date\"], \"filters_applied\": [{\"dimension\": \"country\", \"operator\": \"equals\", \"expression\": \"twn\"}], \"pagination\": {\"start_row\": 0, \"row_count\": 30, \"has_more\": false, \"next_start_row\": null}, \"rows\": [{\"date\": \"2026-04-01\", \"clicks\": 659, \"impressions\": 36470, \"ctr\": 0.0181, \"position\": 6.3}, {\"date\": \"2026-04-02\", \"clicks\": 455, \"impressions\": 27571, \"ctr\": 0.0165, \"position\": 6.1}, {\"date\": \"2026-04-03\", \"clicks\": 285, \"impressions\": 23360, \"ctr\": 0.0122, \"position\": 6.3}, {\"date\": \"2026-04-04\", \"clicks\": 308, \"impressions\": 21492, \"ctr\": 0.0143, \"position\": 6.0}, {\"date\": \"2026-04-05\", \"clicks\": 302, \"impressions\": 24132, \"ctr\": 0.0125, \"position\": 6.2}, {\"date\": \"2026-04-06\", \"clicks\": 498, \"impressions\": 31227, \"ctr\": 0.0159, \"position\": 6.2}, {\"date\": \"2026-04-07\", \"clicks\": 661, \"impressions\": 33999, \"ctr\": 0.0194, \"position\": 6.0}, {\"date\": \"2026-04-08\", \"clicks\": 664, \"impressions\": 36132, \"ctr\": 0.0184, \"position\": 6.2}, {\"date\": \"2026-04-09\", \"clicks\": 665, \"impressions\": 38274, \"ctr\": 0.0174, \"position\": 6.2}, {\"date\": \"2026-04-10\", \"clicks\": 424, \"impressions\": 31001, \"ctr\": 0.0137, \"position\": 6.1}, {\"date\": \"2026-04-11\", \"clicks\": 301, \"impressions\": 27150, \"ctr\": 0.0111, \"position\": 6.1}, {\"date\": \"2026-04-12\", \"clicks\": 475, \"impressions\": 33928, \"ctr\": 0.014, \"position\": 6.4}, {\"date\": \"2026-04-13\", \"clicks\": 665, \"impressions\": 39180, \"ctr\": 0.017, \"position\": 6.2}, {\"date\": \"2026-04-14\", \"clicks\": 732, \"impressions\": 39618, \"ctr\": 0.0185, \"position\": 6.2}, {\"date\": \"2026-04-15\", \"clicks\": 712, \"impressions\": 39875, \"ctr\": 0.0179, \"position\": 6.3}, {\"date\": \"2026-04-16\", \"clicks\": 667, \"impressions\": 39367, \"ctr\": 0.0169, \"position\": 6.3}, {\"date\": \"2026-04-17\", \"clicks\": 404, \"impressions\": 29829, \"ctr\": 0.0135, \"position\": 6.7}, {\"date\": \"2026-04-18\", \"clicks\": 305, \"impressions\": 25140, \"ctr\": 0.0121, \"position\": 6.5}, {\"date\": \"2026-04-19\", \"clicks\": 546, \"impressions\": 34410, \"ctr\": 0.0159, \"position\": 6.6}, {\"date\": \"2026-04-20\", \"clicks\": 685, \"impressions\": 36686, \"ctr\": 0.0187, \"position\": 6.8}, {\"date\": \"2026-04-21\", \"clicks\": 717, \"impressions\": 37282, \"ctr\": 0.0192, \"position\": 7.6}, {\"date\": \"2026-04-22\", \"clicks\": 691, \"impressions\": 36095, \"ctr\": 0.0191, \"position\": 7.3}, {\"date\": \"2026-04-23\", \"clicks\": 646, \"impressions\": 35575, \"ctr\": 0.0182, \"position\": 7.6}, {\"date\": \"2026-04-24\", \"clicks\": 359, \"impressions\": 26546, \"ctr\": 0.0135, \"position\": 8.0}, {\"date\": \"2026-04-25\", \"clicks\": 250, \"impressions\": 21420, \"ctr\": 0.0117, \"position\": 7.7}, {\"date\": \"2026-04-26\", \"clicks\": 434, \"impressions\": 30511, \"ctr\": 0.0142, \"position\": 7.9}, {\"date\": \"2026-04-27\", \"clicks\": 643, \"impressions\": 35398, \"ctr\": 0.0182, \"position\": 7.5}, {\"date\": \"2026-04-28\", \"clicks\": 610, \"impressions\": 36408, \"ctr\": 0.0168, \"position\": 7.6}, {\"date\": \"2026-04-29\", \"clicks\": 627, \"impressions\": 35324, \"ctr\": 0.0177, \"position\": 7.6}, {\"date\": \"2026-04-30\", \"clicks\": 350, \"impressions\": 27732, \"ctr\": 0.0126, \"position\": 8.1}]}"
+   ]
+  },
+  {
+   "call": {
+    "name": "get_advanced_search_analytics",
+    "args": {
+     "site_url": "sc-domain:blog.shopline.tw",
+     "start_date": "2026-05-01",
+     "end_date": "2026-05-31",
+     "dimensions": "date",
+     "search_type": "web",
+     "row_limit": 100,
+     "data_state": "final",
+     "filter_dimension": "country",
+     "filter_operator": "equals",
+     "filter_expression": "twn"
+    }
+   },
+   "isError": false,
+   "text": [
+    "{\"site_url\": \"sc-domain:blog.shopline.tw\", \"date_range\": {\"start\": \"2026-05-01\", \"end\": \"2026-05-31\"}, \"search_type\": \"web\", \"dimensions\": [\"date\"], \"filters_applied\": [{\"dimension\": \"country\", \"operator\": \"equals\", \"expression\": \"twn\"}], \"pagination\": {\"start_row\": 0, \"row_count\": 31, \"has_more\": false, \"next_start_row\": null}, \"rows\": [{\"date\": \"2026-05-01\", \"clicks\": 266, \"impressions\": 22760, \"ctr\": 0.0117, \"position\": 7.9}, {\"date\": \"2026-05-02\", \"clicks\": 279, \"impressions\": 23530, \"ctr\": 0.0119, \"position\": 7.6}, {\"date\": \"2026-05-03\", \"clicks\": 446, \"impressions\": 32616, \"ctr\": 0.0137, \"position\": 7.8}, {\"date\": \"2026-05-04\", \"clicks\": 663, \"impressions\": 38527, \"ctr\": 0.0172, \"position\": 7.6}, {\"date\": \"2026-05-05\", \"clicks\": 619, \"impressions\": 37944, \"ctr\": 0.0163, \"position\": 7.5}, {\"date\": \"2026-05-06\", \"clicks\": 583, \"impressions\": 36822, \"ctr\": 0.0158, \"position\": 7.6}, {\"date\": \"2026-05-07\", \"clicks\": 582, \"impressions\": 36633, \"ctr\": 0.0159, \"position\": 7.6}, {\"date\": \"2026-05-08\", \"clicks\": 350, \"impressions\": 28319, \"ctr\": 0.0124, \"position\": 7.9}, {\"date\": \"2026-05-09\", \"clicks\": 255, \"impressions\": 24154, \"ctr\": 0.0106, \"position\": 8.0}, {\"date\": \"2026-05-10\", \"clicks\": 408, \"impressions\": 32634, \"ctr\": 0.0125, \"position\": 7.9}, {\"date\": \"2026-05-11\", \"clicks\": 600, \"impressions\": 36612, \"ctr\": 0.0164, \"position\": 7.7}, {\"date\": \"2026-05-12\", \"clicks\": 572, \"impressions\": 37032, \"ctr\": 0.0154, \"position\": 7.6}, {\"date\": \"2026-05-13\", \"clicks\": 577, \"impressions\": 35664, \"ctr\": 0.0162, \"position\": 7.7}, {\"date\": \"2026-05-14\", \"clicks\": 588, \"impressions\": 33373, \"ctr\": 0.0176, \"position\": 7.7}, {\"date\": \"2026-05-15\", \"clicks\": 368, \"impressions\": 26727, \"ctr\": 0.0138, \"position\": 8.2}, {\"date\": \"2026-05-16\", \"clicks\": 261, \"impressions\": 22842, \"ctr\": 0.0114, \"position\": 7.7}, {\"date\": \"2026-05-17\", \"clicks\": 445, \"impressions\": 31981, \"ctr\": 0.0139, \"position\": 7.6}, {\"date\": \"2026-05-18\", \"clicks\": 632, \"impressions\": 35843, \"ctr\": 0.0176, \"position\": 7.4}, {\"date\": \"2026-05-19\", \"clicks\": 588, \"impressions\": 36448, \"ctr\": 0.0161, \"position\": 7.4}, {\"date\": \"2026-05-20\", \"clicks\": 614, \"impressions\": 35524, \"ctr\": 0.0173, \"position\": 6.9}, {\"date\": \"2026-05-21\", \"clicks\": 599, \"impressions\": 32141, \"ctr\": 0.0186, \"position\": 6.9}, {\"date\": \"2026-05-22\", \"clicks\": 395, \"impressions\": 24927, \"ctr\": 0.0158, \"position\": 7.3}, {\"date\": \"2026-05-23\", \"clicks\": 297, \"impressions\": 23381, \"ctr\": 0.0127, \"position\": 7.1}, {\"date\": \"2026-05-24\", \"clicks\": 472, \"impressions\": 31423, \"ctr\": 0.015, \"position\": 7.2}, {\"date\": \"2026-05-25\", \"clicks\": 598, \"impressions\": 34114, \"ctr\": 0.0175, \"position\": 7.1}, {\"date\": \"2026-05-26\", \"clicks\": 565, \"impressions\": 33713, \"ctr\": 0.0168, \"position\": 7.2}, {\"date\": \"2026-05-27\", \"clicks\": 556, \"impressions\": 32443, \"ctr\": 0.0171, \"position\": 7.3}, {\"date\": \"2026-05-28\", \"clicks\": 532, \"impressions\": 31438, \"ctr\": 0.0169, \"position\": 7.4}, {\"date\": \"2026-05-29\", \"clicks\": 367, \"impressions\": 23580, \"ctr\": 0.0156, \"position\": 7.6}, {\"date\": \"2026-05-30\", \"clicks\": 229, \"impressions\": 21094, \"ctr\": 0.0109, \"position\": 7.6}, {\"date\": \"2026-05-31\", \"clicks\": 404, \"impressions\": 29164, \"ctr\": 0.0139, \"position\": 7.7}]}"
+   ]
+  },
+  {
+   "call": {
+    "name": "get_advanced_search_analytics",
+    "args": {
+     "site_url": "sc-domain:blog.shopline.tw",
+     "start_date": "2026-06-01",
+     "end_date": "2026-06-30",
+     "dimensions": "date",
+     "search_type": "web",
+     "row_limit": 100,
+     "data_state": "final",
+     "filter_dimension": "country",
+     "filter_operator": "equals",
+     "filter_expression": "twn"
+    }
+   },
+   "isError": false,
+   "text": [
+    "{\"site_url\": \"sc-domain:blog.shopline.tw\", \"date_range\": {\"start\": \"2026-06-01\", \"end\": \"2026-06-30\"}, \"search_type\": \"web\", \"dimensions\": [\"date\"], \"filters_applied\": [{\"dimension\": \"country\", \"operator\": \"equals\", \"expression\": \"twn\"}], \"pagination\": {\"start_row\": 0, \"row_count\": 30, \"has_more\": false, \"next_start_row\": null}, \"rows\": [{\"date\": \"2026-06-01\", \"clicks\": 530, \"impressions\": 32804, \"ctr\": 0.0162, \"position\": 7.4}, {\"date\": \"2026-06-02\", \"clicks\": 532, \"impressions\": 31921, \"ctr\": 0.0167, \"position\": 7.4}, {\"date\": \"2026-06-03\", \"clicks\": 530, \"impressions\": 31865, \"ctr\": 0.0166, \"position\": 7.3}, {\"date\": \"2026-06-04\", \"clicks\": 473, \"impressions\": 30542, \"ctr\": 0.0155, \"position\": 7.3}, {\"date\": \"2026-06-05\", \"clicks\": 346, \"impressions\": 23186, \"ctr\": 0.0149, \"position\": 7.3}, {\"date\": \"2026-06-06\", \"clicks\": 257, \"impressions\": 21264, \"ctr\": 0.0121, \"position\": 7.4}, {\"date\": \"2026-06-07\", \"clicks\": 450, \"impressions\": 28494, \"ctr\": 0.0158, \"position\": 7.3}, {\"date\": \"2026-06-08\", \"clicks\": 508, \"impressions\": 32588, \"ctr\": 0.0156, \"position\": 7.4}, {\"date\": \"2026-06-09\", \"clicks\": 585, \"impressions\": 32742, \"ctr\": 0.0179, \"position\": 7.0}, {\"date\": \"2026-06-10\", \"clicks\": 530, \"impressions\": 38582, \"ctr\": 0.0137, \"position\": 7.4}, {\"date\": \"2026-06-11\", \"clicks\": 532, \"impressions\": 45995, \"ctr\": 0.0116, \"position\": 7.6}, {\"date\": \"2026-06-12\", \"clicks\": 387, \"impressions\": 36691, \"ctr\": 0.0105, \"position\": 7.6}, {\"date\": \"2026-06-13\", \"clicks\": 238, \"impressions\": 26701, \"ctr\": 0.0089, \"position\": 7.5}, {\"date\": \"2026-06-14\", \"clicks\": 411, \"impressions\": 36401, \"ctr\": 0.0113, \"position\": 7.4}, {\"date\": \"2026-06-15\", \"clicks\": 560, \"impressions\": 38552, \"ctr\": 0.0145, \"position\": 7.3}, {\"date\": \"2026-06-16\", \"clicks\": 527, \"impressions\": 39302, \"ctr\": 0.0134, \"position\": 7.5}, {\"date\": \"2026-06-17\", \"clicks\": 548, \"impressions\": 38424, \"ctr\": 0.0143, \"position\": 7.2}, {\"date\": \"2026-06-18\", \"clicks\": 316, \"impressions\": 29825, \"ctr\": 0.0106, \"position\": 7.6}, {\"date\": \"2026-06-19\", \"clicks\": 230, \"impressions\": 25016, \"ctr\": 0.0092, \"position\": 7.5}, {\"date\": \"2026-06-20\", \"clicks\": 225, \"impressions\": 26260, \"ctr\": 0.0086, \"position\": 7.6}, {\"date\": \"2026-06-21\", \"clicks\": 382, \"impressions\": 33908, \"ctr\": 0.0113, \"position\": 7.5}, {\"date\": \"2026-06-22\", \"clicks\": 446, \"impressions\": 36886, \"ctr\": 0.0121, \"position\": 7.4}, {\"date\": \"2026-06-23\", \"clicks\": 456, \"impressions\": 36849, \"ctr\": 0.0124, \"position\": 7.3}, {\"date\": \"2026-06-24\", \"clicks\": 468, \"impressions\": 47080, \"ctr\": 0.0099, \"position\": 7.4}, {\"date\": \"2026-06-25\", \"clicks\": 404, \"impressions\": 47129, \"ctr\": 0.0086, \"position\": 7.3}, {\"date\": \"2026-06-26\", \"clicks\": 279, \"impressions\": 36879, \"ctr\": 0.0076, \"position\": 7.4}, {\"date\": \"2026-06-27\", \"clicks\": 228, \"impressions\": 33288, \"ctr\": 0.0068, \"position\": 7.9}, {\"date\": \"2026-06-28\", \"clicks\": 354, \"impressions\": 49086, \"ctr\": 0.0072, \"position\": 7.7}, {\"date\": \"2026-06-29\", \"clicks\": 474, \"impressions\": 55174, \"ctr\": 0.0086, \"position\": 7.5}, {\"date\": \"2026-06-30\", \"clicks\": 460, \"impressions\": 46495, \"ctr\": 0.0099, \"position\": 7.2}]}"
+   ]
+  }
+ ]
+}
