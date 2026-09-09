@@ -320,7 +320,9 @@ var PAYLOAD = <?!= payload ?>;
     });
     var step = Math.max(1, Math.ceil(n / 5));
     for (var i = 0; i < n; i += step) {
-      svg.push('<text x="' + xAt(i).toFixed(1) + '" y="' + (padT + bodyH + 18) +
+      /* +22 rather than +18: at the origin the first tick sits directly under the zero
+         label on the value axis, and at +18 their boxes graze each other. */
+      svg.push('<text x="' + xAt(i).toFixed(1) + '" y="' + (padT + bodyH + 22) +
                '" fill="var(--faint)" font-size="11" text-anchor="middle">' + esc(cfg.labels[i]) + '</text>');
     }
     svg.push('<line x1="' + padL + '" y1="' + (padT + bodyH) + '" x2="' + (W - padR) + '" y2="' + (padT + bodyH) +
@@ -362,11 +364,12 @@ var PAYLOAD = <?!= payload ?>;
       var h = Math.max(barMax ? v / barMax * bodyH : 0, v > 0 ? 2 : 0);
       svg.push('<rect x="' + (xMid(i) - barW / 2).toFixed(1) + '" y="' + yBar(v).toFixed(1) +
                '" width="' + barW.toFixed(1) + '" height="' + h.toFixed(1) + '" rx="2" fill="' + barColor + '"/>');
-      /* The line's own label sits just above its point, which is often only a few pixels
-         above the bar top, so the two collide when drawn in the same band. The bar's
-         figure goes inside the bar whenever the bar is tall enough to hold it. */
-      var inside = h > 30;
-      svg.push('<text x="' + xMid(i).toFixed(1) + '" y="' + (inside ? yBar(v) + 16 : yBar(v) - 6).toFixed(1) +
+      /* The line tracks its own scale, so its point — and the label above it — can land
+         anywhere against the bar, including part way down it. Anchoring the bar's figure
+         to the base of the bar rather than to its top keeps the two apart whatever the
+         two series happen to do that month. */
+      var inside = h > 26;
+      svg.push('<text x="' + xMid(i).toFixed(1) + '" y="' + (inside ? padT + bodyH - 8 : yBar(v) - 6).toFixed(1) +
                '" fill="' + (inside ? '#fff' : 'var(--muted)') + '" font-size="11"' +
                (inside ? ' font-weight="600"' : '') + ' text-anchor="middle">' +
                esc(cfg.bar.value(v)) + '</text>');
@@ -615,25 +618,29 @@ var PAYLOAD = <?!= payload ?>;
       if (acc.indexOf(r.siteLabel) < 0) acc.push(r.siteLabel);
       return acc;
     }, []);
-    /* The blog's impressions run about ten times the main site's, so on a shared axis the
-       main site's bars collapse to slivers and its month-over-month move cannot be read.
-       Charts that hit that can pass a narrower site list; the table below keeps both. */
-    var mainOnly = sites.filter(function (site) { return String(site).indexOf('主站') === 0; });
-    if (!mainOnly.length) mainOnly = sites.slice(0, 1);
+    /* Impressions and clicks differ by an order of magnitude — 105,840 against 8,283 on
+       the main site — so they cannot share one axis, and the two sites differ by another
+       order of magnitude on impressions alone. One chart per site with impressions on the
+       left scale and clicks on the right keeps every series readable, and the months
+       already in the workbook make it a trend rather than a two-point comparison. */
+    function siteTrend(site) {
+      return gscMonthly.filter(function (r) { return r.siteLabel === site; })
+        .sort(function (a, b) { return monthNum(a.monthLabel) - monthNum(b.monthLabel); });
+    }
 
-    function monthSeries(field, only) {
-      var list = only || sites;
-      return [PREV_M, CUR_M].map(function (m, i) {
-        return {
-          name: m + ' 月', color: i === 0 ? 'var(--c4)' : 'var(--c1)',
-          values: list.map(function (site) {
-            var row = gscMonthly.filter(function (r) {
-              return r.siteLabel === site && Number(String(r.monthLabel).replace(/\D/g, '')) === m;
-            })[0];
-            return row ? row[field] : null;
-          })
-        };
-      });
+    function trendPanel(site) {
+      var series = siteTrend(site);
+      if (series.length < 2) return '';
+      return panel(site + '｜曝光與點擊', '柱為曝光（左軸），折線為點擊（右軸）。兩者量級相差約十倍，' +
+        '共用一條軸會讓點擊貼在底部看不出變化，因此分為兩軸；每站各一張圖，站與站之間不共用刻度。',
+        comboChart({
+          title: site + ' 曝光與點擊',
+          labels: series.map(function (r) { return r.monthLabel; }),
+          bar: {name: '曝光', values: series.map(function (r) { return r.impressions; }), color: 'var(--c1)',
+                axis: function (v) { return int(Math.round(v)); }, value: function (v) { return int(v); }},
+          line: {name: '點擊', values: series.map(function (r) { return r.clicks; }), color: 'var(--c2)',
+                 axis: function (v) { return int(Math.round(v)); }, value: function (v) { return int(v); }}
+        }));
     }
     var gscTable = tableHtml([
       {label: '站點', left: true, render: function (r) { return cell(esc(r.siteLabel)); }},
@@ -650,10 +657,7 @@ var PAYLOAD = <?!= payload ?>;
     ], gscDelta, 980);
     section('gsc', '搜尋表現（GSC・台灣 WEB）',
       '<p class="lede">限台灣、WEB 搜尋、data_state=final。CTR 由當月總點擊除以總曝光計算；平均排名以曝光加權，來源每日排名已四捨五入，僅為近似值。</p>' +
-      panel('點擊', '單位：次', groupedBars({title: '點擊', categories: sites, series: monthSeries('clicks')})) +
-      panel('曝光｜' + mainOnly[0], '單位：次。部落格曝光約為主站的十倍，同軸並列會讓主站的變化縮成看不出差別的短柱，' +
-            '因此這張圖只畫主站；部落格的曝光與變化在下方「逐站對照」表中。',
-            groupedBars({title: '曝光', categories: mainOnly, series: monthSeries('impressions', mainOnly)})) +
+      sites.map(trendPanel).join('') +
       panel('逐站對照', '', gscTable));
   }
 
