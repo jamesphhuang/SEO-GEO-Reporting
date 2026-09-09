@@ -362,8 +362,14 @@ var PAYLOAD = <?!= payload ?>;
       var h = Math.max(barMax ? v / barMax * bodyH : 0, v > 0 ? 2 : 0);
       svg.push('<rect x="' + (xMid(i) - barW / 2).toFixed(1) + '" y="' + yBar(v).toFixed(1) +
                '" width="' + barW.toFixed(1) + '" height="' + h.toFixed(1) + '" rx="2" fill="' + barColor + '"/>');
-      svg.push('<text x="' + xMid(i).toFixed(1) + '" y="' + (yBar(v) - 6).toFixed(1) + '" fill="var(--muted)" ' +
-               'font-size="11" text-anchor="middle">' + esc(cfg.bar.value(v)) + '</text>');
+      /* The line's own label sits just above its point, which is often only a few pixels
+         above the bar top, so the two collide when drawn in the same band. The bar's
+         figure goes inside the bar whenever the bar is tall enough to hold it. */
+      var inside = h > 30;
+      svg.push('<text x="' + xMid(i).toFixed(1) + '" y="' + (inside ? yBar(v) + 16 : yBar(v) - 6).toFixed(1) +
+               '" fill="' + (inside ? '#fff' : 'var(--muted)') + '" font-size="11"' +
+               (inside ? ' font-weight="600"' : '') + ' text-anchor="middle">' +
+               esc(cfg.bar.value(v)) + '</text>');
     });
 
     var pts = [];
