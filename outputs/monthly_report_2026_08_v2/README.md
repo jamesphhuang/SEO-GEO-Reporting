@@ -56,7 +56,14 @@ MCP（stdio）＋ CrUX API ──► raw/*.json ──► evidence.json ──�
 
 ## Apps Script
 
-`apps_script/` 內有 `Code.gs`、`Report.html`、`appsscript.json`。這個指令碼要**綁定在上述活頁簿**（擴充功能 → Apps Script），因為它用 `SpreadsheetApp.getActive()` 讀資料。
+`apps_script/` 內有 `Code.gs`、`Report.html`、`appsscript.json`，這三個是唯一的來源。
+部署包不進版控（git 無法 diff，且曾經默默與原始碼漂移），需要時重新打包：
+
+```bash
+cd apps_script && zip -X ../SHOPLINE_2026_08_v2_AppsScript.zip Code.gs Report.html appsscript.json
+```
+
+這個指令碼要**綁定在上述活頁簿**（擴充功能 → Apps Script），因為它用 `SpreadsheetApp.getActive()` 讀資料。
 
 1. 開啟活頁簿 → 擴充功能 → Apps Script。
 2. 把 `Code.gs` 全文貼入預設的 `Code.gs`。
