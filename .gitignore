@@ -13,6 +13,11 @@ node_modules
 .DS_Store
 ._*
 
+# Rendered previews: preview_local.py rewrites these on every run, and the entire
+# payload sits on one line, so the diff is a single unreviewable +1/-1. Rebuild them
+# with `python3 preview_local.py [--exec]` instead of tracking them.
+outputs/*/preview*.html
+
 outputs/phase1_4_2026-09-05/
 outputs/project_review_2026-09-05/
 outputs/business_actual_import_preview_*/
