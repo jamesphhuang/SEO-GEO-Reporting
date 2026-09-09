@@ -131,6 +131,9 @@
   .badge.pos { color: var(--pos); } .badge.neg { color: var(--neg); }
   .ref { flex: none; font-size: 11px; color: var(--faint); font-variant-numeric: tabular-nums; }
   .card.box { text-align: left; }
+  /* The title of a metric box names what every row under it is about, so it reads as a
+     heading rather than as the label of a first field. */
+  .card.box > .k { font-size: 15px; font-weight: 640; color: var(--text); margin-bottom: 11px; }
   .card.box .row {
     display: flex; justify-content: space-between; gap: 12px; padding: 5px 0;
     font-size: 13.5px; color: var(--muted); border-top: 1px solid var(--border);
@@ -1073,24 +1076,22 @@ var PAYLOAD = <?!= payload ?>;
           }));
       }
       var trend = gscDelta.map(function (r) { return ctrTrend(r.siteLabel); }).join('');
-      push('gsc', '搜尋表現（GSC・台灣 WEB）', boxes + trend +
+      push('gsc', '搜尋表現（GSC）', boxes + trend +
         (grouped.gsc ? '<div class="panel"><h3>Next Step</h3>' + actionList(grouped.gsc, '') + '</div>' : ''));
     }
 
-    /* 04 — the brand table, then the chatgpt lead table with AI sessions beside it. */
+    /* 04 — AI traffic first, then the brand table. */
+    var brandPanel = geo.length ? panel('GEO 品牌能見度（Workduo）',
+      '可見度與 SOV 為 Workduo 每日等權平均；提及數逐日加總。' +
+      '這是監測樣本內的品牌出現情況，不是整月去重或按回覆量加權的比率，也不能推論全市場。',
+      tableHtml([
+        {label: '品牌', left: true, render: function (r) { return cell(esc(r.entity)); }},
+        {label: CUR_M + ' 月可見度', render: function (r) { return cell(pct(r.visibilityAug)); }},
+        {label: '可見度變化', render: function (r) { return cell(point(r.visibilityChangePt), signCls(r.visibilityChangePt)); }},
+        {label: CUR_M + ' 月 SOV', render: function (r) { return cell(pct(r.sovAug)); }},
+        {label: CUR_M + ' 月提及數', render: function (r) { return cell(int(r.mentionsAug)); }}
+      ], geo, 560)) : '';
     var geoHtml = '';
-    if (geo.length) {
-      geoHtml += panel('品牌明細', '可見度與 SOV 為 Workduo 每日等權平均；提及數逐日加總。' +
-        '這是監測樣本內的品牌出現情況，不是整月去重或按回覆量加權的比率，也不能推論全市場。',
-        tableHtml([
-          {label: '品牌', left: true, render: function (r) { return cell(esc(r.entity)); }},
-          {label: CUR_M + ' 月可見度', render: function (r) { return cell(pct(r.visibilityAug)); }},
-          {label: '可見度變化', render: function (r) { return cell(point(r.visibilityChangePt), signCls(r.visibilityChangePt)); }},
-          {label: CUR_M + ' 月 SOV', render: function (r) { return cell(pct(r.sovAug)); }},
-          {label: CUR_M + ' 月提及數', render: function (r) { return cell(int(r.mentionsAug)); }},
-          {label: '觀測天數', render: function (r) { return cell(int(r.daysAug)); }}
-        ], geo, 620));
-    }
     var aiChannel = T.AI_Channel || [];
     if (aiChannel.length) {
       /* The sessions column is GA4's AI Assistant channel for the main site; the lead
@@ -1112,8 +1113,9 @@ var PAYLOAD = <?!= payload ?>;
           {label: 'CVR', render: function (r) { return cell(pct(r.cvr)); }}
         ], aiChannel, 620));
     }
+    geoHtml += brandPanel;
     if (geoHtml || grouped.geo) {
-      push('geo', 'GEO 品牌可見度（Workduo）', geoHtml +
+      push('geo', 'GEO 品牌成效', geoHtml +
         (grouped.geo ? '<div class="panel"><h3>Next Step</h3>' + actionList(grouped.geo, '') + '</div>' : ''));
     }
 
