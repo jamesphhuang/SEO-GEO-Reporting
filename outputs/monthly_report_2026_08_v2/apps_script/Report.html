@@ -615,11 +615,18 @@ var PAYLOAD = <?!= payload ?>;
       if (acc.indexOf(r.siteLabel) < 0) acc.push(r.siteLabel);
       return acc;
     }, []);
-    function monthSeries(field) {
+    /* The blog's impressions run about ten times the main site's, so on a shared axis the
+       main site's bars collapse to slivers and its month-over-month move cannot be read.
+       Charts that hit that can pass a narrower site list; the table below keeps both. */
+    var mainOnly = sites.filter(function (site) { return String(site).indexOf('主站') === 0; });
+    if (!mainOnly.length) mainOnly = sites.slice(0, 1);
+
+    function monthSeries(field, only) {
+      var list = only || sites;
       return [PREV_M, CUR_M].map(function (m, i) {
         return {
           name: m + ' 月', color: i === 0 ? 'var(--c4)' : 'var(--c1)',
-          values: sites.map(function (site) {
+          values: list.map(function (site) {
             var row = gscMonthly.filter(function (r) {
               return r.siteLabel === site && Number(String(r.monthLabel).replace(/\D/g, '')) === m;
             })[0];
@@ -644,7 +651,9 @@ var PAYLOAD = <?!= payload ?>;
     section('gsc', '搜尋表現（GSC・台灣 WEB）',
       '<p class="lede">限台灣、WEB 搜尋、data_state=final。CTR 由當月總點擊除以總曝光計算；平均排名以曝光加權，來源每日排名已四捨五入，僅為近似值。</p>' +
       panel('點擊', '單位：次', groupedBars({title: '點擊', categories: sites, series: monthSeries('clicks')})) +
-      panel('曝光', '單位：次', groupedBars({title: '曝光', categories: sites, series: monthSeries('impressions')})) +
+      panel('曝光｜' + mainOnly[0], '單位：次。部落格曝光約為主站的十倍，同軸並列會讓主站的變化縮成看不出差別的短柱，' +
+            '因此這張圖只畫主站；部落格的曝光與變化在下方「逐站對照」表中。',
+            groupedBars({title: '曝光', categories: mainOnly, series: monthSeries('impressions', mainOnly)})) +
       panel('逐站對照', '', gscTable));
   }
 
