@@ -162,14 +162,18 @@ def business():
 
 
 def business_sql(columns):
-    """The Non-Paid Leads SQL row, held to both contracts at once.
+    """The Non-Paid Leads SQL row.
 
-    data_contract's sql_maturity allows only an accumulated count until a lead month is
-    60 days past its end; attainment, month-over-month and RAG are excluded before then.
-    Those fields are therefore left null rather than computed and hidden — an immature
-    attainment figure must not exist in the data at all, or something downstream will
-    eventually render it. The mapping contract separately still marks this source
-    unconfirmed, so that label travels with the numbers.
+    Attainment and month-over-month are computed for every month, including immature
+    ones, at the report owner's request (2026-09-09). data_contract's sql_maturity lists
+    both as immature_exclusions, so this deliberately goes beyond the contract rather
+    than being covered by it, and the contract is unchanged.
+
+    Why the exclusions exist: a lead month keeps accruing SQL for 60 days, so on
+    2026-09-08 the August cohort was 38 days old against July's 68. The resulting −33%
+    mixes real decline with nothing more than a shorter accrual window. sqlIsMature and
+    sqlMatureOn therefore still travel with the figures so the renderer can say so, and
+    the mapping contract's SOURCE_NOT_CONFIRMED label still travels too.
     """
     sql = (E.get("business") or {}).get("sql")
     if not sql or not sql.get("row_values"):
@@ -182,9 +186,9 @@ def business_sql(columns):
     return {"sqlStatus": "OK", "sqlLabel": sql["row_label"].strip(),
             "sqlTarget": target, "sqlActual": actual,
             "sqlMatureOn": mature_on, "sqlIsMature": is_mature,
-            "sqlReach": (actual / target) if is_mature and target else None,
-            "sqlPrevActual": previous if is_mature else None,
-            "sqlMomChange": change(actual, previous) if is_mature else None,
+            "sqlReach": (actual / target) if target else None,
+            "sqlPrevActual": previous,
+            "sqlMomChange": change(actual, previous),
             "sqlSourceStatus": sql["status"], "sqlApprovalState": sql["approvalState"],
             "sqlSourceRow": sql["data_row"]}
 
