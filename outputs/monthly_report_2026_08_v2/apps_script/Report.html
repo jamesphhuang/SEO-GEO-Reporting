@@ -1009,36 +1009,36 @@ var PAYLOAD = <?!= payload ?>;
     }
     push('summary', '摘要', summary);
 
-    /* 02 — Non-paid Leads in full; its SQL only as far as the maturity rule allows. */
+    /* 02 — one box per metric: the figures for a metric belong together, not spread
+       across three cards that have to be read as a row. SQL shows attainment and the
+       month-over-month move for every month, mature or not, at the owner's request;
+       the accrual state stays on the same card so the figures are not read as final. */
     if (biz) {
-      var leads = '<div class="cards">' +
-        execCard(CUR_M + ' 月 Non-paid Leads', int(biz.augActual), '目標 ' + int(biz.augTarget) + ' 筆') +
-        execCard('達成率', pct(biz.augReach), '差距 ' + int(biz.gap) + ' 筆', biz.augReach >= 1 ? 'pos' : 'neg') +
-        execCard('較 ' + PREV_M + ' 月', delta(biz.momChange),
-                 int(biz.julActual) + ' → ' + int(biz.augActual) + ' 筆', signCls(biz.momChange)) +
-        '</div>';
-      var sqlBlock;
-      if (biz.sqlStatus !== 'OK') {
-        sqlBlock = '<p class="sub">Non-paid Leads SQL：來源未提供。</p>';
-      } else if (isTrue(biz.sqlIsMature)) {
-        sqlBlock = '<div class="cards">' +
-          execCard(CUR_M + ' 月 Non-paid Leads SQL', int(biz.sqlActual), '目標 ' + int(biz.sqlTarget) + ' 筆') +
-          execCard('SQL 達成率', pct(biz.sqlReach),
-                   '差距 ' + int(biz.sqlTarget - biz.sqlActual) + ' 筆', biz.sqlReach >= 1 ? 'pos' : 'neg') +
-          execCard('SQL 較 ' + PREV_M + ' 月', delta(biz.sqlMomChange),
-                   int(biz.sqlPrevActual) + ' → ' + int(biz.sqlActual) + ' 筆', signCls(biz.sqlMomChange)) +
-          '</div>';
-      } else {
-        sqlBlock = '<div class="cards">' +
-          execCard(CUR_M + ' 月 Non-paid Leads SQL', int(biz.sqlActual), '目標 ' + int(biz.sqlTarget) + ' 筆・累計中') +
-          execCard('SQL 達成率', pendingValue('待成熟'), '成熟日 ' + esc(biz.sqlMatureOn)) +
-          execCard('SQL 較 ' + PREV_M + ' 月', pendingValue('待成熟'), '名單月未滿 60 天，不作月比') +
-          '</div>';
-      }
-      push('business', '業務成果', leads + sqlBlock +
+      var leadRows = [
+        [CUR_M + ' 月實績', int(biz.augActual)],
+        ['目標', int(biz.augTarget) + ' 筆'],
+        ['達成率', pct(biz.augReach), biz.augReach >= 1 ? 'pos' : 'neg'],
+        ['與目標差距', int(biz.gap) + ' 筆'],
+        ['較 ' + PREV_M + ' 月', delta(biz.momChange) + ' <span class="sub">（' + int(biz.julActual) +
+         ' → ' + int(biz.augActual) + '）</span>', signCls(biz.momChange)]
+      ];
+      var sqlRows = biz.sqlStatus === 'OK' ? [
+        [CUR_M + ' 月累計', int(biz.sqlActual)],
+        ['目標', int(biz.sqlTarget) + ' 筆'],
+        ['達成率', pct(biz.sqlReach), biz.sqlReach >= 1 ? 'pos' : 'neg'],
+        ['與目標差距', int(biz.sqlTarget - biz.sqlActual) + ' 筆'],
+        ['較 ' + PREV_M + ' 月', delta(biz.sqlMomChange) + ' <span class="sub">（' + int(biz.sqlPrevActual) +
+         ' → ' + int(biz.sqlActual) + '）</span>', signCls(biz.sqlMomChange)],
+        ['資料狀態', isTrue(biz.sqlIsMature) ? '已成熟'
+          : '<span class="sub">累計中・' + esc(biz.sqlMatureOn) + ' 成熟</span>']
+      ] : null;
+      push('business', '業務成果',
+        '<div class="cards">' + metricBox(CUR_M + ' 月 Non-paid Leads', leadRows) +
+        (sqlRows ? metricBox(CUR_M + ' 月 Non-paid Leads SQL', sqlRows) : '') + '</div>' +
         '<div class="note">Non-paid Leads 是全渠道業務名單，不是 SEO 單一渠道成果。' +
         (biz.sqlStatus === 'OK' && !isTrue(biz.sqlIsMature)
-          ? 'SQL 於 ' + esc(biz.sqlMatureOn) + ' 才成熟，在那之前依資料合約只呈現累計筆數，不呈現達成率與月變化。'
+          ? 'SQL 的名單月要滿 60 天才成熟（' + esc(biz.sqlMatureOn) + '）。' + CUR_M + ' 月累積的天數少於 ' +
+            PREV_M + ' 月，因此達成率與月變化都偏低，並非全部來自實際衰退。'
           : '') +
         (biz.sqlSourceStatus === 'SOURCE_NOT_CONFIRMED' ? 'SQL 來源口徑尚待業務負責人確認。' : '') + '</div>');
     }
@@ -1054,67 +1054,63 @@ var PAYLOAD = <?!= payload ?>;
         ]);
       }).join('') + '</div>';
 
-      var series = gscMonthly.filter(function (r) { return r.siteLabel === mainLabel; })
-        .sort(function (a, b) { return monthNum(a.monthLabel) - monthNum(b.monthLabel); });
-      var trend = series.length > 1 ? panel(mainLabel + '｜近半年曝光與 CTR',
-        '柱為曝光（左軸），折線為 CTR（右軸）。兩軸皆自零起算：把 CTR 軸放大會把約 1.5 個百分點的區間畫成陡坡，' +
-        '因此改為在每個點標出數值。',
-        comboChart({
-          title: mainLabel + ' 近半年曝光與 CTR',
-          labels: series.map(function (r) { return r.monthLabel; }),
-          bar: {name: '曝光', values: series.map(function (r) { return r.impressions; }),
-                color: 'var(--c1)', axis: function (v) { return int(Math.round(v)); }, value: function (v) { return int(v); }},
-          line: {name: 'CTR', values: series.map(function (r) { return r.ctr; }),
-                 color: 'var(--c2)', axis: function (v) { return (v * 100).toFixed(1) + '%'; }, value: function (v) { return pct(v); }}
-        })) : '';
+      /* One chart per site: impressions differ about tenfold between them, so a shared
+         axis would flatten the main site out of readability. */
+      function ctrTrend(siteLabel) {
+        var series = gscMonthly.filter(function (r) { return r.siteLabel === siteLabel; })
+          .sort(function (a, b) { return monthNum(a.monthLabel) - monthNum(b.monthLabel); });
+        if (series.length < 2) return '';
+        return panel(siteLabel + '｜近半年曝光與 CTR',
+          '柱為曝光（左軸），折線為 CTR（右軸）。兩軸皆自零起算：把 CTR 軸放大會把窄區間畫成陡坡，' +
+          '因此改為在每個點標出數值。站與站之間不共用刻度。',
+          comboChart({
+            title: siteLabel + ' 近半年曝光與 CTR',
+            labels: series.map(function (r) { return r.monthLabel; }),
+            bar: {name: '曝光', values: series.map(function (r) { return r.impressions; }),
+                  color: 'var(--c1)', axis: function (v) { return int(Math.round(v)); }, value: function (v) { return int(v); }},
+            line: {name: 'CTR', values: series.map(function (r) { return r.ctr; }),
+                   color: 'var(--c2)', axis: function (v) { return (v * 100).toFixed(1) + '%'; }, value: function (v) { return pct(v); }}
+          }));
+      }
+      var trend = gscDelta.map(function (r) { return ctrTrend(r.siteLabel); }).join('');
       push('gsc', '搜尋表現（GSC・台灣 WEB）', boxes + trend +
         (grouped.gsc ? '<div class="panel"><h3>Next Step</h3>' + actionList(grouped.gsc, '') + '</div>' : ''));
     }
 
-    /* 04 — brand visibility, then AI traffic, then the chatgpt-only lead table. */
-    var top5 = geo.filter(function (r) { return num(r.visibilityAug) && r.visibilityAug > 0; })
-      .sort(function (a, b) { return b.visibilityAug - a.visibilityAug; }).slice(0, 5);
+    /* 04 — the brand table, then the chatgpt lead table with AI sessions beside it. */
     var geoHtml = '';
-    if (top5.length) {
-      geoHtml += panel('品牌可見度 Top 5', '括號內為較 ' + PREV_M + ' 月的變化。可見度為 Workduo 每日等權平均。',
-        groupedBars({
-          title: '品牌可見度 Top 5',
-          categories: top5.map(function (r) { return r.entity + '（' + point(r.visibilityChangePt) + '）'; }),
-          colors: top5.map(function (r) { return /^SHOPLINE/i.test(String(r.entity)) ? 'var(--c1)' : 'var(--c4)'; }),
-          series: [{name: CUR_M + ' 月可見度', values: top5.map(function (r) { return r.visibilityAug; }), color: 'var(--c4)'}],
-          axis: function (v) { return (v * 100).toFixed(0) + '%'; },
-          value: function (v) { return pct(v); }
-        }));
-    }
-    var aiRows = (T.GA4_Monthly || []).filter(function (r) {
-      return r.siteLabel === mainLabel && r.channel === 'AI Assistant';
-    }).sort(function (a, b) { return String(a.month).localeCompare(String(b.month)); });
-    if (aiRows.length) {
-      geoHtml += panel('AI Assistant 導流｜' + mainLabel,
-        '柱為工作階段（左軸），折線為相對同月 Organic Search 的比例（右軸）。' +
-        '分母 Organic Search 本身正在下滑，比例上升不必然代表 AI 流量成長，須與柱高並看。',
-        comboChart({
-          title: 'AI Assistant 工作階段與相對 Organic 比例',
-          labels: aiRows.map(function (r) { return r.monthLabel; }),
-          bar: {name: 'AI Assistant 工作階段', values: aiRows.map(function (r) { return r.sessions; }),
-                color: 'var(--c3)', axis: function (v) { return int(Math.round(v)); }, value: function (v) { return int(v); }},
-          line: {name: '相對 Organic Search', values: aiRows.map(function (r) { return r.shareOfOrganic; }),
-                 color: 'var(--c2)', axis: function (v) { return (v * 100).toFixed(1) + '%'; }, value: function (v) { return pct(v); }}
-        }));
+    if (geo.length) {
+      geoHtml += panel('品牌明細', '可見度與 SOV 為 Workduo 每日等權平均；提及數逐日加總。' +
+        '這是監測樣本內的品牌出現情況，不是整月去重或按回覆量加權的比率，也不能推論全市場。',
+        tableHtml([
+          {label: '品牌', left: true, render: function (r) { return cell(esc(r.entity)); }},
+          {label: CUR_M + ' 月可見度', render: function (r) { return cell(pct(r.visibilityAug)); }},
+          {label: '可見度變化', render: function (r) { return cell(point(r.visibilityChangePt), signCls(r.visibilityChangePt)); }},
+          {label: CUR_M + ' 月 SOV', render: function (r) { return cell(pct(r.sovAug)); }},
+          {label: CUR_M + ' 月提及數', render: function (r) { return cell(int(r.mentionsAug)); }},
+          {label: '觀測天數', render: function (r) { return cell(int(r.daysAug)); }}
+        ], geo, 620));
     }
     var aiChannel = T.AI_Channel || [];
     if (aiChannel.length) {
-      geoHtml += panel('chatgpt.com 名單與 SQL',
-        '此表僅涵蓋 chatgpt.com 單一來源，是上方 AI Assistant 渠道的子集，兩者不可互相對帳。',
+      /* The sessions column is GA4's AI Assistant channel for the main site; the lead
+         and SQL columns are chatgpt.com alone. They share a row because they share a
+         month, not because one converts into the other — the wider channel covers
+         sources the lead tab does not, so the columns must not be divided into a rate. */
+      var sessionsByMonth = {};
+      (T.GA4_Monthly || []).forEach(function (r) {
+        if (r.siteLabel === mainLabel && r.channel === 'AI Assistant') sessionsByMonth[r.month] = r.sessions;
+      });
+      geoHtml += panel('AI 導流與 chatgpt.com 名單',
+        '工作階段為 GA4 的 AI Assistant 渠道（' + mainLabel + '，涵蓋多個 AI 來源）；名單、SQL、CVR 僅涵蓋 ' +
+        'chatgpt.com 單一來源。兩者母體不同，同列並置只因月份相同，不可相除也不可互相對帳。',
         tableHtml([
           {label: '月份', left: true, render: function (r) { return cell(esc(r.monthLabel)); }},
-          {label: '名單', render: function (r) { return cell(int(r.leads)); }},
-          {label: 'SQL', render: function (r) { return cell(int(r.sql)); }},
-          {label: 'CVR', render: function (r) { return cell(pct(r.cvr)); }},
-          {label: 'SQL 狀態', render: function (r) {
-            return isTrue(r.sqlIsMature) ? cell('已成熟') : cell('累計中（' + esc(r.sqlMatureOn) + ' 成熟）', 'muted');
-          }}
-        ], aiChannel, 520));
+          {label: 'AI Assistant 工作階段', render: function (r) { return cell(int(sessionsByMonth[r.month])); }},
+          {label: 'chatgpt.com 名單', render: function (r) { return cell(int(r.leads)); }},
+          {label: 'chatgpt.com SQL', render: function (r) { return cell(int(r.sql)); }},
+          {label: 'CVR', render: function (r) { return cell(pct(r.cvr)); }}
+        ], aiChannel, 620));
     }
     if (geoHtml || grouped.geo) {
       push('geo', 'GEO 品牌可見度（Workduo）', geoHtml +

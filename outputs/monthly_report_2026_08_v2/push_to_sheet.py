@@ -68,10 +68,10 @@ def build_tabs():
              ("較 7 月", "momChange"), ("與目標差距", "gap"), ("9 月目標", "sepTarget"),
              # SQL 達成率與月變化在成熟日之前一律為空，這是 data_contract 的規定，不是資料缺漏。
              ("SQL 狀態", "sqlStatus"), ("SQL 項目", "sqlLabel"), ("SQL 8 月目標", "sqlTarget"), ("SQL 8 月累計", "sqlActual"),
-             ("SQL 成熟日", "sqlMatureOn"), ("SQL 已成熟", "sqlIsMature"), ("SQL 達成率", "sqlReach"),
+             ("SQL 7 月累計", "sqlPrevActual"), ("SQL 成熟日", "sqlMatureOn"), ("SQL 已成熟", "sqlIsMature"), ("SQL 達成率", "sqlReach"),
              ("SQL 較 7 月", "sqlMomChange"), ("SQL 來源狀態", "sqlSourceStatus"), ("SQL 來源列", "sqlSourceRow")],
             [business], {3: PERCENT, 6: PERCENT, 7: PERCENT, 1: COUNT, 2: COUNT, 4: COUNT, 5: COUNT, 8: COUNT,
-                         9: COUNT, 12: COUNT, 13: COUNT, 16: PERCENT, 17: PERCENT}),
+                         9: COUNT, 12: COUNT, 13: COUNT, 14: COUNT, 17: PERCENT, 18: PERCENT}),
         tab("GSC_Monthly",
             [("站點", "siteLabel"), ("年月", "month"), ("月份", "monthLabel"), ("天數", "days"), ("點擊", "clicks"),
              ("曝光", "impressions"), ("CTR", "ctr"), ("平均排名", "position")],
@@ -333,6 +333,16 @@ def main():
 
     sheets_api.write_values(SPREADSHEET_ID, data)
     sheets_api.batch_update(SPREADSHEET_ID, formatting)
+    # A field the model computes but no tab carries renders as a blank, with no error
+    # anywhere — that has already cost two rounds of debugging. Warn on anything not
+    # deliberately routed elsewhere; a warning that fires every run gets ignored.
+    ELSEWHERE = {"asOf", "sourceTab", "sourceRow", "spreadsheetId",  # written to _Meta
+                 "sqlApprovalState"}                                 # recorded, not rendered
+    business_fields = {f for spec in tabs if spec["name"] == "Business" for f in spec["fields"]}
+    unpublished = sorted(k for k in MODEL["business"] if k not in business_fields | ELSEWHERE)
+    if unpublished:
+        print("  ⚠ Business 模型有欄位未寫入任何分頁，渲染端會讀到空值：" + "、".join(unpublished))
+
     for spec in tabs:
         if not spec["protected"]:
             note = f"{len(spec['rows']):4} rows"
