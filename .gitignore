@@ -18,6 +18,11 @@ node_modules
 # with `python3 preview_local.py [--exec]` instead of tracking them.
 outputs/*/preview*.html
 
+# Apps Script deploy bundles: a zip of files already tracked under apps_script/.
+# Git cannot diff it, and it silently drifted from source once already. Rebuild it
+# from apps_script/ when a deployment needs one.
+outputs/*/*AppsScript*.zip
+
 outputs/phase1_4_2026-09-05/
 outputs/project_review_2026-09-05/
 outputs/business_actual_import_preview_*/
