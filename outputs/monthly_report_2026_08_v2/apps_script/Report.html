@@ -112,6 +112,10 @@
     h1 { font-size: 21px; }
     .card .v { font-size: 22px; }
   }
+  /* Method notes carry parameter strings like dimensions=yearMonth,hostName,... which
+     have no break opportunity and push the page wider than the viewport on a phone. */
+  #sources .panel, details.notes { overflow-wrap: anywhere; }
+
   /* actions, badges and the collapsible notes block used by the exec view */
   ul.actions { list-style: none; margin: 0; padding: 0; }
   ul.actions li {
@@ -182,8 +186,20 @@ var PAYLOAD = <?!= payload ?>;
     return 10 * exp;
   }
 
+  /* Rough text width at 12px: CJK glyphs are square, Latin about half that. Good enough
+     to reserve gutter space — SVG has no measurement before layout, and a label wider than
+     the gutter is silently clipped by the viewBox rather than overflowing visibly. */
+  function labelWidth(text) {
+    var width = 0;
+    String(text).split('').forEach(function (ch) {
+      width += /[\u2E80-\u9FFF\uFF00-\uFFEF]/.test(ch) ? 12 : 6.6;
+    });
+    return width;
+  }
+
   function groupedBars(cfg) {
-    var W = 860, padL = 74, padR = 16, padT = 14, padB = 54;
+    var widest = cfg.categories.reduce(function (m, c) { return Math.max(m, labelWidth(c)); }, 0);
+    var W = 860, padL = Math.min(320, Math.max(74, Math.ceil(widest) + 18)), padR = 16, padT = 14, padB = 54;
     var rows = cfg.categories.length, series = cfg.series;
     var bodyH = Math.max(150, rows * series.length * 26 + rows * 16);
     var H = bodyH + padT + padB;
