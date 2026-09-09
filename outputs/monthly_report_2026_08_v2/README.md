@@ -3,7 +3,8 @@
 報表資料存在活頁簿分頁，網頁由綁定的 Apps Script 即時讀取後產生。換月只要重跑發佈流程更新分頁，網頁自動跟著變，不需要改程式。
 
 - 活頁簿：<https://docs.google.com/spreadsheets/d/14lyC4zotKGBGg90CExf3q-hPk7awRAvUgIoEYAn1QtI/edit>
-- 本機預覽：`preview.html`（用真實活頁簿資料渲染，與 Apps Script 走同一份模板）
+- 本機預覽：`preview.html`（詳細版）與 `preview_exec.html`（總覽版），用真實活頁簿資料渲染，與 Apps Script 走同一份模板。
+  兩者**不進版控**——每次執行都會重寫，且整份 payload 在同一行，diff 沒有審閱價值。需要時用步驟 6 重建。
 
 ## 資料流
 
@@ -20,7 +21,8 @@ MCP（stdio）＋ CrUX API ──► raw/*.json ──► evidence.json ──�
 | 4 | `python3 build_report_data.py` | 換算月對月指標，輸出 `report_data.json` |
 | 4b | Screaming Frog：`export_crawl` 帶 `save_report=Crawl Overview`，把產生的 `crawl_overview.csv` 複製到 `raw/screaming_frog/` | 匯出檔存在 `~/.cache/sf-mcp/exports/`，**60 分鐘後自動刪除**，要先複製留存 |
 | 5 | `python3 push_to_sheet.py [spreadsheetId]` | 寫入活頁簿分頁與 `_Schema` |
-| 6 | `python3 preview_local.py [spreadsheetId]` | 本機渲染 `preview.html` 驗證 |
+| 6 | `python3 preview_local.py [spreadsheetId]` | 本機渲染 `preview.html`（詳細版）驗證 |
+| 6b | `python3 preview_local.py --exec [spreadsheetId]` | 本機渲染 `preview_exec.html`（總覽版），對應 `?view=exec` |
 
 步驟 1、2 要用對應 venv 的直譯器，例如：
 
