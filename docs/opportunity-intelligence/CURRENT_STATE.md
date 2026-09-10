@@ -7,12 +7,12 @@
 | 項目 | 本輪實測 |
 | --- | --- |
 | 工作目錄 | `/Users/pohsunhuang/Library/CloudStorage/GoogleDrive-james.ph.huang@shopline.com/我的雲端硬碟/SEO／GEO Reporting/99_專案程式` |
-| branch / HEAD | `fix/exec-headings-and-order` / `76b41ed4ffd68f1f8849c8499b8591c7f3373bf2` |
+| integration branch / architecture foundation | `docs/opportunity-intelligence-foundation` / `9376711` (`docs(opportunity): design opportunity intelligence layer`) |
 | fetch 後 origin/main | `4e30cec2a7cb446c0defa06b315c0b295a01b9af`，PR #6 merge |
-| merge-base | 等於 HEAD；目前分支已合併，HEAD 沒有 main 之外的 commit |
+| merge-base | `4e30cec2a7cb446c0defa06b315c0b295a01b9af`；architecture branch 僅多一個 foundation commit |
 | 本機 main | `dc4374e`，落後遠端；不可誤當最新 baseline |
-| worktree | 僅目前一個；未新增、切換或清理 |
-| fetch | 初次受 sandbox 限制，取得執行權限後成功；沒有 push |
+| worktree | 原 dirty worktree 保留；乾淨 integration worktree 在 `/private/tmp/seo-geo-opportunity-foundation`；未刪除、stash 或 reset 原工作樹 |
+| fetch / integration | fetch 初次受 sandbox 限制，取得執行權限後成功；foundation commit 已建立，remote branch 狀態由最後驗證回報 |
 
 其他本機 feature branches：`feat/two-tier-seo-geo-report`、`chore/untrack-appsscript-bundles`、`chore/untrack-preview-artifacts`、`fix/chart-label-clipping`、`fix/impressions-chart-scale`。名稱不證明有人仍在開發；現有 tips 均位於 main 已合併的歷史，不刪分支。
 

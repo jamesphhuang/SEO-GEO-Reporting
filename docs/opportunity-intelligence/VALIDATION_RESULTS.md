@@ -57,4 +57,4 @@ PY
 
 ## Git result / preservation
 
-本輪新增只在`docs/opportunity-intelligence/`、`contracts/ahrefs_scope.v1.proposal.json`、`contracts/opportunity_contract.v1.proposal.json`。既有tracked兩個modified path與兩個untracked output目錄保持。沒有stage、commit、push、scheduler、正式Sheets寫入或Apps Script部署。
+本輪新增只在`docs/opportunity-intelligence/`、`contracts/ahrefs_scope.v1.proposal.json`、`contracts/opportunity_contract.v1.proposal.json`，已以 `9376711` 建立 architecture foundation commit。既有tracked兩個modified path與兩個untracked output目錄保持。沒有scheduler、正式Sheets寫入或Apps Script部署；remote branch與原工作樹保護結果由最終回報核對。

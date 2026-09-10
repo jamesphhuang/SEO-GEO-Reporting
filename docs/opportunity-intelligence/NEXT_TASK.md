@@ -1,7 +1,7 @@
 ## Current baseline
 
 Repo：`/Users/pohsunhuang/Library/CloudStorage/GoogleDrive-james.ph.huang@shopline.com/我的雲端硬碟/SEO／GEO Reporting/99_專案程式`。
-Branch `fix/exec-headings-and-order`；HEAD `76b41ed4ffd68f1f8849c8499b8591c7f3373bf2`；2026-09-10 fetch後origin/main `4e30cec2a7cb446c0defa06b315c0b295a01b9af`，HEAD已在main內。架構文件與兩份proposal尚未commit。原有四組dirty paths列CURRENT_STATE，皆範圍外保留。bundled runtime baseline 70 tests通過。
+乾淨 integration branch `docs/opportunity-intelligence-foundation`；architecture foundation HEAD `9376711`；2026-09-10 fetch後origin/main `4e30cec2a7cb446c0defa06b315c0b295a01b9af`，foundation branch 以此為基底。原有四組dirty paths列CURRENT_STATE，皆範圍外保留。bundled runtime baseline 70 tests通過。
 
 ## Current blocker
 

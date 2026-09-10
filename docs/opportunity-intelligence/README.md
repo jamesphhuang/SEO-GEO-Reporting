@@ -2,7 +2,7 @@
 
 設計交付：2026-09-10。目的是回答「下個月有限的SEO/GEO資源應投入哪些主題、頁面與工作，以及如何驗證」，不是多加一個Ahrefs報表區塊。
 
-**Architecture READY；Ahrefs integration PARTIAL；production 未啟用。** 本輪只建立架構文件、兩份schema proposals與兩份合成shape範例。既有程式／資料／正式Google Sheets沒有修改，沒有commit或push。
+**Architecture READY；Ahrefs integration PARTIAL；production 未啟用。** 本輪只建立架構文件、兩份schema proposals與兩份合成shape範例，已固定於 foundation commit `9376711`；既有程式／資料／正式Google Sheets沒有修改。
 
 ## 閱讀順序
 
