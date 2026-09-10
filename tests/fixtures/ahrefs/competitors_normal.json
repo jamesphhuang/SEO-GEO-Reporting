@@ -1,0 +1,28 @@
+{
+  "competitors": [
+    {
+      "competitor_domain": "competitor-one.test",
+      "keywords_common": 12,
+      "keywords_competitor": 7,
+      "keywords_target": 5,
+      "domain_rating": 48.0,
+      "traffic": 320,
+      "volume_competitor": 900,
+      "volume_target": 700
+    },
+    {
+      "competitor_domain": "competitor-two.test",
+      "keywords_common": 4,
+      "keywords_competitor": 2,
+      "keywords_target": 8,
+      "domain_rating": 35.0,
+      "traffic": 140,
+      "volume_competitor": 400,
+      "volume_target": 500
+    }
+  ],
+  "apiUsageCosts": {
+    "rows": 2,
+    "units-cost-total-actual": 100
+  }
+}

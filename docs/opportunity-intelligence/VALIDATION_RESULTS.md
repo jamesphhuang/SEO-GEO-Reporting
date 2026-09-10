@@ -73,3 +73,26 @@ PY
 | Security | PASS | synthetic fixtures；scoped secret/PII pattern scan為0 |
 | Production mutation | PASS | 0；兩份 contracts仍為 proposal，沒有正式 writer 或 scheduler |
 | WP1 readiness | READY | 下一個唯一任務依 ROADMAP 為 WP2 Ahrefs read-only ingestion |
+
+## WP2 — bounded Ahrefs read-only ingestion（2026-09-10）
+
+| Check | Result | Scope / limit |
+| --- | --- | --- |
+| Runtime capability discovery | PASS | Organic Keywords、Organic Competitors tools 與 `doc` schemas 可用；沒有 dedicated Content Gap tool |
+| Organic Keywords live smoke | PASS | TW、domain、`limit=1`；1 row、50 observed units；未保存 raw row |
+| Organic Competitors live smoke | PASS | TW、domain、`limit=1`；1 row、50 observed units；未自動批准 competitor registry |
+| Content Gap | CAPABILITY_GAP | Dedicated endpoint unavailable；未用其他 endpoint 擴張 scope |
+| Offline WP2 tests | PASS | 17 deterministic unittest cases；fake transport，無 live calls |
+| Full regression | PASS | 107 tests（既有90 + WP2 17） |
+| Budget guard | PASS | 4 requests/run、500 units/run、5 rows/endpoint、2 pages、30秒、1 retry；manifest記錄 cap |
+| Normalization | PASS | Organic/competitor typed estimate evidence；optional missing 保留 null；unknown fields不進 normalized |
+| Failure semantics | PASS | 403不重試；429/5xx bounded retry；schema drift、budget、stale、capability gap 可見 |
+| Manifest / artifacts | PASS | run_manifest + raw/normalized 分離；raw sanitizer 移除 credential/header keys |
+| Deterministic hash | PASS | normalized semantic hash 排除 retrieved_at；相同 semantic input 結果一致 |
+| Source semantics | PASS | `source=AHREFS`、`source_class=THIRD_PARTY_ESTIMATE`、`estimation_flag=true` |
+| Production mutation | PASS | 0；沒有 Sheets、Apps Script、Recommendations、Next Steps、scheduler writer |
+| Security | PASS | fixtures 與 artifact audit 無 Authorization/Bearer/api_key/access_token/client_secret |
+
+### WP2 not verified / limits
+
+沒有 owner-approved live scope、competitor registry、production budget 或 Content Gap entitlement；因此未做 full discovery、全量 pagination、production write 或 Opportunity Engine。provider 的 full export upper bound、歷史 coverage、其他 country/database 與 Content Gap derivation 仍是 UNKNOWN/UNAVAILABLE。

@@ -16,6 +16,8 @@
 | OI-010 | 正式manual tabs保護；新bridge需exact revision approval | 不默默approve、不覆寫人工text/status |
 | OI-011 | 不啟用scheduler、不commit/push | 使用者本輪明確限制 |
 | OI-012 | 下一個WP只做offline proposal validation | 能小diff獨立完成，不等待API整合成功才能驗收 |
+| OI-013 | WP2 採 client-side bounded budget：4 requests/run、500 units/run、每 endpoint 5 rows、2 pages、30秒、每次最多1 retry | probe 實測 50 units/row；proposal limits 尚未 owner-approved，保守上限優先，provider limit 不可信 |
+| OI-014 | Content Gap dedicated endpoint 缺席時維持 UNAVAILABLE，不衍生或擴張到其他大量 endpoint | 避免把 competitor keyword set 誤稱完整 content gap；待 capability / scope / coverage 明確後另立決策 |
 
 ## Security review
 

@@ -2,6 +2,10 @@
 
 將以下提示詞完整貼給 **GPT-5.6 Luna，極高 reasoning**：
 
+WP2 已完成本包實作：branch `feat/ahrefs-readonly-ingestion`；以 `WP2_BASELINE_SHA=8491d7c0914791498811b868f3aafb5af3deaa84` 為基線。新增 `reporting/opportunity/sources/ahrefs.py` 與 17 個 offline tests；Organic Keywords/Competitors live smoke 各 1 row、50 units；Content Gap dedicated endpoint unavailable，故 `WP2_AHREFS_INGESTION_READINESS=PARTIAL`。完整 regression 為 107 tests PASS。adapter 沒有 provider write、Sheets、Apps Script、scheduler 或 Opportunity Engine。
+
+下一個唯一任務是 **WP3：建立版本化 canonical entity registry**；不要開始 scoring、GSC/GA4/SF joins、SERP/Workduo、UI 或 production write。
+
 你要接手 SHOPLINE SEO / GEO Reporting 的 Content & Search Opportunity Intelligence Layer。WP1 已完成；本次只完成下一個唯一任務 WP2：Ahrefs scope-approved 的 read-only ingestion adapter，完成即停止，不自動展開 WP3。用繁體中文說明，先講假設與完成標準，讀callers/contracts/tests，再做最小改動。
 
 Project path：`/Users/pohsunhuang/Library/CloudStorage/GoogleDrive-james.ph.huang@shopline.com/我的雲端硬碟/SEO／GEO Reporting/99_專案程式`。交接盤點日2026-09-10；WP1 branch `feat/opportunity-contract-validator`；`WP1_BASELINE_SHA=0b63c66f0c14331fabb0dd2d72e820147e8cd758`；`ARCHITECTURE_FOUNDATION_SHA=9376711`；`HANDOFF_BASELINE_SHA=692f475`；`CURRENT_HANDOFF_HEAD` 與最新 `origin/main` 均先以 Git 實測，不在自身 commit 內硬編 SHA。原 dirty worktree 不在這個 branch；你必須先核對現在HEAD/dirty，不盲信這些舊值。

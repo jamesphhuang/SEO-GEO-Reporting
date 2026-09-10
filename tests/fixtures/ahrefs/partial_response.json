@@ -1,0 +1,15 @@
+{
+  "keywords": [
+    {
+      "keyword": "synthetic partial",
+      "best_position": 15,
+      "best_position_url": "https://example.test/partial",
+      "volume": 10
+    }
+  ],
+  "next_cursor": "synthetic-next",
+  "apiUsageCosts": {
+    "rows": 1,
+    "units-cost-total-actual": 50
+  }
+}

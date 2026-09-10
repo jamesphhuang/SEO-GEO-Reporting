@@ -1,0 +1,26 @@
+{
+  "keywords": [
+    {
+      "keyword": "synthetic shop builder",
+      "best_position": 4,
+      "best_position_url": "https://example.test/shop-builder",
+      "volume": 120,
+      "sum_traffic": 42,
+      "keyword_difficulty": 18,
+      "last_update": "2026-09-09T00:00:00Z"
+    },
+    {
+      "keyword": "synthetic online store",
+      "best_position": 11,
+      "best_position_url": "https://example.test/online-store",
+      "volume": 80,
+      "sum_traffic": 19,
+      "keyword_difficulty": 22,
+      "last_update": "2026-09-09T00:00:00Z"
+    }
+  ],
+  "apiUsageCosts": {
+    "rows": 2,
+    "units-cost-total-actual": 100
+  }
+}

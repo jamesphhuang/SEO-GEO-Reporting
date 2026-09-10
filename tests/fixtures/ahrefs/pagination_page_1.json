@@ -1,0 +1,17 @@
+{
+  "keywords": [
+    {
+      "keyword": "synthetic page one",
+      "best_position": 8,
+      "best_position_url": "https://example.test/page-one",
+      "volume": 50,
+      "sum_traffic": 10,
+      "keyword_difficulty": 12
+    }
+  ],
+  "next_cursor": "synthetic-cursor-2",
+  "apiUsageCosts": {
+    "rows": 1,
+    "units-cost-total-actual": 50
+  }
+}

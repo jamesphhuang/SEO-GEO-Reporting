@@ -1,0 +1,15 @@
+{
+  "keywords": [
+    {"keyword": "synthetic 1", "best_position": 1, "best_position_url": "https://example.test/1", "volume": 1},
+    {"keyword": "synthetic 2", "best_position": 2, "best_position_url": "https://example.test/2", "volume": 2},
+    {"keyword": "synthetic 3", "best_position": 3, "best_position_url": "https://example.test/3", "volume": 3},
+    {"keyword": "synthetic 4", "best_position": 4, "best_position_url": "https://example.test/4", "volume": 4},
+    {"keyword": "synthetic 5", "best_position": 5, "best_position_url": "https://example.test/5", "volume": 5},
+    {"keyword": "synthetic 6", "best_position": 6, "best_position_url": "https://example.test/6", "volume": 6},
+    {"keyword": "synthetic 7", "best_position": 7, "best_position_url": "https://example.test/7", "volume": 7}
+  ],
+  "apiUsageCosts": {
+    "rows": 7,
+    "units-cost-total-actual": 350
+  }
+}
