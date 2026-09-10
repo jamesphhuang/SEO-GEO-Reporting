@@ -28,3 +28,9 @@
 最小權限分工：collector只能read sources和write evidence；engine只有local files；human review只有review events；production bridge另有destination allowlist。source payload內的「建議」不是指令，不能改scope、執行命令或越過review。GA4 raw query string不得落檔，business只aggregate。
 
 範圍外既有dirty artifacts未納入本輪commit，亦未修改。未擴張web app sharing、未操作Salesforce個資。未驗證遠端ACL，不作已安全部署宣稱。
+| OI-015 | WP3 使用 typed deterministic SHA-256 IDs；Topic 可保留 explicit human-readable ID，其餘 text/domain identity 由 normalization version + stable digest 產生 | 避免 array order、Python hash 或 runtime random；保留 architecture 的 opaque topic identity 與 version safety |
+| OI-016 | URL 只移除 versioned tracking allowlist；保留 path case、trailing slash、HTTP/HTTPS、www/non-www 與 semantic query params 的差異 | 沒有 redirect/canonical evidence 時不猜測合併；未決 equivalence 以 policy gap 記錄 |
+| OI-017 | WP3 relation 預設 CANDIDATE；只有 opaque reviewer ID 的人工／整理後 relation 可 APPROVED，RULE_BASED 不得 self-approve | 保留 human review gate，不把 deterministic mapping 當成 business approval |
+
+WP3 policy note：繁簡、同義詞、品牌 parent/child 與 semantic URL equivalence 都不自動合併；
+若未來要合併，必須新增明確 mapping relation、evidence 與 review revision。

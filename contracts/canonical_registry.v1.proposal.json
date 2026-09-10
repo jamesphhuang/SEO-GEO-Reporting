@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/contracts/canonical_registry.v1.proposal.json",
+  "title": "Canonical entity registry proposal; offline identity and mappings only",
+  "type": "object",
+  "additionalProperties": false,
+  "x-proposal-status": "DRAFT_NOT_APPROVED",
+  "x-production-activation": false,
+  "required": [
+    "registry_version",
+    "normalization_version",
+    "mapping_version",
+    "metadata",
+    "entities",
+    "relations"
+  ],
+  "properties": {
+    "registry_version": {
+      "const": "canonical-registry.v1"
+    },
+    "normalization_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mapping_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "metadata": {
+      "$ref": "#/$defs/metadata"
+    },
+    "entities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "TOPIC",
+        "KEYWORD",
+        "QUERY",
+        "PROMPT",
+        "URL",
+        "COMPETITOR",
+        "BUSINESS_THEME"
+      ],
+      "properties": {
+        "TOPIC": { "$ref": "#/$defs/entity_array" },
+        "KEYWORD": { "$ref": "#/$defs/entity_array" },
+        "QUERY": { "$ref": "#/$defs/entity_array" },
+        "PROMPT": { "$ref": "#/$defs/entity_array" },
+        "URL": { "$ref": "#/$defs/entity_array" },
+        "COMPETITOR": { "$ref": "#/$defs/entity_array" },
+        "BUSINESS_THEME": { "$ref": "#/$defs/entity_array" }
+      }
+    },
+    "relations": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/relation" }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9._:-]{0,127}$"
+    },
+    "entity_array": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["synthetic"],
+        "properties": {
+          "synthetic": { "const": true }
+        },
+        "additionalProperties": true
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["registry_id", "id_strategy", "synthetic", "source", "policy_gaps", "revision_manifest"],
+      "properties": {
+        "registry_id": { "$ref": "#/$defs/id" },
+        "id_strategy": { "type": "string", "minLength": 1 },
+        "synthetic": { "const": true },
+        "source": { "type": "string", "minLength": 1 },
+        "policy_gaps": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "revision_manifest": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["revision_id", "supersedes_revision", "change_type"],
+          "properties": {
+            "revision_id": { "type": "string", "minLength": 1 },
+            "supersedes_revision": { "type": ["string", "null"], "minLength": 1 },
+            "change_type": { "enum": ["INITIAL", "ADD", "UPDATE", "SPLIT", "MERGE"] }
+          }
+        },
+        "semantic_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "created_at": { "type": "string", "minLength": 1 },
+        "updated_at": { "type": "string", "minLength": 1 }
+      }
+    },
+    "relation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "relation_id",
+        "relation_type",
+        "source_entity_type",
+        "source_entity_id",
+        "target_entity_type",
+        "target_entity_id",
+        "mapping_method",
+        "mapping_confidence",
+        "review_state",
+        "reviewed_by_id",
+        "evidence_refs",
+        "mapping_version",
+        "valid_from",
+        "valid_to",
+        "synthetic"
+      ],
+      "properties": {
+        "relation_id": { "$ref": "#/$defs/id" },
+        "relation_type": {
+          "enum": [
+            "TOPIC_HAS_KEYWORD",
+            "TOPIC_HAS_QUERY",
+            "TOPIC_HAS_PROMPT",
+            "TOPIC_HAS_URL",
+            "TOPIC_HAS_COMPETITOR",
+            "TOPIC_HAS_BUSINESS_THEME",
+            "URL_CANONICALIZES_TO",
+            "KEYWORD_ALIASES_KEYWORD"
+          ]
+        },
+        "source_entity_type": { "type": "string", "minLength": 1 },
+        "source_entity_id": { "$ref": "#/$defs/id" },
+        "target_entity_type": { "type": "string", "minLength": 1 },
+        "target_entity_id": { "$ref": "#/$defs/id" },
+        "mapping_method": {
+          "enum": ["MANUAL", "CURATED", "RULE_BASED", "IMPORTED"]
+        },
+        "mapping_confidence": {
+          "enum": ["HIGH", "MEDIUM", "LOW", "UNKNOWN"]
+        },
+        "review_state": {
+          "enum": ["CANDIDATE", "APPROVED", "REJECTED"]
+        },
+        "reviewed_by_id": {
+          "type": ["string", "null"],
+          "minLength": 1
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "mapping_version": { "type": "string", "minLength": 1 },
+        "valid_from": { "type": ["string", "null"] },
+        "valid_to": { "type": ["string", "null"] },
+        "synthetic": { "const": true }
+      }
+    }
+  }
+}

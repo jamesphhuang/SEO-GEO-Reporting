@@ -1,40 +1,57 @@
 ## Current baseline
 
-Repo：`/Users/pohsunhuang/Library/CloudStorage/GoogleDrive-james.ph.huang@shopline.com/我的雲端硬碟/SEO／GEO Reporting/99_專案程式`。
-`WP2_BASELINE_SHA=8491d7c0914791498811b868f3aafb5af3deaa84`；WP2 branch `feat/ahrefs-readonly-ingestion`；WP1 main integration 已完成。原有 dirty paths 列 CURRENT_STATE，皆範圍外保留。
+Repo：/Users/pohsunhuang/Library/CloudStorage/GoogleDrive-james.ph.huang@shopline.com/我的雲端硬碟/SEO／GEO Reporting/99_專案程式。
+WP3_BASELINE_SHA=da9f1d6aa6384eba9eb9c463605c8d1aa3875ede；WP3 branch
+feat/opportunity-canonical-registry；WP2 main integration 已完成。原有 dirty
+paths 仍在 CURRENT_STATE，與本包分離。
 
-## WP2 result
+## WP3 result
 
-WP2 已新增 scope-approved、read-only Ahrefs adapter：Organic Keywords 與 Organic Competitors 可透過 injected transport bounded ingest；Content Gap 因 runtime 沒有 dedicated endpoint 保持 `UNAVAILABLE/CAPABILITY_GAP`。adapter 只產 local/test/output artifacts，含 raw/normalized 分離、run manifest、client budget、row/page/request/unit caps、bounded retry、failure semantics、source-class enforcement 與 deterministic normalized hash。
+WP3 已建立 offline、versioned canonical entity registry，支援 TOPIC、KEYWORD、
+QUERY、PROMPT、URL、COMPETITOR、BUSINESS_THEME。Keyword、Query、Prompt 保留
+不同 source grain；registry 只保存 identity、relations、provenance、review
+state 與 deterministic semantic hash，不保存 volume、clicks、impressions、
+position 等 evidence metrics。
 
-`WP2_AHREFS_INGESTION_READINESS = PARTIAL`。Organic Keywords、Competitors、offline normalization 與 live smoke 通過；scope/competitor/budget owner approval、Content Gap capability、production activation 尚未完成。
+URL normalization 只移除 versioned tracking allowlist，保留 semantic query、
+path case、trailing slash、www/non-www 與 scheme 差異；不做 redirect、HTTP fetch
+或 Screaming Frog crawl。競品不依文字相似度合併；繁簡、同義詞與 parent/child
+brand 都需 explicit relation 和 review。
+
+Registry schema 為 contracts/canonical_registry.v1.proposal.json，synthetic
+fixture 為 tests/fixtures/opportunity_registry/synthetic_registry.json。Relation
+預設 CANDIDATE，RULE_BASED 不得 self-approve；approved relation 必須有 opaque
+reviewer ID。
+
+WP3_CANONICAL_REGISTRY_READINESS = READY。
 
 ## Next single task
 
-**WP3：建立版本化 canonical entity registry。** 只處理 query/keyword/prompt/URL/topic mappings、deterministic dedup 與 mapping revision manifest；不得開始 topic scoring、Opportunity Engine、GSC/GA4/SF joins、SERP/Workduo enrichment、UI 或 production write。
+WP4：建立 evidence / candidate immutable store。只處理可重播 evidence envelope、
+candidate revision、supersedes chain、idempotency、stale/failure state 與 local
+run manifest；不得在 WP4 開始 scoring、production write 或改正式 actual contract。
 
-## Files allowed
+## WP4 files allowed
 
-- 新增 `reporting/opportunity/entities.py` 與必要的 mapping utilities。
-- 新增 `tests/test_opportunity_entities.py`、`tests/fixtures/entities/*.json`。
-- 更新 `docs/opportunity-intelligence/CURRENT_STATE.md`、`VALIDATION_RESULTS.md`、`NEXT_TASK.md`、`LUNA_HANDOFF.md` 的 WP3 驗證與交接；不改正式 contracts 或 production paths。
+- 新增 reporting/opportunity/evidence.py
+- 新增 reporting/opportunity/candidate_store.py
+- 新增必要的 local run manifest utilities
+- 新增 tests/fixtures 與 WP4 validation docs
 
-## Files forbidden
+## WP4 files forbidden
 
-`outputs/**`、原有 `reporting/*.py`、`apps_script/**`、正式 contracts、`seo_geo_html_report_2026-08-31/**`、credential/config/runtime 檔、正式 Google Sheets、Recommendations、Next_Steps、scheduler、Opportunity Engine。
-
-## Acceptance criteria
-
-WP2 acceptance 已達成的部分：bounded Organic Keywords/Competitors read-only ingestion、normalized `THIRD_PARTY_ESTIMATE` evidence、manifest、client caps、dedup/retry/failure/stale guards、synthetic fixtures 與 live smoke。Content Gap 依 capability gap 保持 unavailable；不把 WP2 宣稱為完整 Opportunity coverage。
-
-## Tests
-
-Fresh bundled runtime discovery：`107 tests` 通過（既有90 + WP2 17）；WP2 fake-transport tests 不呼叫 live Ahrefs。Proposal schema、date/date-time 與 `git diff --check` 保持既有驗證；live smoke 獨立記錄 rows/units，不把 probe 當 full ingestion。
+outputs/**、既有正式 contracts、production Sheets、Apps Script、Recommendations、
+Next_Steps、scheduler、live bulk ingestion、UI、Opportunity Engine、WP5 scoring、
+跨來源 business attribution。
 
 ## Stop conditions
 
-新 UNKNOWN dirty、原有 dirty 變動、必須改 forbidden files、需要 business 裁決、需要 production/live bulk access、Content Gap capability 仍未明確、或 runtime 依賴不可用時，停止相應 mutation 並回報。不得把 capability gap 靜默轉成空 rows。
+新 UNKNOWN dirty、需要 business policy、需要 live/production access、需要修改
+正式 contract 或既有 production path 時停止 mutation。不得把 failure/stale/missing
+靜默轉成 READY、零值或舊 revision fallback。
 
-## Git instructions
+## Git
 
-WP2 branch 只 stage 本包 allowlist，commit `feat(opportunity): add bounded Ahrefs ingestion`；正常 push `feat/ahrefs-readonly-ingestion`，不直接 main、不 force push、不使用 `git add .`，原 dirty worktree 不搬移。
+WP3 branch 只 stage 本包 allowlist，正常 non-force push 到
+feat/opportunity-canonical-registry；不直接 push main、不 force push、不使用
+git add .。本輪完成後停止，不開始 WP4。
