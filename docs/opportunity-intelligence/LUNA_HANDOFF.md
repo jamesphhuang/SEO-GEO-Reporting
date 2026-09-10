@@ -4,7 +4,7 @@
 
 你要接手 SHOPLINE SEO / GEO Reporting 的 Content & Search Opportunity Intelligence Layer。本次只完成WP1：contract proposals的離線驗證器與synthetic fixtures，完成即停止，不自動展開下一包。用繁體中文說明，先講假設與完成標準，讀callers/contracts/tests，再做最小改動。
 
-Project path：`/Users/pohsunhuang/Library/CloudStorage/GoogleDrive-james.ph.huang@shopline.com/我的雲端硬碟/SEO／GEO Reporting/99_專案程式`。交接盤點日2026-09-10；乾淨 integration branch `docs/opportunity-intelligence-foundation`，architecture foundation commit `9376711`（`docs(opportunity): design opportunity intelligence layer`），fetch後origin/main `4e30cec2a7cb446c0defa06b315c0b295a01b9af`。原 dirty worktree 不在這個 branch；你必須先核對現在HEAD/dirty，不盲信這些舊值。
+Project path：`/Users/pohsunhuang/Library/CloudStorage/GoogleDrive-james.ph.huang@shopline.com/我的雲端硬碟/SEO／GEO Reporting/99_專案程式`。交接盤點日2026-09-10；乾淨 integration branch `docs/opportunity-intelligence-foundation`；`ARCHITECTURE_FOUNDATION_SHA=9376711`（`docs(opportunity): design opportunity intelligence layer`）；`CURRENT_HANDOFF_HEAD=692f475`（`docs(opportunity): record integration baseline`）；fetch後origin/main `4e30cec2a7cb446c0defa06b315c0b295a01b9af`。原 dirty worktree 不在這個 branch；你必須先核對現在HEAD/dirty，不盲信這些舊值。
 
 先依序讀 `docs/opportunity-intelligence/CURRENT_STATE.md`、`NEXT_TASK.md`、`ARCHITECTURE.md`、`CONTRACT_DESIGN.md`、`SCORING_MODEL.md`、`CONFIDENCE_MODEL.md`、`TEST_STRATEGY.md`、`VALIDATION_RESULTS.md`。source語義查 `DATA_SOURCE_ROLES.md`，entity/rules查`OPPORTUNITY_MODEL.md`，failure/freshness查`EVIDENCE_FRESHNESS_POLICY.md`。完整roadmap在`ROADMAP.md`；不要把roadmap全部執行。
 

@@ -7,7 +7,9 @@
 | 項目 | 本輪實測 |
 | --- | --- |
 | 工作目錄 | `/Users/pohsunhuang/Library/CloudStorage/GoogleDrive-james.ph.huang@shopline.com/我的雲端硬碟/SEO／GEO Reporting/99_專案程式` |
-| integration branch / architecture foundation | `docs/opportunity-intelligence-foundation` / `9376711` (`docs(opportunity): design opportunity intelligence layer`) |
+| integration branch | `docs/opportunity-intelligence-foundation` |
+| `ARCHITECTURE_FOUNDATION_SHA` | `9376711` (`docs(opportunity): design opportunity intelligence layer`) |
+| `CURRENT_HANDOFF_HEAD` | `692f475` (`docs(opportunity): record integration baseline`) |
 | fetch 後 origin/main | `4e30cec2a7cb446c0defa06b315c0b295a01b9af`，PR #6 merge |
 | merge-base | `4e30cec2a7cb446c0defa06b315c0b295a01b9af`；architecture branch 僅多一個 foundation commit |
 | 本機 main | `dc4374e`，落後遠端；不可誤當最新 baseline |
