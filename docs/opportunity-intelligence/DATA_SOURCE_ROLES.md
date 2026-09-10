@@ -26,3 +26,17 @@
 intent：INFORMATIONAL、COMMERCIAL_INVESTIGATION、TRANSACTIONAL、NAVIGATIONAL、MIXED、UNKNOWN。funnel：TOFU、MOFU、BOFU、UNKNOWN。Commercial intent 不直接等於高 business_score。
 
 Business relevance overlay 由人工指定 `theme_id, relevance_band, strategic_priority, evidence_ref, reviewer_id, rationale, valid_from, valid_to, override_revision`。保存原始建議值及 override；過期或沒有批准則 business_score=null，不能以 CPC 代替。reviewer_id 是內部 opaque ID，不存姓名／email。跨主題 commercial outcome attribution 必須另有 approved mapping，現有 Non-paid aggregate 不足以分配到各 URL。
+
+## WP7 SERP validation boundary（2026-09-10）
+
+Google Search 的 WP7 角色固定為 `LIVE / OBSERVED SERP VALIDATION EVIDENCE`，source
+class 為 `LIVE_SERP_SNAPSHOT`。它只驗證 WP5 shortlist 的 exact canonical query 與
+locale/country/device/search scope；不做全 keyword discovery，不把 cached Ahrefs snapshot
+冒充本次 live evidence。每筆 snapshot 保留 observed/retrieved timestamp、provider
+provenance、organic result rows、page type、owned/approved competitor mapping、feature
+state 與 deterministic `snapshot_hash`。AIO/PAA 未捕獲是 `NOT_AVAILABLE`，不是不存在。
+
+WP7 validation 只輸出 `SERP_VALIDATED`、`SERP_CONFLICT` 或 `SERP_NOT_CHECKED`，並 pin
+SERP evidence 與原 candidate evidence 的 `evidence_id + revision + content_hash`。它不
+改寫 WP5 score/confidence、GSC/Ahrefs metrics 或 candidate review state，也不會自行建立
+unmapped competitor entity。

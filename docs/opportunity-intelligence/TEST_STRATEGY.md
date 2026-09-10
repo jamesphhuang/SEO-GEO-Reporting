@@ -102,3 +102,9 @@ Workduo、Google Search、CrUX 或 production writer。
 
 WP6 regression 為 **181 tests，OK**；另驗證 proposal schema 的 date/date-time formats、
 Python AST、JSON parse、`git diff --check`、scoped secret/PII scan 與 production boundary。
+
+## WP7 SERP validation test layer
+
+`tests/test_serp_validation.py` 使用 `tests/fixtures/opportunity_serp/scenarios.json` 的 A–N synthetic records，覆蓋 exact canonical query/scope、owned URL 與 unmapped competitor、page-type mismatch、mixed intent、AIO/PAA `NOT_AVAILABLE`、feature crowding、stale/missing/partial evidence、row cap/truncation、bounded transient retry、provider failure、no-query shortlist gate、score/review preservation、candidate/SERP evidence pinning、rev1/rev2 history、deterministic replay 與 JSON/Markdown preview。沒有 live Google Search、Ahrefs、GSC、GA4、Screaming Frog、Workduo、CrUX、customer data 或 production writer。
+
+WP7 targeted 為 **9 tests，OK**；加上既有套件 full regression 為 **190 tests，OK**。

@@ -219,3 +219,30 @@ production approval 仍是 dependency gaps，不以 synthetic score 或 confiden
 | Structural checks | PASS | JSON schemas, explicit date/date-time format checker, Python AST and `git diff --check` |
 | Security / production boundary | PASS | scoped secret/PII and production-writer scan clean; no Sheets, Apps Script, Recommendations, Next Steps or scheduler mutation |
 | WP6 readiness | READY | local commit permitted; push requires a later explicit authorization |
+
+## WP7 SERP validation
+
+| Check | Result | Scope / limit |
+| --- | --- | --- |
+| Clean baseline / branch | PASS | `WP7_BASELINE_SHA=16c6c74248a0d96f8357b21d9eca45e3668d16eb`; `feat/opportunity-serp-validation`; original dirty worktree untouched |
+| Collection boundary | PASS | injected transport only; shortlist/query/result cap 30; 30s timeout; one transient retry; no live provider |
+| Query and scope identity | PASS | WP3 exact QUERY/KEYWORD text, locale, country, device and search scope; no invented query |
+| Evidence role | PASS | `SERP` / `LIVE_SERP_SNAPSHOT`; observed timestamp, provider provenance, snapshot hash and collection state retained |
+| Validation states | PASS | `SERP_VALIDATED`, `SERP_CONFLICT`, `SERP_NOT_CHECKED`; stale/failed/partial never become current success |
+| Intent / page type | PASS | deterministic composition rules; mixed intent retained; mismatch produces structured conflict |
+| URL / competitor protection | PASS | canonical owned URL exact match; unmapped domains remain UNKNOWN/UNMAPPED_DOMAIN; no entity creation |
+| Feature semantics | PASS | AIO/PAA/featured snippets keep OBSERVED/NOT_OBSERVED/NOT_AVAILABLE; unavailable is not false |
+| Candidate governance | PASS | candidate refs and SERP refs pin id/revision/hash; WP5 score/confidence and review state preserved; no auto APPROVED |
+| Immutable validation history | PASS | local append-only validation store; rev1 survives rev2 and tamper/hash mismatch fails closed |
+| Proposal schemas | PASS | `serp_snapshot.v1.proposal.json` and `serp_validation.v1.proposal.json`; proposal-only metadata |
+| Synthetic fixtures | PASS | scenarios A–N; no customer, credential, or live source payload |
+| WP7 tests | PASS | **9 tests, OK** |
+| Full regression | PASS | **190 tests, OK** (181 pre-WP7 + 9 WP7) |
+| Schema / AST / JSON / dates | PASS | checked-in JSON schemas, fixture parse, Python AST, explicit date/date-time checks |
+| `git diff --check` | PASS | no whitespace errors |
+| Security / production boundary | PASS | scoped secret/PII/live-call/production-writer scan clean; production mutation=0 |
+| Readiness | READY | local commit permitted; push requires a later explicit authorization; next is WP8 only |
+
+### WP7 policy limits
+
+SERP validation is shortlist-only and observational. It does not claim unbiased market ranking, search volume, click-through causality, Workduo visibility, or conversion. AIO/PAA that was not captured remains `NOT_AVAILABLE`; an unmapped competitor domain is not promoted to a registry entity. Cached Ahrefs SERP context cannot satisfy the live SERP evidence role.

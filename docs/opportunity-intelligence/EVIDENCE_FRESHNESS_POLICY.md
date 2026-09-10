@@ -30,3 +30,11 @@ coverage：COMPLETE_WITHIN_SCOPE / TRUNCATED / SAMPLED / SUPPRESSED / UNKNOWN，
 ## Budget and failure handling
 
 Collect manifest記每source的expected/received scopes、error_code、retry count、provider cost；沒有live access仍可從immutable fixtures重播。schema drift quarantine該source，不接受未知欄位默默進正式row。新來源壞掉時原報表可用，但涉及它的candidate降confidence並停止promotion。
+
+## WP7 SERP validation（2026-09-10）
+
+SERP evidence 以 `observed_at`/`retrieved_at`、provider、query、locale、country、device
+與 search scope 一起判讀；approval 前最多七日且 collection state `SUCCESS` 才能作為
+current snapshot。`STALE`、`PARTIAL`、`FAILED`、`NOT_AVAILABLE` 或 insufficient organic
+rows 保留原狀並輸出 `SERP_NOT_CHECKED`/structured conflict，不 fallback 到舊 revision。
+AIO/PAA 等 feature 未捕獲保持 `NOT_AVAILABLE`，不能轉成 `NOT_OBSERVED` 或 false。
