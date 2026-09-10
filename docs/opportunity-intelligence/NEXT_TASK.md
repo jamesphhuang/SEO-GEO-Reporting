@@ -1,15 +1,15 @@
 ## Current baseline
 
 Repo：`/Users/pohsunhuang/Library/CloudStorage/GoogleDrive-james.ph.huang@shopline.com/我的雲端硬碟/SEO／GEO Reporting/99_專案程式`。
-乾淨 integration branch `docs/opportunity-intelligence-foundation`；`ARCHITECTURE_FOUNDATION_SHA=9376711`；`HANDOFF_BASELINE_SHA=692f475`；`CURRENT_HANDOFF_HEAD` 以 branch HEAD 與 remote ref 實測（不在自身 commit 內硬編 SHA）；2026-09-10 fetch後origin/main `4e30cec2a7cb446c0defa06b315c0b295a01b9af`，foundation branch 以此為基底。原有四組dirty paths列CURRENT_STATE，皆範圍外保留。bundled runtime baseline 70 tests通過。
+WP1 branch `feat/opportunity-contract-validator`；`WP1_BASELINE_SHA=0b63c66f0c14331fabb0dd2d72e820147e8cd758`；architecture foundation `9376711`；handoff baseline `692f475`；最新 fetch 後 `origin/main` 以實測為準。原有四組dirty paths列CURRENT_STATE，皆範圍外保留。bundled runtime baseline 70 tests通過，WP1 suite 20 tests通過。
 
 ## Current blocker
 
-兩份proposal目前只完成JSON Schema形狀設計與本輪基本驗證，尚無可重用semantic validator。正式scope、budget、business relevance、UAT destination與review身份尚待owner決定；這些不阻塞offline WP1，但禁止live ingestion與production activation。
+WP1 offline validator 已完成；正式scope、budget、business relevance、UAT destination與review身份仍需各自 owner/approval 流程，不能由本 validator 代替。這些限制阻塞 live ingestion 與 production activation，但不阻塞下一個 offline/read-only 分包。
 
 ## Next single task
 
-**WP1：建立兩份contract proposal的離線驗證器與synthetic正反fixtures。** 只做schema/semantic validation，不做opportunity detection、取數或UI。實作依CONTRACT_DESIGN、SCORING_MODEL、CONFIDENCE_MODEL；完成後停止，回報下一步建議但不自動開始WP2。
+**WP2：建立 Ahrefs scope-approved 的 read-only ingestion adapter。** 只處理已批准 scope、明確 country/mode/select/limit、typed third-party estimate evidence 與 immutable manifest；不得開始 topic clustering、scoring、Opportunity Engine、UI 或 production write。scope、competitor、budget 或 capability 未批准時只保留 fixture path，不能 live ingest。
 
 ## Files allowed
 

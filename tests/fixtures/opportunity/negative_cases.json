@@ -1,0 +1,20 @@
+{
+  "cases": [
+    "invalid_date",
+    "invalid_timezone_aware_datetime",
+    "wrong_ahrefs_source_class",
+    "ahrefs_estimate_marked_actual",
+    "score_mismatch",
+    "unknown_scoring_profile",
+    "evidence_count_mismatch",
+    "duplicate_evidence_ref",
+    "missing_evidence",
+    "conflicting_evidence_high_confidence",
+    "approved_without_human_review",
+    "create_new_existing_url_conflict",
+    "stale_evidence_misuse",
+    "missing_is_not_zero",
+    "future_timestamp",
+    "unsafe_url"
+  ]
+}

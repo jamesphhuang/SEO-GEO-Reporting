@@ -2,15 +2,17 @@
 
 將以下提示詞完整貼給 **GPT-5.6 Luna，極高 reasoning**：
 
-你要接手 SHOPLINE SEO / GEO Reporting 的 Content & Search Opportunity Intelligence Layer。本次只完成WP1：contract proposals的離線驗證器與synthetic fixtures，完成即停止，不自動展開下一包。用繁體中文說明，先講假設與完成標準，讀callers/contracts/tests，再做最小改動。
+你要接手 SHOPLINE SEO / GEO Reporting 的 Content & Search Opportunity Intelligence Layer。WP1 已完成；本次只完成下一個唯一任務 WP2：Ahrefs scope-approved 的 read-only ingestion adapter，完成即停止，不自動展開 WP3。用繁體中文說明，先講假設與完成標準，讀callers/contracts/tests，再做最小改動。
 
-Project path：`/Users/pohsunhuang/Library/CloudStorage/GoogleDrive-james.ph.huang@shopline.com/我的雲端硬碟/SEO／GEO Reporting/99_專案程式`。交接盤點日2026-09-10；乾淨 integration branch `docs/opportunity-intelligence-foundation`；`ARCHITECTURE_FOUNDATION_SHA=9376711`（`docs(opportunity): design opportunity intelligence layer`）；`HANDOFF_BASELINE_SHA=692f475`（`docs(opportunity): record integration baseline`）；`CURRENT_HANDOFF_HEAD` 以 branch HEAD 與 remote ref 實測（不在自身 commit 內硬編 SHA）；fetch後origin/main `4e30cec2a7cb446c0defa06b315c0b295a01b9af`。原 dirty worktree 不在這個 branch；你必須先核對現在HEAD/dirty，不盲信這些舊值。
+Project path：`/Users/pohsunhuang/Library/CloudStorage/GoogleDrive-james.ph.huang@shopline.com/我的雲端硬碟/SEO／GEO Reporting/99_專案程式`。交接盤點日2026-09-10；WP1 branch `feat/opportunity-contract-validator`；`WP1_BASELINE_SHA=0b63c66f0c14331fabb0dd2d72e820147e8cd758`；`ARCHITECTURE_FOUNDATION_SHA=9376711`；`HANDOFF_BASELINE_SHA=692f475`；`CURRENT_HANDOFF_HEAD` 與最新 `origin/main` 均先以 Git 實測，不在自身 commit 內硬編 SHA。原 dirty worktree 不在這個 branch；你必須先核對現在HEAD/dirty，不盲信這些舊值。
 
 先依序讀 `docs/opportunity-intelligence/CURRENT_STATE.md`、`NEXT_TASK.md`、`ARCHITECTURE.md`、`CONTRACT_DESIGN.md`、`SCORING_MODEL.md`、`CONFIDENCE_MODEL.md`、`TEST_STRATEGY.md`、`VALIDATION_RESULTS.md`。source語義查 `DATA_SOURCE_ROLES.md`，entity/rules查`OPPORTUNITY_MODEL.md`，failure/freshness查`EVIDENCE_FRESHNESS_POLICY.md`。完整roadmap在`ROADMAP.md`；不要把roadmap全部執行。
 
 Architecture採C-lite immutable evidence + pure engine + human review + report projection，沒有production activation。Ahrefs多endpoint小量probe成功但scope/競品/budget未批准；Workduo在前一session可讀，舊collector仍沿用snapshot；Google live SERP結構化capture未驗。score採三個固定profile、ordinal0–4、missing不補零不reweight、score與confidence分開。Business Actual只有approved source可用，GA4 CTA不是formal成功，Ahrefs流量是THIRD_PARTY_ESTIMATE，source不同不能當分母。既有報表SQL顯示有歷史owner例外，但不可延伸為新層正式商業value/outcome。
 
-WP1 allowed files：新增`reporting/opportunity/proposal_validation.py`（必要空`__init__.py`）、`tests/test_opportunity_proposals.py`、`tests/fixtures/opportunity/*.json`；兩份`contracts/ahrefs_scope.v1.proposal.json`、`contracts/opportunity_contract.v1.proposal.json`僅能為已證明的schema矛盾做最小修正，保留DRAFT/禁止production；只更新CONTRACT_DESIGN、TEST_STRATEGY、VALIDATION_RESULTS、NEXT_TASK、LUNA_HANDOFF的本包結果。不得改權重與business決策。
+WP1 result：`reporting/opportunity/proposal_validation.py`、`tests/test_opportunity_proposals.py` 與 synthetic context/negative inventory 已完成；20 new tests、90 total tests PASS。validator 僅 offline，proposal 仍是 DRAFT；不要重做 WP1，也不要把 schema proposal 改名成 active contract。
+
+WP2 allowed direction：新增 `reporting/sources/ahrefs.py`、local evidence adapter、sanitized request manifest 與 fixtures，僅能使用已批准 scope/country/mode/select/limit；維持 `THIRD_PARTY_ESTIMATE`，不可寫正式 rows。WP2 不得修改既有 reporting modules、formal contracts、production Sheets、Recommendations、Next_Steps、credentials、UI 或 scheduler。
 
 Forbidden files/scope：`outputs/**`、原有`reporting/*.py`、舊Apps Script模板、三份formal contracts、另一個HTML report app、credentials/config/runtime、所有production Sheets/Recommendations/Next_Steps、live ingestion、UI、scheduler。原有dirty的v1 README、v2 report_data.json、business_metric_source_resolution目錄、weekly_report_2026_09_01_07目錄是範圍外先前工作，保持原樣；有新UNKNOWN dirty時停止mutation。
 
