@@ -1,0 +1,61 @@
+# TEST_STRATEGY
+
+unit tests只用synthetic fixtures與fake transport，不能依live MCP、Google credentials或真實business raw rows。資料與時間全部顯式傳入；相同input hash/version輸出相同。下列是**後續實作驗收計畫**，不是已通過的engine tests。
+
+| ID | Fixture | Expected |
+| --- | --- | --- |
+| T01 | Ahrefs capability missing/403 | NOT_AVAILABLE；candidate insufficient、無query volume補零 |
+| T02 | Ahrefs stale/last_update old | STALE；score所需dimension null、不得VALIDATED |
+| T03 | GSC missing | missing evidence，不當0 impressions；需要GSC的類型不過gate |
+| T04 | GSC exact bucket complete zero | 0保留；不能算CTR除0；可能有市場gap但需inventory |
+| T05 | duplicate keyword across pulls | source logical key去重；不重複計demand |
+| T06 | duplicate topic/merge revision | identity conflict可見、history保留、membership不double count |
+| T07 | same keyword multiple URLs | 保留多URL；不能直接CONSOLIDATION |
+| T08 | intent相同、多期URL互替且SF可執行 | consolidation候選；survivor/redirect需人工批准 |
+| T09 | SERP intent mismatch | SERP_CONFLICT + CONFLICTING_EVIDENCE；擋CREATE_NEW/UPDATE批准 |
+| T10 | Workduo stale | old snapshot context；current confidence降低，不是0 visibility |
+| T11 | SF critical noindex/5xx | TECHNICAL_FIX precedence；UPDATE記dependency不先執行 |
+| T12 | GA4 missing | diagnostics unknown；不是無價值；非required SEO候選不必全面消失 |
+| T13 | Ahrefs/GSC scope/country conflict | 不join、不跨母體ratio；human review |
+| T14 | missing business value/override expired | business_score=null、score=null、不能APPROVED |
+| T15 | score fixtures | B各weights=100；0/4/null、round half up、range與missing不reweight |
+| T16 | confidence fixtures | 5筆同source不等於5families；required missing高score仍LOW |
+| T17 | sufficient no-action evidence | DO_NOTHING帶理由/review_at；evidence不足不假作DO_NOTHING |
+| T18 | complete inventory no matching asset + >=2competitors +intent | CREATE_NEW；只有Top25缺失不能成立 |
+| T19 | relevant existing URL +traction+demand+SERP+SF | UPDATE_EXISTING；不得另建重複文章 |
+| T20 | fixed matched GEO sample +answer gap | GEO_ENHANCE；無citation資料不冒稱citation gap |
+| T21 | score/profile choice immutable | 缺GEO不可自選SEOprofile；primary action改變需新revision |
+| T22 | approved record changed evidence hash | 新revision NEEDS_REVISION、旧approval不可沿用 |
+| T23 | engine submits APPROVED | 無authenticated human event拒絕；state字串無法繞過 |
+| T24 | preview/uat destination=production或framework ID | write前拒絕；無network dispatch |
+| T25 | retry timeout after successful append | readback reconcile、不重複row、不覆寫manual改動 |
+| T26 | non-ready latest revision +old Ready | 不fallback為formal Ready；context明示stale |
+| T27 | query string/HTML/formula content | reject或安全literal escaped；credentials/PII不落檔 |
+| T28 | outcome +clicks但guardrail惡化 | 不WON；LOST/PARTIAL按predefined plan+review |
+| T29 | CrUX origin fallback +SF URL issue | origin僅context，不能假造URL因果或每頁獨立sample |
+| T30 | future timestamps/NaN/negative counts/invalid enums | contract拒絕；invalid不變0 |
+| T31 | crawl config/prompt version/country drift | comparison不成立；保留reason，不任意MoM |
+| T32 | SERP top_positions 1回6列 | explicit count/truncation/budget metadata；不假設row cap |
+
+## Test layers
+
+1. Proposal schema shape與semantic invariants（WP1）：正反synthetic records；不生production data。
+2. Unit（WP2–8/11）：fake time/transport、detector、scorer、freshness、entity joins。
+3. Contract compatibility：既有三份formal contracts與snapshot tests不變；new fields不塞raw payload到recommendation。
+4. Render/bridge（WP9/10）：fixtures、HTML escaping、empty/partial state、375/1280px；人工tabs保護與sourceRef。
+5. Integration/smoke：opt-in、明確source/environment/cost；只讀live source或isolated UAT，不成為unit必要條件。
+6. Production gate（WP12）：bounded approved artifact、destination identity、readback、rollback。未授權不能執行。
+
+## 本輪實際結果
+
+- 第一次 `PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -v`：系統Python 3.9，47 tests被runner計數，5 errors（4個import failures + framework setup）；不能宣稱通過。
+- 用bundled Python與Node重跑：**70 tests，OK**。Node是framework generator manifest test的依賴。
+- 檢查環境時bundled Python沒有jsonschema；這不是已完成schema validation。WP1必須把validator依賴/執行方式固定，不能skip後假報green。
+- 本輪docs/proposals專屬檢查與最終git保存結果見VALIDATION_RESULTS.md。
+- 未執行engine、UI、review bridge、outcome實作測試（尚未實作）；未驗遠端Apps Script runtime/ACL。
+
+可重現baseline指令（從repo root）：
+
+```sh
+PATH='/Users/pohsunhuang/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin:'"$PATH" PYTHONDONTWRITEBYTECODE=1 '/Users/pohsunhuang/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3' -m unittest discover -s tests
+```

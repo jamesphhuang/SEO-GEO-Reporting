@@ -1,0 +1,358 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "scope_version": {
+      "const": "1.0.0-proposal"
+    },
+    "approval_state": {
+      "enum": [
+        "PENDING",
+        "APPROVED"
+      ]
+    },
+    "approval_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "environment": {
+      "enum": [
+        "preview",
+        "uat"
+      ]
+    },
+    "source_class": {
+      "const": "THIRD_PARTY_ESTIMATE"
+    },
+    "estimation_flag": {
+      "const": true
+    },
+    "scopes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "scope_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "target": {
+            "type": "string",
+            "minLength": 1
+          },
+          "mode": {
+            "enum": [
+              "domain",
+              "subdomains",
+              "prefix",
+              "exact"
+            ]
+          },
+          "protocol": {
+            "enum": [
+              "https",
+              "http",
+              "both"
+            ]
+          },
+          "subdomain_policy": {
+            "enum": [
+              "EXCLUDE",
+              "INCLUDE_APPROVED_ONLY"
+            ]
+          },
+          "allowed_hosts": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "excluded_hosts": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "scope_id",
+          "target",
+          "mode",
+          "protocol",
+          "subdomain_policy",
+          "allowed_hosts",
+          "excluded_hosts"
+        ]
+      },
+      "uniqueItems": true,
+      "minItems": 1
+    },
+    "country_database": {
+      "const": "TW"
+    },
+    "language": {
+      "const": "zh-Hant"
+    },
+    "snapshot_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "retrieved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "traffic_mode": {
+      "enum": [
+        "static",
+        "adaptive"
+      ]
+    },
+    "volume_mode": {
+      "enum": [
+        "monthly",
+        "average"
+      ]
+    },
+    "metrics": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "keyword",
+          "volume",
+          "keyword_difficulty",
+          "best_position",
+          "best_position_url",
+          "last_update",
+          "serp_features",
+          "competitor_domain",
+          "keywords_common",
+          "raw_url",
+          "top_keyword",
+          "domain",
+          "first_seen",
+          "is_dofollow",
+          "sum_traffic",
+          "cpc"
+        ]
+      },
+      "uniqueItems": true,
+      "minItems": 1
+    },
+    "historical_semantics": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "requested_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "compared_date": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "interpretation": {
+          "const": "PROVIDER_AS_OF_SNAPSHOT_NOT_CALENDAR_MONTH_ACTUAL"
+        },
+        "preserve_keyword_last_update": {
+          "const": true
+        }
+      },
+      "required": [
+        "requested_date",
+        "compared_date",
+        "interpretation",
+        "preserve_keyword_last_update"
+      ]
+    },
+    "competitors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "competitor_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "target": {
+            "type": "string",
+            "minLength": 1
+          },
+          "mode": {
+            "enum": [
+              "domain",
+              "prefix",
+              "exact",
+              "subdomains"
+            ]
+          },
+          "approval_ref": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "competitor_id",
+          "target",
+          "mode",
+          "approval_ref"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "max_keywords_per_scope": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_rows_per_request": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_units_per_run": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_requests_per_minute": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 60
+        },
+        "on_limit": {
+          "const": "STOP_AND_MARK_PARTIAL"
+        }
+      },
+      "required": [
+        "max_keywords_per_scope",
+        "max_rows_per_request",
+        "max_units_per_run",
+        "max_requests_per_minute",
+        "on_limit"
+      ]
+    },
+    "freshness_policy_version": {
+      "const": "freshness-proposal-1"
+    },
+    "freshness": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "max_snapshot_age_days": {
+          "const": 30
+        },
+        "max_serp_age_days": {
+          "const": 7
+        },
+        "missing_last_update": {
+          "const": "UNKNOWN_NOT_FRESH"
+        }
+      },
+      "required": [
+        "max_snapshot_age_days",
+        "max_serp_age_days",
+        "missing_last_update"
+      ]
+    },
+    "authentication": {
+      "const": "CONNECTOR_MANAGED_NO_SECRET_IN_RECORD"
+    },
+    "required_capability_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "scope_version",
+    "approval_state",
+    "approval_ref",
+    "environment",
+    "source_class",
+    "estimation_flag",
+    "scopes",
+    "country_database",
+    "language",
+    "snapshot_date",
+    "retrieved_at",
+    "traffic_mode",
+    "volume_mode",
+    "metrics",
+    "historical_semantics",
+    "competitors",
+    "limits",
+    "freshness_policy_version",
+    "freshness",
+    "authentication",
+    "required_capability_refs"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-proposal-status": "DRAFT_NOT_APPROVED",
+  "x-production-activation": false,
+  "$id": "urn:shopline:ahrefs-scope:v1:proposal",
+  "title": "Ahrefs scope proposal; schema for scope records, not an approved production scope",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "approval_state": {
+            "const": "APPROVED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "approval_ref": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  ],
+  "x-semantic-invariants": [
+    "Target host must be in allowed_hosts and not excluded_hosts; cross-scope overlap must be explicit.",
+    "Competitor scope requires independent approval, never inferred from tool results.",
+    "Live full ingestion requires scope APPROVED, capability validated and an explicit cost budget; PENDING only permits bounded capability probe.",
+    "No secrets, PII or raw API payload in scope records; URLs must be sanitized.",
+    "Compared date must precede requested date; snapshot and requested dates cannot be after retrieved_at in source timezone.",
+    "The TW country parameter only applies where the endpoint supports it; backlink geography is not inferred.",
+    "Endpoint select fields must match endpoint-specific doc; the cross-endpoint metrics enum is not a universal select list."
+  ],
+  "x-proposed-defaults": {
+    "approval_state": "PENDING",
+    "country_database": "TW",
+    "language": "zh-Hant",
+    "targets": [
+      {
+        "target": "shopline.tw",
+        "mode": "domain"
+      },
+      {
+        "target": "blog.shopline.tw",
+        "mode": "domain"
+      }
+    ],
+    "traffic_mode": "adaptive",
+    "volume_mode": "monthly",
+    "competitors": [],
+    "limits": null,
+    "note": "All numeric budgets and competitor scopes require owner decision; defaults are not approved scope or proof of keyword language."
+  }
+}

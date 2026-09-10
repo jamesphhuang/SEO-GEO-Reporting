@@ -1,0 +1,57 @@
+{
+  "scope_version": "1.0.0-proposal",
+  "approval_state": "PENDING",
+  "approval_ref": null,
+  "environment": "preview",
+  "source_class": "THIRD_PARTY_ESTIMATE",
+  "estimation_flag": true,
+  "scopes": [
+    {
+      "scope_id": "SYNTHETIC_SCOPE",
+      "target": "example.com",
+      "mode": "domain",
+      "protocol": "https",
+      "subdomain_policy": "EXCLUDE",
+      "allowed_hosts": [
+        "example.com"
+      ],
+      "excluded_hosts": [
+        "private.example.com"
+      ]
+    }
+  ],
+  "country_database": "TW",
+  "language": "zh-Hant",
+  "snapshot_date": "2026-09-09",
+  "retrieved_at": "2026-09-10T00:00:00Z",
+  "traffic_mode": "adaptive",
+  "volume_mode": "monthly",
+  "metrics": [
+    "keyword",
+    "volume"
+  ],
+  "historical_semantics": {
+    "requested_date": "2026-09-09",
+    "compared_date": null,
+    "interpretation": "PROVIDER_AS_OF_SNAPSHOT_NOT_CALENDAR_MONTH_ACTUAL",
+    "preserve_keyword_last_update": true
+  },
+  "competitors": [],
+  "limits": {
+    "max_keywords_per_scope": 5,
+    "max_rows_per_request": 1,
+    "max_units_per_run": 50,
+    "max_requests_per_minute": 1,
+    "on_limit": "STOP_AND_MARK_PARTIAL"
+  },
+  "freshness_policy_version": "freshness-proposal-1",
+  "freshness": {
+    "max_snapshot_age_days": 30,
+    "max_serp_age_days": 7,
+    "missing_last_update": "UNKNOWN_NOT_FRESH"
+  },
+  "authentication": "CONNECTOR_MANAGED_NO_SECRET_IN_RECORD",
+  "required_capability_refs": [
+    "SYNTHETIC_CAPABILITY"
+  ]
+}
