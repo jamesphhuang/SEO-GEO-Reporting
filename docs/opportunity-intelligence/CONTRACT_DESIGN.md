@@ -75,3 +75,17 @@ Store 只保留 source/freshness 語義（例如 Ahrefs=`THIRD_PARTY_ESTIMATE`�
 `STALE`、`FAILED`、`NOT_AVAILABLE` 與 null missing），不計算 score、不建立
 recommendation，也不執行 review event。run manifest 亦為 append-only local
 artifact，供 offline replay 對應 source status、evidence IDs 與 candidate IDs。
+
+## WP5 engine proposal boundary
+
+WP5 engine 的輸入、rule trace、score、confidence 與 proposal 仍維持 offline
+proposal semantics；不提升 `contracts/*.proposal.json` 為正式 production contract。
+Engine 以 WP3 topic/URL identity 作 join key，將 AHREFS demand、GSC traction、SF
+technical observations 分開保留 source grain；它不把 Ahrefs estimates、GSC actuals
+或 crawl issue counts 互相相減，也不把 evidence row count 當成 metric。
+
+`CONTENT_GAP` 因 OI-014 只產生 `POLICY_GAP` 結果。其他候選先經 WP1 validator，
+再可 append 到 WP4 Candidate Store；proposal 的 string refs 與 store 的 pinned
+`evidence_id/revision/content_hash` 分層保存，review state 固定為
+`NOT_SUBMITTED`。Engine 可給 `DISCOVERED`/`CANDIDATE` 與 `MONITOR`/`DO_NOTHING`，
+不提供 `APPROVED` 路徑。

@@ -37,3 +37,7 @@ WP3 policy note：繁簡、同義詞、品牌 parent/child 與 semantic URL equi
 | OI-018 | WP4 使用分離的 local canonical JSONL logs 保存 evidence、candidate 與 run manifest | 低維運、可重播、append-only；不把 local store 誤宣稱為 production database |
 | OI-019 | Candidate 必須 pin evidence logical ID、revision 與 content hash | 防止新 evidence revision 漂移既有候選，維持 time-travel reproducibility |
 | OI-020 | WP4 不接受沒有 WP3 registry resolution 的 entity refs，也不自動建立 entity | unresolved identity 以 `UNRESOLVED_ENTITY` fail closed，避免猜測 mapping |
+| OI-021 | WP5 engine 只接收 normalized immutable AHREFS/GSC/SF evidence，先過 WP1 validator 再可寫 WP4 Candidate Store | 保留 source grain、可 deterministic replay；不引入 live adapters 或 production writer |
+| OI-022 | WP5 Score 與 Confidence 分開；missing/stale/conflict 維持可見，engine 永不 APPROVED | 防止高 demand 或多來源數量被誤解成 business approval 或人審批准 |
+| OI-023 | OI-014 未解前 `CONTENT_GAP` 僅回 `POLICY_GAP`，不以 competitor inventory 推導 negative existence | 避免把不完整 coverage 稱為 Content Gap |
+| OI-024 | Candidate Store pin exact evidence revision/hash，candidate revision 只 append supersedes chain | 新 evidence 不得漂移既有候選，支援 time-travel replay |

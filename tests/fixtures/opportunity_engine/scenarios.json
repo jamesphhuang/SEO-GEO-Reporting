@@ -1,0 +1,72 @@
+{
+  "registry": "../opportunity_registry/synthetic_registry.json",
+  "base": {
+    "project_scope_id": "synthetic-wp5",
+    "evaluation_period": "2026-09",
+    "decision_at": "2026-09-10T00:00:00+00:00",
+    "topic": {"topic_id": "TOPIC_ECOMMERCE_PLATFORM_COMPARISON"},
+    "environment": "preview",
+    "entity_mappings_confirmed": true,
+    "mapping_review_state": "APPROVED"
+  },
+  "scenarios": {
+    "quick_win": {
+      "requested_type": "QUICK_WIN",
+      "evidence": [
+        {"evidence_id": "SYN_AHREFS_1", "revision": 1, "content_hash": "a111111111111111111111111111111111111111111111111111111111111111", "source": "AHREFS", "source_class": "THIRD_PARTY_ESTIMATE", "metric": "volume", "value": 1200, "topic_refs": ["TOPIC_ECOMMERCE_PLATFORM_COMPARISON"], "freshness_state": "READY", "collection_status": "SUCCESS", "as_of": "2026-09-01"},
+        {"evidence_id": "SYN_GSC_1", "revision": 1, "content_hash": "b111111111111111111111111111111111111111111111111111111111111111", "source": "GSC", "source_class": "FIRST_PARTY_SEARCH_ACTUAL", "metric": "impressions", "value": 1000, "impressions": 1000, "position": 8, "topic_refs": ["TOPIC_ECOMMERCE_PLATFORM_COMPARISON"], "freshness_state": "READY", "collection_status": "SUCCESS", "as_of": "2026-09-05"},
+        {"evidence_id": "SYN_SF_1", "revision": 1, "content_hash": "c111111111111111111111111111111111111111111111111111111111111111", "source": "SF", "source_class": "TECHNICAL_CRAWL_EVIDENCE", "metric": "crawl", "value": 1, "issues": [], "url": "https://shopline.tw/example/ecommerce-platform/", "topic_refs": ["TOPIC_ECOMMERCE_PLATFORM_COMPARISON"], "freshness_state": "READY", "collection_status": "SUCCESS", "as_of": "2026-09-05"}
+      ]
+    },
+    "high_demand_insufficient": {
+      "evidence": [
+        {"evidence_id": "SYN_AHREFS_ONLY", "revision": 1, "content_hash": "d111111111111111111111111111111111111111111111111111111111111111", "source": "AHREFS", "source_class": "THIRD_PARTY_ESTIMATE", "metric": "volume", "value": 4000, "topic_refs": ["TOPIC_ECOMMERCE_PLATFORM_COMPARISON"], "freshness_state": "READY", "collection_status": "SUCCESS", "as_of": "2026-09-01"}
+      ]
+    },
+    "ctr_hypothesis": {
+      "requested_type": "CTR_OPPORTUNITY",
+      "evidence": [
+        {"evidence_id": "SYN_GSC_CTR", "revision": 1, "content_hash": "e111111111111111111111111111111111111111111111111111111111111111", "source": "GSC", "source_class": "FIRST_PARTY_SEARCH_ACTUAL", "metric": "windows", "windows": [{"role": "previous", "impressions": 900, "ctr": 0.10, "position": 7, "period_end": "2026-07-31"}, {"role": "current", "impressions": 800, "ctr": 0.06, "position": 7.5, "period_end": "2026-08-31"}], "freshness_state": "READY", "collection_status": "SUCCESS", "as_of": "2026-09-05", "topic_refs": ["TOPIC_ECOMMERCE_PLATFORM_COMPARISON"]},
+        {"evidence_id": "SYN_SF_CTR", "revision": 1, "content_hash": "f111111111111111111111111111111111111111111111111111111111111111", "source": "SF", "source_class": "TECHNICAL_CRAWL_EVIDENCE", "metric": "issues", "issues": [{"type": "TITLE", "severity": "MEDIUM"}], "url": "https://shopline.tw/example/ecommerce-platform/", "freshness_state": "READY", "collection_status": "SUCCESS", "as_of": "2026-09-05", "topic_refs": ["TOPIC_ECOMMERCE_PLATFORM_COMPARISON"]}
+      ]
+    },
+    "content_gap_policy": {
+      "requested_type": "CONTENT_GAP",
+      "evidence": []
+    },
+    "content_decay": {
+      "requested_type": "CONTENT_DECAY",
+      "evidence": [
+        {"evidence_id": "SYN_GSC_DECAY", "revision": 1, "content_hash": "a211111111111111111111111111111111111111111111111111111111111111", "source": "GSC", "source_class": "FIRST_PARTY_SEARCH_ACTUAL", "metric": "windows", "windows": [{"period_end": "2026-03-31", "clicks": 100}, {"period_end": "2026-04-30", "clicks": 100}, {"period_end": "2026-05-31", "clicks": 100}, {"period_end": "2026-06-30", "clicks": 100}, {"period_end": "2026-07-31", "clicks": 70}, {"period_end": "2026-08-31", "clicks": 70}], "freshness_state": "READY", "collection_status": "SUCCESS", "as_of": "2026-09-05", "topic_refs": ["TOPIC_ECOMMERCE_PLATFORM_COMPARISON"]},
+        {"evidence_id": "SYN_SF_DECAY", "revision": 1, "content_hash": "b211111111111111111111111111111111111111111111111111111111111111", "source": "SF", "source_class": "TECHNICAL_CRAWL_EVIDENCE", "metric": "crawl", "value": 1, "issues": [], "url": "https://shopline.tw/example/ecommerce-platform/", "freshness_state": "READY", "collection_status": "SUCCESS", "as_of": "2026-09-05", "topic_refs": ["TOPIC_ECOMMERCE_PLATFORM_COMPARISON"]}
+      ]
+    },
+    "technical_unlock": {
+      "requested_type": "TECHNICAL_UNLOCK",
+      "evidence": [
+        {"evidence_id": "SYN_AHREFS_TECH", "revision": 1, "content_hash": "c211111111111111111111111111111111111111111111111111111111111111", "source": "AHREFS", "source_class": "THIRD_PARTY_ESTIMATE", "metric": "volume", "value": 800, "topic_refs": ["TOPIC_ECOMMERCE_PLATFORM_COMPARISON"], "freshness_state": "READY", "collection_status": "SUCCESS", "as_of": "2026-09-01"},
+        {"evidence_id": "SYN_SF_TECH", "revision": 1, "content_hash": "d211111111111111111111111111111111111111111111111111111111111111", "source": "SF", "source_class": "TECHNICAL_CRAWL_EVIDENCE", "metric": "issues", "issues": [{"type": "CANONICAL", "severity": "HIGH"}], "url": "https://shopline.tw/example/ecommerce-platform/", "freshness_state": "READY", "collection_status": "SUCCESS", "as_of": "2026-09-05", "topic_refs": ["TOPIC_ECOMMERCE_PLATFORM_COMPARISON"]}
+      ]
+    },
+    "do_nothing": {
+      "requested_type": "DO_NOTHING",
+      "evidence": [
+        {"evidence_id": "SYN_DO_A", "revision": 1, "content_hash": "e211111111111111111111111111111111111111111111111111111111111111", "source": "AHREFS", "source_class": "THIRD_PARTY_ESTIMATE", "metric": "volume", "value": 0, "topic_refs": ["TOPIC_ECOMMERCE_PLATFORM_COMPARISON"], "freshness_state": "READY", "collection_status": "SUCCESS", "as_of": "2026-09-01"},
+        {"evidence_id": "SYN_DO_G", "revision": 1, "content_hash": "f211111111111111111111111111111111111111111111111111111111111111", "source": "GSC", "source_class": "FIRST_PARTY_SEARCH_ACTUAL", "metric": "impressions", "value": 20, "impressions": 20, "position": 50, "topic_refs": ["TOPIC_ECOMMERCE_PLATFORM_COMPARISON"], "freshness_state": "READY", "collection_status": "SUCCESS", "as_of": "2026-09-05"}
+      ]
+    },
+    "conflicting": {
+      "evidence": [
+        {"evidence_id": "SYN_CONFLICT_A", "revision": 1, "content_hash": "a311111111111111111111111111111111111111111111111111111111111111", "source": "AHREFS", "source_class": "THIRD_PARTY_ESTIMATE", "metric": "volume", "value": 900, "conflict": true, "topic_refs": ["TOPIC_ECOMMERCE_PLATFORM_COMPARISON"], "freshness_state": "READY", "collection_status": "SUCCESS", "as_of": "2026-09-01"},
+        {"evidence_id": "SYN_CONFLICT_G", "revision": 1, "content_hash": "b311111111111111111111111111111111111111111111111111111111111111", "source": "GSC", "source_class": "FIRST_PARTY_SEARCH_ACTUAL", "metric": "impressions", "value": 700, "impressions": 700, "position": 8, "topic_refs": ["TOPIC_ECOMMERCE_PLATFORM_COMPARISON"], "freshness_state": "READY", "collection_status": "SUCCESS", "as_of": "2026-09-05"}
+      ]
+    },
+    "stale": {
+      "requested_type": "QUICK_WIN",
+      "evidence": [
+        {"evidence_id": "SYN_STALE_A", "revision": 1, "content_hash": "c311111111111111111111111111111111111111111111111111111111111111", "source": "AHREFS", "source_class": "THIRD_PARTY_ESTIMATE", "metric": "volume", "value": 900, "topic_refs": ["TOPIC_ECOMMERCE_PLATFORM_COMPARISON"], "freshness_state": "STALE", "collection_status": "SUCCESS", "as_of": "2026-01-01"},
+        {"evidence_id": "SYN_STALE_G", "revision": 1, "content_hash": "d311111111111111111111111111111111111111111111111111111111111111", "source": "GSC", "source_class": "FIRST_PARTY_SEARCH_ACTUAL", "metric": "impressions", "value": 700, "impressions": 700, "position": 8, "topic_refs": ["TOPIC_ECOMMERCE_PLATFORM_COMPARISON"], "freshness_state": "READY", "collection_status": "SUCCESS", "as_of": "2026-09-05"}
+      ]
+    }
+  }
+}
