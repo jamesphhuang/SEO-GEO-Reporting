@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/contracts/opportunity_store.v1.proposal.json",
+  "title": "Offline opportunity evidence and candidate immutable store proposal",
+  "type": "object",
+  "oneOf": [
+    { "$ref": "#/$defs/evidence" },
+    { "$ref": "#/$defs/candidate" }
+  ],
+  "x-proposal-status": "DRAFT_NOT_APPROVED",
+  "x-production-activation": false,
+  "$defs": {
+    "id": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "evidence": {
+      "type": "object",
+      "required": ["record_type", "evidence_id", "revision", "source", "source_class", "metric", "value", "unit", "period_start", "period_end", "as_of", "retrieved_at", "freshness_state", "collection_status", "source_reference", "contract_version", "content_hash"],
+      "properties": {
+        "record_type": { "const": "EVIDENCE" },
+        "evidence_id": { "$ref": "#/$defs/id" },
+        "revision": { "type": "integer", "minimum": 1 },
+        "source": { "type": "string", "minLength": 1 },
+        "source_class": { "type": "string", "minLength": 1 },
+        "metric": { "type": "string", "minLength": 1 },
+        "value": {},
+        "unit": { "type": "string", "minLength": 1 },
+        "period_start": { "type": "string", "format": "date" },
+        "period_end": { "type": "string", "format": "date" },
+        "as_of": { "type": "string", "format": "date" },
+        "retrieved_at": { "$ref": "#/$defs/timestamp" },
+        "freshness_state": { "enum": ["READY", "PARTIAL", "STALE", "FAILED", "NOT_AVAILABLE"] },
+        "collection_status": { "type": "string", "minLength": 1 },
+        "source_reference": { "type": "string", "minLength": 1 },
+        "contract_version": { "type": "string", "minLength": 1 },
+        "content_hash": { "$ref": "#/$defs/hash" },
+        "entity_refs": { "type": "array", "uniqueItems": true },
+        "topic_refs": { "type": "array", "uniqueItems": true },
+        "supersedes_evidence_id": { "type": ["string", "null"] },
+        "supersedes_revision": { "type": ["integer", "null"], "minimum": 1 }
+      },
+      "additionalProperties": true
+    },
+    "candidate": {
+      "type": "object",
+      "required": ["record_type", "candidate_id", "revision", "topic_ref", "evidence_refs", "status", "review_state", "content_hash", "created_at"],
+      "properties": {
+        "record_type": { "const": "CANDIDATE" },
+        "candidate_id": { "$ref": "#/$defs/id" },
+        "revision": { "type": "integer", "minimum": 1 },
+        "topic_ref": { "type": "object", "required": ["entity_type", "entity_id"], "properties": { "entity_type": { "const": "TOPIC" }, "entity_id": { "$ref": "#/$defs/id" } }, "additionalProperties": false },
+        "evidence_refs": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "object", "required": ["evidence_id", "revision", "content_hash"], "properties": { "evidence_id": { "$ref": "#/$defs/id" }, "revision": { "type": "integer", "minimum": 1 }, "content_hash": { "$ref": "#/$defs/hash" } }, "additionalProperties": false } },
+        "status": { "type": "string", "minLength": 1 },
+        "review_state": { "type": "string", "minLength": 1 },
+        "content_hash": { "$ref": "#/$defs/hash" },
+        "created_at": { "$ref": "#/$defs/timestamp" },
+        "supersedes_candidate_id": { "type": ["string", "null"] },
+        "supersedes_revision": { "type": ["integer", "null"], "minimum": 1 }
+      },
+      "additionalProperties": true
+    }
+  }
+}

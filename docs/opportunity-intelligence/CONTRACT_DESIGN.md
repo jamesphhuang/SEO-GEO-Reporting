@@ -55,3 +55,23 @@ URL policy、normalized value、deterministic semantic hash 與 identity/evidenc
 Metrics（volume、clicks、impressions、position）不屬於 registry identity。任何
 semantic mapping 預設為 CANDIDATE；只有帶 opaque reviewer ID 的人工／整理後
 mapping 才可成為 APPROVED，RULE_BASED 不得自行批准。
+
+## OPPORTUNITY STORE DESIGN（WP4）
+
+`contracts/opportunity_store.v1.proposal.json` 是 evidence/candidate record shape
+的 proposal schema，仍保留 `DRAFT_NOT_APPROVED` 與
+`x-production-activation=false`。Evidence 與 Candidate 分離保存於 local JSONL
+append-only logs；每一筆 revision 都有 deterministic `content_hash`，runtime
+timestamp/status/review fields 不進 semantic hash。
+
+Evidence revision 只能接續同一 logical `evidence_id` 的前一 revision，並以
+`supersedes_evidence_id`、`supersedes_revision` 表示 lineage。Candidate 同理；
+Candidate 的完整 `evidence_refs` 必須攜帶 `evidence_id`、revision 與 hash，store
+只接受 exact match，從不替 candidate 隱式追到最新 evidence。相同 logical key、
+revision、hash 是 idempotent no-op；同 revision 不同 hash、gap、tamper、dangling
+WP3 entity ref 都 fail closed。
+
+Store 只保留 source/freshness 語義（例如 Ahrefs=`THIRD_PARTY_ESTIMATE`、
+`STALE`、`FAILED`、`NOT_AVAILABLE` 與 null missing），不計算 score、不建立
+recommendation，也不執行 review event。run manifest 亦為 append-only local
+artifact，供 offline replay 對應 source status、evidence IDs 與 candidate IDs。

@@ -34,3 +34,6 @@
 
 WP3 policy note：繁簡、同義詞、品牌 parent/child 與 semantic URL equivalence 都不自動合併；
 若未來要合併，必須新增明確 mapping relation、evidence 與 review revision。
+| OI-018 | WP4 使用分離的 local canonical JSONL logs 保存 evidence、candidate 與 run manifest | 低維運、可重播、append-only；不把 local store 誤宣稱為 production database |
+| OI-019 | Candidate 必須 pin evidence logical ID、revision 與 content hash | 防止新 evidence revision 漂移既有候選，維持 time-travel reproducibility |
+| OI-020 | WP4 不接受沒有 WP3 registry resolution 的 entity refs，也不自動建立 entity | unresolved identity 以 `UNRESOLVED_ENTITY` fail closed，避免猜測 mapping |

@@ -1,0 +1,31 @@
+{
+  "record_type": "EVIDENCE",
+  "evidence_id": "EVIDENCE_SYNTHETIC_AHREFS_VOLUME",
+  "revision": 1,
+  "source": "AHREFS",
+  "source_class": "THIRD_PARTY_ESTIMATE",
+  "metric": "volume",
+  "value": 1200,
+  "unit": "monthly_searches",
+  "period_start": "2026-08-01",
+  "period_end": "2026-08-31",
+  "as_of": "2026-08-31",
+  "retrieved_at": "2026-09-01T03:00:00+00:00",
+  "freshness_state": "READY",
+  "collection_status": "SUCCESS",
+  "source_reference": "fixture-ahrefs-run-001",
+  "contract_version": "ahrefs_scope.v1.proposal",
+  "entity_refs": [
+    {
+      "entity_type": "KEYWORD",
+      "entity_id": "KW_4f80a917de460dcca989e026"
+    }
+  ],
+  "topic_refs": [
+    "TOPIC_ECOMMERCE_PLATFORM_COMPARISON"
+  ],
+  "supersedes_evidence_id": null,
+  "supersedes_revision": null,
+  "created_at": "2026-09-01T03:01:00+00:00",
+  "content_hash": "61de86af5c54d759947e6057697939c9306c5e2d973da2ceb9541268b8840faa"
+}
