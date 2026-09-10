@@ -1,7 +1,7 @@
 ## Current baseline
 
 Repo：`/Users/pohsunhuang/Library/CloudStorage/GoogleDrive-james.ph.huang@shopline.com/我的雲端硬碟/SEO／GEO Reporting/99_專案程式`。
-乾淨 integration branch `docs/opportunity-intelligence-foundation`；`ARCHITECTURE_FOUNDATION_SHA=9376711`；`CURRENT_HANDOFF_HEAD=692f475`；2026-09-10 fetch後origin/main `4e30cec2a7cb446c0defa06b315c0b295a01b9af`，foundation branch 以此為基底。原有四組dirty paths列CURRENT_STATE，皆範圍外保留。bundled runtime baseline 70 tests通過。
+乾淨 integration branch `docs/opportunity-intelligence-foundation`；`ARCHITECTURE_FOUNDATION_SHA=9376711`；`HANDOFF_BASELINE_SHA=692f475`；`CURRENT_HANDOFF_HEAD=d0ea865`；2026-09-10 fetch後origin/main `4e30cec2a7cb446c0defa06b315c0b295a01b9af`，foundation branch 以此為基底。原有四組dirty paths列CURRENT_STATE，皆範圍外保留。bundled runtime baseline 70 tests通過。
 
 ## Current blocker
 
