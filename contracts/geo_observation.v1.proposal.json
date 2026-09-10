@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/contracts/geo_observation.v1.proposal.json",
+  "title": "GEO observation proposal",
+  "type": "object",
+  "additionalProperties": true,
+  "x-proposal-status": "DRAFT_NOT_APPROVED",
+  "x-production-activation": false,
+  "x-source-role": "MONITORED_FIXED_SAMPLE",
+  "required": ["record_type", "evidence_id", "revision", "source", "source_class", "metric", "value", "period_start", "period_end", "as_of", "retrieved_at", "freshness_state", "collection_status", "contract_version", "entity_refs", "topic_refs"],
+  "properties": {"record_type": {"const": "EVIDENCE"}, "source": {"const": "WORKDUO"}, "source_class": {"const": "MONITORED_GEO_SAMPLE"}, "metric": {"const": "geo_observation"}, "freshness_state": {"enum": ["READY", "PARTIAL", "STALE", "FAILED", "NOT_AVAILABLE"]}, "collection_status": {"type": "string"}, "value": {}, "entity_refs": {"type": "array"}, "topic_refs": {"type": "array"}}
+}

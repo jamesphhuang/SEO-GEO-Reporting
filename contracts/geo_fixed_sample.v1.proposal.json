@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/contracts/geo_fixed_sample.v1.proposal.json",
+  "title": "GEO fixed sample registry proposal",
+  "type": "object",
+  "additionalProperties": false,
+  "x-proposal-status": "DRAFT_NOT_APPROVED",
+  "x-production-activation": false,
+  "x-source-role": "MONITORED_FIXED_SAMPLE",
+  "required": ["record_type", "sample_id", "sample_version", "revision", "status", "prompt_refs", "prompt_population", "market", "locale", "platform", "model_scope", "provider", "provider_methodology", "effective_from", "source_role", "sample_hash"],
+  "properties": {
+    "record_type": {"const": "GEO_SAMPLE"}, "sample_id": {"type": "string", "minLength": 1}, "sample_version": {"type": "string", "minLength": 1}, "revision": {"type": "integer", "minimum": 1}, "status": {"enum": ["ACTIVE", "RETIRED", "DRAFT"]},
+    "prompt_refs": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "object", "required": ["entity_type", "entity_id", "revision"], "additionalProperties": true, "properties": {"entity_type": {"const": "PROMPT"}, "entity_id": {"type": "string"}, "revision": {"type": "integer", "minimum": 1}}}},
+    "prompt_population": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}}, "market": {"type": "string"}, "locale": {"type": "string"}, "platform": {"type": "string"}, "model_scope": {"type": "string"}, "provider": {"const": "WORKDUO"}, "provider_methodology": {"type": "string"}, "effective_from": {"type": "string", "format": "date"}, "effective_to": {"type": ["string", "null"], "format": "date"}, "source_role": {"const": "MONITORED_FIXED_SAMPLE"}, "synthetic": {"type": "boolean"}, "sample_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  }
+}

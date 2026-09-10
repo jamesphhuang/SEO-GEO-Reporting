@@ -200,3 +200,15 @@ unresolved URL、CTA、GSC conflict、deterministic replay 與歷史 revision。
 `reporting/opportunity/serp_validation.py` 只解讀 pinned `SERP` evidence，不做 discovery、bulk crawl 或 LLM query invention。它輸出 `SERP_VALIDATED`、`SERP_CONFLICT`、`SERP_NOT_CHECKED` 三態，保留 query/scope、intent、page-type distribution、SHOPLINE/competitor presence、AIO/PAA feature state、structured conflicts、freshness、rule trace、`evidence_id + revision + content_hash` 與 candidate refs。SERP status 與 WP5 score/confidence 分離；不會把 validated 候選自動改成 APPROVED，也不會刪除候選。兩份 SERP proposal schema 都是 `DRAFT_NOT_APPROVED`、`x-production-activation=false`。
 
 Synthetic scenarios A–N 涵蓋 quick win、page-type mismatch、feature crowding、mixed intent、owned strong、competitor dominance、missing query、unmapped domain、NOT_AVAILABLE、stale、determinism、revision history、locale mismatch 與 insufficient results。下一個唯一工作依 ROADMAP 是 **WP8 — GEO fixed sample layer**；本輪不開始 WP8。
+
+## WP8 implementation handoff（2026-09-10）
+
+本輪以 `WP8_BASELINE_SHA=da1f5e53a446bbe903d49291de9c27d8eb0d44ca` 建立 clean
+worktree `/private/tmp/seo-geo-wp8-geo` 與 branch `feat/opportunity-geo-fixed-sample`。
+原 dirty worktree 未觸碰；沒有修改 main，也沒有呼叫 Workduo、Google Search、GA4、GSC、Ahrefs、Screaming Frog、CrUX 或任何 production writer。
+
+WP8 新增 offline `reporting/sources/workduo.py`、`reporting/opportunity/rules_geo.py`、`geo_diagnostics.py`、`geo_preview.py` 與三份 proposal schemas。Workduo source role 固定為 `MONITORED_FIXED_SAMPLE`，Evidence source class 為 `MONITORED_GEO_SAMPLE`；固定 sample 保留 version/revision、prompt population、market/locale/platform/model scope、有效日期與 sample hash。Prompt、topic、URL、competitor 都只接受 WP3 exact canonical mapping；unknown domain 只保留在 `unknown_domains`，不建立 entity。
+
+Mention 與 citation 分離；`NOT_AVAILABLE`、missing、STALE、FAILED 不補零。只有相同 sample version、population、scope、provider methodology 才可比較，revision drift 產生 `COMPARABILITY_GAP`。GEO 只 enrich existing candidate，固定保留 candidate/WP5 score、confidence、review state；不建立新 candidate、不自動 APPROVED、不改 WP5 score。SERP/GA4 只作分離 context，衝突保留 `CROSS_CHANNEL_CONFLICT`/`MIXED_SIGNAL`。
+
+Synthetic fixture `tests/fixtures/opportunity_geo/scenarios.json` 覆蓋 A–P；WP8 targeted **21 tests PASS**，full regression **211 tests PASS**。proposal schema、fixture JSON、AST、explicit date/date-time、`git diff --check`、scoped security/PII、production boundary 均已驗證；沒有 production mutation。`WP8_GEO_FIXED_SAMPLE_READINESS = READY`。下一個唯一工作是 **WP9 — Opportunity preview / UAT report**；本輪未開始 WP9、未 push。
