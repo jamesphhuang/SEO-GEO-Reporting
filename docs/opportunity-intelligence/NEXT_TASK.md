@@ -93,3 +93,9 @@ checks PASS。`contracts/ga4_quality_diagnostics.v1.proposal.json` 維持 propos
 
 `WP6_GA4_QUALITY_READINESS = READY`。下一個唯一任務是 **WP7 — SERP validation**；
 沒有建立 WP7 branch，未開始 WP7。Push 尚未授權，沒有 push 或 merge。
+
+## Current handoff — WP7 complete
+
+`WP7_BASELINE_SHA=16c6c74248a0d96f8357b21d9eca45e3668d16eb`。在 `feat/opportunity-serp-validation` 完成 offline shortlist-only SERP normalizer、bounded injected collection boundary、deterministic intent/page-type validation、preview、proposal schemas、synthetic A–N fixtures 與 append-only validation history。所有 query identity、scope、feature availability、owned/competitor mapping、freshness 與 `evidence_id + revision + content_hash` pinning 都保留；SERP 不改 WP5 score/confidence，也不自動 APPROVED。
+
+WP7 targeted **9 tests PASS**，full regression **190 tests PASS**；schema/fixture/AST/date-time、`git diff --check`、scoped security 與 production-boundary checks PASS。沒有 live provider、production mutation、PR、push 或 merge。下一個唯一任務是 **WP8 — GEO fixed sample layer**；本輪停止，不開始 WP8。

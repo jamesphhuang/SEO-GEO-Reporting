@@ -111,3 +111,9 @@ missing/stale 狀態均保持 diagnostic/policy gap。
 date/date-time、`git diff --check` 與 scoped security/production-boundary scan 均 PASS。
 沒有 live GA4 或其他 source query，沒有 production mutation。`WP6_GA4_QUALITY_READINESS = READY`。
 下一個唯一工作是 **WP7 — SERP validation**；本輪停止，未開始 WP7、未 push。
+
+## Current handoff — WP7 complete（2026-09-10）
+
+WP7 clean baseline：`16c6c74248a0d96f8357b21d9eca45e3668d16eb`；branch `feat/opportunity-serp-validation`，worktree `/private/tmp/seo-geo-wp7-serp`。本輪只實作 offline shortlist SERP validation：normalizer、bounded injected collection、deterministic composition rules、proposal schemas、preview、synthetic A–N fixtures 與 append-only validation history。exact canonical query、scope、owned URL、approved competitor mapping 與 provider provenance 是必要 identity；NOT_AVAILABLE、STALE、FAILED、PARTIAL、unknown domain 與 mixed intent 均保留，不補零、不把缺失轉 false、不把 cached Ahrefs 當 live。
+
+Candidate 與 SERP validation 各自 pin `evidence_id + revision + content_hash`；validation status 不會改 WP5 score/confidence 或 review state，`approval_transition_allowed=false`。WP7 targeted **9 tests**、full regression **190 tests**、schema/AST/JSON/date-time、diff、security 與 production boundary 全部 PASS。未 push、未建立 PR、未 merge main，也未開始 WP8。下一個唯一工作是 **WP8 — GEO fixed sample layer**。

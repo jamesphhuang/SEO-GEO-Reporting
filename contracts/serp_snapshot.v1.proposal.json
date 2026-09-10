@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/contracts/serp_snapshot.v1.proposal.json",
+  "title": "SERP snapshot evidence proposal",
+  "description": "Normalised, provider-provenance-pinned shortlist snapshot; no bulk crawler or production activation.",
+  "type": "object",
+  "additionalProperties": false,
+  "x-proposal-status": "DRAFT_NOT_APPROVED",
+  "x-production-activation": false,
+  "x-source-role": "LIVE / OBSERVED SERP VALIDATION EVIDENCE",
+  "required": ["record_type", "evidence_id", "revision", "source", "source_class", "metric", "value", "unit", "period_start", "period_end", "as_of", "retrieved_at", "freshness_state", "collection_status", "source_reference", "contract_version", "entity_refs", "query_ref", "country", "locale", "device", "search_scope", "provider", "snapshot_hash", "created_at"],
+  "properties": {
+    "record_type": {"const": "EVIDENCE"}, "evidence_id": {"type": "string"}, "revision": {"type": "integer", "minimum": 1}, "source": {"const": "SERP"}, "source_class": {"const": "LIVE_SERP_SNAPSHOT"}, "source_role": {"type": "string"}, "metric": {"const": "serp_snapshot"}, "value": {"type": ["object", "null"]}, "unit": {"type": "string"}, "period_start": {"type": "string", "format": "date"}, "period_end": {"type": "string", "format": "date"}, "as_of": {"type": "string", "format": "date"}, "freshness_state": {"enum": ["READY", "PARTIAL", "STALE", "FAILED", "NOT_AVAILABLE"]}, "collection_status": {"enum": ["SUCCESS", "PARTIAL", "FAILED", "NOT_AVAILABLE"]}, "source_reference": {"type": "string"}, "contract_version": {"type": "string"}, "entity_refs": {"type": "array"}, "topic_refs": {"type": "array"}, "query_ref": {"type": "object"}, "query_id": {"type": "string"}, "query_entity_type": {"type": "string"}, "query_text": {"type": "string"}, "country": {"type": "string"}, "locale": {"type": "string"}, "device": {"type": "string"}, "search_scope": {"type": "string"}, "provider": {"type": "string"}, "provider_provenance": {"type": "object"}, "snapshot_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "max_results": {"type": "integer"}, "provider_result_count": {"type": "integer"}, "observed_result_count": {"type": "integer"}, "truncated": {"type": "boolean"}, "coverage": {"type": "string"}, "error_code": {"type": ["string", "null"]}, "serp_features": {"type": "object"}, "supersedes_evidence_id": {"type": ["string", "null"]}, "supersedes_revision": {"type": ["integer", "null"]}, "created_at": {"type": "string", "format": "date-time"}, "retrieved_at": {"type": "string", "format": "date-time"}, "observed_at": {"type": "string", "format": "date-time"}
+  }
+}

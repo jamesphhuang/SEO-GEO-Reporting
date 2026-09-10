@@ -1,0 +1,28 @@
+{
+  "base": {
+    "query_ref": {"entity_type": "QUERY", "entity_id": "QUERY_5bb71ebc8f4f1fab1c53c44c", "text": "台灣電商平台", "locale": "zh-TW", "country": "TW"},
+    "country": "TW", "locale": "zh-TW", "device": "DESKTOP", "search_scope": "COUNTRY", "provider": "synthetic-serp", "retrieved_at": "2026-09-10T03:00:00+00:00", "source_reference": "synthetic-serp-wp7", "freshness_state": "READY", "collection_status": "SUCCESS",
+    "organic_results": [
+      {"rank": 1, "url": "https://shopline.tw/example/ecommerce-platform/", "title": "電商平台完整比較", "snippet": "台灣商家比較平台功能", "result_type": "comparison"},
+      {"rank": 2, "url": "https://waca.example/ecommerce", "title": "WACA 電商平台", "snippet": "開店平台介紹", "result_type": "comparison"},
+      {"rank": 3, "url": "https://shopline.tw/blog/ecommerce-guide", "title": "電商入門指南", "snippet": "新手教學", "result_type": "article"}
+    ],
+    "serp_features": {"featured_snippet": "NOT_OBSERVED", "paa": "NOT_OBSERVED", "ai_overview": "NOT_OBSERVED"}
+  },
+  "scenarios": {
+    "A_quick_win_article": {"records": [{"organic_results": [{"rank": 1, "url": "https://shopline.tw/blog/ecommerce-guide", "title": "電商入門指南", "result_type": "article"}, {"rank": 2, "url": "https://shopline.tw/blog/ecommerce-platform", "title": "平台教學", "result_type": "article"}, {"rank": 3, "url": "https://waca.example/guide", "title": "比較指南", "result_type": "article"}]}]},
+    "B_page_type_mismatch": {"records": [{"organic_results": [{"rank": 1, "url": "https://shopline.tw/shop", "title": "平台商品", "result_type": "product"}, {"rank": 2, "url": "https://waca.example/shop", "title": "商品頁", "result_type": "category"}]}]},
+    "C_ctr_feature_crowding": {"records": [{"serp_features": {"featured_snippet": "OBSERVED", "paa": "OBSERVED", "ai_overview": "NOT_OBSERVED"}}]},
+    "D_mixed_intent": {"records": [{"organic_results": [{"rank": 1, "url": "https://shopline.tw/blog/a", "result_type": "article"}, {"rank": 2, "url": "https://shopline.tw/shop", "result_type": "product"}, {"rank": 3, "url": "https://waca.example/c", "result_type": "comparison"}, {"rank": 4, "url": "https://shopline.tw/blog/b", "result_type": "article"}]}]},
+    "E_shopline_strong": {"records": [{"organic_results": [{"rank": 1, "url": "https://shopline.tw/example/ecommerce-platform/", "result_type": "comparison"}, {"rank": 2, "url": "https://shopline.tw/feature", "result_type": "comparison"}, {"rank": 3, "url": "https://shopline.tw/guide", "result_type": "article"}]}]},
+    "F_competitor_heavy": {"records": [{"organic_results": [{"rank": 1, "url": "https://waca.example/a", "result_type": "comparison"}, {"rank": 2, "url": "https://waca.example/b", "result_type": "comparison"}, {"rank": 3, "url": "https://pos.example/c", "result_type": "comparison"}]}]},
+    "G_missing_validation_query": {"records": []},
+    "H_unmapped_competitor_domain": {"records": [{"organic_results": [{"rank": 1, "url": "https://unknowncompetitor.example/a", "result_type": "comparison"}, {"rank": 2, "url": "https://shopline.tw/example/ecommerce-platform/", "result_type": "comparison"}]}]},
+    "I_feature_not_available": {"records": [{"serp_features": {"featured_snippet": "NOT_AVAILABLE", "paa": "NOT_AVAILABLE", "ai_overview": "NOT_AVAILABLE"}}]},
+    "J_stale": {"records": [{"retrieved_at": "2026-08-01T03:00:00+00:00", "freshness_state": "STALE", "organic_results": [{"rank": 1, "url": "https://shopline.tw/example/ecommerce-platform/", "result_type": "comparison"}]}]},
+    "K_deterministic": {"records": [{}]},
+    "L_revision_2": {"records": [{"evidence_id": "SERP_HISTORY_001", "revision": 2, "supersedes_evidence_id": "SERP_HISTORY_001", "supersedes_revision": 1}]},
+    "M_locale_mismatch": {"records": [{"locale": "en-US", "organic_results": [{"rank": 1, "url": "https://shopline.tw/example/ecommerce-platform/", "result_type": "comparison"}]}]},
+    "N_insufficient_results": {"records": [{"organic_results": [], "collection_status": "PARTIAL", "freshness_state": "PARTIAL"}]}
+  }
+}

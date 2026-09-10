@@ -190,3 +190,13 @@ Revenue、CVR 或 APPROVED。AI Assistant 與外部 business population 的 attr
 涵蓋 healthy、traffic/engagement trends、missing、stale、wrong channel、sitewide、
 unresolved URL、CTA、GSC conflict、deterministic replay 與歷史 revision。WP6 完成後
 下一個唯一工作依 ROADMAP 是 WP7 SERP validation；本輪未開始 WP7。
+
+## WP7 implementation handoff（2026-09-10）
+
+本輪以 `WP7_BASELINE_SHA=16c6c74248a0d96f8357b21d9eca45e3668d16eb` 建立 clean worktree `/private/tmp/seo-geo-wp7-serp` 與 branch `feat/opportunity-serp-validation`。原 dirty worktree 未觸碰；沒有修改 `main`，也沒有呼叫 live Google Search、Ahrefs、GSC、GA4、Screaming Frog、Workduo 或 CrUX。
+
+新增 `reporting/sources/serp.py` 作為 offline-only、injected transport 的 bounded shortlist collection boundary（query/candidate/result cap 30、timeout 30 秒、最多一次 transient retry）。它要求 WP3 canonical QUERY/KEYWORD 的 exact text、locale、country、device、scope，保留 provider provenance、observed timestamp、organic rows、page-type result kind、owned/approved competitor mapping 與 feature state。`NOT_AVAILABLE` 與未 capture 不轉成 false；unknown domain 只保留 `UNMAPPED_DOMAIN`。
+
+`reporting/opportunity/serp_validation.py` 只解讀 pinned `SERP` evidence，不做 discovery、bulk crawl 或 LLM query invention。它輸出 `SERP_VALIDATED`、`SERP_CONFLICT`、`SERP_NOT_CHECKED` 三態，保留 query/scope、intent、page-type distribution、SHOPLINE/competitor presence、AIO/PAA feature state、structured conflicts、freshness、rule trace、`evidence_id + revision + content_hash` 與 candidate refs。SERP status 與 WP5 score/confidence 分離；不會把 validated 候選自動改成 APPROVED，也不會刪除候選。兩份 SERP proposal schema 都是 `DRAFT_NOT_APPROVED`、`x-production-activation=false`。
+
+Synthetic scenarios A–N 涵蓋 quick win、page-type mismatch、feature crowding、mixed intent、owned strong、competitor dominance、missing query、unmapped domain、NOT_AVAILABLE、stale、determinism、revision history、locale mismatch 與 insufficient results。下一個唯一工作依 ROADMAP 是 **WP8 — GEO fixed sample layer**；本輪不開始 WP8。
