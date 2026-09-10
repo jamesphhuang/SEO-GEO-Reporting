@@ -66,6 +66,16 @@ __all__ = [
     "render_opportunity_preview",
     "render_uat_preview",
     "validate_opportunity_preview",
+    "HumanReviewInput",
+    "HumanReviewResult",
+    "HumanReviewStore",
+    "create_human_review",
+    "validate_human_review",
+    "RecommendationBridgeResult",
+    "RecommendationBridgeStore",
+    "build_recommendation_bridge",
+    "validate_recommendation_bridge",
+    "project_review_status",
 ]
 
 
@@ -114,4 +124,10 @@ def __getattr__(name):
             "render_uat_preview": render_uat_preview,
             "validate_opportunity_preview": validate_opportunity_preview,
         }[name]
+    if name in {"HumanReviewInput", "HumanReviewResult", "HumanReviewStore", "create_human_review", "validate_human_review"}:
+        from .review import HumanReviewInput, HumanReviewResult, HumanReviewStore, create_human_review, validate_human_review
+        return {"HumanReviewInput": HumanReviewInput, "HumanReviewResult": HumanReviewResult, "HumanReviewStore": HumanReviewStore, "create_human_review": create_human_review, "validate_human_review": validate_human_review}[name]
+    if name in {"RecommendationBridgeResult", "RecommendationBridgeStore", "build_recommendation_bridge", "validate_recommendation_bridge", "project_review_status"}:
+        from .review_bridge import RecommendationBridgeResult, RecommendationBridgeStore, build_recommendation_bridge, validate_recommendation_bridge, project_review_status
+        return {"RecommendationBridgeResult": RecommendationBridgeResult, "RecommendationBridgeStore": RecommendationBridgeStore, "build_recommendation_bridge": build_recommendation_bridge, "validate_recommendation_bridge": validate_recommendation_bridge, "project_review_status": project_review_status}[name]
     raise AttributeError(name)

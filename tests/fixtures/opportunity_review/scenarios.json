@@ -1,0 +1,694 @@
+{
+  "metadata": {
+    "fixture_version": "wp10-review-1",
+    "production_mutation": 0,
+    "sample_dates": {
+      "decision_at": "2026-09-11T09:00:00+08:00"
+    },
+    "source": "offline-only",
+    "synthetic": true
+  },
+  "scenarios": [
+    {
+      "candidate": {
+        "candidate_id": "CAND_WP10_A",
+        "capability_gaps": [],
+        "confidence": "HIGH",
+        "conflicts": [],
+        "content_hash": "e15bb8802becfb2b348d441f05f7f6e8f4ad2d493b8bc3eff36f58f04efb0a14",
+        "evidence_refs": [
+          {
+            "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "evidence_id": "EVID_WP10_A_GSC",
+            "revision": 1
+          },
+          {
+            "content_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "evidence_id": "EVID_WP10_A_SERP",
+            "revision": 1
+          }
+        ],
+        "missing_evidence_roles": [],
+        "policy_gaps": [],
+        "recommended_action": "UPDATE_EXISTING",
+        "record_type": "CANDIDATE",
+        "review_state": "NOT_REVIEWED",
+        "revision": 1,
+        "score": 89,
+        "section": "gsc",
+        "status": "CANDIDATE",
+        "target_url": "https://shopline.tw/synthetic/wp10/a/",
+        "topic_ref": {
+          "entity_id": "TOPIC_WP10_SYNTHETIC",
+          "entity_type": "TOPIC"
+        },
+        "validation_state": "PASS"
+      },
+      "description": "valid candidate plus authenticated human approval creates UAT bridge",
+      "expected": {
+        "bridge": true,
+        "human_review": "APPROVE"
+      },
+      "id": "A"
+    },
+    {
+      "candidate": {
+        "candidate_id": "CAND_WP10_B",
+        "capability_gaps": [],
+        "confidence": "HIGH",
+        "conflicts": [],
+        "content_hash": "d244f821694a92da862e10f75e7f272e94b26db9e0a1f61bbda2a3c3b765db37",
+        "evidence_refs": [
+          {
+            "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "evidence_id": "EVID_WP10_B_GSC",
+            "revision": 1
+          },
+          {
+            "content_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "evidence_id": "EVID_WP10_B_SERP",
+            "revision": 1
+          }
+        ],
+        "missing_evidence_roles": [],
+        "policy_gaps": [],
+        "recommended_action": "UPDATE_EXISTING",
+        "record_type": "CANDIDATE",
+        "review_state": "NOT_REVIEWED",
+        "revision": 1,
+        "score": 88,
+        "section": "gsc",
+        "status": "CANDIDATE",
+        "target_url": "https://shopline.tw/synthetic/wp10/b/",
+        "topic_ref": {
+          "entity_id": "TOPIC_WP10_SYNTHETIC",
+          "entity_type": "TOPIC"
+        },
+        "validation_state": "PASS"
+      },
+      "description": "reject preserves candidate and creates no bridge",
+      "expected": {
+        "bridge": false,
+        "human_review": "REJECT"
+      },
+      "id": "B"
+    },
+    {
+      "candidate": {
+        "candidate_id": "CAND_WP10_C",
+        "capability_gaps": [],
+        "confidence": "MEDIUM",
+        "conflicts": [],
+        "content_hash": "64e564e62b119b2dfbf530967507152bb276fc7dd548d133dffd2a3de391162c",
+        "evidence_refs": [
+          {
+            "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "evidence_id": "EVID_WP10_C_GSC",
+            "revision": 1
+          },
+          {
+            "content_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "evidence_id": "EVID_WP10_C_SERP",
+            "revision": 1
+          }
+        ],
+        "missing_evidence_roles": [],
+        "policy_gaps": [],
+        "recommended_action": "UPDATE_EXISTING",
+        "record_type": "CANDIDATE",
+        "review_state": "NOT_REVIEWED",
+        "revision": 1,
+        "score": 87,
+        "section": "gsc",
+        "status": "CANDIDATE",
+        "target_url": "https://shopline.tw/synthetic/wp10/c/",
+        "topic_ref": {
+          "entity_id": "TOPIC_WP10_SYNTHETIC",
+          "entity_type": "TOPIC"
+        },
+        "validation_state": "PASS"
+      },
+      "description": "missing review is blocked",
+      "expected": {
+        "bridge": false,
+        "human_review": null
+      },
+      "id": "C"
+    },
+    {
+      "candidate": {
+        "candidate_id": "CAND_WP10_D",
+        "capability_gaps": [],
+        "confidence": "HIGH",
+        "conflicts": [],
+        "content_hash": "b719b704f6d169142f95e33f89a777e4cc92578851e01e1cb998acc2738112a3",
+        "evidence_refs": [
+          {
+            "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "evidence_id": "EVID_WP10_D_GSC",
+            "revision": 1
+          },
+          {
+            "content_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "evidence_id": "EVID_WP10_D_SERP",
+            "revision": 1
+          }
+        ],
+        "missing_evidence_roles": [],
+        "policy_gaps": [],
+        "recommended_action": "UPDATE_EXISTING",
+        "record_type": "CANDIDATE",
+        "review_state": "NOT_REVIEWED",
+        "revision": 1,
+        "score": 86,
+        "section": "gsc",
+        "status": "CANDIDATE",
+        "target_url": "https://shopline.tw/synthetic/wp10/d/",
+        "topic_ref": {
+          "entity_id": "TOPIC_WP10_SYNTHETIC",
+          "entity_type": "TOPIC"
+        },
+        "validation_state": "PASS"
+      },
+      "description": "system actor cannot satisfy human gate",
+      "expected": {
+        "bridge": false,
+        "human_review": "SYSTEM_APPROVE"
+      },
+      "id": "D"
+    },
+    {
+      "candidate": {
+        "candidate_id": "CAND_WP10_E",
+        "capability_gaps": [],
+        "confidence": "HIGH",
+        "conflicts": [],
+        "content_hash": "a12167088f110f28e4ef8119e53502fd7fe83f0249b6711900f969a7dcd36c79",
+        "evidence_refs": [
+          {
+            "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "evidence_id": "EVID_WP10_E_GSC",
+            "revision": 1
+          },
+          {
+            "content_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "evidence_id": "EVID_WP10_E_SERP",
+            "revision": 1
+          }
+        ],
+        "missing_evidence_roles": [],
+        "policy_gaps": [],
+        "recommended_action": "UPDATE_EXISTING",
+        "record_type": "CANDIDATE",
+        "review_state": "NOT_REVIEWED",
+        "revision": 1,
+        "score": 85,
+        "section": "gsc",
+        "status": "CANDIDATE",
+        "target_url": "https://shopline.tw/synthetic/wp10/e/",
+        "topic_ref": {
+          "entity_id": "TOPIC_WP10_SYNTHETIC",
+          "entity_type": "TOPIC"
+        },
+        "validation_state": "PASS"
+      },
+      "description": "new candidate revision does not inherit old approval",
+      "expected": {
+        "bridge": false,
+        "human_review": "APPROVE_REV1_THEN_CANDIDATE_REV2"
+      },
+      "id": "E"
+    },
+    {
+      "candidate": {
+        "candidate_id": "CAND_WP10_F",
+        "capability_gaps": [],
+        "confidence": "HIGH",
+        "conflicts": [],
+        "content_hash": "7d409d70c63cad7aaa9b8e43834e9220b9a1d1c32510935c931062c843390341",
+        "evidence_refs": [
+          {
+            "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "evidence_id": "EVID_WP10_F_GSC",
+            "revision": 1
+          },
+          {
+            "content_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "evidence_id": "EVID_WP10_F_SERP",
+            "revision": 1
+          }
+        ],
+        "missing_evidence_roles": [],
+        "policy_gaps": [],
+        "recommended_action": "UPDATE_EXISTING",
+        "record_type": "CANDIDATE",
+        "review_state": "NOT_REVIEWED",
+        "revision": 1,
+        "score": 84,
+        "section": "gsc",
+        "status": "CANDIDATE",
+        "target_url": "https://shopline.tw/synthetic/wp10/f/",
+        "topic_ref": {
+          "entity_id": "TOPIC_WP10_SYNTHETIC",
+          "entity_type": "TOPIC"
+        },
+        "validation_state": "PASS"
+      },
+      "description": "evidence pin mismatch is blocked",
+      "expected": {
+        "bridge": false,
+        "human_review": "APPROVE_BAD_EVIDENCE_HASH"
+      },
+      "id": "F"
+    },
+    {
+      "candidate": {
+        "candidate_id": "CAND_WP10_G",
+        "capability_gaps": [],
+        "confidence": "MEDIUM",
+        "conflicts": [
+          "SERP_CONFLICT"
+        ],
+        "content_hash": "53857d34b7dbe38c7c23a2d232a95862cdfaa785ea90523619fc01e327736b72",
+        "evidence_refs": [
+          {
+            "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "evidence_id": "EVID_WP10_G_GSC",
+            "revision": 1
+          },
+          {
+            "content_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "evidence_id": "EVID_WP10_G_SERP",
+            "revision": 1
+          }
+        ],
+        "missing_evidence_roles": [],
+        "policy_gaps": [],
+        "recommended_action": "GEO_ENHANCE",
+        "record_type": "CANDIDATE",
+        "review_state": "NOT_REVIEWED",
+        "revision": 1,
+        "score": 83,
+        "section": "gsc",
+        "status": "CANDIDATE",
+        "target_url": "https://shopline.tw/synthetic/wp10/g/",
+        "topic_ref": {
+          "entity_id": "TOPIC_WP10_SYNTHETIC",
+          "entity_type": "TOPIC"
+        },
+        "validation_state": "PASS"
+      },
+      "description": "SERP conflict is preserved after explicit adjudication",
+      "expected": {
+        "bridge": true,
+        "human_review": "APPROVE_WITH_ADJUDICATION"
+      },
+      "id": "G"
+    },
+    {
+      "candidate": {
+        "candidate_id": "CAND_WP10_H",
+        "capability_gaps": [],
+        "confidence": "LOW",
+        "conflicts": [
+          "GEO_WEAK"
+        ],
+        "content_hash": "a85c276506b6c69f0d173514c12075d53498a96693c60d96ea26b415fb57aa26",
+        "evidence_refs": [
+          {
+            "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "evidence_id": "EVID_WP10_H_GSC",
+            "revision": 1
+          },
+          {
+            "content_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "evidence_id": "EVID_WP10_H_SERP",
+            "revision": 1
+          }
+        ],
+        "missing_evidence_roles": [],
+        "policy_gaps": [],
+        "recommended_action": "GEO_ENHANCE",
+        "record_type": "CANDIDATE",
+        "review_state": "NOT_REVIEWED",
+        "revision": 1,
+        "score": 82,
+        "section": "gsc",
+        "status": "CANDIDATE",
+        "target_url": "https://shopline.tw/synthetic/wp10/h/",
+        "topic_ref": {
+          "entity_id": "TOPIC_WP10_SYNTHETIC",
+          "entity_type": "TOPIC"
+        },
+        "validation_state": "PASS"
+      },
+      "description": "GEO weak candidate can be rejected",
+      "expected": {
+        "bridge": false,
+        "human_review": "REJECT"
+      },
+      "id": "H"
+    },
+    {
+      "candidate": {
+        "candidate_id": "CAND_WP10_I",
+        "capability_gaps": [],
+        "confidence": "HIGH",
+        "conflicts": [],
+        "content_hash": "0ac5a70370dfdea58ee9d61ad63c78ec452877a899007dac148f6f4bab2b443a",
+        "evidence_refs": [
+          {
+            "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "evidence_id": "EVID_WP10_I_GSC",
+            "revision": 1
+          },
+          {
+            "content_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "evidence_id": "EVID_WP10_I_SERP",
+            "revision": 1
+          }
+        ],
+        "missing_evidence_roles": [],
+        "policy_gaps": [],
+        "recommended_action": "DO_NOTHING",
+        "record_type": "CANDIDATE",
+        "review_state": "NOT_REVIEWED",
+        "revision": 1,
+        "score": 81,
+        "section": "gsc",
+        "status": "CANDIDATE",
+        "target_url": "https://shopline.tw/synthetic/wp10/i/",
+        "topic_ref": {
+          "entity_id": "TOPIC_WP10_SYNTHETIC",
+          "entity_type": "TOPIC"
+        },
+        "validation_state": "PASS"
+      },
+      "description": "DO_NOTHING is a reviewable action, not rejection",
+      "expected": {
+        "bridge": true,
+        "human_review": "APPROVE"
+      },
+      "id": "I"
+    },
+    {
+      "candidate": {
+        "candidate_id": "CAND_WP10_J",
+        "capability_gaps": [],
+        "confidence": "HIGH",
+        "conflicts": [],
+        "content_hash": "d1caeb0155e256ca0e206b0f2f9e0d138edd1a24340389718db27bc18a3f87db",
+        "evidence_refs": [
+          {
+            "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "evidence_id": "EVID_WP10_J_GSC",
+            "revision": 1
+          },
+          {
+            "content_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "evidence_id": "EVID_WP10_J_SERP",
+            "revision": 1
+          }
+        ],
+        "missing_evidence_roles": [],
+        "policy_gaps": [],
+        "recommended_action": "UPDATE_EXISTING",
+        "record_type": "CANDIDATE",
+        "review_state": "NOT_REVIEWED",
+        "revision": 1,
+        "score": 80,
+        "section": "gsc",
+        "status": "CANDIDATE",
+        "target_url": "https://shopline.tw/synthetic/wp10/j/",
+        "topic_ref": {
+          "entity_id": "TOPIC_WP10_SYNTHETIC",
+          "entity_type": "TOPIC"
+        },
+        "validation_state": "PASS"
+      },
+      "description": "needs more evidence blocks bridge",
+      "expected": {
+        "bridge": false,
+        "human_review": "NEEDS_MORE_EVIDENCE"
+      },
+      "id": "J"
+    },
+    {
+      "candidate": {
+        "candidate_id": "CAND_WP10_K",
+        "capability_gaps": [],
+        "confidence": "MEDIUM",
+        "conflicts": [],
+        "content_hash": "7fe1c827864c029c9a26943c23e59e681bfef724a9740f36c3cbba49ffb30937",
+        "evidence_refs": [
+          {
+            "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "evidence_id": "EVID_WP10_K_GSC",
+            "revision": 1
+          },
+          {
+            "content_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "evidence_id": "EVID_WP10_K_SERP",
+            "revision": 1
+          }
+        ],
+        "missing_evidence_roles": [],
+        "policy_gaps": [],
+        "recommended_action": "UPDATE_EXISTING",
+        "record_type": "CANDIDATE",
+        "review_state": "NOT_REVIEWED",
+        "revision": 1,
+        "score": 79,
+        "section": "gsc",
+        "stale_evidence_roles": [
+          "SERP"
+        ],
+        "status": "CANDIDATE",
+        "target_url": "https://shopline.tw/synthetic/wp10/k/",
+        "topic_ref": {
+          "entity_id": "TOPIC_WP10_SYNTHETIC",
+          "entity_type": "TOPIC"
+        },
+        "validation_state": "PASS"
+      },
+      "description": "stale critical evidence blocks bridge",
+      "expected": {
+        "bridge": false,
+        "human_review": "APPROVE_STALE"
+      },
+      "id": "K"
+    },
+    {
+      "candidate": {
+        "candidate_id": "CAND_WP10_L",
+        "capability_gaps": [],
+        "confidence": "HIGH",
+        "conflicts": [],
+        "content_hash": "4694aef629651f34ff86b401fd0a625b595a4ae402015fb826bd6f720d858510",
+        "evidence_refs": [
+          {
+            "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "evidence_id": "EVID_WP10_L_GSC",
+            "revision": 1
+          },
+          {
+            "content_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "evidence_id": "EVID_WP10_L_SERP",
+            "revision": 1
+          }
+        ],
+        "missing_evidence_roles": [],
+        "policy_gaps": [],
+        "recommended_action": "UPDATE_EXISTING",
+        "record_type": "CANDIDATE",
+        "review_state": "NOT_REVIEWED",
+        "revision": 1,
+        "score": 78,
+        "section": "gsc",
+        "status": "CANDIDATE",
+        "target_url": "https://shopline.tw/synthetic/wp10/l/",
+        "topic_ref": {
+          "entity_id": "TOPIC_WP10_SYNTHETIC",
+          "entity_type": "TOPIC"
+        },
+        "validation_state": "PASS"
+      },
+      "description": "review revision history is append-only",
+      "expected": {
+        "bridge": "rev2",
+        "human_review": "APPROVE_REV1_THEN_REV2"
+      },
+      "id": "L"
+    },
+    {
+      "candidate": {
+        "candidate_id": "CAND_WP10_M",
+        "capability_gaps": [],
+        "confidence": "HIGH",
+        "conflicts": [],
+        "content_hash": "5c6b01d4aa71f171db91865121c9df51fdf36ca62fa4798b290bd19c9138fec3",
+        "evidence_refs": [
+          {
+            "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "evidence_id": "EVID_WP10_M_GSC",
+            "revision": 1
+          },
+          {
+            "content_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "evidence_id": "EVID_WP10_M_SERP",
+            "revision": 1
+          }
+        ],
+        "missing_evidence_roles": [],
+        "policy_gaps": [],
+        "recommended_action": "UPDATE_EXISTING",
+        "record_type": "CANDIDATE",
+        "review_state": "NOT_REVIEWED",
+        "revision": 1,
+        "score": 77,
+        "section": "gsc",
+        "status": "CANDIDATE",
+        "target_url": "https://shopline.tw/synthetic/wp10/m/",
+        "topic_ref": {
+          "entity_id": "TOPIC_WP10_SYNTHETIC",
+          "entity_type": "TOPIC"
+        },
+        "validation_state": "PASS"
+      },
+      "description": "bridge revision history keeps rev1 immutable",
+      "expected": {
+        "bridge": "rev2",
+        "human_review": "APPROVE_REV1_THEN_REV2"
+      },
+      "id": "M"
+    },
+    {
+      "candidate": {
+        "candidate_id": "CAND_WP10_N",
+        "capability_gaps": [],
+        "confidence": "MEDIUM",
+        "conflicts": [],
+        "content_hash": "7a179e13c58d27d1898b0f279234f01886a159656256f070fbdc699be616aa8e",
+        "evidence_refs": [
+          {
+            "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "evidence_id": "EVID_WP10_N_GSC",
+            "revision": 1
+          },
+          {
+            "content_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "evidence_id": "EVID_WP10_N_SERP",
+            "revision": 1
+          }
+        ],
+        "missing_evidence_roles": [],
+        "policy_gaps": [],
+        "recommended_action": "UPDATE_EXISTING",
+        "record_type": "CANDIDATE",
+        "review_state": "NOT_REVIEWED",
+        "revision": 1,
+        "score": 76,
+        "section": "gsc",
+        "status": "CANDIDATE",
+        "target_url": "https://shopline.tw/synthetic/wp10/n/",
+        "topic_ref": {
+          "entity_id": "TOPIC_WP10_SYNTHETIC",
+          "entity_type": "TOPIC"
+        },
+        "validation_state": "PASS"
+      },
+      "description": "same pinned inputs produce the same semantic bridge hash",
+      "expected": {
+        "bridge": true,
+        "human_review": "APPROVE_DETERMINISTIC"
+      },
+      "id": "N"
+    },
+    {
+      "candidate": {
+        "candidate_id": "CAND_WP10_O",
+        "capability_gaps": [],
+        "confidence": "HIGH",
+        "conflicts": [],
+        "content_hash": "7443c72d61ec73cc37afbe41dca1ad49a0b229941024d091068915f970c2e424",
+        "evidence_refs": [
+          {
+            "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "evidence_id": "EVID_WP10_O_GSC",
+            "revision": 1
+          },
+          {
+            "content_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "evidence_id": "EVID_WP10_O_SERP",
+            "revision": 1
+          }
+        ],
+        "missing_evidence_roles": [],
+        "policy_gaps": [],
+        "recommended_action": "UPDATE_EXISTING",
+        "record_type": "CANDIDATE",
+        "review_state": "NOT_REVIEWED",
+        "revision": 1,
+        "score": 75,
+        "section": "gsc",
+        "status": "CANDIDATE",
+        "target_url": "https://shopline.tw/synthetic/wp10/o/",
+        "topic_ref": {
+          "entity_id": "TOPIC_WP10_SYNTHETIC",
+          "entity_type": "TOPIC"
+        },
+        "validation_state": "PASS"
+      },
+      "description": "human-authored notes do not alter candidate score or evidence",
+      "expected": {
+        "bridge": true,
+        "human_review": "APPROVE_WITH_NOTE"
+      },
+      "id": "O"
+    },
+    {
+      "candidate": {
+        "candidate_id": "CAND_WP10_P",
+        "capability_gaps": [],
+        "confidence": "HIGH",
+        "conflicts": [],
+        "content_hash": "f63fef8b8b774441883288c8dd3d6b7e91c21b6fc13a9b8444ea57fa72e50561",
+        "evidence_refs": [
+          {
+            "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "evidence_id": "EVID_WP10_P_GSC",
+            "revision": 1
+          },
+          {
+            "content_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "evidence_id": "EVID_WP10_P_SERP",
+            "revision": 1
+          }
+        ],
+        "missing_evidence_roles": [
+          "GA4"
+        ],
+        "policy_gaps": [],
+        "recommended_action": "UPDATE_EXISTING",
+        "record_type": "CANDIDATE",
+        "review_state": "NOT_REVIEWED",
+        "revision": 1,
+        "score": 74,
+        "section": "gsc",
+        "status": "CANDIDATE",
+        "target_url": "https://shopline.tw/synthetic/wp10/p/",
+        "topic_ref": {
+          "entity_id": "TOPIC_WP10_SYNTHETIC",
+          "entity_type": "TOPIC"
+        },
+        "validation_state": "PASS"
+      },
+      "description": "bridge never writes Next Steps",
+      "expected": {
+        "bridge": true,
+        "human_review": "APPROVE"
+      },
+      "id": "P"
+    }
+  ]
+}

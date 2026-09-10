@@ -49,7 +49,7 @@ PASS。沒有 live source query 或 production mutation；contracts 仍是 `*.pr
 
 `WP5_SEO_ENGINE_READINESS = READY`。
 
-## Next single task
+## Previous next single task (before WP10)
 
 WP9 — Opportunity preview / UAT report。只記錄下一個工作；本輪不要開始 WP9。
 
@@ -120,7 +120,20 @@ WP9 targeted **23 tests PASS**；full regression **234 tests PASS**；schema/fix
 explicit date/date-time、`git diff --check`、scoped security/PII/live-call 與 production
 boundary checks PASS，production mutation=0。`WP9_OPPORTUNITY_PREVIEW_READINESS = READY`。
 
-## Next single task
+## Previous next single task (before WP10)
 
 **WP10 — Human review / recommendation bridge**。只記錄下一個工作；本輪不要開始 WP10、
 建立 WP10 branch、push 或 merge。
+
+## WP10 result（2026-09-11）
+
+`WP10_BASELINE_SHA=356285f80a1a4bd4a98425a0bc561e7b65141455`。本輪完成 offline
+append-only human review records、exact Candidate/evidence revision pinning、UAT-only
+recommendation bridge 與 read-only review projection。26 個 WP10 tests 與完整 **260 tests
+PASS**；兩份 proposal schema 維持 Draft 2020-12、`DRAFT_NOT_APPROVED`、production
+activation false。Score、Confidence、GA4、SERP、GEO、conflicts、DO_NOTHING 與
+NEEDS_MORE_EVIDENCE 語義均保持獨立；Recommendations、Next Steps、Sheets、Apps Script
+與 scheduler mutation=0。
+
+`WP10_HUMAN_REVIEW_BRIDGE_READINESS = READY`。下一個唯一正式任務是 **WP11 — Outcome
+tracking**。本輪未開始 WP11，也未建立 WP11 branch。

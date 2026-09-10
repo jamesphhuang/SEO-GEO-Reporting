@@ -144,3 +144,24 @@ fixture、AST、explicit date/date-time、`git diff --check`、security/PII/live
 production-boundary scans 全部 PASS，production mutation=0。`WP9_OPPORTUNITY_PREVIEW_READINESS = READY`。
 本輪只建立 local commit，未 push、未建 PR、未 merge。下一個唯一工作是 **WP10 — Human review /
 recommendation bridge**；不要開始 WP10。
+
+## Current handoff — WP10 complete（2026-09-11）
+
+Baseline `356285f80a1a4bd4a98425a0bc561e7b65141455`；branch
+`feat/opportunity-human-review-bridge`；clean worktree `/private/tmp/seo-geo-wp10-review`。
+新增 `review.py`、`review_bridge.py`、兩份 proposal schema、A–P synthetic fixture 與
+26 個 targeted tests。Review 是 authenticated HUMAN actor 的 first-class decision record，
+以 candidate revision/hash、evidence refs、optional GA4/SERP/GEO refs、policy、notes
+provenance 與 semantic hash 保存。Bridge 只能從 exact human APPROVE 建立，且只到 UAT /
+PREVIEW；Score/Confidence、GA4、SERP、GEO、conflicts 與 Candidate history 均不被改寫。
+
+Review 與 bridge stores 都是 append-only JSONL，支援 contiguous revisions、supersedes、
+idempotency、tamper detection 與 stale/superseded rejection。Missing/STALE、SERP_NOT_CHECKED、
+policy/capability gap、revision/hash mismatch、未 adjudicate conflict 與任何非 human actor
+均 fail closed。`next_steps_written=false`、`production_mutation=false`；沒有正式
+Recommendations、Next Steps、Sheets、Apps Script、scheduler、live query、PR、push 或 merge。
+
+WP10 targeted **26 tests PASS**，full regression **260 tests PASS**；schema、fixtures、AST、
+date/date-time、`git diff --check`、security/PII/live-call/production-boundary checks PASS，
+production mutation=0。`WP10_HUMAN_REVIEW_BRIDGE_READINESS = READY`。只建立 local commit，
+不要 push/merge，也不要開始或建立 WP11。下一個唯一任務是 **WP11 — Outcome tracking**。

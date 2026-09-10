@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/contracts/human_review.v1.proposal.json",
+  "title": "Offline human review decision proposal",
+  "type": "object",
+  "x-proposal-status": "DRAFT_NOT_APPROVED",
+  "x-production-activation": false,
+  "required": ["record_type", "contract_version", "review_id", "revision", "candidate_id", "candidate_revision", "candidate_hash", "reviewer_id", "reviewer", "authenticated_human", "decision", "reason_code", "candidate_evidence_refs", "policy_version", "created_at", "decision_at", "content_hash"],
+  "properties": {
+    "record_type": {"const": "HUMAN_REVIEW"},
+    "contract_version": {"const": "human_review.v1.proposal"},
+    "review_id": {"type": "string", "minLength": 1, "maxLength": 200},
+    "revision": {"type": "integer", "minimum": 1},
+    "supersedes_review_revision": {"type": ["integer", "null"], "minimum": 1},
+    "candidate_id": {"type": "string", "minLength": 1, "maxLength": 200},
+    "candidate_revision": {"type": "integer", "minimum": 1},
+    "candidate_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "reviewer_id": {"type": "string", "minLength": 1, "maxLength": 200},
+    "reviewer": {
+      "type": "object",
+      "required": ["actor_type", "actor_ref", "authenticated", "identity_source"],
+      "properties": {
+        "actor_type": {"const": "HUMAN"},
+        "actor_ref": {"type": "string", "minLength": 1, "maxLength": 200},
+        "authenticated": {"const": true},
+        "identity_source": {"type": "string", "minLength": 1, "maxLength": 100}
+      },
+      "additionalProperties": false
+    },
+    "authenticated_human": {"const": true},
+    "decision": {"enum": ["APPROVE", "REJECT", "NEEDS_MORE_EVIDENCE", "DEFER", "RETURN_FOR_REVIEW"]},
+    "reason_code": {"type": "string", "minLength": 1, "maxLength": 200},
+    "notes": {"type": ["string", "null"], "maxLength": 4000},
+    "notes_provenance": {"enum": ["HUMAN_AUTHORED", "NOT_PROVIDED"]},
+    "candidate_evidence_refs": {"type": "array", "items": {"$ref": "#/$defs/pin"}, "uniqueItems": true},
+    "ga4_diagnostic_ref": {"anyOf": [{"$ref": "#/$defs/pin"}, {"type": "null"}]},
+    "serp_validation_ref": {"anyOf": [{"$ref": "#/$defs/pin"}, {"type": "null"}]},
+    "geo_diagnostic_ref": {"anyOf": [{"$ref": "#/$defs/pin"}, {"type": "null"}]},
+    "preview_semantic_hash": {"anyOf": [{"type": "string", "pattern": "^[a-f0-9]{64}$"}, {"type": "null"}]},
+    "conflict_adjudication_ref": {"anyOf": [{"type": "string", "minLength": 1}, {"type": "null"}]},
+    "policy_version": {"type": "string", "minLength": 1},
+    "created_at": {"type": "string", "format": "date-time"},
+    "decision_at": {"type": "string", "format": "date-time"},
+    "content_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "pin": {
+      "type": "object",
+      "required": ["evidence_id", "revision", "content_hash"],
+      "properties": {
+        "evidence_id": {"type": "string", "minLength": 1, "maxLength": 200},
+        "revision": {"type": "integer", "minimum": 1},
+        "content_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      },
+      "additionalProperties": false
+    }
+  }
+}
