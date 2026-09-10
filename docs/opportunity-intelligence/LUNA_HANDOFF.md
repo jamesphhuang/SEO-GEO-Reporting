@@ -33,3 +33,25 @@ git diff --check
 缺依賴要明確報錯，不能skip成pass或自行改runtime。前輪baseline在bundled Python+Node下70 tests通過；本輪需自己驗證。完成標準與停止條件以NEXT_TASK為準：遇UNKNOWN dirty、必改forbidden files、需business裁決、需live/production、缺依賴且不能安全解決時停止受影響工作並說明。不能讀/輸出API key、token、credential，不能收集customer name/email/phone/raw lead rows；只用aggregate或synthetic，sanitize錯誤，不log原始敏感input。
 
 Git開始先fetch/status/HEAD/origin/main/lineage；不reset/stash/清理原有檔，不刪未知worktree。没有明確授權不commit/push；若獲授權，只explicit stage WP1 allowlist，獨立commit `test(opportunity): validate contract proposals offline`，禁止git add .、force push、amend unrelated commit。最終繁中回報Summary、Files changed、Verification、Not verified、Risks or follow-ups；列實際test結果，更新durable交接後停止。
+## Current handoff — WP3 complete
+
+WP3 baseline：da9f1d6aa6384eba9eb9c463605c8d1aa3875ede。
+branch：feat/opportunity-canonical-registry。
+
+本包已完成 offline canonical entity registry：TOPIC、KEYWORD、QUERY、PROMPT、
+URL、COMPETITOR、BUSINESS_THEME；typed deterministic IDs、Unicode/width/text
+normalization、保守 URL policy、typed relations、provenance、candidate/approved/
+rejected review states、referential integrity、duplicate/conflict detection、
+deterministic serialization/hash 與 proposal schema 均已測試。Keyword、Query、
+Prompt 保留不同 observation grain；metrics 不進 identity；沒有 live API、LLM、
+fuzzy clustering、production write 或正式 Brand Dictionary mutation。
+
+Registry proposal schema：contracts/canonical_registry.v1.proposal.json。
+Synthetic fixture：tests/fixtures/opportunity_registry/synthetic_registry.json。
+已知 HTTP/HTTPS、www、trailing slash、redirect/canonical equivalence 以 policy gap
+保留，不自動合併。RULE_BASED relation 不得自行 APPROVED；approved mapping 需要
+opaque reviewer ID。
+
+WP3_CANONICAL_REGISTRY_READINESS = READY。下一個唯一工作是 WP4 evidence /
+candidate immutable store；不要開始 WP5 scoring、cross-source joins、derived
+Content Gap、live integrations、UI 或 production activation。

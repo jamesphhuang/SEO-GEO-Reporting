@@ -41,3 +41,17 @@ contract promotion條件：scope owner、business owner對各自語義批准；d
 `reporting/opportunity/proposal_validation.py` 將 structural schema errors、explicit format errors、semantic evidence/score/confidence/freshness gates 與 cross-field action/review gates 分層回傳。輸入只接受 proposal payload 與本地 immutable synthetic context；不呼叫任何 source adapter，也不接受 production environment。
 
 `ValidationError` 固定包含 `code`、`field`、`message`、`severity`，不回傳 raw payload。`ValidationResult` 提供 `is_valid`、`errors`、`warnings` 與 deterministic `as_dict()`。content hash、revision chain、source class、evidence count、profile bounds、human review revision/hash 都在 WP1 實際檢查；兩份 proposal 仍維持 `DRAFT_NOT_APPROVED` 與 `x-production-activation=false`。
+## WP3 CANONICAL REGISTRY PROPOSAL
+
+contracts/canonical_registry.v1.proposal.json 是離線 identity/mapping registry 的
+proposal schema，不是正式 production contract。它要求七種 entity collection、
+typed stable IDs、relations、mapping version、explicit policy gaps 與
+revision manifest、synthetic=true；x-proposal-status=DRAFT_NOT_APPROVED 且
+x-production-activation=false。
+
+WP3 的 semantic validator 另外檢查 schema 無法保證的條件：entity ID duplicate /
+canonical conflict、relation endpoint 與 dangling reference、provenance/review gate、
+URL policy、normalized value、deterministic semantic hash 與 identity/evidence 分離。
+Metrics（volume、clicks、impressions、position）不屬於 registry identity。任何
+semantic mapping 預設為 CANDIDATE；只有帶 opaque reviewer ID 的人工／整理後
+mapping 才可成為 APPROVED，RULE_BASED 不得自行批准。

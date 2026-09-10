@@ -96,3 +96,30 @@ PY
 ### WP2 not verified / limits
 
 沒有 owner-approved live scope、competitor registry、production budget 或 Content Gap entitlement；因此未做 full discovery、全量 pagination、production write 或 Opportunity Engine。provider 的 full export upper bound、歷史 coverage、其他 country/database 與 Content Gap derivation 仍是 UNKNOWN/UNAVAILABLE。
+## WP3 — canonical entity registry（2026-09-10）
+
+| Check | Result | Scope / limit |
+| --- | --- | --- |
+| Entity model | PASS | TOPIC、KEYWORD、QUERY、PROMPT、URL、COMPETITOR、BUSINESS_THEME；identity 與 evidence metrics 分離 |
+| Stable IDs | PASS | typed deterministic SHA-256 IDs；explicit Topic IDs 可保留；無 array position、Python hash 或 random ID |
+| Text normalization | PASS | Unicode NFC、full-width ASCII/space、trim/collapse whitespace、Latin casefold；不做繁簡/同義詞自動合併 |
+| URL normalization | PASS | host lowercase、default port、fragment/tracking allowlist；保留 semantic query、path case、trailing slash、www 與 scheme 差異 |
+| Relations | PASS | 六種 Topic edges、URL canonical candidate、keyword alias relation；typed endpoints、version、provenance、review state |
+| Provenance / review | PASS | MANUAL/CURATED/RULE_BASED/IMPORTED；CANDIDATE/APPROVED/REJECTED；RULE_BASED 不得 self-approve |
+| Referential integrity | PASS | dangling refs、invalid endpoint、self relation 均 fail closed |
+| Duplicate protection | PASS | duplicate ID 與 conflicting canonical value 分開回報 |
+| Deterministic serialization/hash | PASS | input order 與 runtime timestamps 不改 semantic hash；UTF-8、sorted compact JSON |
+| Registry schema | PASS | canonical_registry.v1.proposal.json；Draft 2020-12、proposal-only、synthetic fixture 可驗證 |
+| Synthetic fixtures | PASS | 兩個 Topic、keyword/query/prompt/URL/competitor/business theme；fixture-only、無 metrics/PII |
+| WP3 tests | PASS | 20 deterministic unittest cases；全 offline |
+| Existing regression | PASS | 107 baseline tests；WP3 後總數 127 |
+| Security | PASS | scoped credential/PII pattern scan；無 token、header、customer data |
+| Production mutation | PASS | 0；無 live source、writer、Brand Dictionary、scoring、join、WP4 |
+| WP3 readiness | READY | policy gaps 明確記錄，未猜測 URL/brand equivalence |
+
+### WP3 policy gaps
+
+HTTP/HTTPS、www/non-www、trailing slash、redirect/canonical equivalence 沒有在本包
+自動合併；它們以 metadata policy gaps 留存。這不是把兩個 URL 當成相同 identity，
+也不是 live redirect resolution。未來若需要合併，必須有 explicit relation、evidence
+與 human review revision。

@@ -96,3 +96,24 @@ Ahrefs live smoke：Organic Keywords 與 Organic Competitors 各以 TW、domain�
 `origin/main` 已包含 architecture merge commit `0b63c66f0c14331fabb0dd2d72e820147e8cd758`。WP1 在獨立 branch `feat/opportunity-contract-validator`、以該 SHA 為 baseline 完成；validator 僅接受 offline payload 與 synthetic immutable context，沒有 live source、production writer 或 scheduler。
 
 `WP1_VALIDATOR_READINESS = READY`。WP2 已完成 bounded read-only adapter，但 Content Gap capability、scope/competitor/budget approval 與 production activation 仍未完成；下一個唯一工作依 ROADMAP 為 WP3 canonical entity registry。
+## WP3 implementation handoff（2026-09-10）
+
+WP3 以 WP3_BASELINE_SHA=da9f1d6aa6384eba9eb9c463605c8d1aa3875ede 建立
+feat/opportunity-canonical-registry。新增離線 canonical entity registry，
+只保存 identity、typed stable IDs、explicit relations、mapping version、review
+state 與 deterministic semantic hash；不保存 Ahrefs/GSC/GA4/Workduo metrics。
+
+目前支援 TOPIC、KEYWORD、QUERY、PROMPT、URL、COMPETITOR、BUSINESS_THEME。
+Keyword、Query、Prompt 保留不同 source grain；URL 只做 deterministic
+sanitization，不做 redirect/HTTP fetch；競品不依文字相似度自動合併。Relation
+預設為 CANDIDATE，RULE_BASED 不得自行變成 APPROVED，approved mapping
+需要 opaque reviewer ID。
+
+Registry schema 為 contracts/canonical_registry.v1.proposal.json，維持
+DRAFT_NOT_APPROVED 與 x-production-activation=false。synthetic fixture
+位於 tests/fixtures/opportunity_registry/synthetic_registry.json。已知 URL
+HTTP/HTTPS、www/非 www、trailing slash 等 equivalence policy gaps 會明確保留，
+不以猜測合併。
+
+WP3_CANONICAL_REGISTRY_READINESS = READY。本包沒有 live API、production
+writer、Brand Dictionary mutation、scoring、cross-source join 或 WP4 implementation。
