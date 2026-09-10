@@ -212,3 +212,26 @@ WP8 新增 offline `reporting/sources/workduo.py`、`reporting/opportunity/rules
 Mention 與 citation 分離；`NOT_AVAILABLE`、missing、STALE、FAILED 不補零。只有相同 sample version、population、scope、provider methodology 才可比較，revision drift 產生 `COMPARABILITY_GAP`。GEO 只 enrich existing candidate，固定保留 candidate/WP5 score、confidence、review state；不建立新 candidate、不自動 APPROVED、不改 WP5 score。SERP/GA4 只作分離 context，衝突保留 `CROSS_CHANNEL_CONFLICT`/`MIXED_SIGNAL`。
 
 Synthetic fixture `tests/fixtures/opportunity_geo/scenarios.json` 覆蓋 A–P；WP8 targeted **21 tests PASS**，full regression **211 tests PASS**。proposal schema、fixture JSON、AST、explicit date/date-time、`git diff --check`、scoped security/PII、production boundary 均已驗證；沒有 production mutation。`WP8_GEO_FIXED_SAMPLE_READINESS = READY`。下一個唯一工作是 **WP9 — Opportunity preview / UAT report**；本輪未開始 WP9、未 push。
+
+## WP9 implementation handoff（2026-09-11）
+
+WP9 以 `WP9_BASELINE_SHA=4188fe631c1f6368fe64cf964a97d518c1a5382d` 建立 clean
+worktree `/private/tmp/seo-geo-wp9-preview` 與 branch `feat/opportunity-preview-uat`。
+新增純讀取 `reporting/opportunity/report_projection.py`、
+`contracts/opportunity_preview.v1.proposal.json`、A–P synthetic UAT fixture 與
+`tests/test_opportunity_preview.py`。Projection 只接收 WP4–WP8 已 pin 的 candidate
+revision/evidence refs，不重新計算 score 或 confidence，不建立 recommendation、Next
+Steps、approval 或 production row；UAT preview candidate IDs 與 source candidate IDs
+分離。
+
+Preview 提供 Quick Wins、Content Gaps、GEO Gaps、Content Decay / Technical Unlock 四組，
+首屏最多 20 筆，保留 score、獨立 confidence、evidence dates、estimate flag、missing、
+conflict、GA4/SERP/GEO diagnostics 與 immutable refs。SERP_NOT_CHECKED、NOT_AVAILABLE、
+STALE、POLICY_GAP、CAPABILITY_GAP 仍是可見狀態；GA4 CTA 維持
+`DIAGNOSTIC_ONLY`，GEO 不作 whole-market claim。JSON、Markdown、responsive local HTML
+renderer 均不寫檔。
+
+WP9 targeted **23 tests PASS**；full regression **234 tests PASS**。proposal schema、A–P
+fixture、AST、explicit date/date-time、`git diff --check`、scoped security/PII/live-call
+與 production-boundary checks PASS；production mutation=0。`WP9_OPPORTUNITY_PREVIEW_READINESS = READY`。
+本輪只允許建立 local commit，未 push、未建立 PR、未 merge；下一個唯一工作是 WP10，不能在本輪開始。

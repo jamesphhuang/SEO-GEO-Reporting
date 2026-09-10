@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/contracts/opportunity_preview.v1.proposal.json",
+  "title": "Offline opportunity preview and UAT report projection proposal",
+  "type": "object",
+  "x-proposal-status": "DRAFT_NOT_APPROVED",
+  "x-production-activation": false,
+  "required": ["record_type", "contract_version", "preview_id", "environment", "uat_dataset_id", "candidate_count", "first_screen", "groups", "candidates", "governance", "semantic_hash"],
+  "properties": {
+    "record_type": {"const": "OPPORTUNITY_PREVIEW"},
+    "contract_version": {"const": "opportunity_preview.v1.proposal"},
+    "preview_id": {"type": "string", "pattern": "^UAT_PREVIEW_[A-Za-z0-9]+$"},
+    "environment": {"const": "UAT"},
+    "uat_dataset_id": {"type": "string", "minLength": 1},
+    "renderer_version": {"type": "string", "minLength": 1},
+    "generated_at": {"type": ["string", "null"], "format": "date-time"},
+    "candidate_count": {"type": "integer", "minimum": 0},
+    "first_screen": {
+      "type": "object",
+      "required": ["max_candidates", "candidate_ids", "truncated"],
+      "properties": {
+        "max_candidates": {"type": "integer", "minimum": 1, "maximum": 100},
+        "candidate_ids": {"type": "array", "maxItems": 100, "items": {"type": "string"}},
+        "truncated": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "groups": {"type": "array", "minItems": 4, "items": {"$ref": "#/$defs/group"}},
+    "candidates": {"type": "array", "items": {"$ref": "#/$defs/row"}},
+    "governance": {
+      "type": "object",
+      "required": ["read_only_projection", "score_recomputed", "confidence_recomputed", "source_metrics_combined", "auto_approval", "production_mutation", "recommendations_written", "next_steps_written"],
+      "properties": {
+        "read_only_projection": {"const": true},
+        "score_recomputed": {"const": false},
+        "confidence_recomputed": {"const": false},
+        "source_metrics_combined": {"const": false},
+        "auto_approval": {"const": false},
+        "production_mutation": {"const": false},
+        "recommendations_written": {"const": false},
+        "next_steps_written": {"const": false}
+      },
+      "additionalProperties": true
+    },
+    "semantic_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "pin": {
+      "type": "object",
+      "required": ["evidence_id", "revision", "content_hash"],
+      "properties": {
+        "evidence_id": {"type": "string", "minLength": 1},
+        "revision": {"type": "integer", "minimum": 1},
+        "content_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      },
+      "additionalProperties": false
+    },
+    "row": {
+      "type": "object",
+      "required": ["candidate_id", "source_candidate_id", "candidate_revision", "group_id", "score", "confidence", "status", "review_state", "approval_transition_allowed", "gaps", "conflicts", "evidence_refs", "source_layers", "diagnostics"],
+      "properties": {
+        "candidate_id": {"type": "string", "pattern": "^UAT_"},
+        "source_candidate_id": {"type": "string", "minLength": 1},
+        "candidate_revision": {"type": "integer", "minimum": 1},
+        "group_id": {"enum": ["QUICK_WINS", "CONTENT_GAPS", "GEO_GAPS", "CONTENT_DECAY_TECHNICAL_UNLOCK"]},
+        "score": {"type": "object"},
+        "confidence": {},
+        "status": {"type": "string"},
+        "review_state": {"type": "string"},
+        "approval_transition_allowed": {"const": false},
+        "gaps": {"type": "object"},
+        "conflicts": {"type": "array"},
+        "evidence_refs": {"type": "array", "items": {"$ref": "#/$defs/pin"}},
+        "source_layers": {"type": "object"},
+        "diagnostics": {"type": "object"}
+      },
+      "additionalProperties": true
+    },
+    "group": {
+      "type": "object",
+      "required": ["group_id", "label", "total_count", "visible_count", "rows"],
+      "properties": {
+        "group_id": {"enum": ["QUICK_WINS", "CONTENT_GAPS", "GEO_GAPS", "CONTENT_DECAY_TECHNICAL_UNLOCK"]},
+        "label": {"type": "string"},
+        "total_count": {"type": "integer", "minimum": 0},
+        "visible_count": {"type": "integer", "minimum": 0},
+        "rows": {"type": "array", "items": {"$ref": "#/$defs/row"}}
+      },
+      "additionalProperties": false
+    }
+  }
+}

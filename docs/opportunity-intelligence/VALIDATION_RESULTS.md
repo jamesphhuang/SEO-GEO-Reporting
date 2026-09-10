@@ -267,3 +267,23 @@ SERP validation is shortlist-only and observational. It does not claim unbiased 
 | `git diff --check` | PASS | no whitespace errors |
 | Security / production boundary | PASS | scoped secret/PII/live-call/production-writer scan clean; production mutation=0 |
 | Readiness | READY | next single task is WP9 only; no push or merge |
+
+## WP9 Opportunity preview / UAT report（2026-09-11）
+
+| Check | Result | Scope / limit |
+| --- | --- | --- |
+| Clean baseline / branch | PASS | `WP9_BASELINE_SHA=4188fe631c1f6368fe64cf964a97d518c1a5382d`; `feat/opportunity-preview-uat`; original dirty worktree untouched |
+| Projection boundary | PASS | WP4–WP8 pinned records only; read-only copy; no score/confidence recompute, approval, recommendation or production writer |
+| Four report groups | PASS | Quick Wins, Content Gaps, GEO Gaps, Content Decay / Technical Unlock |
+| First-screen cap | PASS | deterministic persisted-score ordering; maximum 20 visible candidates; full candidate details retained |
+| Evidence traceability | PASS | candidate revision and `evidence_id + revision + content_hash`; evidence dates, freshness, estimate flag and missing visible |
+| Cross-channel governance | PASS | GA4 diagnostic only, SERP states retained, GEO mention/citation/comparability separate, conflicts preserved |
+| UAT isolation | PASS | deterministic `UAT_PREVIEW_` and `UAT_` IDs; no production report or Recommendations / Next Steps writes |
+| Render safety | PASS | canonical JSON, escaped Markdown/HTML, formula-like text sanitized, responsive 375px stylesheet |
+| Proposal schema | PASS | `contracts/opportunity_preview.v1.proposal.json`; Draft 2020-12, proposal-only, production activation false |
+| Synthetic fixtures | PASS | `tests/fixtures/opportunity_preview/scenarios.json`; A–P, synthetic only |
+| WP9 tests | PASS | **23 tests, OK** |
+| Full regression | PASS | **234 tests, OK** (211 pre-WP9 + 23 WP9) |
+| Structural checks | PASS | JSON schema/fixture parse, Python AST, explicit ISO date/date-time checks, `git diff --check` |
+| Security / production boundary | PASS | scoped secret/PII/live-call/production-writer scan clean; production mutation=0 |
+| Readiness | READY | local commit permitted; push/PR/merge and WP10 require a later explicit authorization |
