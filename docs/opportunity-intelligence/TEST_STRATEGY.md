@@ -54,6 +54,13 @@ unit tests只用synthetic fixtures與fake transport，不能依live MCP、Google
 - 本輪docs/proposals專屬檢查與最終git保存結果見VALIDATION_RESULTS.md。
 - 未執行engine、UI、review bridge、outcome實作測試（尚未實作）；未驗遠端Apps Script runtime/ACL。
 
+## WP1 實際結果
+
+- 新增 `tests/test_opportunity_proposals.py`：**20 tests，OK**；完整既有套件加總 **90 tests，OK**。
+- positive synthetic records：Ahrefs scope、DISCOVERED/CANDIDATE existing page、SEO_NEW、GEO、VALIDATED、mock human APPROVED。
+- semantic negatives：invalid date/date-time、source class/estimate conflict、score/profile/bounds、duplicate/missing/count refs、stale/conflicting evidence、missing-is-not-zero、approval revision/hash、CREATE_NEW existing URL、unsafe URL、future timestamps。
+- schema 2/2、shape fixtures 2/2、JSON parse 4/4、Python AST 27 files、Node syntax 5 files、`git diff --check` 與 scoped security scan 均 PASS；沒有 live API 或 production mutation。
+
 可重現baseline指令（從repo root）：
 
 ```sh

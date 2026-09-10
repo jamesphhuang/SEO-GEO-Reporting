@@ -82,3 +82,9 @@ GSC 現有明細是 query 與 page **分開的 Top 25**，不能推出 query×UR
 OPPORTUNITY_INTELLIGENCE_ARCHITECTURE = READY（設計與交接可供分包，未上線）。
 
 AHREFS_INTEGRATION_READINESS = PARTIAL（多 endpoint probe 成功；正式 scope、競品、budget、歷史語義與 ingestion 未凍結）。目前沒有使用者正式核准的 scoring/business weights；所有預設均為 proposal。
+
+## WP1 implementation handoff
+
+`origin/main` 已包含 architecture merge commit `0b63c66f0c14331fabb0dd2d72e820147e8cd758`。WP1 在獨立 branch `feat/opportunity-contract-validator`、以該 SHA 為 baseline 完成；validator 僅接受 offline payload 與 synthetic immutable context，沒有 live source、production writer 或 scheduler。
+
+`WP1_VALIDATOR_READINESS = READY`。下一個唯一工作依 ROADMAP 為 WP2 Ahrefs read-only ingestion adapter；scope、competitor、budget 與 live capability approval 仍是 WP2 的前置條件。

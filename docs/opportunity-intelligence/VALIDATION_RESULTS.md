@@ -58,3 +58,18 @@ PY
 ## Git result / preservation
 
 本輪新增只在`docs/opportunity-intelligence/`、`contracts/ahrefs_scope.v1.proposal.json`、`contracts/opportunity_contract.v1.proposal.json`；`9376711` 是 architecture foundation，`692f475` 是 handoff baseline，後續僅有 handoff clarification docs commits。既有tracked兩個modified path與兩個untracked output目錄保持。沒有scheduler、正式Sheets寫入或Apps Script部署；remote architecture branch已推送，原工作樹仍由最終回報核對。
+
+## WP1 implementation validation
+
+| Check | Result | Scope / limit |
+| --- | --- | --- |
+| WP1 tests | PASS | 20 deterministic unittest cases；synthetic context only |
+| Full regression | PASS | 90 tests，包含既有70 tests |
+| Structural + explicit format | PASS | 兩份 proposal schemas、date、timezone-aware date-time、URL、period、identifier |
+| Semantic + cross-field | PASS | evidence refs/count/families/source classes、score profiles/bounds、confidence、freshness、action、revision/content hash、mock human approval |
+| Positive fixtures | PASS | Ahrefs scope、DISCOVERED/CANDIDATE、SEO_NEW、GEO、VALIDATED、mock human APPROVED |
+| Negative semantic fixtures | PASS | 16 named cases；含 missing != zero、stale/conflict、approval/hash、CREATE_NEW conflict |
+| Offline boundary | PASS | validator 只接受 payload/context；未呼叫 live APIs、Drive、Sheets 或 Apps Script |
+| Security | PASS | synthetic fixtures；scoped secret/PII pattern scan為0 |
+| Production mutation | PASS | 0；兩份 contracts仍為 proposal，沒有正式 writer 或 scheduler |
+| WP1 readiness | READY | 下一個唯一任務依 ROADMAP 為 WP2 Ahrefs read-only ingestion |

@@ -35,3 +35,9 @@ URL/PII、scope overlap、source envelope完整性與funnel/intent規則由後�
 本輪不新增一套巨大總schema。Evidence envelope欄位/coverage/freshness在EVIDENCE_FRESHNESS_POLICY；Topic edges在OPPORTUNITY_MODEL；Review event在CONFIDENCE_MODEL；Action/outcome在OUTCOME_TRACKING。由WP3/4/10/11各自機器化，先對應proposal fixtures，不能擅自改現有actual contract。
 
 contract promotion條件：scope owner、business owner對各自語義批准；deterministic正反fixture、schema drift拒絕、UAT readback；版本immutable。尚缺正式scope/weights批准不是理由把`proposal`字樣刪掉。
+
+## WP1 離線 validator result
+
+`reporting/opportunity/proposal_validation.py` 將 structural schema errors、explicit format errors、semantic evidence/score/confidence/freshness gates 與 cross-field action/review gates 分層回傳。輸入只接受 proposal payload 與本地 immutable synthetic context；不呼叫任何 source adapter，也不接受 production environment。
+
+`ValidationError` 固定包含 `code`、`field`、`message`、`severity`，不回傳 raw payload。`ValidationResult` 提供 `is_valid`、`errors`、`warnings` 與 deterministic `as_dict()`。content hash、revision chain、source class、evidence count、profile bounds、human review revision/hash 都在 WP1 實際檢查；兩份 proposal 仍維持 `DRAFT_NOT_APPROVED` 與 `x-production-activation=false`。

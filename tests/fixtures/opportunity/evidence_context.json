@@ -1,0 +1,84 @@
+{
+  "evidence": {
+    "SYNTHETIC_AHREFS": {
+      "source": "AHREFS",
+      "source_class": "THIRD_PARTY_ESTIMATE",
+      "family": "AHREFS",
+      "roles": ["demand"],
+      "freshness_state": "FRESH",
+      "collection_status": "READY",
+      "as_of": "2026-09-09"
+    },
+    "SYNTHETIC_GSC": {
+      "source": "GSC",
+      "source_class": "FIRST_PARTY_SEARCH_ACTUAL",
+      "family": "GSC",
+      "roles": ["traction", "intent"],
+      "freshness_state": "FRESH",
+      "collection_status": "READY",
+      "as_of": "2026-09-09"
+    },
+    "SYNTHETIC_SF": {
+      "source": "SF",
+      "source_class": "TECHNICAL_CRAWL_EVIDENCE",
+      "family": "SF",
+      "roles": ["technical", "effort"],
+      "freshness_state": "FRESH",
+      "collection_status": "READY",
+      "as_of": "2026-09-09"
+    },
+    "SYNTHETIC_SERP": {
+      "source": "SERP",
+      "source_class": "LIVE_SERP_SNAPSHOT",
+      "family": "SERP",
+      "roles": ["intent", "attainability"],
+      "freshness_state": "FRESH",
+      "collection_status": "READY",
+      "as_of": "2026-09-09"
+    },
+    "SYNTHETIC_EFFORT": {
+      "source": "SF",
+      "source_class": "TECHNICAL_CRAWL_EVIDENCE",
+      "family": "SF",
+      "roles": ["effort"],
+      "freshness_state": "FRESH",
+      "collection_status": "READY",
+      "as_of": "2026-09-09"
+    },
+    "SYNTHETIC_BUSINESS": {
+      "source": "BUSINESS",
+      "source_class": "BUSINESS_ACTUAL",
+      "family": "BUSINESS",
+      "roles": ["business_relevance"],
+      "freshness_state": "FRESH",
+      "collection_status": "READY",
+      "as_of": "2026-09-09"
+    },
+    "SYNTHETIC_GEO": {
+      "source": "WORKDUO",
+      "source_class": "MONITORED_GEO_SAMPLE",
+      "family": "WORKDUO",
+      "roles": ["geo", "intent"],
+      "freshness_state": "FRESH",
+      "collection_status": "READY",
+      "as_of": "2026-09-09"
+    }
+  },
+  "scope_approvals": {
+    "SYNTHETIC_SCOPE_APPROVAL": {
+      "status": "APPROVED",
+      "authenticated": true,
+      "reviewer_id": "mock-scope-reviewer"
+    }
+  },
+  "business_overlays": {
+    "SYNTHETIC_BUSINESS_OVERRIDE": {
+      "status": "APPROVED",
+      "authenticated": true,
+      "reviewer_id": "mock-business-reviewer"
+    }
+  },
+  "entity_mappings_confirmed": true,
+  "alternative_explanations_addressed": true,
+  "decision_at": "2026-09-10T00:00:00Z"
+}
