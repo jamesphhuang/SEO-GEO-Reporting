@@ -10,7 +10,7 @@
 | integration branch | `docs/opportunity-intelligence-foundation` |
 | `ARCHITECTURE_FOUNDATION_SHA` | `9376711` (`docs(opportunity): design opportunity intelligence layer`) |
 | `HANDOFF_BASELINE_SHA` | `692f475` (`docs(opportunity): record integration baseline`) |
-| `CURRENT_HANDOFF_HEAD` | `d0ea865` (`docs(opportunity): clarify handoff commit baseline`) |
+| `CURRENT_HANDOFF_HEAD` | branch HEAD（以 `git rev-parse HEAD` 與 remote ref 實測；不在自身 commit 內硬編 SHA） |
 | fetch 後 origin/main | `4e30cec2a7cb446c0defa06b315c0b295a01b9af`，PR #6 merge |
 | merge-base | `4e30cec2a7cb446c0defa06b315c0b295a01b9af`；architecture branch 僅多一個 foundation commit |
 | 本機 main | `dc4374e`，落後遠端；不可誤當最新 baseline |
