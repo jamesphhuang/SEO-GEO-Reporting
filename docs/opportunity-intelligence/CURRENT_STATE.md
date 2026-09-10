@@ -163,3 +163,30 @@ UI、Recommendations、Next Steps、scheduler 或 production writer。
 
 `WP5_SEO_ENGINE_READINESS = READY`。下一個唯一工作依 ROADMAP 是 WP6 GA4 quality
 diagnostics；本輪已停止，未開始 WP6。
+
+## WP6 implementation handoff（2026-09-10）
+
+本輪以 `WP6_BASELINE_SHA=cb01dc032e9c89313e6997b3d65327c7f777e9f1` 建立 clean
+worktree 與 branch `feat/opportunity-ga4-quality-diagnostics`。新增的 GA4 layer
+只接受離線、已 scope 的 synthetic rows，source role 固定為
+`FIRST_PARTY_BEHAVIOR_DIAGNOSTIC`；沒有 live GA4 query、credential、production
+writer 或 scheduler。
+
+GA4 evidence 以 property、exact hostname、channel、period、timezone、coverage、
+sampling/thresholding、freshness 與 collection state 正規化後 append 到 WP4
+EvidenceStore。PAGE_LEVEL rows 必須以 WP3 registry 的 exact normalized URL / `url_id`
+join；沒有 fuzzy title、redirect、scheme 或 trailing-slash equivalence。SITE_WIDE_CONTEXT
+只保留為 contextual conflict，不推論單一頁面品質。
+
+診斷 projection 是獨立的 `GA4_DIAGNOSTIC` artifact，固定保存 candidate revision、
+GA4 evidence refs、candidate evidence refs、revision、supersedes 與 content hash。
+Score 與 Confidence 不合併；WP5 score 原值保留但不被 GA4 改寫。CTA 只輸出
+`CTA_SIGNAL_PRESENT/WEAK`，conversion boundary 固定 `DIAGNOSTIC_ONLY`；不產 Lead、SQL、
+Revenue、CVR 或 APPROVED。AI Assistant 與外部 business population 的 attribution
+保留 `AI_ASSISTANT_ATTRIBUTION_UNRESOLVED`，不做相除。
+
+`contracts/ga4_quality_diagnostics.v1.proposal.json` 仍是
+`DRAFT_NOT_APPROVED` 且 `x-production-activation=false`。synthetic scenarios A–L
+涵蓋 healthy、traffic/engagement trends、missing、stale、wrong channel、sitewide、
+unresolved URL、CTA、GSC conflict、deterministic replay 與歷史 revision。WP6 完成後
+下一個唯一工作依 ROADMAP 是 WP7 SERP validation；本輪未開始 WP7。

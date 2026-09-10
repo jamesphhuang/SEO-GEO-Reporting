@@ -41,3 +41,7 @@ WP3 policy note：繁簡、同義詞、品牌 parent/child 與 semantic URL equi
 | OI-022 | WP5 Score 與 Confidence 分開；missing/stale/conflict 維持可見，engine 永不 APPROVED | 防止高 demand 或多來源數量被誤解成 business approval 或人審批准 |
 | OI-023 | OI-014 未解前 `CONTENT_GAP` 僅回 `POLICY_GAP`，不以 competitor inventory 推導 negative existence | 避免把不完整 coverage 稱為 Content Gap |
 | OI-024 | Candidate Store pin exact evidence revision/hash，candidate revision 只 append supersedes chain | 新 evidence 不得漂移既有候選，支援 time-travel replay |
+| OI-025 | GA4 在 WP6 固定為 `FIRST_PARTY_BEHAVIOR_DIAGNOSTIC`，不加入 WP5 Opportunity Score 或正式 business conversion | 保留 behavior quality context 與 SEO candidate identity 的責任邊界；Score、Confidence、Lead、SQL、Revenue、CVR 各自維持原 contract |
+| OI-026 | GA4 PAGE_LEVEL 只能透過 WP3 exact normalized URL / `url_id` join；site-wide rows 只作 contextual conflict | 不用 title、redirect、scheme、trailing slash 或外部 population 猜測 page quality |
+| OI-027 | CTA event 只輸出 `CTA_SIGNAL_PRESENT/WEAK` diagnostic；沒有 approved attribution mapping 就不得建立 success metric | CTA interaction 與 formal conversion 的事件語義、scope、consent、attribution 尚未批准 |
+| OI-028 | GA4 diagnostics 使用獨立 append-only revision artifact，pin GA4 與 candidate evidence 的 id/revision/hash | 新 GA4 evidence 不得改寫舊診斷或讓 candidate 隱式追到 latest；支援 deterministic replay |

@@ -1,0 +1,58 @@
+{
+  "fixture_version": "ga4-quality.synthetic.v1",
+  "synthetic": true,
+  "registry": "tests/fixtures/opportunity_registry/synthetic_registry.json",
+  "base": {
+    "property_id": "257016301",
+    "hostname": "shopline.tw",
+    "channel": "Organic Search",
+    "landing_page": "https://shopline.tw/example/ecommerce-platform/",
+    "period_start": "2026-09-04",
+    "period_end": "2026-09-10",
+    "as_of": "2026-09-10",
+    "retrieved_at": "2026-09-10T03:00:00+00:00",
+    "freshness_state": "READY",
+    "collection_status": "SUCCESS",
+    "coverage": "COMPLETE_WITHIN_SCOPE",
+    "source_reference": "synthetic-ga4-wp6",
+    "contract_version": "ga4_quality.v1.proposal"
+  },
+  "scenarios": {
+    "A_healthy": {
+      "description": "sessions and engagement rate both stable or increasing",
+      "records": [
+        {"metric": "sessions", "value": 1000, "period_start": "2026-08-28", "period_end": "2026-09-03", "as_of": "2026-09-10"},
+        {"metric": "sessions", "value": 1100},
+        {"metric": "engagement_rate", "value": 0.60, "period_start": "2026-08-28", "period_end": "2026-09-03", "as_of": "2026-09-10"},
+        {"metric": "engagement_rate", "value": 0.65}
+      ]
+    },
+    "B_sessions_declining_engagement_stable": {
+      "description": "sessions decline while engagement rate remains stable",
+      "records": [
+        {"metric": "sessions", "value": 1000, "period_start": "2026-08-28", "period_end": "2026-09-03", "as_of": "2026-09-10"},
+        {"metric": "sessions", "value": 800},
+        {"metric": "engagement_rate", "value": 0.60, "period_start": "2026-08-28", "period_end": "2026-09-03", "as_of": "2026-09-10"},
+        {"metric": "engagement_rate", "value": 0.60}
+      ]
+    },
+    "C_sessions_stable_engagement_declining": {
+      "description": "sessions remain stable while engagement rate declines",
+      "records": [
+        {"metric": "sessions", "value": 800, "period_start": "2026-08-28", "period_end": "2026-09-03", "as_of": "2026-09-10"},
+        {"metric": "sessions", "value": 800},
+        {"metric": "engagement_rate", "value": 0.60, "period_start": "2026-08-28", "period_end": "2026-09-03", "as_of": "2026-09-10"},
+        {"metric": "engagement_rate", "value": 0.40}
+      ]
+    },
+    "D_missing": {"description": "engagement evidence is absent and is not imputed to zero", "records": [{"metric": "sessions", "value": 1000}]},
+    "E_stale": {"description": "stale rows remain stale", "records": [{"metric": "sessions", "value": 1000, "freshness_state": "STALE", "as_of": "2026-08-01", "period_start": "2026-07-25", "period_end": "2026-07-31"}]},
+    "F_wrong_channel": {"description": "AI Assistant is not Organic Search", "records": [{"metric": "sessions", "value": 1000, "channel": "AI Assistant"}]},
+    "G_sitewide_only": {"description": "sitewide evidence is context and cannot infer page quality", "records": [{"metric": "sessions", "value": 1000, "quality_scope": "SITE_WIDE_CONTEXT", "landing_page": null}]},
+    "H_unresolved_url": {"description": "unknown URL fails exact registry join", "records": [{"metric": "sessions", "value": 1000, "landing_page": "https://shopline.tw/unregistered-page"}]},
+    "I_cta_diagnostic_only": {"description": "mapped CTA event is a diagnostic signal only", "records": [{"metric": "event_count", "value": 3, "event_name": "Trial BTN Click", "event_classification": "CTA_INTERACTION"}]},
+    "J_gsc_decline_ga4_stable": {"description": "GSC clicks and GA4 Organic sessions are retained as separate signals", "acquisition_context": {"gsc_clicks_previous": 1000, "gsc_clicks_current": 700}},
+    "K_deterministic_replay": {"description": "same input produces the same diagnostic hash", "same_as": "A_healthy"},
+    "L_historical_revision": {"description": "GA4 revision 2 appends without changing diagnostic revision 1", "evidence_revision": 2, "supersedes_revision": 1}
+  }
+}
