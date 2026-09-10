@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/contracts/ga4_quality_diagnostics.v1.proposal.json",
+  "title": "GA4 landing quality diagnostic projection proposal",
+  "description": "Offline, page-scoped GA4 behavior diagnostics. This proposal never represents a business conversion, approval, or WP5 score input.",
+  "type": "object",
+  "additionalProperties": false,
+  "x-proposal-status": "DRAFT_NOT_APPROVED",
+  "x-production-activation": false,
+  "x-source-role": "FIRST_PARTY_BEHAVIOR_DIAGNOSTIC",
+  "required": [
+    "record_type", "contract_version", "diagnostic_id", "revision",
+    "supersedes_diagnostic_revision", "candidate_id", "candidate_revision",
+    "topic_cluster_id", "canonical_url_id", "target_url", "evaluation_period",
+    "quality_scope", "channel", "source_role", "ga4_evidence_refs",
+    "candidate_evidence_refs", "diagnostic_status", "diagnostic_types", "diagnostic_confidence",
+    "signals", "conflicts", "missing_evidence", "freshness", "rule_trace",
+    "conversion_boundary", "wp5_score", "wp5_confidence", "wp5_score_preserved",
+    "input_signature", "created_at", "updated_at", "content_hash"
+  ],
+  "properties": {
+    "record_type": { "const": "GA4_DIAGNOSTIC" },
+    "contract_version": { "const": "1.0.0-proposal" },
+    "diagnostic_id": { "type": "string", "pattern": "^G4D_[A-Za-z0-9_-]{8,200}$" },
+    "revision": { "type": "integer", "minimum": 1 },
+    "supersedes_diagnostic_revision": { "type": ["integer", "null"], "minimum": 1 },
+    "candidate_id": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "candidate_revision": { "type": "integer", "minimum": 1 },
+    "topic_cluster_id": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "canonical_url_id": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "target_url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+    "evaluation_period": { "type": "string", "pattern": "^20[0-9]{2}-(0[1-9]|1[0-2])$" },
+    "quality_scope": { "enum": ["PAGE_LEVEL", "SITE_WIDE_CONTEXT"] },
+    "channel": { "enum": ["Organic Search", "AI Assistant"] },
+    "source_role": { "const": "FIRST_PARTY_BEHAVIOR_DIAGNOSTIC" },
+    "ga4_evidence_refs": { "$ref": "#/$defs/evidence_refs" },
+    "candidate_evidence_refs": { "$ref": "#/$defs/evidence_refs" },
+    "diagnostic_status": {
+      "enum": ["QUALITY_HEALTHY", "QUALITY_WEAK", "QUALITY_MIXED", "INSUFFICIENT_GA4_EVIDENCE", "CONFLICTING_GA4_EVIDENCE"]
+    },
+    "diagnostic_types": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "enum": ["QUALITY_HEALTHY", "QUALITY_WEAK", "QUALITY_MIXED", "TRAFFIC_DECLINING", "ENGAGEMENT_DECLINING", "ENGAGEMENT_STABLE", "CTA_SIGNAL_PRESENT", "CTA_SIGNAL_WEAK", "INSUFFICIENT_GA4_EVIDENCE", "CONFLICTING_GA4_EVIDENCE"] }
+    },
+    "diagnostic_confidence": { "enum": ["LOW", "MEDIUM", "HIGH", "NOT_ASSESSABLE"] },
+    "signals": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["traffic_signal", "engagement_signal", "cta_signal", "cta_event_count", "current_period", "traffic_evidence_refs", "engagement_evidence_refs"],
+      "properties": {
+        "traffic_signal": { "enum": ["INCREASING", "DECLINING", "STABLE", "INSUFFICIENT_HISTORY", "UNKNOWN"] },
+        "engagement_signal": { "enum": ["INCREASING", "DECLINING", "STABLE", "INSUFFICIENT_HISTORY", "UNKNOWN"] },
+        "cta_signal": { "enum": ["CTA_SIGNAL_PRESENT", "CTA_SIGNAL_WEAK", "CTA_SIGNAL_NOT_AVAILABLE"] },
+        "cta_event_count": { "type": ["integer", "null"], "minimum": 0 },
+        "current_period": { "type": ["string", "null"], "format": "date" },
+        "traffic_evidence_refs": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "engagement_evidence_refs": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+      }
+    },
+    "conflicts": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "missing_evidence": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "freshness": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["evidence_id", "revision", "period_end", "as_of", "retrieved_at", "freshness_state", "collection_status", "channel", "url_id"],
+        "properties": {
+          "evidence_id": { "type": "string", "minLength": 1 },
+          "revision": { "type": "integer", "minimum": 1 },
+          "period_end": { "type": "string", "format": "date" },
+          "as_of": { "type": "string", "format": "date" },
+          "retrieved_at": { "type": "string", "format": "date-time" },
+          "freshness_state": { "enum": ["READY", "PARTIAL", "STALE", "FAILED", "NOT_AVAILABLE"] },
+          "collection_status": { "type": "string", "minLength": 1 },
+          "channel": { "type": "string", "minLength": 1 },
+          "url_id": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "rule_trace": { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 1 },
+    "conversion_boundary": { "const": "DIAGNOSTIC_ONLY" },
+    "wp5_score": { "type": ["integer", "null"], "minimum": 0, "maximum": 100 },
+    "wp5_confidence": { "enum": ["LOW", "MEDIUM", "HIGH", "NOT_ASSESSABLE"] },
+    "wp5_score_preserved": { "const": true },
+    "input_signature": { "$ref": "#/$defs/hash" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" },
+    "content_hash": { "$ref": "#/$defs/hash" }
+  },
+  "$defs": {
+    "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "evidence_refs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["evidence_id", "revision", "content_hash"],
+        "properties": {
+          "evidence_id": { "type": "string", "minLength": 1, "maxLength": 200 },
+          "revision": { "type": "integer", "minimum": 1 },
+          "content_hash": { "$ref": "#/$defs/hash" }
+        }
+      }
+    }
+  }
+}

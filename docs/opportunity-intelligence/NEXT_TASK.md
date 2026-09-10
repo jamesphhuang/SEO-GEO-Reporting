@@ -77,3 +77,19 @@ Next_Steps、scheduler、live bulk ingestion、UI、Opportunity Engine、WP5 sco
 WP3 branch 只 stage 本包 allowlist，正常 non-force push 到
 feat/opportunity-canonical-registry；不直接 push main、不 force push、不使用
 git add .。本輪完成後停止，不開始 WP4。
+
+## Latest handoff — WP6 complete（2026-09-10）
+
+`WP6_BASELINE_SHA=cb01dc032e9c89313e6997b3d65327c7f777e9f1`。WP6 branch
+`feat/opportunity-ga4-quality-diagnostics` 完成 offline GA4 quality diagnostics，
+並以 WP3 exact URL join、WP4 EvidenceStore / diagnostic append-only history 與 WP5
+candidate identity 作為邊界。GA4 僅是 first-party behavior diagnostic；CTA 不代表
+conversion，sitewide 不推論 page quality，missing/stale/conflict 不轉零或 fallback，
+Score / Confidence 與 WP5 score 均不被改寫。
+
+WP6 regression 為 **181 tests PASS**（既有 166 + WP6 15）；schema、fixtures、AST、
+explicit date/date-time、`git diff --check`、scoped security 與 production-boundary
+checks PASS。`contracts/ga4_quality_diagnostics.v1.proposal.json` 維持 proposal-only。
+
+`WP6_GA4_QUALITY_READINESS = READY`。下一個唯一任務是 **WP7 — SERP validation**；
+沒有建立 WP7 branch，未開始 WP7。Push 尚未授權，沒有 push 或 merge。

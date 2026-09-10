@@ -93,3 +93,21 @@ PASS；production mutation=0，沒有 live query。
 
 `WP5_SEO_ENGINE_READINESS = READY`。下一個唯一工作是 **WP6 — GA4 quality diagnostics**；
 本輪完成後停止，不開始 WP6。未 push remote。
+
+## WP6 implementation handoff（2026-09-10）
+
+基線 `cb01dc032e9c89313e6997b3d65327c7f777e9f1`，branch
+`feat/opportunity-ga4-quality-diagnostics`。新增 `reporting/sources/ga4_quality.py`、
+`reporting/opportunity/ga4_diagnostics.py`、`ga4_preview.py` 與
+`contracts/ga4_quality_diagnostics.v1.proposal.json`，並保留 A–L synthetic fixture。
+
+輸入是 offline normalized GA4 evidence；PAGE_LEVEL 僅接受 WP3 exact URL registry join，
+SITE_WIDE_CONTEXT 只作 contextual conflict。Evidence 與 diagnostic 都 append-only，
+固定 pin evidence id/revision/hash；GA4 不改 WP5 score、confidence 或 candidate
+review state。CTA、AI Assistant attribution、GSC-vs-GA4 conflict 與
+missing/stale 狀態均保持 diagnostic/policy gap。
+
+15 個 WP6 tests 加上既有套件共 **181 tests PASS**；schema、fixtures、AST、explicit
+date/date-time、`git diff --check` 與 scoped security/production-boundary scan 均 PASS。
+沒有 live GA4 或其他 source query，沒有 production mutation。`WP6_GA4_QUALITY_READINESS = READY`。
+下一個唯一工作是 **WP7 — SERP validation**；本輪停止，未開始 WP7、未 push。

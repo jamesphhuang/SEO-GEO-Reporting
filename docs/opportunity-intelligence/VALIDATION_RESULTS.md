@@ -197,3 +197,25 @@ business policy；Candidate 的 `status/review_state` 只作 immutable payload �
 insufficient-evidence candidate；GA4、Business Actual、SERP、Workduo、CrUX 與
 production approval 仍是 dependency gaps，不以 synthetic score 或 confidence
 填補。
+
+## WP6 — GA4 quality diagnostics（2026-09-10）
+
+| Check | Result | Scope / limit |
+| --- | --- | --- |
+| Clean baseline / branch | PASS | `WP6_BASELINE_SHA=cb01dc032e9c89313e6997b3d65327c7f777e9f1`; `feat/opportunity-ga4-quality-diagnostics`; original dirty worktree untouched |
+| GA4 source role | PASS | `FIRST_PARTY_BEHAVIOR_DIAGNOSTIC`; offline rows only; no live GA4 or credential access |
+| Scope and normalization | PASS | approved property/hostname/channel, timezone, coverage, sampling/thresholding and freshness retained |
+| Exact URL join | PASS | WP3 normalized URL and exact `url_id`; unresolved URL, host mismatch and PII-like query fail closed |
+| Page/sitewide boundary | PASS | page-level Organic Search only; sitewide remains contextual conflict and cannot infer page quality |
+| Diagnostic contract | PASS | new `ga4_quality_diagnostics.v1.proposal.json`; Draft 2020-12, proposal-only, production activation false |
+| CTA / conversion boundary | PASS | CTA diagnostic signals only; no Lead/SQL/Revenue/CVR or automatic approval |
+| Attribution boundary | PASS | GSC clicks and GA4 sessions stay distinct; AI Assistant external population remains unresolved |
+| Missing / stale / conflict | PASS | null/missing and STALE stay visible; no zero imputation or stale fallback |
+| WP5 score protection | PASS | score and confidence remain separate; original WP5 score is preserved and never recalculated |
+| Immutable evidence / diagnostics | PASS | EvidenceStore and GA4DiagnosticStore pin `evidence_id + revision + content_hash`; historical rev1 survives rev2 |
+| Synthetic fixtures | PASS | A–L scenarios; no live sources or production artifacts |
+| WP6 tests | PASS | **15 tests, OK** |
+| Full regression | PASS | **181 tests, OK** (166 pre-WP6 + 15 WP6) |
+| Structural checks | PASS | JSON schemas, explicit date/date-time format checker, Python AST and `git diff --check` |
+| Security / production boundary | PASS | scoped secret/PII and production-writer scan clean; no Sheets, Apps Script, Recommendations, Next Steps or scheduler mutation |
+| WP6 readiness | READY | local commit permitted; push requires a later explicit authorization |

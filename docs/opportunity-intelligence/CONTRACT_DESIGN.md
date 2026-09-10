@@ -89,3 +89,22 @@ technical observations 分開保留 source grain；它不把 Ahrefs estimates、
 `evidence_id/revision/content_hash` 分層保存，review state 固定為
 `NOT_SUBMITTED`。Engine 可給 `DISCOVERED`/`CANDIDATE` 與 `MONITOR`/`DO_NOTHING`，
 不提供 `APPROVED` 路徑。
+
+## WP6 GA4 quality diagnostic proposal
+
+`contracts/ga4_quality_diagnostics.v1.proposal.json` 是獨立的 diagnostic artifact
+proposal，不是 Opportunity Type、business conversion contract 或 WP5 score extension。
+它要求 `source_role=FIRST_PARTY_BEHAVIOR_DIAGNOSTIC`、candidate revision、exact
+canonical URL identity、GA4/candidate evidence refs，以及每一筆 evidence 的 revision
+與 content hash。`diagnostic_status` 與 `diagnostic_types` 只表達 quality / traffic /
+engagement / CTA behavior；CTA event 不被命名或轉換成 Lead、SQL、Revenue、CVR。
+
+Organic Search page-level evidence 必須和 WP3 `url_id` exact match；GA4 site-wide
+rows 只能成為 contextual conflict，不能分攤到單一 page。GSC clicks、GA4 sessions
+與 AI Assistant sessions 保持不同母體；外部 chatgpt.com leads/SQL 不可作為 AI
+session denominator。`missing_evidence`、`STALE`、`PARTIAL`、`FAILED` 與 conflict 都
+保留原語義，不以零、舊 revision 或高 engagement 自動補 confidence。
+
+`GA4DiagnosticStore` 以 diagnostic revision / supersedes chain append，historical
+revision immutable。preview 只讀 diagnostic projection，沒有 production destination、
+Google Sheets、Apps Script 或 scheduler side effect。

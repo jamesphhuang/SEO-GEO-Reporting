@@ -89,3 +89,16 @@ Screaming Frog、GA4、Workduo、Google Search 或 production writer。
 WP5 另執行 2 proposal schemas、JSON parse/format checker、Python AST、explicit
 date/date-time、`git diff --check` 與限定路徑 secret/production-boundary scan。完整
 regression 為 **166 tests，OK**；WP5 新增 **17 tests，OK**。
+
+## WP6 GA4 diagnostic test layer
+
+`tests/test_ga4_quality.py` 的 **15 tests** 使用 `tests/fixtures/opportunity_ga4/scenarios.json`
+與 WP3 synthetic registry，覆蓋 exact URL/host/property scope、page/sitewide boundary、
+healthy/declining/mixed quality、missing vs zero、STALE、wrong channel、CTA diagnostic
+only、GSC-vs-GA4 conflict、AI attribution gap、WP5 score preservation、CandidateStore /
+EvidenceStore pinning、diagnostic rev1→rev2 history、tamper/hash fail-closed 與 deterministic
+preview。全部使用 fixed timezone-aware dates；沒有 live GA4、GSC、Ahrefs、Screaming Frog、
+Workduo、Google Search、CrUX 或 production writer。
+
+WP6 regression 為 **181 tests，OK**；另驗證 proposal schema 的 date/date-time formats、
+Python AST、JSON parse、`git diff --check`、scoped secret/PII scan 與 production boundary。
