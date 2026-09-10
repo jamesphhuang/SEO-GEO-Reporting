@@ -164,3 +164,36 @@ business policy；Candidate 的 `status/review_state` 只作 immutable payload �
 真正 review bridge 留給 WP10。未提供 registry 時，帶 entity refs 的 append 會
 以 `UNRESOLVED_ENTITY` 拒絕，不自動建立 entity。JSONL 是 local replay backend，
 不是 live multi-writer database 或 production migration。
+
+## WP5 — SEO Opportunity Engine v1（2026-09-10）
+
+| Check | Result | Scope / limit |
+| --- | --- | --- |
+| Clean WP5 baseline | PASS | `WP5_BASELINE_SHA=202c41e88a54e0805158f41523acbb430934078b`; branch `feat/seo-opportunity-engine-v1` |
+| Evaluation input | PASS | frozen normalized `OpportunityEvaluationInput`；preview/UAT only |
+| Source roles | PASS | AHREFS=`THIRD_PARTY_ESTIMATE`、GSC=`FIRST_PARTY_SEARCH_ACTUAL`、SF=`TECHNICAL_CRAWL_EVIDENCE` |
+| Cross-source join | PASS | registry topic/URL + explicit evidence refs；不以 source grain 相減或把 row count 當 metric |
+| Rules | PASS | QUICK_WIN、CTR_OPPORTUNITY、CONTENT_DECAY、TECHNICAL_UNLOCK、DO_NOTHING；每筆保留 rule id、matched/failed/missing trace |
+| Scoring | PASS | fixed SEO_EXISTING/SEO_NEW profiles；missing 不轉 zero，score 與 confidence 分離 |
+| Confidence / freshness / conflict | PASS | family count、stale、mapping、conflicting evidence fail closed；不升格 VALIDATED/APPROVED |
+| Existing URL behavior | PASS | registry canonical URL 決定 existing asset；UPDATE/TECHNICAL/SERP actions require explicit URL hypothesis |
+| Derived Content Gap | PASS | `POLICY_GAP`；OI-014 未批准前不衍生 competitor gap、不發 candidate |
+| Technical unlock | PASS | 必須有 URL-specific HIGH/CRITICAL SF issue 與 search demand intersection；issue volume alone 不足 |
+| DO_NOTHING | PASS | current evidence 不滿足 rule 時保留 DO_NOTHING/MONITOR 與 review date |
+| WP1 integration | PASS | 65-field proposal 經 `validate_opportunity`；invalid proposal 不進 store |
+| WP4 integration | PASS | append-only Candidate Store；每個 candidate pin `evidence_id + revision + content_hash`，rev2 不漂移 rev1 |
+| Synthetic fixtures | PASS | `tests/fixtures/opportunity_engine/scenarios.json`；無 live Ahrefs/GSC/SF |
+| WP5 tests | PASS | **17 tests，OK** |
+| Full regression | PASS | **166 tests，OK**（既有 149 + WP5 17） |
+| Schema / JSON / AST / dates | PASS | 2 schemas、2 fixtures、8 Python AST；explicit date/date-time 與 format checker |
+| `git diff --check` | PASS | no whitespace errors |
+| Security / production boundary | PASS | scoped secret/credential/PII、live-call、production-writer scan；production mutation=0 |
+| Readiness | READY | 下一個唯一工作為 WP6；本輪停止 |
+
+### WP5 policy and dependency gaps
+
+`AHREFS_CONTENT_GAP_UNAVAILABLE` 與 `DERIVED_COMPETITIVE_GAP_POLICY_UNAPPROVED` 維持
+明示 policy gap。SERP intent 不在 WP5 source scope，因此 Quick Win 只保留為
+insufficient-evidence candidate；GA4、Business Actual、SERP、Workduo、CrUX 與
+production approval 仍是 dependency gaps，不以 synthetic score 或 confidence
+填補。

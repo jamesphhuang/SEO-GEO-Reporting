@@ -75,3 +75,21 @@ proposal：`contracts/opportunity_store.v1.proposal.json`，仍未 activation。
 `WP4_IMMUTABLE_STORE_READINESS = READY`。下一個唯一工作是 **WP5：SEO engine v1
 (Ahrefs + GSC + SF)**；不要在本輪開始 scoring、cross-source joins、GA4/SERP/
 Workduo、UI、review bridge 或 production activation。
+
+## Current handoff — WP5 complete
+
+WP5 baseline：`202c41e88a54e0805158f41523acbb430934078b`。
+branch：`feat/seo-opportunity-engine-v1`。
+
+本包完成 offline `OpportunityEvaluationInput`、SEO rule engine、fixed scoring、
+independent confidence、deterministic preview、WP1 proposal validation bridge 與
+WP4 Candidate Store append bridge。只接受 normalized synthetic AHREFS/GSC/SF；每個
+persisted candidate pin exact evidence revision/hash，沒有 auto approval。`CONTENT_GAP`
+仍回傳 `POLICY_GAP`，不自行推導 negative existence。
+
+17 個 WP5 tests 加上既有套件共 **166 tests PASS**；2 schemas、AST、explicit
+date/date-time、`git diff --check` 與 scoped security/production-boundary scan 均
+PASS；production mutation=0，沒有 live query。
+
+`WP5_SEO_ENGINE_READINESS = READY`。下一個唯一工作是 **WP6 — GA4 quality diagnostics**；
+本輪完成後停止，不開始 WP6。未 push remote。

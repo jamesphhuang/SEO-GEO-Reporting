@@ -140,3 +140,26 @@ production activation。
 
 `WP4_IMMUTABLE_STORE_READINESS = READY`。下一個唯一工作是 WP5 SEO engine v1；
 本輪沒有 scoring、recommendation、live ingestion、UI 或 production mutation。
+
+## WP5 implementation handoff（2026-09-10）
+
+本輪在 `feat/seo-opportunity-engine-v1`、基於
+`WP5_BASELINE_SHA=202c41e88a54e0805158f41523acbb430934078b` 的 clean worktree
+完成離線 SEO Opportunity Engine v1。輸入是 immutable、normalized synthetic
+Ahrefs/GSC/SF evidence 與 WP3 canonical registry；engine 不呼叫 live source，也不
+寫入 production。
+
+支援 `QUICK_WIN`、`CTR_OPPORTUNITY`、`CONTENT_DECAY`、`TECHNICAL_UNLOCK` 與
+`DO_NOTHING` 的 deterministic rule trace；`CONTENT_GAP` 保留為
+`POLICY_GAP`，因 OI-014 尚未批准 derived competitive gap。Score 維持
+`SEO_EXISTING`/`SEO_NEW` 的 fixed profile、missing 不轉零；Confidence 依獨立
+source families、freshness、mapping 與 conflict 獨立計算。Engine 只產生
+`DISCOVERED`/`CANDIDATE`，永不自動 `APPROVED`。
+
+候選 proposal 先通過 WP1 validator，再可選擇 append 到 WP4 Candidate Store；
+store record 固定 `evidence_id + revision + content_hash`，candidate revision
+變更以 supersedes chain 追加。preview 只輸出 deterministic JSON/Markdown，沒有
+UI、Recommendations、Next Steps、scheduler 或 production writer。
+
+`WP5_SEO_ENGINE_READINESS = READY`。下一個唯一工作依 ROADMAP 是 WP6 GA4 quality
+diagnostics；本輪已停止，未開始 WP6。

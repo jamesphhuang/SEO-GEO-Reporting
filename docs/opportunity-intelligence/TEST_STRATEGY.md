@@ -76,3 +76,16 @@ PATH='/Users/pohsunhuang/.cache/codex-runtimes/codex-primary-runtime/dependencie
   dangling、freshness/missing、source class、date/timezone 與 non-finite 均有正反例。
 - full regression：**149 tests，OK**；沒有 live API、Drive、Sheets、Apps Script
   或 production writer。
+
+## WP5 engine test layer
+
+`tests/test_opportunity_engine.py` 以 `tests/fixtures/opportunity_engine/scenarios.json`
+覆蓋 Quick Win、high-demand insufficient、CTR hypothesis、Content Gap policy gap、
+content decay、technical unlock、DO_NOTHING、conflict、stale、mapping review、
+deterministic preview、unsupported source、validator fail-closed，以及 Candidate
+Store evidence revision/pinning。所有 fixture 都是 synthetic；沒有 live Ahrefs、GSC、
+Screaming Frog、GA4、Workduo、Google Search 或 production writer。
+
+WP5 另執行 2 proposal schemas、JSON parse/format checker、Python AST、explicit
+date/date-time、`git diff --check` 與限定路徑 secret/production-boundary scan。完整
+regression 為 **166 tests，OK**；WP5 新增 **17 tests，OK**。

@@ -38,11 +38,20 @@ vs zero、date/date-time、hash、idempotency、collision、gap、supersedes、t
 `WP4_IMMUTABLE_STORE_READINESS = READY`；proposal schema 仍為
 `contracts/opportunity_store.v1.proposal.json`，沒有正式 contract promotion。
 
+## WP5 result
+
+`WP5_BASELINE_SHA=202c41e88a54e0805158f41523acbb430934078b`。在
+`feat/seo-opportunity-engine-v1` 完成 offline deterministic engine、preview、
+synthetic fixtures、WP1 validator integration 與 WP4 Candidate Store integration。
+完整 regression **166 tests，OK**（既有 149 + WP5 17）；2 schemas、AST、explicit
+date/date-time、`git diff --check`、scoped security/production-boundary scan 均
+PASS。沒有 live source query 或 production mutation；contracts 仍是 `*.proposal.json`。
+
+`WP5_SEO_ENGINE_READINESS = READY`。
+
 ## Next single task
 
-WP5：SEO engine v1（Ahrefs + GSC + SF）。只可從 WP4 immutable validated evidence
-產生 deterministic SEO candidates 與可解釋 scoring；不得在下一輪加入 GA4、SERP、
-Workduo、UI、production activation 或把 evidence store 改成 mutable。
+WP6 — GA4 quality diagnostics。只可另行以明確授權開始；本輪不要開始 WP6。
 
 ## WP4 files allowed
 
