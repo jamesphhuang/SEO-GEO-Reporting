@@ -33,7 +33,7 @@ git diff --check
 缺依賴要明確報錯，不能skip成pass或自行改runtime。前輪baseline在bundled Python+Node下70 tests通過；本輪需自己驗證。完成標準與停止條件以NEXT_TASK為準：遇UNKNOWN dirty、必改forbidden files、需business裁決、需live/production、缺依賴且不能安全解決時停止受影響工作並說明。不能讀/輸出API key、token、credential，不能收集customer name/email/phone/raw lead rows；只用aggregate或synthetic，sanitize錯誤，不log原始敏感input。
 
 Git開始先fetch/status/HEAD/origin/main/lineage；不reset/stash/清理原有檔，不刪未知worktree。没有明確授權不commit/push；若獲授權，只explicit stage WP1 allowlist，獨立commit `test(opportunity): validate contract proposals offline`，禁止git add .、force push、amend unrelated commit。最終繁中回報Summary、Files changed、Verification、Not verified、Risks or follow-ups；列實際test結果，更新durable交接後停止。
-## Current handoff — WP3 complete
+## Previous handoff — WP3 complete
 
 WP3 baseline：da9f1d6aa6384eba9eb9c463605c8d1aa3875ede。
 branch：feat/opportunity-canonical-registry。
@@ -55,3 +55,23 @@ opaque reviewer ID。
 WP3_CANONICAL_REGISTRY_READINESS = READY。下一個唯一工作是 WP4 evidence /
 candidate immutable store；不要開始 WP5 scoring、cross-source joins、derived
 Content Gap、live integrations、UI 或 production activation。
+
+## Current handoff — WP4 complete
+
+WP4 baseline：`28374fd2302685ce5bf060dc9292df3a679cf1e0`。
+branch：`feat/opportunity-immutable-store`。
+
+本包新增 offline local append-only Evidence Store、Candidate Store 與 run manifest。
+Evidence/Candidate 分離；revision 只能 append，supersedes chain 連續，candidate
+refs 固定 evidence revision + content hash。相同 revision + hash idempotent；
+collision、gap、tamper、date/time、non-finite、source semantics 與 WP3 dangling
+entity refs fail closed。READY/PARTIAL/STALE/FAILED/NOT_AVAILABLE 與 null missing
+原樣保存，Ahrefs 維持 `THIRD_PARTY_ESTIMATE`。
+
+proposal：`contracts/opportunity_store.v1.proposal.json`，仍未 activation。
+22 個 WP4 tests 加上既有測試共 **149 tests PASS**；security scan、AST、JSON/schema、
+`git diff --check` 通過；production mutation=0。
+
+`WP4_IMMUTABLE_STORE_READINESS = READY`。下一個唯一工作是 **WP5：SEO engine v1
+(Ahrefs + GSC + SF)**；不要在本輪開始 scoring、cross-source joins、GA4/SERP/
+Workduo、UI、review bridge 或 production activation。

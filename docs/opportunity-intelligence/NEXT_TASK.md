@@ -1,8 +1,8 @@
 ## Current baseline
 
 Repo：/Users/pohsunhuang/Library/CloudStorage/GoogleDrive-james.ph.huang@shopline.com/我的雲端硬碟/SEO／GEO Reporting/99_專案程式。
-WP3_BASELINE_SHA=da9f1d6aa6384eba9eb9c463605c8d1aa3875ede；WP3 branch
-feat/opportunity-canonical-registry；WP2 main integration 已完成。原有 dirty
+WP4_BASELINE_SHA=28374fd2302685ce5bf060dc9292df3a679cf1e0；WP4 branch
+feat/opportunity-immutable-store；WP3 main integration 已完成。原有 dirty
 paths 仍在 CURRENT_STATE，與本包分離。
 
 ## WP3 result
@@ -25,11 +25,24 @@ reviewer ID。
 
 WP3_CANONICAL_REGISTRY_READINESS = READY。
 
+## WP4 result
+
+WP4_BASELINE_SHA=`28374fd2302685ce5bf060dc9292df3a679cf1e0`。乾淨 branch
+`feat/opportunity-immutable-store` 已建立 offline append-only Evidence Store、
+Candidate Store 與 local run manifest。Evidence/Candidate 分開保存；revision
+只能 append，candidate refs 必須固定 evidence revision 與 content hash，不會
+implicit resolve latest。WP3 registry refs、source semantics、freshness、missing
+vs zero、date/date-time、hash、idempotency、collision、gap、supersedes、tamper
+與 deterministic replay 均有 synthetic tests。
+
+`WP4_IMMUTABLE_STORE_READINESS = READY`；proposal schema 仍為
+`contracts/opportunity_store.v1.proposal.json`，沒有正式 contract promotion。
+
 ## Next single task
 
-WP4：建立 evidence / candidate immutable store。只處理可重播 evidence envelope、
-candidate revision、supersedes chain、idempotency、stale/failure state 與 local
-run manifest；不得在 WP4 開始 scoring、production write 或改正式 actual contract。
+WP5：SEO engine v1（Ahrefs + GSC + SF）。只可從 WP4 immutable validated evidence
+產生 deterministic SEO candidates 與可解釋 scoring；不得在下一輪加入 GA4、SERP、
+Workduo、UI、production activation 或把 evidence store 改成 mutable。
 
 ## WP4 files allowed
 

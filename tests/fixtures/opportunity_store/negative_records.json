@@ -1,0 +1,23 @@
+{
+  "invalid_source_class": {
+    "record_type": "EVIDENCE",
+    "source": "AHREFS",
+    "source_class": "FIRST_PARTY_SEARCH_ACTUAL"
+  },
+  "revision_gap": {
+    "record_type": "EVIDENCE",
+    "evidence_id": "EVIDENCE_SYNTHETIC_AHREFS_VOLUME",
+    "revision": 3,
+    "supersedes_revision": 2
+  },
+  "dangling_entity": {
+    "entity_refs": [{"entity_type": "KEYWORD", "entity_id": "KW_DOES_NOT_EXIST"}]
+  },
+  "missing_evidence_revision": {
+    "evidence_refs": [{"evidence_id": "EVIDENCE_SYNTHETIC_AHREFS_VOLUME", "revision": 99, "content_hash": "0000000000000000000000000000000000000000000000000000000000000000"}]
+  },
+  "non_finite": {
+    "record_type": "EVIDENCE",
+    "value": "NaN is rejected before serialization"
+  }
+}

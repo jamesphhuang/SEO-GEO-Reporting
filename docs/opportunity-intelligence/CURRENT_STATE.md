@@ -117,3 +117,26 @@ HTTP/HTTPS、www/非 www、trailing slash 等 equivalence policy gaps 會明確�
 
 WP3_CANONICAL_REGISTRY_READINESS = READY。本包沒有 live API、production
 writer、Brand Dictionary mutation、scoring、cross-source join 或 WP4 implementation。
+
+## WP4 implementation handoff（2026-09-10）
+
+本輪以 `WP4_BASELINE_SHA=28374fd2302685ce5bf060dc9292df3a679cf1e0` 建立乾淨
+branch `feat/opportunity-immutable-store`，原 dirty worktree 保留且未觸碰。新增
+離線 append-only Evidence Store、Candidate Store 與 local run manifest；每個
+JSONL line 是 canonical immutable artifact，沒有 update/overwrite API。
+
+Evidence 與 Candidate 是分離 record。Evidence revision 必須連續並以
+`supersedes_evidence_id`/`supersedes_revision` 綁定前一版；candidate revision
+同樣 append，並以 `evidence_id + revision + content_hash` pin 精確 evidence。
+因此 evidence rev2 不會讓已寫入的 candidate rev1 漂移到 latest。相同 logical
+revision 與相同 hash 是 deterministic idempotency；hash collision、gap、錯誤
+supersedes、tamper 與 unresolved entity 均 fail closed。
+
+Store 只接受 offline local inputs，使用 WP3 canonical registry 驗證 entity/topic
+refs；保留 `READY/PARTIAL/STALE/FAILED/NOT_AVAILABLE`、null missing 與 0 的差異，
+並保留 Ahrefs `THIRD_PARTY_ESTIMATE` source semantics。proposal schema
+`contracts/opportunity_store.v1.proposal.json` 仍是 `DRAFT_NOT_APPROVED`，沒有
+production activation。
+
+`WP4_IMMUTABLE_STORE_READINESS = READY`。下一個唯一工作是 WP5 SEO engine v1；
+本輪沒有 scoring、recommendation、live ingestion、UI 或 production mutation。

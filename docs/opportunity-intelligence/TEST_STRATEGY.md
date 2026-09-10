@@ -66,3 +66,13 @@ unit tests只用synthetic fixtures與fake transport，不能依live MCP、Google
 ```sh
 PATH='/Users/pohsunhuang/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin:'"$PATH" PYTHONDONTWRITEBYTECODE=1 '/Users/pohsunhuang/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3' -m unittest discover -s tests
 ```
+
+## WP4 實際結果
+
+- `tests/test_opportunity_store.py`：**22 tests，OK**；只用 WP3 synthetic registry、
+  固定時間與 local temporary directory。
+- 驗證 evidence rev1 → candidate pin rev1 → evidence rev2 後 candidate 仍讀 rev1；
+  duplicate/collision、revision gap/supersedes、hash drift、tamper、entity
+  dangling、freshness/missing、source class、date/timezone 與 non-finite 均有正反例。
+- full regression：**149 tests，OK**；沒有 live API、Drive、Sheets、Apps Script
+  或 production writer。

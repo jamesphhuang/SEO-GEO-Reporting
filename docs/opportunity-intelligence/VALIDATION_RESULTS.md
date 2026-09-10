@@ -123,3 +123,44 @@ HTTP/HTTPS、www/non-www、trailing slash、redirect/canonical equivalence 沒�
 自動合併；它們以 metadata policy gaps 留存。這不是把兩個 URL 當成相同 identity，
 也不是 live redirect resolution。未來若需要合併，必須有 explicit relation、evidence
 與 human review revision。
+
+## WP4 — immutable evidence / candidate store（2026-09-10）
+
+| Check | Result | Scope / limit |
+| --- | --- | --- |
+| Clean baseline | PASS | `WP4_BASELINE_SHA=28374fd2302685ce5bf060dc9292df3a679cf1e0`; original dirty worktree未觸碰 |
+| Existing regression before change | PASS | 127 tests |
+| Evidence store | PASS | local append-only `evidence.jsonl`，continuous revisions/history，no update/overwrite |
+| Candidate store | PASS | separate `candidates.jsonl`，candidate revision append-only |
+| Exact evidence pinning | PASS | `evidence_id + revision + content_hash`；rev1 candidate在evidence rev2後仍解析rev1 |
+| Idempotency / collision | PASS | same logical revision+hash no-op；different hash `REVISION_CONFLICT` |
+| Revision / supersedes | PASS | gap、forward/incorrect supersedes、duplicate persisted revision fail closed |
+| Entity integrity | PASS | WP3 registry TOPIC/KEYWORD refs；dangling refs `UNRESOLVED_ENTITY` |
+| Freshness / missing semantics | PASS | READY/PARTIAL/STALE/FAILED/NOT_AVAILABLE；null missing不轉0 |
+| Source semantics | PASS | AHREFS 保留 `THIRD_PARTY_ESTIMATE`，source mismatch拒絕 |
+| Date / date-time | PASS | explicit ISO date、timezone-aware timestamp與順序檢查 |
+| Schema | PASS | `opportunity_store.v1.proposal.json` Draft 2020-12；proposal-only |
+| Run manifest | PASS | local append-only `run_manifest.jsonl`，run collision fail closed |
+| WP4 tests | PASS | 22 deterministic synthetic tests；無 live API |
+| Full regression | PASS | **149 tests，OK** |
+| AST / JSON / diff | PASS | 新增 Python AST、JSON parse/schema、`git diff --check` |
+| Security | PASS | scoped credential/PII/production-writer scan；無 secrets、live calls或production mutation |
+| Production mutation | PASS | 0；未修改 outputs、正式 contracts、Sheets、Apps Script、scheduler或UI |
+| WP4 readiness | READY | 下一個唯一工作為 WP5 SEO engine v1 |
+
+### WP4 deterministic error codes
+
+`INVALID_RECORD_TYPE`, `INVALID_SOURCE_SEMANTICS`, `INVALID_REVISION`,
+`REVISION_GAP`, `INVALID_SUPERSEDES`, `REVISION_CONFLICT`, `HASH_MISMATCH`,
+`UNRESOLVED_ENTITY`, `MISSING_EVIDENCE_REFERENCE`, `MISSING_EVIDENCE_REVISION`,
+`CANDIDATE_EVIDENCE_DRIFT`, `INVALID_FRESHNESS_STATE`, `INVALID_VALUE`,
+`INVALID_DATE`, `INVALID_DATETIME`, `NAIVE_DATETIME`, `NONFINITE_NUMBER` 與
+`STORE_CORRUPTION` 均在離線測試中有明確 fail-closed 行為。
+
+### WP4 limits / policy gaps
+
+本包不定義 review event、human approval identity、scoring、推薦或 outcome
+business policy；Candidate 的 `status/review_state` 只作 immutable payload 保存，
+真正 review bridge 留給 WP10。未提供 registry 時，帶 entity refs 的 append 會
+以 `UNRESOLVED_ENTITY` 拒絕，不自動建立 entity。JSONL 是 local replay backend，
+不是 live multi-writer database 或 production migration。
