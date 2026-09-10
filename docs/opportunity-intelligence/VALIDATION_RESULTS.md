@@ -246,3 +246,24 @@ production approval 仍是 dependency gaps，不以 synthetic score 或 confiden
 ### WP7 policy limits
 
 SERP validation is shortlist-only and observational. It does not claim unbiased market ranking, search volume, click-through causality, Workduo visibility, or conversion. AIO/PAA that was not captured remains `NOT_AVAILABLE`; an unmapped competitor domain is not promoted to a registry entity. Cached Ahrefs SERP context cannot satisfy the live SERP evidence role.
+
+## WP8 GEO fixed sample layer（2026-09-10）
+
+| Check | Result | Scope / limit |
+| --- | --- | --- |
+| Clean baseline / branch | PASS | `WP8_BASELINE_SHA=da1f5e53a446bbe903d49291de9c27d8eb0d44ca`; `feat/opportunity-geo-fixed-sample`; original dirty worktree untouched |
+| Fixed sample registry | PASS | version/revision, prompt population, market/locale/platform/model scope, effective dates and deterministic sample hash |
+| Workduo role | PASS | `MONITORED_FIXED_SAMPLE` / `MONITORED_GEO_SAMPLE`; no market share, GA4, GSC, Ahrefs or business outcome semantics |
+| Exact canonical joins | PASS | WP3 PROMPT/TOPIC/URL/COMPETITOR mappings only; unknown prompt/topic/domain fail closed or remain explicit |
+| Capability semantics | PASS | mention and citation independent; `NOT_AVAILABLE` != false/0; missing, stale and failed remain visible |
+| Comparability | PASS | same sample version/population/platform/model/locale/market/provider methodology required; drift is `COMPARABILITY_GAP` |
+| Candidate governance | PASS | existing candidate enrichment only; WP5 score/confidence/review state preserved; no auto candidate/approval |
+| SERP / GA4 boundary | PASS | signals remain separate; `CROSS_CHANNEL_CONFLICT`/`MIXED_SIGNAL` retained |
+| Immutable pinning | PASS | GEO evidence and diagnostics pin `evidence_id + revision + content_hash`; historical revisions remain readable |
+| Synthetic fixtures | PASS | A–P; no customer, credential, live provider or production payload |
+| WP8 tests | PASS | **21 tests, OK** |
+| Full regression | PASS | **211 tests, OK** |
+| Schema / JSON / AST / dates | PASS | three WP8 proposal schemas, fixture parse, Python AST, explicit date/date-time checks |
+| `git diff --check` | PASS | no whitespace errors |
+| Security / production boundary | PASS | scoped secret/PII/live-call/production-writer scan clean; production mutation=0 |
+| Readiness | READY | next single task is WP9 only; no push or merge |

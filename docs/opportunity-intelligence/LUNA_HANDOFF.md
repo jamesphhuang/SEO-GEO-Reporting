@@ -117,3 +117,11 @@ date/date-time、`git diff --check` 與 scoped security/production-boundary scan
 WP7 clean baseline：`16c6c74248a0d96f8357b21d9eca45e3668d16eb`；branch `feat/opportunity-serp-validation`，worktree `/private/tmp/seo-geo-wp7-serp`。本輪只實作 offline shortlist SERP validation：normalizer、bounded injected collection、deterministic composition rules、proposal schemas、preview、synthetic A–N fixtures 與 append-only validation history。exact canonical query、scope、owned URL、approved competitor mapping 與 provider provenance 是必要 identity；NOT_AVAILABLE、STALE、FAILED、PARTIAL、unknown domain 與 mixed intent 均保留，不補零、不把缺失轉 false、不把 cached Ahrefs 當 live。
 
 Candidate 與 SERP validation 各自 pin `evidence_id + revision + content_hash`；validation status 不會改 WP5 score/confidence 或 review state，`approval_transition_allowed=false`。WP7 targeted **9 tests**、full regression **190 tests**、schema/AST/JSON/date-time、diff、security 與 production boundary 全部 PASS。未 push、未建立 PR、未 merge main，也未開始 WP8。下一個唯一工作是 **WP8 — GEO fixed sample layer**。
+
+## Current handoff — WP8 complete
+
+WP8 baseline：`da1f5e53a446bbe903d49291de9c27d8eb0d44ca`；branch `feat/opportunity-geo-fixed-sample`，worktree `/private/tmp/seo-geo-wp8-geo`。
+
+本輪完成 offline fixed Workduo sample registry、normalizer、GEO diagnostic rules、preview、proposal schemas、synthetic A–P fixtures 與 append-only diagnostic store。固定 sample 保留 sample/version/revision、prompt population、scope、有效日期與 hash；所有 Prompt/Topic/URL/Competitor join 都走 canonical registry。Mention/citation 分離，missing/STALE/FAILED/NOT_AVAILABLE 不轉零；sample drift 形成 comparability gap；unknown domain 不建立 entity。GEO 只 enrich existing candidate，保留 WP5 score/confidence/review state，不自動 APPROVED，SERP/GA4 cross-channel conflict 原樣保留。21 WP8 tests 與 full regression 211 tests PASS；schema/fixture/AST/date-time/diff/security/production-boundary checks PASS，沒有 live query 或 production mutation。
+
+`WP8_GEO_FIXED_SAMPLE_READINESS = READY`。下一個唯一工作是 **WP9 — Opportunity preview / UAT report**；不要在本輪開始 WP9、建立 WP9 branch、push 或 merge。

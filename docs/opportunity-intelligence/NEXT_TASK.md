@@ -51,7 +51,7 @@ PASS。沒有 live source query 或 production mutation；contracts 仍是 `*.pr
 
 ## Next single task
 
-WP6 — GA4 quality diagnostics。只可另行以明確授權開始；本輪不要開始 WP6。
+WP9 — Opportunity preview / UAT report。只記錄下一個工作；本輪不要開始 WP9。
 
 ## WP4 files allowed
 
@@ -99,3 +99,9 @@ checks PASS。`contracts/ga4_quality_diagnostics.v1.proposal.json` 維持 propos
 `WP7_BASELINE_SHA=16c6c74248a0d96f8357b21d9eca45e3668d16eb`。在 `feat/opportunity-serp-validation` 完成 offline shortlist-only SERP normalizer、bounded injected collection boundary、deterministic intent/page-type validation、preview、proposal schemas、synthetic A–N fixtures 與 append-only validation history。所有 query identity、scope、feature availability、owned/competitor mapping、freshness 與 `evidence_id + revision + content_hash` pinning 都保留；SERP 不改 WP5 score/confidence，也不自動 APPROVED。
 
 WP7 targeted **9 tests PASS**，full regression **190 tests PASS**；schema/fixture/AST/date-time、`git diff --check`、scoped security 與 production-boundary checks PASS。沒有 live provider、production mutation、PR、push 或 merge。下一個唯一任務是 **WP8 — GEO fixed sample layer**；本輪停止，不開始 WP8。
+
+## Latest handoff — WP8 complete
+
+`WP8_BASELINE_SHA=da1f5e53a446bbe903d49291de9c27d8eb0d44ca`。branch `feat/opportunity-geo-fixed-sample` 完成 offline GEO fixed sample layer、Workduo normalizer、diagnostics、preview、proposal schemas、synthetic A–P fixtures 與 append-only diagnostic history。21 WP8 tests、full regression 211 tests、schema/AST/JSON/date-time、`git diff --check`、security 與 production-boundary checks PASS；production mutation=0，沒有 live provider、push 或 merge。
+
+`WP8_GEO_FIXED_SAMPLE_READINESS = READY`。依 ROADMAP 的下一個唯一工作是 **WP9 — Opportunity preview / UAT report**；本輪只記錄，不開始 WP9，也不建立 WP9 branch。

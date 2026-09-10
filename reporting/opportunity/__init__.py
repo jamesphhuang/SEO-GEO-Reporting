@@ -43,6 +43,15 @@ __all__ = [
     "evaluate_ga4_diagnostic",
     "validate_ga4_diagnostic",
     "diagnostic_preview",
+    "GEOFixedSampleInput",
+    "GEODiagnosticInputError",
+    "GEODiagnosticResult",
+    "GEODiagnosticStore",
+    "evaluate_geo_fixed_sample",
+    "evaluate_geo_diagnostic",
+    "validate_geo_diagnostic",
+    "validate_geo",
+    "geo_diagnostic_preview",
     "SERPValidationInput",
     "SERPValidationInputError",
     "SERPValidationResult",
@@ -73,4 +82,10 @@ def __getattr__(name):
     if name == "serp_validation_preview":
         from .serp_preview import serp_validation_preview
         return serp_validation_preview
+    if name in {"GEOFixedSampleInput", "GEODiagnosticInputError", "GEODiagnosticResult", "GEODiagnosticStore", "evaluate_geo_fixed_sample", "evaluate_geo_diagnostic", "validate_geo_diagnostic", "validate_geo"}:
+        from .geo_diagnostics import GEOFixedSampleInput, GEODiagnosticInputError, GEODiagnosticResult, GEODiagnosticStore, evaluate_geo_fixed_sample, evaluate_geo_diagnostic, validate_geo_diagnostic, validate_geo
+        return {"GEOFixedSampleInput": GEOFixedSampleInput, "GEODiagnosticInputError": GEODiagnosticInputError, "GEODiagnosticResult": GEODiagnosticResult, "GEODiagnosticStore": GEODiagnosticStore, "evaluate_geo_fixed_sample": evaluate_geo_fixed_sample, "evaluate_geo_diagnostic": evaluate_geo_diagnostic, "validate_geo_diagnostic": validate_geo_diagnostic, "validate_geo": validate_geo}[name]
+    if name == "geo_diagnostic_preview":
+        from .geo_preview import geo_diagnostic_preview
+        return geo_diagnostic_preview
     raise AttributeError(name)

@@ -1,0 +1,22 @@
+{
+  "metadata": {"synthetic": true, "source_role": "MONITORED_FIXED_SAMPLE", "provider": "WORKDUO", "sample_id": "WP8_FIXED_TW"},
+  "sample": {"sample_id": "WP8_FIXED_TW", "sample_version": "v1", "revision": 1, "status": "ACTIVE", "prompt_refs": [{"prompt_id": "PROMPT_3ef40bd7136bf0938928a2b7"}], "market": "TW", "locale": "zh-TW", "platform": "synthetic", "model_scope": "UNKNOWN", "provider": "WORKDUO", "provider_methodology": "fixed_prompt_cohort", "effective_from": "2026-09-01", "synthetic": true},
+  "scenarios": {
+    "A_stable": {"mention_state": "OBSERVED", "citation_state": "OBSERVED", "owned": true},
+    "B_decline": {"mention_state": "NOT_OBSERVED", "citation_state": "NOT_OBSERVED", "owned": false},
+    "C_competitor_improves": {"mention_state": "OBSERVED", "citation_state": "NOT_OBSERVED", "owned": false, "competitor_domain": "waca.example"},
+    "D_sample_revision_changed": {"sample_version": "v2", "sample_revision": 2, "sample_definition_revision": 2},
+    "E_missing": {"freshness_state": "NOT_AVAILABLE", "collection_status": "NOT_AVAILABLE", "mention_state": "NOT_AVAILABLE", "citation_state": "NOT_AVAILABLE"},
+    "F_stale": {"freshness_state": "STALE", "collection_status": "SUCCESS", "as_of": "2026-08-01", "period_start": "2026-07-25", "period_end": "2026-07-31"},
+    "G_no_citation_capability": {"mention_state": "OBSERVED", "citation_state": "NOT_AVAILABLE"},
+    "H_mention_without_citation": {"mention_state": "OBSERVED", "citation_state": "NOT_OBSERVED"},
+    "I_citation_present": {"mention_state": "NOT_OBSERVED", "citation_state": "OBSERVED", "citation_url": "https://shopline.tw/example/ecommerce-platform/"},
+    "J_unmapped_prompt": {"prompt_id": "PROMPT_UNKNOWN", "expected_conflict": "UNMAPPED_PROMPT"},
+    "K_unmapped_topic": {"topic_id": "TOPIC_UNKNOWN", "expected_conflict": "UNMAPPED_TOPIC"},
+    "L_unknown_competitor": {"mention_state": "OBSERVED", "citation_state": "NOT_OBSERVED", "competitor_domain": "unknown.example", "expected_conflict": "UNKNOWN_COMPETITOR_DOMAIN"},
+    "M_serp_strong_geo_weak": {"mention_state": "NOT_OBSERVED", "citation_state": "NOT_OBSERVED", "owned": false, "serp_status": "SERP_VALIDATED", "expected_conflict": "CROSS_CHANNEL_CONFLICT"},
+    "N_ga4_healthy_geo_weak": {"mention_state": "NOT_OBSERVED", "citation_state": "NOT_OBSERVED", "owned": false, "ga4_status": "QUALITY_HEALTHY"},
+    "O_deterministic": {"mention_state": "OBSERVED", "citation_state": "OBSERVED", "owned": true},
+    "P_provider_failure": {"freshness_state": "FAILED", "collection_status": "FAILED", "mention_state": "NOT_AVAILABLE", "citation_state": "NOT_AVAILABLE", "expected_conflict": "PROVIDER_FAILURE"}
+  }
+}

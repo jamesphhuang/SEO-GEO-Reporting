@@ -40,3 +40,12 @@ WP7 validation 只輸出 `SERP_VALIDATED`、`SERP_CONFLICT` 或 `SERP_NOT_CHECKE
 SERP evidence 與原 candidate evidence 的 `evidence_id + revision + content_hash`。它不
 改寫 WP5 score/confidence、GSC/Ahrefs metrics 或 candidate review state，也不會自行建立
 unmapped competitor entity。
+
+## WP8 GEO fixed sample boundary（2026-09-10）
+
+Workduo 的 WP8 role 固定為 `MONITORED_FIXED_SAMPLE`，evidence source class 維持
+`MONITORED_GEO_SAMPLE`。固定 sample 的 prompt population、version/revision、platform、
+model scope、market、locale、provider methodology 與有效日期是可比性條件；sample drift
+只能形成 `COMPARABILITY_GAP`。Mention、citation、provider capability、unknown domain、
+missing、STALE 與 FAILED 各自保留，不能轉成 market share、GA4/GSC/Ahrefs metric、business
+outcome 或 0。
