@@ -1,0 +1,17 @@
+{
+  "keywords": [
+    {
+      "keyword": "synthetic malformed",
+      "best_position": -1,
+      "volume": -4
+    },
+    {
+      "best_position": 3,
+      "volume": 20
+    }
+  ],
+  "apiUsageCosts": {
+    "rows": 2,
+    "units-cost-total-actual": 100
+  }
+}

@@ -49,3 +49,15 @@
 | Business Actual | 已讀正式 mapping；僅 non_paid_leads 確認，SQL / successful_conversions unresolved | 本輪不重新盤查 Salesforce、不讀 lead rows；topic attribution contract 缺席 |
 
 Workduo project metadata 中可見 WACA aliases 混有 Ecuador 字樣、Shopify 與 Shopify TW 並存：這是 **ENTITY_MAPPING_REVIEW_REQUIRED** 的線索，不能直接把它們當同一母體加總，也不能僅依名字自動合併。標為 registry QA 待辦。
+
+## WP2 re-probe and implementation boundary（2026-09-10）
+
+本輪重新以 runtime tool discovery + `doc` schema 做 bounded smoke，未保存 raw rows：
+
+| 能力 | 本輪狀態 | 實測範圍 / 成本觀察 |
+| --- | --- | --- |
+| Organic Keywords | AVAILABLE | `site-explorer-organic-keywords`、`shopline.tw`、TW、domain、2026-09-09、`limit=1`；returned 1 row、50 observed units |
+| Organic Competitors | AVAILABLE | `site-explorer-organic-competitors`、同 target/country/date、domain、`limit=1`；returned 1 row、50 observed units；subdomains 組合被 runtime 判為 invalid params，不能當成 entitlement failure |
+| Dedicated Content Gap | UNAVAILABLE | runtime inventory 沒有 dedicated Content Gap endpoint；本輪不以其他大量 endpoint 冒充 |
+
+WP2 adapter 只處理前兩項；Content Gap 由 manifest 明確標為 `NOT_AVAILABLE/CAPABILITY_GAP`。client hard caps 為每 run 4 requests、500 observed units、每 endpoint 5 rows、2 pages、30 秒 timeout、每次最多 1 retry；provider `limit` 或 `top_positions` 不等同 trusted output limit。units 未由 provider 暴露時保持 `UNKNOWN`，不估算精確成本。

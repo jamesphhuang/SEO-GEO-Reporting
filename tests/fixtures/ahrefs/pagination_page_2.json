@@ -1,0 +1,16 @@
+{
+  "keywords": [
+    {
+      "keyword": "synthetic page two",
+      "best_position": 9,
+      "best_position_url": "https://example.test/page-two",
+      "volume": 40,
+      "sum_traffic": 8,
+      "keyword_difficulty": 14
+    }
+  ],
+  "apiUsageCosts": {
+    "rows": 1,
+    "units-cost-total-actual": 50
+  }
+}

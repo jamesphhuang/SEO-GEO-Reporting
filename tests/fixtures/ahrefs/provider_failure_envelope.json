@@ -1,0 +1,6 @@
+{
+  "error": {
+    "status_code": 503,
+    "code": "TEMPORARY_PROVIDER_FAILURE"
+  }
+}

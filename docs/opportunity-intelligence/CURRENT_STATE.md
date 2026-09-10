@@ -83,8 +83,16 @@ OPPORTUNITY_INTELLIGENCE_ARCHITECTURE = READY（設計與交接可供分包，�
 
 AHREFS_INTEGRATION_READINESS = PARTIAL（多 endpoint probe 成功；正式 scope、競品、budget、歷史語義與 ingestion 未凍結）。目前沒有使用者正式核准的 scoring/business weights；所有預設均為 proposal。
 
+## WP2 implementation handoff（2026-09-10）
+
+本輪以 `WP2_BASELINE_SHA=8491d7c0914791498811b868f3aafb5af3deaa84` 建立乾淨 branch `feat/ahrefs-readonly-ingestion`。新增的 adapter 只接受 scope-approved preview/uat requests，透過注入 transport 取得 Organic Keywords 與 Organic Competitors；不寫 Ahrefs、Google Sheets、Recommendations、Next Steps、Apps Script 或 scheduler。
+
+Ahrefs live smoke：Organic Keywords 與 Organic Competitors 各以 TW、domain、`limit=1` 成功，實際各觀測 50 units；runtime inventory 沒有 dedicated Content Gap endpoint，因此 Content Gap 保持 `UNAVAILABLE`，沒有用其他 endpoint 偽造 coverage。adapter 以 client-side 4 requests/run、500 units/run、每 endpoint 5 rows、2 pages、30 秒 timeout、每次最多 1 retry 作保守上限；這些不是 owner-approved production budget。
+
+`WP2_AHREFS_INGESTION_READINESS = PARTIAL`：Organic Keywords、Competitors、bounded normalization、manifest、failure/retry/cap guards 與 offline tests 已完成；Content Gap capability gap、scope/competitor/budget approval 與 production activation 仍未完成。
+
 ## WP1 implementation handoff
 
 `origin/main` 已包含 architecture merge commit `0b63c66f0c14331fabb0dd2d72e820147e8cd758`。WP1 在獨立 branch `feat/opportunity-contract-validator`、以該 SHA 為 baseline 完成；validator 僅接受 offline payload 與 synthetic immutable context，沒有 live source、production writer 或 scheduler。
 
-`WP1_VALIDATOR_READINESS = READY`。下一個唯一工作依 ROADMAP 為 WP2 Ahrefs read-only ingestion adapter；scope、competitor、budget 與 live capability approval 仍是 WP2 的前置條件。
+`WP1_VALIDATOR_READINESS = READY`。WP2 已完成 bounded read-only adapter，但 Content Gap capability、scope/competitor/budget approval 與 production activation 仍未完成；下一個唯一工作依 ROADMAP 為 WP3 canonical entity registry。

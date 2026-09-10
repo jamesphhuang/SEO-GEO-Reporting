@@ -1,0 +1,12 @@
+{
+  "keywords": [
+    {
+      "keyword": "synthetic missing metric",
+      "best_position": 12
+    }
+  ],
+  "apiUsageCosts": {
+    "rows": 1,
+    "units-cost-total-actual": 50
+  }
+}

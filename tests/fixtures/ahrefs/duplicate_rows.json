@@ -1,0 +1,20 @@
+{
+  "keywords": [
+    {
+      "keyword": "synthetic duplicate",
+      "best_position": 6,
+      "best_position_url": "https://example.test/duplicate",
+      "volume": 30
+    },
+    {
+      "keyword": "synthetic duplicate",
+      "best_position": 6,
+      "best_position_url": "https://example.test/duplicate",
+      "volume": 30
+    }
+  ],
+  "apiUsageCosts": {
+    "rows": 2,
+    "units-cost-total-actual": 100
+  }
+}
