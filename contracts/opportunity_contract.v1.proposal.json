@@ -1,0 +1,881 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "1.0.0-proposal"
+    },
+    "opportunity_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "supersedes_opportunity_revision": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1
+    },
+    "content_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "environment": {
+      "enum": [
+        "preview",
+        "uat"
+      ]
+    },
+    "period": {
+      "type": "string",
+      "pattern": "^20[0-9]{2}-(0[1-9]|1[0-2])$"
+    },
+    "topic_cluster_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "topic": {
+      "type": "string",
+      "minLength": 1
+    },
+    "primary_keyword": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "intent": {
+      "enum": [
+        "INFORMATIONAL",
+        "COMMERCIAL_INVESTIGATION",
+        "TRANSACTIONAL",
+        "NAVIGATIONAL",
+        "MIXED",
+        "UNKNOWN"
+      ]
+    },
+    "funnel": {
+      "enum": [
+        "TOFU",
+        "MOFU",
+        "BOFU",
+        "UNKNOWN"
+      ]
+    },
+    "business_theme": {
+      "enum": [
+        "ONLINE_STORE",
+        "POS",
+        "OMO",
+        "CRM",
+        "PAYMENTS",
+        "LOGISTICS",
+        "SOCIAL_COMMERCE",
+        "GROUP_BUYING",
+        "AI_AUTOMATION",
+        "MERCHANT_GROWTH",
+        "ENTERPRISE_RETAIL",
+        "UNMAPPED"
+      ]
+    },
+    "asset_type": {
+      "enum": [
+        "ARTICLE",
+        "COMPARISON",
+        "PRODUCT",
+        "FAQ",
+        "TOOL",
+        "GUIDE",
+        "OTHER",
+        "UNKNOWN"
+      ]
+    },
+    "opportunity_type": {
+      "enum": [
+        "QUICK_WIN",
+        "CTR_OPPORTUNITY",
+        "CONTENT_GAP",
+        "CONTENT_DECAY",
+        "TECHNICAL_UNLOCK",
+        "GEO_GAP",
+        "AUTHORITY_GAP",
+        "INTERNAL_LINK_OPPORTUNITY",
+        "CONSOLIDATION",
+        "DO_NOTHING"
+      ]
+    },
+    "existing_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "existing_urls": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "target_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "recommended_action": {
+      "enum": [
+        "CREATE_NEW",
+        "UPDATE_EXISTING",
+        "CONSOLIDATE",
+        "TECHNICAL_FIX",
+        "INTERNAL_LINK",
+        "SERP_SNIPPET_OPTIMIZE",
+        "GEO_ENHANCE",
+        "AUTHORITY_BUILD",
+        "MONITOR",
+        "DO_NOTHING"
+      ]
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "business_evidence_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "ahrefs_evidence_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "gsc_evidence_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "ga4_evidence_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "sf_evidence_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "serp_evidence_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "geo_evidence_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "crux_evidence_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "demand_score": {
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        null
+      ]
+    },
+    "traction_score": {
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        null
+      ]
+    },
+    "business_score": {
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        null
+      ]
+    },
+    "attainability_score": {
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        null
+      ]
+    },
+    "geo_score": {
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        null
+      ]
+    },
+    "execution_score": {
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        null
+      ]
+    },
+    "score_profile": {
+      "enum": [
+        "SEO_EXISTING",
+        "SEO_NEW",
+        "GEO"
+      ]
+    },
+    "score_profile_version": {
+      "const": "scoring-proposal-1"
+    },
+    "opportunity_score": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "score_lower_bound": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "score_upper_bound": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "score_explanations": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "demand_score": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "rationale": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence_refs": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "rationale",
+            "evidence_refs"
+          ]
+        },
+        "traction_score": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "rationale": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence_refs": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "rationale",
+            "evidence_refs"
+          ]
+        },
+        "business_score": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "rationale": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence_refs": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "rationale",
+            "evidence_refs"
+          ]
+        },
+        "attainability_score": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "rationale": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence_refs": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "rationale",
+            "evidence_refs"
+          ]
+        },
+        "geo_score": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "rationale": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence_refs": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "rationale",
+            "evidence_refs"
+          ]
+        },
+        "execution_score": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "rationale": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence_refs": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "rationale",
+            "evidence_refs"
+          ]
+        }
+      },
+      "required": [
+        "demand_score",
+        "traction_score",
+        "business_score",
+        "attainability_score",
+        "geo_score",
+        "execution_score"
+      ]
+    },
+    "confidence": {
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH",
+        "NOT_ASSESSABLE"
+      ]
+    },
+    "evidence_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "independent_family_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "status": {
+      "enum": [
+        "DISCOVERED",
+        "CANDIDATE",
+        "VALIDATED",
+        "APPROVED"
+      ]
+    },
+    "validation_state": {
+      "enum": [
+        "INSUFFICIENT_EVIDENCE",
+        "CONFLICTING_EVIDENCE",
+        "PASS"
+      ]
+    },
+    "review_state": {
+      "enum": [
+        "NOT_SUBMITTED",
+        "PENDING",
+        "APPROVED",
+        "REJECTED",
+        "NEEDS_REVISION"
+      ]
+    },
+    "review_event_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "business_override_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "scope_approval_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "measurement_plan_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "effort_days": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "serp_state": {
+      "enum": [
+        "SERP_VALIDATED",
+        "SERP_CONFLICT",
+        "SERP_NOT_CHECKED"
+      ]
+    },
+    "required_evidence_roles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "missing_evidence_roles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "conflicting_evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "rule_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "rule_version": {
+      "const": "rules-proposal-1"
+    },
+    "mapping_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "freshness_policy_version": {
+      "const": "freshness-proposal-1"
+    },
+    "related_opportunity_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "dependency_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "rationale": {
+      "type": "string",
+      "minLength": 1
+    },
+    "review_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "contract_version",
+    "opportunity_id",
+    "revision",
+    "supersedes_opportunity_revision",
+    "content_hash",
+    "environment",
+    "period",
+    "topic_cluster_id",
+    "topic",
+    "primary_keyword",
+    "intent",
+    "funnel",
+    "business_theme",
+    "asset_type",
+    "opportunity_type",
+    "existing_url",
+    "existing_urls",
+    "target_url",
+    "recommended_action",
+    "evidence_refs",
+    "business_evidence_ref",
+    "ahrefs_evidence_ref",
+    "gsc_evidence_ref",
+    "ga4_evidence_ref",
+    "sf_evidence_ref",
+    "serp_evidence_ref",
+    "geo_evidence_ref",
+    "crux_evidence_ref",
+    "demand_score",
+    "traction_score",
+    "business_score",
+    "attainability_score",
+    "geo_score",
+    "execution_score",
+    "score_profile",
+    "score_profile_version",
+    "opportunity_score",
+    "score_lower_bound",
+    "score_upper_bound",
+    "score_explanations",
+    "confidence",
+    "evidence_count",
+    "independent_family_count",
+    "status",
+    "validation_state",
+    "review_state",
+    "review_event_ref",
+    "business_override_ref",
+    "scope_approval_ref",
+    "measurement_plan_ref",
+    "effort_days",
+    "serp_state",
+    "required_evidence_roles",
+    "missing_evidence_roles",
+    "conflicting_evidence_refs",
+    "rule_ids",
+    "rule_version",
+    "mapping_version",
+    "freshness_policy_version",
+    "related_opportunity_ids",
+    "dependency_ids",
+    "rationale",
+    "review_at",
+    "created_at",
+    "updated_at"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-proposal-status": "DRAFT_NOT_APPROVED",
+  "x-production-activation": false,
+  "$id": "urn:shopline:opportunity:v1:proposal",
+  "title": "Opportunity candidate proposal; references only, never raw API payload",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "VALIDATED",
+              "APPROVED"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "validation_state": {
+            "const": "PASS"
+          },
+          "confidence": {
+            "enum": [
+              "MEDIUM",
+              "HIGH"
+            ]
+          },
+          "missing_evidence_roles": {
+            "maxItems": 0
+          },
+          "conflicting_evidence_refs": {
+            "maxItems": 0
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "APPROVED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "review_state": {
+            "const": "APPROVED"
+          },
+          "opportunity_score": {
+            "type": "integer"
+          },
+          "review_event_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "business_override_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "scope_approval_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "measurement_plan_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "effort_days": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "review_state": {
+            "const": "APPROVED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "status": {
+            "const": "APPROVED"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "recommended_action": {
+            "enum": [
+              "UPDATE_EXISTING",
+              "CONSOLIDATE",
+              "TECHNICAL_FIX",
+              "INTERNAL_LINK",
+              "SERP_SNIPPET_OPTIMIZE",
+              "GEO_ENHANCE",
+              "AUTHORITY_BUILD"
+            ]
+          },
+          "status": {
+            "enum": [
+              "VALIDATED",
+              "APPROVED"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "existing_url": {
+            "type": "string",
+            "minLength": 1
+          },
+          "target_url": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "recommended_action": {
+            "const": "CREATE_NEW"
+          },
+          "status": {
+            "const": "APPROVED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "target_url": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "recommended_action": {
+            "enum": [
+              "MONITOR",
+              "DO_NOTHING"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "review_at": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      }
+    }
+  ],
+  "x-score-profile-weights": {
+    "SEO_EXISTING": {
+      "demand_score": 20,
+      "traction_score": 15,
+      "business_score": 30,
+      "attainability_score": 20,
+      "geo_score": 0,
+      "execution_score": 15
+    },
+    "SEO_NEW": {
+      "demand_score": 25,
+      "traction_score": 0,
+      "business_score": 30,
+      "attainability_score": 25,
+      "geo_score": 0,
+      "execution_score": 20
+    },
+    "GEO": {
+      "demand_score": 10,
+      "traction_score": 5,
+      "business_score": 30,
+      "attainability_score": 15,
+      "geo_score": 30,
+      "execution_score": 10
+    }
+  },
+  "x-score-formula": "Each score dimension is ordinal band 0..4, not weighted points. Sum(weight * band / 4); round half up only when all active dimensions present; otherwise score=null and floor/ceil bounds, never reweight.",
+  "x-semantic-invariants": [
+    "evidence_count equals unique resolved valid evidence_refs, not call or row count.",
+    "All nonnull per-source evidence refs and score evidence refs must be included in evidence_refs and resolve to matching source/scope/class.",
+    "Each nonnull active score band requires supporting evidence and rationale.",
+    "opportunity_score, lower/upper bounds and chosen profile must match SCORING_MODEL; weight-zero bands must be null.",
+    "CREATE_NEW uses SEO_NEW; GEO_ENHANCE uses GEO; other execution actions use SEO_EXISTING. MONITOR/DO_NOTHING retain the originating diagnostic profile.",
+    "Validate required evidence, freshness, completeness, independence and conflict rules from OPPORTUNITY_MODEL and CONFIDENCE_MODEL; count alone is insufficient.",
+    "Approval requires authenticated human identity and exact candidate revision/hash, valid scope/business overlay and measurement plan. Engine identity cannot approve.",
+    "candidate hash uses canonical UTF-8 sorted compact JSON with integral floats normalized to integers; excludes content_hash, created_at, updated_at, status, review_state, review_event_ref only. Review binds revision plus this hash; see CONTRACT_DESIGN.",
+    "Revision chain must reference immediate previous revision; created_at <= updated_at; IDs stable across reruns; changes invalidate approval.",
+    "Safe URLs only, no credentials, email, phone, customer rows or raw API payload; evidence refs cannot embed secrets.",
+    "CONSOLIDATE requires source URLs, survivor and a reviewed migration/rollback plan in referenced measurement/action artifacts.",
+    "INSUFFICIENT_EVIDENCE and CONFLICTING_EVIDENCE must not silently become DO_NOTHING; rule result explains intentional no-action."
+  ]
+}

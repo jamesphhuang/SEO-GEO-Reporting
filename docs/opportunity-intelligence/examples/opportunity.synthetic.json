@@ -1,0 +1,119 @@
+{
+  "contract_version": "1.0.0-proposal",
+  "opportunity_id": "SYNTHETIC_OPP_001",
+  "revision": 1,
+  "supersedes_opportunity_revision": null,
+  "content_hash": "7eb986ac232fdb4992f020b8666efa00587c9f7e2f33a05f6fa6c36f3669774d",
+  "environment": "preview",
+  "period": "2026-08",
+  "topic_cluster_id": "SYNTHETIC_TOPIC",
+  "topic": "合成測試主題，非實際商機",
+  "primary_keyword": "合成關鍵字",
+  "intent": "COMMERCIAL_INVESTIGATION",
+  "funnel": "MOFU",
+  "business_theme": "ONLINE_STORE",
+  "asset_type": "COMPARISON",
+  "opportunity_type": "QUICK_WIN",
+  "existing_url": "https://example.com/comparison",
+  "existing_urls": [
+    "https://example.com/comparison"
+  ],
+  "target_url": "https://example.com/comparison",
+  "recommended_action": "UPDATE_EXISTING",
+  "evidence_refs": [
+    "SYNTHETIC_AHREFS",
+    "SYNTHETIC_GSC",
+    "SYNTHETIC_SF",
+    "SYNTHETIC_SERP",
+    "SYNTHETIC_EFFORT"
+  ],
+  "business_evidence_ref": null,
+  "ahrefs_evidence_ref": "SYNTHETIC_AHREFS",
+  "gsc_evidence_ref": "SYNTHETIC_GSC",
+  "ga4_evidence_ref": null,
+  "sf_evidence_ref": "SYNTHETIC_SF",
+  "serp_evidence_ref": "SYNTHETIC_SERP",
+  "geo_evidence_ref": null,
+  "crux_evidence_ref": null,
+  "demand_score": 3,
+  "traction_score": 4,
+  "business_score": null,
+  "attainability_score": 3,
+  "geo_score": null,
+  "execution_score": 4,
+  "score_profile": "SEO_EXISTING",
+  "score_profile_version": "scoring-proposal-1",
+  "opportunity_score": null,
+  "score_lower_bound": 60,
+  "score_upper_bound": 90,
+  "score_explanations": {
+    "demand_score": {
+      "rationale": "SYNTHETIC fixture, not actual evidence",
+      "evidence_refs": [
+        "SYNTHETIC_AHREFS"
+      ]
+    },
+    "traction_score": {
+      "rationale": "SYNTHETIC fixture, not actual evidence",
+      "evidence_refs": [
+        "SYNTHETIC_GSC"
+      ]
+    },
+    "business_score": {
+      "rationale": "SYNTHETIC fixture; unknown or inactive",
+      "evidence_refs": []
+    },
+    "attainability_score": {
+      "rationale": "SYNTHETIC fixture, not actual evidence",
+      "evidence_refs": [
+        "SYNTHETIC_SERP"
+      ]
+    },
+    "geo_score": {
+      "rationale": "SYNTHETIC fixture; unknown or inactive",
+      "evidence_refs": []
+    },
+    "execution_score": {
+      "rationale": "SYNTHETIC fixture, not actual evidence",
+      "evidence_refs": [
+        "SYNTHETIC_EFFORT"
+      ]
+    }
+  },
+  "confidence": "LOW",
+  "evidence_count": 5,
+  "independent_family_count": 4,
+  "status": "CANDIDATE",
+  "validation_state": "INSUFFICIENT_EVIDENCE",
+  "review_state": "NOT_SUBMITTED",
+  "review_event_ref": null,
+  "business_override_ref": null,
+  "scope_approval_ref": null,
+  "measurement_plan_ref": null,
+  "effort_days": 1,
+  "serp_state": "SERP_VALIDATED",
+  "required_evidence_roles": [
+    "demand",
+    "traction",
+    "technical",
+    "intent",
+    "business_relevance"
+  ],
+  "missing_evidence_roles": [
+    "business_relevance",
+    "scope_approval"
+  ],
+  "conflicting_evidence_refs": [],
+  "rule_ids": [
+    "SYNTHETIC_QUICK_WIN"
+  ],
+  "rule_version": "rules-proposal-1",
+  "mapping_version": "synthetic-1",
+  "freshness_policy_version": "freshness-proposal-1",
+  "related_opportunity_ids": [],
+  "dependency_ids": [],
+  "rationale": "Schema fixture only. Synthetic refs do not resolve to live evidence; cannot execute or publish.",
+  "review_at": null,
+  "created_at": "2026-09-10T00:00:00Z",
+  "updated_at": "2026-09-10T00:00:00Z"
+}
