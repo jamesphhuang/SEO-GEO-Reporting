@@ -59,6 +59,13 @@ __all__ = [
     "evaluate_serp_validation",
     "validate_serp_validation",
     "serp_validation_preview",
+    "OpportunityPreviewInput",
+    "PreviewProjectionError",
+    "project_opportunity_preview",
+    "build_opportunity_preview",
+    "render_opportunity_preview",
+    "render_uat_preview",
+    "validate_opportunity_preview",
 ]
 
 
@@ -88,4 +95,23 @@ def __getattr__(name):
     if name == "geo_diagnostic_preview":
         from .geo_preview import geo_diagnostic_preview
         return geo_diagnostic_preview
+    if name in {"OpportunityPreviewInput", "PreviewProjectionError", "project_opportunity_preview", "build_opportunity_preview", "render_opportunity_preview", "render_uat_preview", "validate_opportunity_preview"}:
+        from .report_projection import (
+            OpportunityPreviewInput,
+            PreviewProjectionError,
+            build_opportunity_preview,
+            project_opportunity_preview,
+            render_opportunity_preview,
+            render_uat_preview,
+            validate_opportunity_preview,
+        )
+        return {
+            "OpportunityPreviewInput": OpportunityPreviewInput,
+            "PreviewProjectionError": PreviewProjectionError,
+            "project_opportunity_preview": project_opportunity_preview,
+            "build_opportunity_preview": build_opportunity_preview,
+            "render_opportunity_preview": render_opportunity_preview,
+            "render_uat_preview": render_uat_preview,
+            "validate_opportunity_preview": validate_opportunity_preview,
+        }[name]
     raise AttributeError(name)

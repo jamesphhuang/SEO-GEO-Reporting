@@ -125,3 +125,22 @@ WP8 baseline：`da1f5e53a446bbe903d49291de9c27d8eb0d44ca`；branch `feat/opportu
 本輪完成 offline fixed Workduo sample registry、normalizer、GEO diagnostic rules、preview、proposal schemas、synthetic A–P fixtures 與 append-only diagnostic store。固定 sample 保留 sample/version/revision、prompt population、scope、有效日期與 hash；所有 Prompt/Topic/URL/Competitor join 都走 canonical registry。Mention/citation 分離，missing/STALE/FAILED/NOT_AVAILABLE 不轉零；sample drift 形成 comparability gap；unknown domain 不建立 entity。GEO 只 enrich existing candidate，保留 WP5 score/confidence/review state，不自動 APPROVED，SERP/GA4 cross-channel conflict 原樣保留。21 WP8 tests 與 full regression 211 tests PASS；schema/fixture/AST/date-time/diff/security/production-boundary checks PASS，沒有 live query 或 production mutation。
 
 `WP8_GEO_FIXED_SAMPLE_READINESS = READY`。下一個唯一工作是 **WP9 — Opportunity preview / UAT report**；不要在本輪開始 WP9、建立 WP9 branch、push 或 merge。
+
+## Current handoff — WP9 complete（2026-09-11）
+
+`WP9_BASELINE_SHA=4188fe631c1f6368fe64cf964a97d518c1a5382d`；branch
+`feat/opportunity-preview-uat`，worktree `/private/tmp/seo-geo-wp9-preview`。WP9 只在離線
+synthetic data 上建立 read-only report projection；沒有 live source、production report、
+Google Sheets、Apps Script、Recommendations、Next Steps 或 scheduler mutation。
+
+`reporting/opportunity/report_projection.py` 保留 WP4–WP8 candidate/evidence/diagnostic
+revision、content hash、日期、estimate/missing/stale/conflict、Score/Confidence separation、
+SERP_NOT_CHECKED、GA4 `DIAGNOSTIC_ONLY`、GEO comparability 與 cross-channel conflict。
+首屏 max 20、四組分區與 UAT-only IDs 均 deterministic；HTML 只有 local escaped output，
+不支援 production activation。
+
+WP9 targeted **23 tests PASS**、full regression **234 tests PASS**；proposal schema、A–P
+fixture、AST、explicit date/date-time、`git diff --check`、security/PII/live-call 與
+production-boundary scans 全部 PASS，production mutation=0。`WP9_OPPORTUNITY_PREVIEW_READINESS = READY`。
+本輪只建立 local commit，未 push、未建 PR、未 merge。下一個唯一工作是 **WP10 — Human review /
+recommendation bridge**；不要開始 WP10。

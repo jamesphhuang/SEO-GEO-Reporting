@@ -105,3 +105,22 @@ WP7 targeted **9 tests PASS**，full regression **190 tests PASS**；schema/fixt
 `WP8_BASELINE_SHA=da1f5e53a446bbe903d49291de9c27d8eb0d44ca`。branch `feat/opportunity-geo-fixed-sample` 完成 offline GEO fixed sample layer、Workduo normalizer、diagnostics、preview、proposal schemas、synthetic A–P fixtures 與 append-only diagnostic history。21 WP8 tests、full regression 211 tests、schema/AST/JSON/date-time、`git diff --check`、security 與 production-boundary checks PASS；production mutation=0，沒有 live provider、push 或 merge。
 
 `WP8_GEO_FIXED_SAMPLE_READINESS = READY`。依 ROADMAP 的下一個唯一工作是 **WP9 — Opportunity preview / UAT report**；本輪只記錄，不開始 WP9，也不建立 WP9 branch。
+
+## WP9 result
+
+`WP9_BASELINE_SHA=4188fe631c1f6368fe64cf964a97d518c1a5382d`。在
+`feat/opportunity-preview-uat` 完成 offline read-only opportunity report projection、
+proposal schema、A–P synthetic UAT fixture、四組首屏分組、20 筆 cap、candidate detail
+traceability、JSON/Markdown/HTML deterministic renderer 與 governance checks。所有
+candidate 保留 exact evidence pin；score、confidence、SERP、GA4、GEO、missing/stale/
+conflict 與 policy/capability gap 不被壓成新分數或 recommendation。UAT IDs 與 source IDs
+分離，沒有 production writer。
+
+WP9 targeted **23 tests PASS**；full regression **234 tests PASS**；schema/fixture/AST/
+explicit date/date-time、`git diff --check`、scoped security/PII/live-call 與 production
+boundary checks PASS，production mutation=0。`WP9_OPPORTUNITY_PREVIEW_READINESS = READY`。
+
+## Next single task
+
+**WP10 — Human review / recommendation bridge**。只記錄下一個工作；本輪不要開始 WP10、
+建立 WP10 branch、push 或 merge。

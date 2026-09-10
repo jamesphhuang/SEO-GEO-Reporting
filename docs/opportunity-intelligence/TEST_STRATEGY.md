@@ -108,3 +108,13 @@ Python AST、JSON parse、`git diff --check`、scoped secret/PII scan 與 produc
 `tests/test_serp_validation.py` 使用 `tests/fixtures/opportunity_serp/scenarios.json` 的 A–N synthetic records，覆蓋 exact canonical query/scope、owned URL 與 unmapped competitor、page-type mismatch、mixed intent、AIO/PAA `NOT_AVAILABLE`、feature crowding、stale/missing/partial evidence、row cap/truncation、bounded transient retry、provider failure、no-query shortlist gate、score/review preservation、candidate/SERP evidence pinning、rev1/rev2 history、deterministic replay 與 JSON/Markdown preview。沒有 live Google Search、Ahrefs、GSC、GA4、Screaming Frog、Workduo、CrUX、customer data 或 production writer。
 
 WP7 targeted 為 **9 tests，OK**；加上既有套件 full regression 為 **190 tests，OK**。
+
+## WP9 preview / UAT coverage
+
+WP9 targeted tests use only `tests/fixtures/opportunity_preview/scenarios.json` (synthetic
+A–P). They assert proposal schema, four report groups, deterministic persisted-score ordering
+and a 20-row first screen, immutable evidence pins, visible missing/stale/estimate/conflict
+states, independent Score/Confidence, GA4 diagnostic-only conversion boundary, SERP/GEO state
+separation, UAT-only IDs, empty/partial/corrupt inputs, old preview compatibility, HTML escaping
+and formula-like cell sanitization, responsive 375px markup, and no production destination writes.
+The projection has no store mutation API and does not resolve a candidate to a newer revision.

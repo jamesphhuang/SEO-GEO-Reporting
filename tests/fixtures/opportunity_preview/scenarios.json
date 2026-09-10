@@ -1,0 +1,1297 @@
+{
+  "candidates": [
+    {
+      "candidate_id": "CAND_WP9_A",
+      "capability_gaps": [],
+      "confidence": "HIGH",
+      "conflicts": [],
+      "evidence_refs": [
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_A_GSC",
+          "revision": 1
+        },
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_A_GA4",
+          "revision": 1
+        },
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_A_SERP",
+          "revision": 1
+        },
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_A_WORKDUO",
+          "revision": 1
+        }
+      ],
+      "existing_urls": [
+        "https://shopline.tw/example/ecommerce-platform/"
+      ],
+      "missing_evidence_roles": [],
+      "opportunity_type": "SEO_EXISTING",
+      "policy_gaps": [],
+      "priority_band": "P1",
+      "rationale": "synthetic UAT rationale",
+      "recommended_action": "OPTIMIZE_EXISTING",
+      "record_type": "CANDIDATE",
+      "review_state": "NOT_REVIEWED",
+      "revision": 1,
+      "score": 92,
+      "score_bounds": {
+        "max": 100,
+        "min": 0
+      },
+      "score_profile": "SEO_EXISTING",
+      "status": "CANDIDATE",
+      "target_url": "https://shopline.tw/example/ecommerce-platform/",
+      "topic_ref": {
+        "entity_id": "TOPIC_ECOMMERCE_PLATFORM_COMPARISON",
+        "entity_type": "TOPIC"
+      }
+    },
+    {
+      "candidate_id": "CAND_WP9_B",
+      "capability_gaps": [],
+      "confidence": "MEDIUM",
+      "conflicts": [
+        "SERP_CONFLICT"
+      ],
+      "evidence_refs": [
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_B_GSC",
+          "revision": 1
+        },
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_B_SERP",
+          "revision": 1
+        }
+      ],
+      "existing_urls": [
+        "https://shopline.tw/example/ecommerce-platform/"
+      ],
+      "missing_evidence_roles": [],
+      "opportunity_type": "SEO_EXISTING",
+      "policy_gaps": [],
+      "priority_band": "P1",
+      "rationale": "synthetic UAT rationale",
+      "recommended_action": "OPTIMIZE_EXISTING",
+      "record_type": "CANDIDATE",
+      "review_state": "NOT_REVIEWED",
+      "revision": 1,
+      "score": 88,
+      "score_bounds": {
+        "max": 100,
+        "min": 0
+      },
+      "score_profile": "SEO_EXISTING",
+      "status": "CANDIDATE",
+      "target_url": "https://shopline.tw/example/ecommerce-platform/",
+      "topic_ref": {
+        "entity_id": "TOPIC_ECOMMERCE_PLATFORM_COMPARISON",
+        "entity_type": "TOPIC"
+      }
+    },
+    {
+      "candidate_id": "CAND_WP9_C",
+      "capability_gaps": [],
+      "confidence": "LOW",
+      "conflicts": [],
+      "evidence_refs": [
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_C_GSC",
+          "revision": 1
+        }
+      ],
+      "existing_urls": [
+        "https://shopline.tw/example/ecommerce-platform/"
+      ],
+      "missing_evidence_roles": [],
+      "opportunity_type": "SEO_EXISTING",
+      "policy_gaps": [],
+      "priority_band": "P1",
+      "rationale": "synthetic UAT rationale",
+      "recommended_action": "OPTIMIZE_EXISTING",
+      "record_type": "CANDIDATE",
+      "review_state": "NOT_REVIEWED",
+      "revision": 1,
+      "score": 86,
+      "score_bounds": {
+        "max": 100,
+        "min": 0
+      },
+      "score_profile": "SEO_EXISTING",
+      "status": "CANDIDATE",
+      "target_url": "https://shopline.tw/example/ecommerce-platform/",
+      "topic_ref": {
+        "entity_id": "TOPIC_ECOMMERCE_PLATFORM_COMPARISON",
+        "entity_type": "TOPIC"
+      }
+    },
+    {
+      "candidate_id": "CAND_WP9_D",
+      "capability_gaps": [],
+      "confidence": "HIGH",
+      "conflicts": [],
+      "evidence_refs": [
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_D_GSC",
+          "revision": 1
+        }
+      ],
+      "existing_urls": [
+        "https://shopline.tw/example/ecommerce-platform/"
+      ],
+      "missing_evidence_roles": [],
+      "opportunity_type": "SEO_EXISTING",
+      "policy_gaps": [],
+      "priority_band": "P1",
+      "rationale": "synthetic UAT rationale",
+      "recommended_action": "DO_NOTHING",
+      "record_type": "CANDIDATE",
+      "review_state": "NOT_REVIEWED",
+      "revision": 1,
+      "score": 80,
+      "score_bounds": {
+        "max": 100,
+        "min": 0
+      },
+      "score_profile": "SEO_EXISTING",
+      "status": "DO_NOTHING",
+      "target_url": "https://shopline.tw/example/ecommerce-platform/",
+      "topic_ref": {
+        "entity_id": "TOPIC_ECOMMERCE_PLATFORM_COMPARISON",
+        "entity_type": "TOPIC"
+      }
+    },
+    {
+      "candidate_id": "CAND_WP9_E",
+      "capability_gaps": [],
+      "confidence": "MEDIUM",
+      "conflicts": [],
+      "evidence_refs": [
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_E_GSC",
+          "revision": 1
+        }
+      ],
+      "existing_urls": [
+        "https://shopline.tw/example/ecommerce-platform/"
+      ],
+      "missing_evidence_roles": [
+        "GA4_EVIDENCE"
+      ],
+      "opportunity_type": "SEO_EXISTING",
+      "policy_gaps": [],
+      "priority_band": "P1",
+      "rationale": "synthetic UAT rationale",
+      "recommended_action": "OPTIMIZE_EXISTING",
+      "record_type": "CANDIDATE",
+      "review_state": "NOT_REVIEWED",
+      "revision": 1,
+      "score": 78,
+      "score_bounds": {
+        "max": 100,
+        "min": 0
+      },
+      "score_profile": "SEO_EXISTING",
+      "status": "CANDIDATE",
+      "target_url": "https://shopline.tw/example/ecommerce-platform/",
+      "topic_ref": {
+        "entity_id": "TOPIC_ECOMMERCE_PLATFORM_COMPARISON",
+        "entity_type": "TOPIC"
+      }
+    },
+    {
+      "candidate_id": "CAND_WP9_F",
+      "capability_gaps": [],
+      "confidence": "MEDIUM",
+      "conflicts": [],
+      "evidence_refs": [
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_F_GSC",
+          "revision": 1
+        },
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_F_SERP",
+          "revision": 1
+        }
+      ],
+      "existing_urls": [
+        "https://shopline.tw/example/ecommerce-platform/"
+      ],
+      "missing_evidence_roles": [
+        "SERP_FRESHNESS"
+      ],
+      "opportunity_type": "SEO_EXISTING",
+      "policy_gaps": [],
+      "priority_band": "P1",
+      "rationale": "synthetic UAT rationale",
+      "recommended_action": "OPTIMIZE_EXISTING",
+      "record_type": "CANDIDATE",
+      "review_state": "NOT_REVIEWED",
+      "revision": 1,
+      "score": 76,
+      "score_bounds": {
+        "max": 100,
+        "min": 0
+      },
+      "score_profile": "SEO_EXISTING",
+      "status": "CANDIDATE",
+      "target_url": "https://shopline.tw/example/ecommerce-platform/",
+      "topic_ref": {
+        "entity_id": "TOPIC_ECOMMERCE_PLATFORM_COMPARISON",
+        "entity_type": "TOPIC"
+      }
+    },
+    {
+      "candidate_id": "CAND_WP9_G",
+      "capability_gaps": [
+        "citation"
+      ],
+      "confidence": "LOW",
+      "conflicts": [],
+      "evidence_refs": [
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_G_WORKDUO",
+          "revision": 1
+        }
+      ],
+      "existing_urls": [
+        "https://shopline.tw/example/ecommerce-platform/"
+      ],
+      "missing_evidence_roles": [],
+      "opportunity_type": "GEO_GAP",
+      "policy_gaps": [],
+      "priority_band": "P2",
+      "rationale": "synthetic UAT rationale",
+      "recommended_action": "GEO_ENHANCE",
+      "record_type": "CANDIDATE",
+      "review_state": "NOT_REVIEWED",
+      "revision": 1,
+      "score": 74,
+      "score_bounds": {
+        "max": 100,
+        "min": 0
+      },
+      "score_profile": "SEO_EXISTING",
+      "status": "CANDIDATE",
+      "target_url": "https://shopline.tw/example/ecommerce-platform/",
+      "topic_ref": {
+        "entity_id": "TOPIC_ECOMMERCE_PLATFORM_COMPARISON",
+        "entity_type": "TOPIC"
+      }
+    },
+    {
+      "candidate_id": "CAND_WP9_H",
+      "capability_gaps": [],
+      "confidence": "MEDIUM",
+      "conflicts": [
+        "COMPARABILITY_GAP"
+      ],
+      "evidence_refs": [
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_H_WORKDUO",
+          "revision": 1
+        }
+      ],
+      "existing_urls": [
+        "https://shopline.tw/example/ecommerce-platform/"
+      ],
+      "missing_evidence_roles": [],
+      "opportunity_type": "GEO_GAP",
+      "policy_gaps": [],
+      "priority_band": "P2",
+      "rationale": "synthetic UAT rationale",
+      "recommended_action": "GEO_ENHANCE",
+      "record_type": "CANDIDATE",
+      "review_state": "NOT_REVIEWED",
+      "revision": 1,
+      "score": 72,
+      "score_bounds": {
+        "max": 100,
+        "min": 0
+      },
+      "score_profile": "SEO_EXISTING",
+      "status": "CANDIDATE",
+      "target_url": "https://shopline.tw/example/ecommerce-platform/",
+      "topic_ref": {
+        "entity_id": "TOPIC_ECOMMERCE_PLATFORM_COMPARISON",
+        "entity_type": "TOPIC"
+      }
+    },
+    {
+      "candidate_id": "CAND_WP9_I",
+      "capability_gaps": [],
+      "confidence": "LOW",
+      "conflicts": [],
+      "evidence_refs": [
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_I_AHREFS",
+          "revision": 1
+        }
+      ],
+      "existing_urls": [
+        "https://shopline.tw/example/ecommerce-platform/"
+      ],
+      "missing_evidence_roles": [],
+      "opportunity_type": "CONTENT_GAP",
+      "policy_gaps": [
+        "CONTENT_GAP_POLICY_UNAPPROVED"
+      ],
+      "priority_band": "P2",
+      "rationale": "synthetic UAT rationale",
+      "recommended_action": "CREATE_NEW",
+      "record_type": "CANDIDATE",
+      "review_state": "NOT_REVIEWED",
+      "revision": 1,
+      "score": 70,
+      "score_bounds": {
+        "max": 100,
+        "min": 0
+      },
+      "score_profile": "SEO_EXISTING",
+      "status": "CANDIDATE",
+      "target_url": "https://shopline.tw/example/ecommerce-platform/",
+      "topic_ref": {
+        "entity_id": "TOPIC_ECOMMERCE_PLATFORM_COMPARISON",
+        "entity_type": "TOPIC"
+      }
+    },
+    {
+      "candidate_id": "CAND_WP9_J",
+      "capability_gaps": [],
+      "confidence": "MEDIUM",
+      "conflicts": [],
+      "evidence_refs": [
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_J_GSC",
+          "revision": 1
+        },
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_J_SF",
+          "revision": 1
+        }
+      ],
+      "existing_urls": [
+        "https://shopline.tw/example/ecommerce-platform/"
+      ],
+      "missing_evidence_roles": [],
+      "opportunity_type": "CONTENT_DECAY",
+      "policy_gaps": [],
+      "priority_band": "P2",
+      "rationale": "synthetic UAT rationale",
+      "recommended_action": "REFRESH_CONTENT",
+      "record_type": "CANDIDATE",
+      "review_state": "NOT_REVIEWED",
+      "revision": 1,
+      "score": 68,
+      "score_bounds": {
+        "max": 100,
+        "min": 0
+      },
+      "score_profile": "SEO_EXISTING",
+      "status": "CANDIDATE",
+      "target_url": "https://shopline.tw/example/ecommerce-platform/",
+      "topic_ref": {
+        "entity_id": "TOPIC_ECOMMERCE_PLATFORM_COMPARISON",
+        "entity_type": "TOPIC"
+      }
+    },
+    {
+      "candidate_id": "CAND_WP9_K",
+      "capability_gaps": [],
+      "confidence": "HIGH",
+      "conflicts": [],
+      "evidence_refs": [
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_K_SF",
+          "revision": 1
+        }
+      ],
+      "existing_urls": [
+        "https://shopline.tw/example/ecommerce-platform/"
+      ],
+      "missing_evidence_roles": [],
+      "opportunity_type": "TECHNICAL_UNLOCK",
+      "policy_gaps": [],
+      "priority_band": "P2",
+      "rationale": "synthetic UAT rationale",
+      "recommended_action": "FIX_TECHNICAL",
+      "record_type": "CANDIDATE",
+      "review_state": "NOT_REVIEWED",
+      "revision": 1,
+      "score": 66,
+      "score_bounds": {
+        "max": 100,
+        "min": 0
+      },
+      "score_profile": "SEO_EXISTING",
+      "status": "CANDIDATE",
+      "target_url": "https://shopline.tw/example/ecommerce-platform/",
+      "topic_ref": {
+        "entity_id": "TOPIC_ECOMMERCE_PLATFORM_COMPARISON",
+        "entity_type": "TOPIC"
+      }
+    },
+    {
+      "candidate_id": "CAND_WP9_L",
+      "capability_gaps": [],
+      "confidence": "MEDIUM",
+      "conflicts": [
+        "CROSS_CHANNEL_CONFLICT"
+      ],
+      "evidence_refs": [
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_L_SERP",
+          "revision": 1
+        },
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_L_WORKDUO",
+          "revision": 1
+        }
+      ],
+      "existing_urls": [
+        "https://shopline.tw/example/ecommerce-platform/"
+      ],
+      "missing_evidence_roles": [],
+      "opportunity_type": "GEO_GAP",
+      "policy_gaps": [],
+      "priority_band": "P2",
+      "rationale": "synthetic UAT rationale",
+      "recommended_action": "GEO_ENHANCE",
+      "record_type": "CANDIDATE",
+      "review_state": "NOT_REVIEWED",
+      "revision": 1,
+      "score": 64,
+      "score_bounds": {
+        "max": 100,
+        "min": 0
+      },
+      "score_profile": "SEO_EXISTING",
+      "status": "CANDIDATE",
+      "target_url": "https://shopline.tw/example/ecommerce-platform/",
+      "topic_ref": {
+        "entity_id": "TOPIC_ECOMMERCE_PLATFORM_COMPARISON",
+        "entity_type": "TOPIC"
+      }
+    },
+    {
+      "candidate_id": "CAND_WP9_M",
+      "capability_gaps": [],
+      "confidence": "NOT_ASSESSABLE",
+      "conflicts": [],
+      "evidence_refs": [
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_M_GSC",
+          "revision": 1
+        }
+      ],
+      "existing_urls": [
+        "https://shopline.tw/example/ecommerce-platform/"
+      ],
+      "missing_evidence_roles": [
+        "GSC_EVIDENCE"
+      ],
+      "opportunity_type": "SEO_EXISTING",
+      "policy_gaps": [],
+      "priority_band": "P2",
+      "rationale": "synthetic UAT rationale",
+      "recommended_action": "OPTIMIZE_EXISTING",
+      "record_type": "CANDIDATE",
+      "review_state": "NOT_REVIEWED",
+      "revision": 1,
+      "score": null,
+      "score_bounds": {
+        "max": 100,
+        "min": 0
+      },
+      "score_profile": "SEO_EXISTING",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "target_url": "https://shopline.tw/example/ecommerce-platform/",
+      "topic_ref": {
+        "entity_id": "TOPIC_ECOMMERCE_PLATFORM_COMPARISON",
+        "entity_type": "TOPIC"
+      }
+    },
+    {
+      "candidate_id": "CAND_WP9_N",
+      "capability_gaps": [
+        "cta_conversion_attribution"
+      ],
+      "confidence": "LOW",
+      "conflicts": [],
+      "evidence_refs": [
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_N_GA4",
+          "revision": 1
+        }
+      ],
+      "existing_urls": [
+        "https://shopline.tw/example/ecommerce-platform/"
+      ],
+      "missing_evidence_roles": [],
+      "opportunity_type": "SEO_EXISTING",
+      "policy_gaps": [],
+      "priority_band": "P2",
+      "rationale": "synthetic UAT rationale",
+      "recommended_action": "OPTIMIZE_EXISTING",
+      "record_type": "CANDIDATE",
+      "review_state": "NOT_REVIEWED",
+      "revision": 1,
+      "score": 55,
+      "score_bounds": {
+        "max": 100,
+        "min": 0
+      },
+      "score_profile": "SEO_EXISTING",
+      "status": "CANDIDATE",
+      "target_url": "https://shopline.tw/example/ecommerce-platform/",
+      "topic_ref": {
+        "entity_id": "TOPIC_ECOMMERCE_PLATFORM_COMPARISON",
+        "entity_type": "TOPIC"
+      }
+    },
+    {
+      "candidate_id": "CAND_WP9_O",
+      "capability_gaps": [],
+      "confidence": "MEDIUM",
+      "conflicts": [
+        "UNKNOWN_COMPETITOR_DOMAIN"
+      ],
+      "evidence_refs": [
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_O_WORKDUO",
+          "revision": 1
+        }
+      ],
+      "existing_urls": [
+        "https://shopline.tw/example/ecommerce-platform/"
+      ],
+      "missing_evidence_roles": [],
+      "opportunity_type": "SEO_EXISTING",
+      "policy_gaps": [],
+      "priority_band": "P2",
+      "rationale": "synthetic UAT rationale",
+      "recommended_action": "OPTIMIZE_EXISTING",
+      "record_type": "CANDIDATE",
+      "review_state": "NOT_REVIEWED",
+      "revision": 1,
+      "score": 50,
+      "score_bounds": {
+        "max": 100,
+        "min": 0
+      },
+      "score_profile": "SEO_EXISTING",
+      "status": "CANDIDATE",
+      "target_url": "https://shopline.tw/example/ecommerce-platform/",
+      "topic_ref": {
+        "entity_id": "TOPIC_ECOMMERCE_PLATFORM_COMPARISON",
+        "entity_type": "TOPIC"
+      }
+    },
+    {
+      "candidate_id": "CAND_WP9_P",
+      "capability_gaps": [],
+      "confidence": "LOW",
+      "conflicts": [
+        "PROVIDER_FAILURE"
+      ],
+      "evidence_refs": [
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_P_GSC",
+          "revision": 1
+        }
+      ],
+      "existing_urls": [
+        "https://shopline.tw/example/ecommerce-platform/"
+      ],
+      "missing_evidence_roles": [
+        "fresh_current_evidence"
+      ],
+      "opportunity_type": "SEO_EXISTING",
+      "policy_gaps": [],
+      "priority_band": "P2",
+      "rationale": "synthetic UAT rationale",
+      "recommended_action": "OPTIMIZE_EXISTING",
+      "record_type": "CANDIDATE",
+      "review_state": "NOT_REVIEWED",
+      "revision": 1,
+      "score": 40,
+      "score_bounds": {
+        "max": 100,
+        "min": 0
+      },
+      "score_profile": "SEO_EXISTING",
+      "status": "CANDIDATE",
+      "target_url": "https://shopline.tw/example/ecommerce-platform/",
+      "topic_ref": {
+        "entity_id": "TOPIC_ECOMMERCE_PLATFORM_COMPARISON",
+        "entity_type": "TOPIC"
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "as_of": "2026-09-10",
+      "collection_status": "SUCCESS",
+      "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "evidence_id": "EVID_CAND_WP9_A_GSC",
+      "freshness_state": "READY",
+      "metric": "clicks",
+      "period_end": "2026-09-07",
+      "period_start": "2026-09-01",
+      "record_type": "EVIDENCE",
+      "retrieved_at": "2026-09-10T03:00:00+00:00",
+      "revision": 1,
+      "source": "GSC",
+      "source_class": "FIRST_PARTY_SEARCH_ACTUAL",
+      "topic_refs": [
+        "TOPIC_ECOMMERCE_PLATFORM_COMPARISON"
+      ],
+      "unit": "count",
+      "value": 12
+    },
+    {
+      "as_of": "2026-09-10",
+      "collection_status": "SUCCESS",
+      "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "evidence_id": "EVID_CAND_WP9_A_GA4",
+      "freshness_state": "READY",
+      "metric": "sessions",
+      "period_end": "2026-09-07",
+      "period_start": "2026-09-01",
+      "record_type": "EVIDENCE",
+      "retrieved_at": "2026-09-10T03:00:00+00:00",
+      "revision": 1,
+      "source": "GA4",
+      "source_class": "FIRST_PARTY_BEHAVIOR_DIAGNOSTIC",
+      "topic_refs": [
+        "TOPIC_ECOMMERCE_PLATFORM_COMPARISON"
+      ],
+      "unit": "count",
+      "value": 9
+    },
+    {
+      "as_of": "2026-09-10",
+      "collection_status": "SUCCESS",
+      "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "evidence_id": "EVID_CAND_WP9_A_SERP",
+      "freshness_state": "READY",
+      "metric": "result_count",
+      "period_end": "2026-09-07",
+      "period_start": "2026-09-01",
+      "record_type": "EVIDENCE",
+      "retrieved_at": "2026-09-10T03:00:00+00:00",
+      "revision": 1,
+      "source": "SERP",
+      "source_class": "LIVE_SERP_SNAPSHOT",
+      "topic_refs": [
+        "TOPIC_ECOMMERCE_PLATFORM_COMPARISON"
+      ],
+      "unit": "count",
+      "value": 1
+    },
+    {
+      "as_of": "2026-09-10",
+      "collection_status": "SUCCESS",
+      "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "evidence_id": "EVID_CAND_WP9_A_WORKDUO",
+      "freshness_state": "READY",
+      "metric": "mention",
+      "period_end": "2026-09-07",
+      "period_start": "2026-09-01",
+      "record_type": "EVIDENCE",
+      "retrieved_at": "2026-09-10T03:00:00+00:00",
+      "revision": 1,
+      "source": "WORKDUO",
+      "source_class": "MONITORED_GEO_SAMPLE",
+      "topic_refs": [
+        "TOPIC_ECOMMERCE_PLATFORM_COMPARISON"
+      ],
+      "unit": "count",
+      "value": null
+    },
+    {
+      "as_of": "2026-09-10",
+      "collection_status": "SUCCESS",
+      "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "evidence_id": "EVID_CAND_WP9_B_GSC",
+      "freshness_state": "READY",
+      "metric": "clicks",
+      "period_end": "2026-09-07",
+      "period_start": "2026-09-01",
+      "record_type": "EVIDENCE",
+      "retrieved_at": "2026-09-10T03:00:00+00:00",
+      "revision": 1,
+      "source": "GSC",
+      "source_class": "FIRST_PARTY_SEARCH_ACTUAL",
+      "topic_refs": [
+        "TOPIC_ECOMMERCE_PLATFORM_COMPARISON"
+      ],
+      "unit": "count",
+      "value": 12
+    },
+    {
+      "as_of": "2026-09-10",
+      "collection_status": "SUCCESS",
+      "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "evidence_id": "EVID_CAND_WP9_B_SERP",
+      "freshness_state": "READY",
+      "metric": "result_count",
+      "period_end": "2026-09-07",
+      "period_start": "2026-09-01",
+      "record_type": "EVIDENCE",
+      "retrieved_at": "2026-09-10T03:00:00+00:00",
+      "revision": 1,
+      "source": "SERP",
+      "source_class": "LIVE_SERP_SNAPSHOT",
+      "topic_refs": [
+        "TOPIC_ECOMMERCE_PLATFORM_COMPARISON"
+      ],
+      "unit": "count",
+      "value": 1
+    },
+    {
+      "as_of": "2026-09-10",
+      "collection_status": "SUCCESS",
+      "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "evidence_id": "EVID_CAND_WP9_C_GSC",
+      "freshness_state": "READY",
+      "metric": "clicks",
+      "period_end": "2026-09-07",
+      "period_start": "2026-09-01",
+      "record_type": "EVIDENCE",
+      "retrieved_at": "2026-09-10T03:00:00+00:00",
+      "revision": 1,
+      "source": "GSC",
+      "source_class": "FIRST_PARTY_SEARCH_ACTUAL",
+      "topic_refs": [
+        "TOPIC_ECOMMERCE_PLATFORM_COMPARISON"
+      ],
+      "unit": "count",
+      "value": 12
+    },
+    {
+      "as_of": "2026-09-10",
+      "collection_status": "SUCCESS",
+      "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "evidence_id": "EVID_CAND_WP9_D_GSC",
+      "freshness_state": "READY",
+      "metric": "clicks",
+      "period_end": "2026-09-07",
+      "period_start": "2026-09-01",
+      "record_type": "EVIDENCE",
+      "retrieved_at": "2026-09-10T03:00:00+00:00",
+      "revision": 1,
+      "source": "GSC",
+      "source_class": "FIRST_PARTY_SEARCH_ACTUAL",
+      "topic_refs": [
+        "TOPIC_ECOMMERCE_PLATFORM_COMPARISON"
+      ],
+      "unit": "count",
+      "value": 12
+    },
+    {
+      "as_of": "2026-09-10",
+      "collection_status": "SUCCESS",
+      "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "evidence_id": "EVID_CAND_WP9_E_GSC",
+      "freshness_state": "READY",
+      "metric": "clicks",
+      "period_end": "2026-09-07",
+      "period_start": "2026-09-01",
+      "record_type": "EVIDENCE",
+      "retrieved_at": "2026-09-10T03:00:00+00:00",
+      "revision": 1,
+      "source": "GSC",
+      "source_class": "FIRST_PARTY_SEARCH_ACTUAL",
+      "topic_refs": [
+        "TOPIC_ECOMMERCE_PLATFORM_COMPARISON"
+      ],
+      "unit": "count",
+      "value": 12
+    },
+    {
+      "as_of": "2026-09-10",
+      "collection_status": "SUCCESS",
+      "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "evidence_id": "EVID_CAND_WP9_F_GSC",
+      "freshness_state": "READY",
+      "metric": "clicks",
+      "period_end": "2026-09-07",
+      "period_start": "2026-09-01",
+      "record_type": "EVIDENCE",
+      "retrieved_at": "2026-09-10T03:00:00+00:00",
+      "revision": 1,
+      "source": "GSC",
+      "source_class": "FIRST_PARTY_SEARCH_ACTUAL",
+      "topic_refs": [
+        "TOPIC_ECOMMERCE_PLATFORM_COMPARISON"
+      ],
+      "unit": "count",
+      "value": 12
+    },
+    {
+      "as_of": "2026-09-10",
+      "collection_status": "SUCCESS",
+      "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "evidence_id": "EVID_CAND_WP9_F_SERP",
+      "freshness_state": "READY",
+      "metric": "result_count",
+      "period_end": "2026-09-07",
+      "period_start": "2026-09-01",
+      "record_type": "EVIDENCE",
+      "retrieved_at": "2026-09-10T03:00:00+00:00",
+      "revision": 1,
+      "source": "SERP",
+      "source_class": "LIVE_SERP_SNAPSHOT",
+      "topic_refs": [
+        "TOPIC_ECOMMERCE_PLATFORM_COMPARISON"
+      ],
+      "unit": "count",
+      "value": 1
+    },
+    {
+      "as_of": "2026-09-10",
+      "collection_status": "SUCCESS",
+      "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "evidence_id": "EVID_CAND_WP9_G_WORKDUO",
+      "freshness_state": "READY",
+      "metric": "mention",
+      "period_end": "2026-09-07",
+      "period_start": "2026-09-01",
+      "record_type": "EVIDENCE",
+      "retrieved_at": "2026-09-10T03:00:00+00:00",
+      "revision": 1,
+      "source": "WORKDUO",
+      "source_class": "MONITORED_GEO_SAMPLE",
+      "topic_refs": [
+        "TOPIC_ECOMMERCE_PLATFORM_COMPARISON"
+      ],
+      "unit": "count",
+      "value": null
+    },
+    {
+      "as_of": "2026-09-10",
+      "collection_status": "SUCCESS",
+      "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "evidence_id": "EVID_CAND_WP9_H_WORKDUO",
+      "freshness_state": "READY",
+      "metric": "mention",
+      "period_end": "2026-09-07",
+      "period_start": "2026-09-01",
+      "record_type": "EVIDENCE",
+      "retrieved_at": "2026-09-10T03:00:00+00:00",
+      "revision": 1,
+      "source": "WORKDUO",
+      "source_class": "MONITORED_GEO_SAMPLE",
+      "topic_refs": [
+        "TOPIC_ECOMMERCE_PLATFORM_COMPARISON"
+      ],
+      "unit": "count",
+      "value": null
+    },
+    {
+      "as_of": "2026-09-10",
+      "collection_status": "SUCCESS",
+      "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "evidence_id": "EVID_CAND_WP9_I_AHREFS",
+      "freshness_state": "READY",
+      "metric": "organic_traffic_estimate",
+      "period_end": "2026-09-07",
+      "period_start": "2026-09-01",
+      "record_type": "EVIDENCE",
+      "retrieved_at": "2026-09-10T03:00:00+00:00",
+      "revision": 1,
+      "source": "AHREFS",
+      "source_class": "THIRD_PARTY_ESTIMATE",
+      "topic_refs": [
+        "TOPIC_ECOMMERCE_PLATFORM_COMPARISON"
+      ],
+      "unit": "count",
+      "value": 22
+    },
+    {
+      "as_of": "2026-09-10",
+      "collection_status": "SUCCESS",
+      "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "evidence_id": "EVID_CAND_WP9_J_GSC",
+      "freshness_state": "READY",
+      "metric": "clicks",
+      "period_end": "2026-09-07",
+      "period_start": "2026-09-01",
+      "record_type": "EVIDENCE",
+      "retrieved_at": "2026-09-10T03:00:00+00:00",
+      "revision": 1,
+      "source": "GSC",
+      "source_class": "FIRST_PARTY_SEARCH_ACTUAL",
+      "topic_refs": [
+        "TOPIC_ECOMMERCE_PLATFORM_COMPARISON"
+      ],
+      "unit": "count",
+      "value": 12
+    },
+    {
+      "as_of": "2026-09-10",
+      "collection_status": "SUCCESS",
+      "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "evidence_id": "EVID_CAND_WP9_J_SF",
+      "freshness_state": "READY",
+      "metric": "issue_count",
+      "period_end": "2026-09-07",
+      "period_start": "2026-09-01",
+      "record_type": "EVIDENCE",
+      "retrieved_at": "2026-09-10T03:00:00+00:00",
+      "revision": 1,
+      "source": "SF",
+      "source_class": "TECHNICAL_CRAWL_EVIDENCE",
+      "topic_refs": [
+        "TOPIC_ECOMMERCE_PLATFORM_COMPARISON"
+      ],
+      "unit": "count",
+      "value": 3
+    },
+    {
+      "as_of": "2026-09-10",
+      "collection_status": "SUCCESS",
+      "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "evidence_id": "EVID_CAND_WP9_K_SF",
+      "freshness_state": "READY",
+      "metric": "issue_count",
+      "period_end": "2026-09-07",
+      "period_start": "2026-09-01",
+      "record_type": "EVIDENCE",
+      "retrieved_at": "2026-09-10T03:00:00+00:00",
+      "revision": 1,
+      "source": "SF",
+      "source_class": "TECHNICAL_CRAWL_EVIDENCE",
+      "topic_refs": [
+        "TOPIC_ECOMMERCE_PLATFORM_COMPARISON"
+      ],
+      "unit": "count",
+      "value": 3
+    },
+    {
+      "as_of": "2026-09-10",
+      "collection_status": "SUCCESS",
+      "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "evidence_id": "EVID_CAND_WP9_L_SERP",
+      "freshness_state": "READY",
+      "metric": "result_count",
+      "period_end": "2026-09-07",
+      "period_start": "2026-09-01",
+      "record_type": "EVIDENCE",
+      "retrieved_at": "2026-09-10T03:00:00+00:00",
+      "revision": 1,
+      "source": "SERP",
+      "source_class": "LIVE_SERP_SNAPSHOT",
+      "topic_refs": [
+        "TOPIC_ECOMMERCE_PLATFORM_COMPARISON"
+      ],
+      "unit": "count",
+      "value": 1
+    },
+    {
+      "as_of": "2026-09-10",
+      "collection_status": "SUCCESS",
+      "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "evidence_id": "EVID_CAND_WP9_L_WORKDUO",
+      "freshness_state": "READY",
+      "metric": "mention",
+      "period_end": "2026-09-07",
+      "period_start": "2026-09-01",
+      "record_type": "EVIDENCE",
+      "retrieved_at": "2026-09-10T03:00:00+00:00",
+      "revision": 1,
+      "source": "WORKDUO",
+      "source_class": "MONITORED_GEO_SAMPLE",
+      "topic_refs": [
+        "TOPIC_ECOMMERCE_PLATFORM_COMPARISON"
+      ],
+      "unit": "count",
+      "value": null
+    },
+    {
+      "as_of": "2026-09-10",
+      "collection_status": "SUCCESS",
+      "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "evidence_id": "EVID_CAND_WP9_M_GSC",
+      "freshness_state": "READY",
+      "metric": "clicks",
+      "period_end": "2026-09-07",
+      "period_start": "2026-09-01",
+      "record_type": "EVIDENCE",
+      "retrieved_at": "2026-09-10T03:00:00+00:00",
+      "revision": 1,
+      "source": "GSC",
+      "source_class": "FIRST_PARTY_SEARCH_ACTUAL",
+      "topic_refs": [
+        "TOPIC_ECOMMERCE_PLATFORM_COMPARISON"
+      ],
+      "unit": "count",
+      "value": 12
+    },
+    {
+      "as_of": "2026-09-10",
+      "collection_status": "SUCCESS",
+      "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "evidence_id": "EVID_CAND_WP9_N_GA4",
+      "freshness_state": "READY",
+      "metric": "sessions",
+      "period_end": "2026-09-07",
+      "period_start": "2026-09-01",
+      "record_type": "EVIDENCE",
+      "retrieved_at": "2026-09-10T03:00:00+00:00",
+      "revision": 1,
+      "source": "GA4",
+      "source_class": "FIRST_PARTY_BEHAVIOR_DIAGNOSTIC",
+      "topic_refs": [
+        "TOPIC_ECOMMERCE_PLATFORM_COMPARISON"
+      ],
+      "unit": "count",
+      "value": 9
+    },
+    {
+      "as_of": "2026-09-10",
+      "collection_status": "SUCCESS",
+      "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "evidence_id": "EVID_CAND_WP9_O_WORKDUO",
+      "freshness_state": "READY",
+      "metric": "mention",
+      "period_end": "2026-09-07",
+      "period_start": "2026-09-01",
+      "record_type": "EVIDENCE",
+      "retrieved_at": "2026-09-10T03:00:00+00:00",
+      "revision": 1,
+      "source": "WORKDUO",
+      "source_class": "MONITORED_GEO_SAMPLE",
+      "topic_refs": [
+        "TOPIC_ECOMMERCE_PLATFORM_COMPARISON"
+      ],
+      "unit": "count",
+      "value": null
+    },
+    {
+      "as_of": "2026-09-10",
+      "collection_status": "SUCCESS",
+      "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "evidence_id": "EVID_CAND_WP9_P_GSC",
+      "freshness_state": "READY",
+      "metric": "clicks",
+      "period_end": "2026-09-07",
+      "period_start": "2026-09-01",
+      "record_type": "EVIDENCE",
+      "retrieved_at": "2026-09-10T03:00:00+00:00",
+      "revision": 1,
+      "source": "GSC",
+      "source_class": "FIRST_PARTY_SEARCH_ACTUAL",
+      "topic_refs": [
+        "TOPIC_ECOMMERCE_PLATFORM_COMPARISON"
+      ],
+      "unit": "count",
+      "value": 12
+    }
+  ],
+  "ga4_diagnostics": {
+    "CAND_WP9_A": {
+      "candidate_id": "CAND_WP9_A",
+      "diagnostic_status": "QUALITY_HEALTHY",
+      "ga4_evidence_refs": [
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_A_GA4",
+          "revision": 1
+        }
+      ],
+      "signals": {
+        "engagement": "STABLE"
+      }
+    },
+    "CAND_WP9_N": {
+      "candidate_id": "CAND_WP9_N",
+      "diagnostic_status": "QUALITY_WEAK",
+      "ga4_evidence_refs": [
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_N_GA4",
+          "revision": 1
+        }
+      ],
+      "signals": {
+        "cta": "OBSERVED"
+      }
+    }
+  },
+  "geo_diagnostics": {
+    "CAND_WP9_A": {
+      "candidate_id": "CAND_WP9_A",
+      "citation_state": "OBSERVED",
+      "comparability": {
+        "status": "COMPARABLE"
+      },
+      "diagnostic_status": "GEO_STABLE",
+      "geo_evidence_refs": [
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_A_WORKDUO",
+          "revision": 1
+        }
+      ],
+      "mention_state": "OBSERVED"
+    },
+    "CAND_WP9_G": {
+      "candidate_id": "CAND_WP9_G",
+      "capability_gaps": [
+        "citation"
+      ],
+      "citation_state": "NOT_AVAILABLE",
+      "comparability": {
+        "status": "COMPARABLE"
+      },
+      "diagnostic_status": "GEO_WEAK",
+      "geo_evidence_refs": [
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_G_WORKDUO",
+          "revision": 1
+        }
+      ],
+      "mention_state": "OBSERVED"
+    },
+    "CAND_WP9_H": {
+      "candidate_id": "CAND_WP9_H",
+      "citation_state": "NOT_AVAILABLE",
+      "comparability": {
+        "status": "NOT_COMPARABLE"
+      },
+      "conflicts": [
+        "COMPARABILITY_GAP"
+      ],
+      "diagnostic_status": "GEO_CONFLICT",
+      "geo_evidence_refs": [
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_H_WORKDUO",
+          "revision": 1
+        }
+      ],
+      "mention_state": "NOT_OBSERVED"
+    },
+    "CAND_WP9_L": {
+      "candidate_id": "CAND_WP9_L",
+      "citation_state": "NOT_OBSERVED",
+      "comparability": {
+        "status": "COMPARABLE"
+      },
+      "conflicts": [
+        "CROSS_CHANNEL_CONFLICT"
+      ],
+      "diagnostic_status": "GEO_WEAK",
+      "geo_evidence_refs": [
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_L_WORKDUO",
+          "revision": 1
+        }
+      ],
+      "mention_state": "NOT_OBSERVED"
+    },
+    "CAND_WP9_O": {
+      "candidate_id": "CAND_WP9_O",
+      "citation_state": "NOT_OBSERVED",
+      "comparability": {
+        "status": "COMPARABLE"
+      },
+      "conflicts": [
+        "UNKNOWN_COMPETITOR_DOMAIN"
+      ],
+      "diagnostic_status": "GEO_WEAK",
+      "geo_evidence_refs": [
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_O_WORKDUO",
+          "revision": 1
+        }
+      ],
+      "mention_state": "OBSERVED"
+    }
+  },
+  "metadata": {
+    "dataset_id": "WP9_SYNTHETIC_UAT",
+    "environment": "UAT",
+    "scenario_count": 16,
+    "source_role": "OFFLINE_UAT_PREVIEW",
+    "synthetic": true
+  },
+  "serp_validations": {
+    "CAND_WP9_A": {
+      "candidate_id": "CAND_WP9_A",
+      "serp_evidence_refs": [
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_A_SERP",
+          "revision": 1
+        }
+      ],
+      "validation_status": "SERP_VALIDATED"
+    },
+    "CAND_WP9_B": {
+      "candidate_id": "CAND_WP9_B",
+      "conflict_reasons": [
+        "INTENT_MISMATCH"
+      ],
+      "serp_evidence_refs": [
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_B_SERP",
+          "revision": 1
+        }
+      ],
+      "validation_status": "SERP_CONFLICT"
+    },
+    "CAND_WP9_F": {
+      "candidate_id": "CAND_WP9_F",
+      "serp_evidence_refs": [
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_F_SERP",
+          "revision": 1
+        }
+      ],
+      "validation_status": "SERP_NOT_CHECKED"
+    },
+    "CAND_WP9_L": {
+      "candidate_id": "CAND_WP9_L",
+      "serp_evidence_refs": [
+        {
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "evidence_id": "EVID_CAND_WP9_L_SERP",
+          "revision": 1
+        }
+      ],
+      "validation_status": "SERP_VALIDATED"
+    }
+  }
+}
