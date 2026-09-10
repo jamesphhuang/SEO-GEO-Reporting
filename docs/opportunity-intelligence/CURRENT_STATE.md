@@ -12,10 +12,10 @@
 | `HANDOFF_BASELINE_SHA` | `692f475` (`docs(opportunity): record integration baseline`) |
 | `CURRENT_HANDOFF_HEAD` | branch HEAD（以 `git rev-parse HEAD` 與 remote ref 實測；不在自身 commit 內硬編 SHA） |
 | fetch 後 origin/main | `4e30cec2a7cb446c0defa06b315c0b295a01b9af`，PR #6 merge |
-| merge-base | `4e30cec2a7cb446c0defa06b315c0b295a01b9af`；architecture branch 僅多一個 foundation commit |
+| merge-base | `4e30cec2a7cb446c0defa06b315c0b295a01b9af`；branch-only lineage 僅含 foundation、handoff baseline 與 docs-only handoff clarification commits |
 | 本機 main | `dc4374e`，落後遠端；不可誤當最新 baseline |
 | worktree | 原 dirty worktree 保留；乾淨 integration worktree 在 `/private/tmp/seo-geo-opportunity-foundation`；未刪除、stash 或 reset 原工作樹 |
-| fetch / integration | fetch 初次受 sandbox 限制，取得執行權限後成功；foundation commit 已建立，remote branch 狀態由最後驗證回報 |
+| fetch / integration | fetch 初次受 sandbox 限制，取得執行權限後成功；clean integration worktree 已驗證並推送 `docs/opportunity-intelligence-foundation`，remote branch 狀態由最後 fetch 回報 |
 
 其他本機 feature branches：`feat/two-tier-seo-geo-report`、`chore/untrack-appsscript-bundles`、`chore/untrack-preview-artifacts`、`fix/chart-label-clipping`、`fix/impressions-chart-scale`。名稱不證明有人仍在開發；現有 tips 均位於 main 已合併的歷史，不刪分支。
 
@@ -28,7 +28,7 @@
 | `outputs/business_metric_source_resolution_2026-09-06/` | 先前 aggregate 業務來源對帳產物 |
 | `outputs/weekly_report_2026_09_01_07/` | 先前 9 月第一週報表、取數與渲染產物 |
 
-沒有 UNKNOWN 才開始建立新文件。未改以上檔案；本輪不 commit、不 push。後續若出現新的未知變更，停止 mutation。
+沒有 UNKNOWN 才開始建立新文件。未改以上原有 dirty 檔案；本輪只在 clean integration branch 提交 architecture 與 handoff docs，沒有 production mutation。後續若出現新的未知變更，停止 mutation。
 
 ## 本機程式與資料流
 

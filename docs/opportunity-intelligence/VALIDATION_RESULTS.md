@@ -4,7 +4,7 @@
 
 | Check | Result | Scope / limit |
 | --- | --- | --- |
-| git fetch origin | PASS | 最新main 4e30cec；HEAD ancestor已確認；未切分支 |
+| git fetch origin | PASS | 最新main 4e30cec；clean integration branch ancestor已確認；原 dirty worktree未切換 |
 | existing unittest suite，system Python 3.9 | FAIL | 47 runner-counted tests，5 errors；不支援type union + framework Node依賴未滿足 |
 | existing unittest suite，bundled Python + Node | PASS | **70 tests，1.296s，OK**；fake transport單元測試，非live integration |
 | Proposal Draft202012Validator.check_schema | PASS | 兩份schema符合draft 2020-12 meta-schema |
@@ -57,4 +57,4 @@ PY
 
 ## Git result / preservation
 
-本輪新增只在`docs/opportunity-intelligence/`、`contracts/ahrefs_scope.v1.proposal.json`、`contracts/opportunity_contract.v1.proposal.json`，已以 `9376711` 建立 architecture foundation commit。既有tracked兩個modified path與兩個untracked output目錄保持。沒有scheduler、正式Sheets寫入或Apps Script部署；remote branch與原工作樹保護結果由最終回報核對。
+本輪新增只在`docs/opportunity-intelligence/`、`contracts/ahrefs_scope.v1.proposal.json`、`contracts/opportunity_contract.v1.proposal.json`；`9376711` 是 architecture foundation，`692f475` 是 handoff baseline，後續僅有 handoff clarification docs commits。既有tracked兩個modified path與兩個untracked output目錄保持。沒有scheduler、正式Sheets寫入或Apps Script部署；remote architecture branch已推送，原工作樹仍由最終回報核對。
