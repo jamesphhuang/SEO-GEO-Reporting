@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/contracts/recommendation_bridge.v1.proposal.json",
+  "title": "Offline recommendation bridge proposal",
+  "type": "object",
+  "x-proposal-status": "DRAFT_NOT_APPROVED",
+  "x-production-activation": false,
+  "required": ["record_type", "contract_version", "bridge_id", "revision", "candidate_id", "candidate_revision", "candidate_hash", "review_id", "review_revision", "review_hash", "reviewer_id", "review_decision", "approval_meaning", "target_env", "destination_id", "recommendation_id", "candidate_action", "candidate_score", "candidate_confidence", "validation_state", "status", "action_status", "evidence_bundle_ref", "candidate_evidence_refs", "conflicts", "policy_version", "next_steps_written", "production_mutation", "created_at", "content_hash"],
+  "properties": {
+    "record_type": {"const": "RECOMMENDATION_BRIDGE"},
+    "contract_version": {"const": "recommendation_bridge.v1.proposal"},
+    "bridge_id": {"type": "string", "minLength": 1},
+    "revision": {"type": "integer", "minimum": 1},
+    "supersedes_bridge_revision": {"type": ["integer", "null"], "minimum": 1},
+    "candidate_id": {"type": "string", "minLength": 1},
+    "candidate_revision": {"type": "integer", "minimum": 1},
+    "candidate_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "review_id": {"type": "string", "minLength": 1},
+    "review_revision": {"type": "integer", "minimum": 1},
+    "review_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "reviewer_id": {"type": "string", "minLength": 1},
+    "review_decision": {"const": "APPROVE"},
+    "approval_meaning": {"const": "RECOMMENDATION_WORKFLOW_ENTRY_ONLY"},
+    "target_env": {"enum": ["UAT", "PREVIEW"]},
+    "destination_id": {"type": "string", "pattern": "^(UAT|PREVIEW)_[A-Za-z0-9._:/-]+$"},
+    "recommendation_id": {"type": "string", "minLength": 1},
+    "candidate_action": {"type": "string", "minLength": 1},
+    "candidate_score": {"type": ["number", "object"]},
+    "candidate_confidence": {"enum": ["MEDIUM", "HIGH"]},
+    "validation_state": {"const": "PASS"},
+    "target_url": {"type": ["string", "null"]},
+    "section": {"type": "string", "minLength": 1},
+    "text": {"type": ["string", "null"], "maxLength": 4000},
+    "text_provenance": {"enum": ["HUMAN_AUTHORED", "DRAFT_ONLY", "NOT_PROVIDED"]},
+    "status": {"const": "BRIDGE_READY"},
+    "action_status": {"const": "NOT_STARTED"},
+    "evidence_bundle_ref": {"type": "string", "minLength": 1},
+    "candidate_evidence_refs": {"type": "array", "items": {"$ref": "#/$defs/pin"}, "uniqueItems": true},
+    "ga4_diagnostic_ref": {"anyOf": [{"$ref": "#/$defs/pin"}, {"type": "null"}]},
+    "serp_validation_ref": {"anyOf": [{"$ref": "#/$defs/pin"}, {"type": "null"}]},
+    "geo_diagnostic_ref": {"anyOf": [{"$ref": "#/$defs/pin"}, {"type": "null"}]},
+    "conflicts": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "policy_version": {"type": "string", "minLength": 1},
+    "next_steps_written": {"const": false},
+    "production_mutation": {"const": false},
+    "created_at": {"type": "string", "format": "date-time"},
+    "content_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "pin": {
+      "type": "object",
+      "required": ["evidence_id", "revision", "content_hash"],
+      "properties": {
+        "evidence_id": {"type": "string", "minLength": 1},
+        "revision": {"type": "integer", "minimum": 1},
+        "content_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      },
+      "additionalProperties": false
+    }
+  }
+}

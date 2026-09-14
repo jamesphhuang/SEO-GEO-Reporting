@@ -287,3 +287,28 @@ SERP validation is shortlist-only and observational. It does not claim unbiased 
 | Structural checks | PASS | JSON schema/fixture parse, Python AST, explicit ISO date/date-time checks, `git diff --check` |
 | Security / production boundary | PASS | scoped secret/PII/live-call/production-writer scan clean; production mutation=0 |
 | Readiness | READY | local commit permitted; push/PR/merge and WP10 require a later explicit authorization |
+
+## WP10 Human review / recommendation bridge（2026-09-11）
+
+| Check | Result | Scope / limit |
+| --- | --- | --- |
+| Clean baseline / branch | PASS | `WP10_BASELINE_SHA=356285f80a1a4bd4a98425a0bc561e7b65141455`; `feat/opportunity-human-review-bridge`; original dirty worktree untouched |
+| Human actor gate | PASS | authenticated HUMAN actor required; SYSTEM/AI/LLM/AUTO/RULE_ENGINE identities rejected; minimal opaque actor ref only |
+| Decision taxonomy | PASS | APPROVE/REJECT/NEEDS_MORE_EVIDENCE/DEFER/RETURN_FOR_REVIEW distinct from DO_NOTHING/MONITOR Candidate actions |
+| Candidate revision pinning | PASS | review and bridge require exact candidate id, revision and content hash; newer revision never inherits old approval |
+| Evidence / diagnostics | PASS | candidate evidence refs plus optional GA4/SERP/GEO and preview semantic hash retained; no latest fallback |
+| Review immutability | PASS | local JSONL append-only review revisions; supersedes chain, idempotency, collision and tamper checks |
+| Recommendation bridge | PASS | exact human APPROVE only; UAT/PREVIEW allowlist; existing Candidate Action enum; proposal-only artifact |
+| Bridge immutability | PASS | append-only bridge revisions; rev1 remains readable after rev2; superseded review cannot be reused |
+| Fail-closed gates | PASS | no review, invalid actor, hash/revision mismatch, missing/STALE, SERP_NOT_CHECKED, policy/capability gap and unadjudicated conflict blocked |
+| Evidence semantics | PASS | Score, Confidence, GA4, SERP and GEO are preserved; conflict context is retained; approval does not mean truth or guarantee |
+| AI draft boundary | PASS | DRAFT_ONLY text remains draft-only and still needs explicit human review; no AI approval path |
+| DO_NOTHING / reject | PASS | DO_NOTHING can be approved as a human workflow decision; REJECT preserves Candidate history and creates no bridge |
+| UAT projection | PASS | read-only review status projection; Recommendations, Next Steps and production destinations are untouched |
+| Proposal schemas | PASS | `human_review.v1.proposal.json` and `recommendation_bridge.v1.proposal.json`; Draft 2020-12, proposal-only, activation false |
+| Synthetic fixtures | PASS | `tests/fixtures/opportunity_review/scenarios.json`; A–P, synthetic only |
+| WP10 tests | PASS | **26 tests, OK** |
+| Full regression | PASS | **260 tests, OK** (234 pre-WP10 + 26 WP10) |
+| Structural checks | PASS | JSON schema/fixture parse, Python AST, explicit date/date-time, `git diff --check` |
+| Security / production boundary | PASS | scoped secret/PII/live-call/production-writer scans clean; production mutation=0 |
+| Readiness | READY | local commit only; no push, PR, merge or WP11 |

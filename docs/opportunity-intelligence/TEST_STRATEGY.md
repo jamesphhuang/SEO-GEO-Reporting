@@ -118,3 +118,22 @@ states, independent Score/Confidence, GA4 diagnostic-only conversion boundary, S
 separation, UAT-only IDs, empty/partial/corrupt inputs, old preview compatibility, HTML escaping
 and formula-like cell sanitization, responsive 375px markup, and no production destination writes.
 The projection has no store mutation API and does not resolve a candidate to a newer revision.
+
+## WP10 human review / recommendation bridge coverage
+
+`tests/test_opportunity_review.py` 使用 `tests/fixtures/opportunity_review/scenarios.json`
+的 A–P synthetic records。測試涵蓋 proposal schema、authenticated HUMAN actor gate、
+decision taxonomy、candidate revision/hash pinning、candidate evidence 與 GA4/SERP/GEO
+diagnostic pins、invalid actor/reviewer、reject/needs-more-evidence、STALE/missing/
+SERP_NOT_CHECKED/policy/capability gates、SERP conflict adjudication、DO_NOTHING、review
+rev1/rev2 history、superseded approval、bridge rev1/rev2 immutability、deterministic hash、
+human note provenance、AI DRAFT_ONLY boundary、read-only projection、Next Steps boundary、
+UAT destination allowlist、Score/Confidence preservation 與 input non-mutation。所有資料
+均 offline、synthetic、timezone-aware，沒有 live source、credential、PII 或 production
+writer。
+
+WP10 targeted 為 **26 tests，OK**；合併既有 WP1–WP9 suite 後 fresh discovery 為
+**260 tests，OK**。另驗證兩份 Draft 2020-12 proposal schema、fixture JSON、Python AST、
+explicit date/date-time、`git diff --check`、scoped secret/PII/live-call 與 production
+boundary；production mutation=0。下一個唯一工作是 WP11 — Outcome tracking，不能在 WP10
+開始 outcome tracking、production rollout 或 Next Steps automation。
