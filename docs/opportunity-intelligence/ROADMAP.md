@@ -143,4 +143,9 @@
 - Dependencies：全部required gates通過，任一UNKNOWN停止activation。
 - Commit unit：`feat(opportunity): harden controlled production promotion`。
 
+WP12 implementation result（2026-09-14）：offline proposal-only activation/release manifest
+hardening 已完成。`WP12_PRODUCTION_HARDENING_READINESS = READY`；production activation 仍是
+`NOT_AUTHORIZED`，沒有自動後續 WP。30 targeted tests 與 311 full regression tests PASS；
+未啟用 scheduler、writer、Recommendations、Next Steps 或任何 production destination。
+
 Canonical月報搬移另走ARCHITECTURE migration序列：先characterization，再thin wrappers、period injection、template parity；不和WP5 engine或WP10治理混成一個大diff。

@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "synthetic": true,
+    "source": "offline-only",
+    "production_mutation": 0,
+    "activation_state": "DRY_RUN",
+    "sample_version": "WP12-SYNTHETIC-A",
+    "notes": "No credentials, raw customer data, live source rows, or production destinations."
+  },
+  "scenarios": [
+    {"id": "A", "name": "all gates pass in UAT dry-run", "expected": "DRY_RUN_READY"},
+    {"id": "B", "name": "production approval missing", "expected": "AUTHORIZATION_REQUIRED"},
+    {"id": "C", "name": "contract still draft", "expected": "CONTRACT_NOT_APPROVED"},
+    {"id": "D", "name": "duplicate idempotency key", "expected": "IDEMPOTENT_NO_OP"},
+    {"id": "E", "name": "writer not allowed", "expected": "WRITER_NOT_ALLOWED"},
+    {"id": "F", "name": "target not allowed", "expected": "TARGET_NOT_ALLOWED"},
+    {"id": "G", "name": "hash mismatch", "expected": "HASH_MISMATCH"},
+    {"id": "H", "name": "revision mismatch", "expected": "REVISION_MISMATCH"},
+    {"id": "I", "name": "audit failure", "expected": "AUDIT_WRITE_FAILED"},
+    {"id": "J", "name": "partial write failure", "expected": "PARTIAL"},
+    {"id": "K", "name": "source unavailable", "expected": "SOURCE_UNAVAILABLE"},
+    {"id": "L", "name": "stale critical evidence", "expected": "STALE_EVIDENCE"},
+    {"id": "M", "name": "unknown environment", "expected": "UNKNOWN_ENVIRONMENT"},
+    {"id": "N", "name": "rollback and disable state", "expected": "KILL_SWITCH_ACTIVE"},
+    {"id": "O", "name": "same inputs same release semantic hash", "expected": "DETERMINISTIC"},
+    {"id": "P", "name": "secret-like fixture rejected", "expected": "SECRET_REJECTED"},
+    {"id": "Q", "name": "PII-like payload rejected", "expected": "PII_REJECTED"},
+    {"id": "R", "name": "scheduler disabled", "expected": "SCHEDULER_DISABLED"},
+    {"id": "S", "name": "production activation false", "expected": "PRODUCTION_DISABLED"},
+    {"id": "T", "name": "planned writes N, actual writes 0", "expected": "ZERO_MUTATION"}
+  ]
+}

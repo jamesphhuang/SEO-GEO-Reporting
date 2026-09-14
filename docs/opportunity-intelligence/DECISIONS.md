@@ -45,3 +45,4 @@ WP3 policy note：繁簡、同義詞、品牌 parent/child 與 semantic URL equi
 | OI-026 | GA4 PAGE_LEVEL 只能透過 WP3 exact normalized URL / `url_id` join；site-wide rows 只作 contextual conflict | 不用 title、redirect、scheme、trailing slash 或外部 population 猜測 page quality |
 | OI-027 | CTA event 只輸出 `CTA_SIGNAL_PRESENT/WEAK` diagnostic；沒有 approved attribution mapping 就不得建立 success metric | CTA interaction 與 formal conversion 的事件語義、scope、consent、attribution 尚未批准 |
 | OI-028 | GA4 diagnostics 使用獨立 append-only revision artifact，pin GA4 與 candidate evidence 的 id/revision/hash | 新 GA4 evidence 不得改寫舊診斷或讓 candidate 隱式追到 latest；支援 deterministic replay |
+| OI-029 | WP12 只提供 proposal-only production hardening dry-run，activation、writer、scheduler、Recommendations、Next Steps 與 workbook 必須分離且預設關閉 | 讓 production promotion 可審核、可回滾、可讀回，但不把 WP10/WP11/WP12 readiness 誤當 production authorization |

@@ -189,3 +189,25 @@ checks PASS，production mutation=0。`WP11_OUTCOME_TRACKING_READINESS = READY`�
 
 本輪只允許建立 local commit；不 push、不建 PR、不 merge、不開始或建立 WP12。下一個唯一
 任務依 ROADMAP 是 **WP12 — Production hardening（最後gate）**。
+
+## Current handoff — WP12 production hardening complete（2026-09-14）
+
+Baseline `6415c9e086f6afe419076461fa486d2c457f89a6`；branch
+`feat/opportunity-production-hardening`；clean isolated worktree，原 dirty worktree 未觸碰。
+新增 offline hardening planner、activation/release manifest proposal contracts、A–T synthetic
+fixture 與 30 個 targeted tests。
+
+Hardening layer 計算 deterministic release manifest、planned/blocked operations、idempotency
+keys、structured observability events 與 rollback/kill-switch plan。未知 environment、draft
+contract、缺 explicit authorization、writer/target 不在 allowlist、stale/hash/revision/
+conflict/schema/audit/source failure、secret/PII 與 scheduler attempt 都 fail closed；partial
+write 永不宣稱 complete。Actual writes、production mutation 與 scheduler activity 全為 0。
+
+Fresh regression **311/311 PASS**，WP12 targeted **30/30 PASS**；schema、fixture/JSON、AST、
+date-time、`git diff --check`、security/PII/live-call/production-boundary checks PASS。
+`WP12_PRODUCTION_HARDENING_READINESS = READY`，但 `PRODUCTION_ACTIVATION = NOT_AUTHORIZED`；
+不得把 hardening PASS 視為 production activation。
+
+本輪只建立 local commit；不 push、建 PR、merge、啟用 scheduler/writer、寫 Recommendations、
+Next Steps、Sheets、Apps Script 或執行 live source。ROADMAP 沒有自動 WP13；production activation
+需另行取得明確 owner authorization。
