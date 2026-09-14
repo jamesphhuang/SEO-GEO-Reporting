@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "fixture_version": "wp11-outcome-tracking-1",
+    "source": "offline-only",
+    "synthetic": true,
+    "production_mutation": 0,
+    "timezone": "Asia/Taipei",
+    "baseline_complete_days": 28,
+    "checkpoints": ["30D", "60D", "90D"]
+  },
+  "scenarios": [
+    {"id": "A", "name": "implemented action improves and sustains", "expected": "WON"},
+    {"id": "B", "name": "mixed primary and support signals", "expected": "PARTIAL_WIN"},
+    {"id": "C", "name": "missing implementation anchor", "expected": "NOT_ELIGIBLE"},
+    {"id": "D", "name": "approval without implementation", "expected": "NOT_ELIGIBLE"},
+    {"id": "E", "name": "missing 30 day window", "expected": "INSUFFICIENT_DATA"},
+    {"id": "F", "name": "stale follow-up evidence", "expected": "INSUFFICIENT_DATA"},
+    {"id": "G", "name": "baseline evidence hash mismatch", "expected": "BLOCKED"},
+    {"id": "H", "name": "follow-up revision preserves baseline revision", "expected": "APPEND_ONLY"},
+    {"id": "I", "name": "GSC up and GA4 behavior down", "expected": "PARTIAL_WIN"},
+    {"id": "J", "name": "SERP strong and GEO weak remain separate", "expected": "NOT_COMPARABLE"},
+    {"id": "K", "name": "incompatible GEO fixed sample", "expected": "INSUFFICIENT_DATA"},
+    {"id": "L", "name": "DO_NOTHING has no fake implementation", "expected": "NOT_ELIGIBLE"},
+    {"id": "M", "name": "MONITOR is observation only", "expected": "OBSERVATION_ONLY"},
+    {"id": "N", "name": "same inputs replay deterministically", "expected": "DETERMINISTIC"},
+    {"id": "O", "name": "new candidate revision does not inherit approval", "expected": "BLOCKED"},
+    {"id": "P", "name": "bridge revision does not rewrite outcome history", "expected": "APPEND_ONLY"}
+  ]
+}

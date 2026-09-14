@@ -312,3 +312,25 @@ SERP validation is shortlist-only and observational. It does not claim unbiased 
 | Structural checks | PASS | JSON schema/fixture parse, Python AST, explicit date/date-time, `git diff --check` |
 | Security / production boundary | PASS | scoped secret/PII/live-call/production-writer scans clean; production mutation=0 |
 | Readiness | READY | local commit only; no push, PR, merge or WP11 |
+
+## Current handoff — WP11 outcome tracking complete（2026-09-14）
+
+| Check | Result | Scope / limit |
+| --- | --- | --- |
+| Clean baseline / branch | PASS | `WP11_BASELINE_SHA=83745d36ff59b9dfa45313c43c125f3a014f8b94`; `feat/opportunity-outcome-tracking`; original dirty worktree untouched |
+| Implementation anchor | PASS | exact Candidate / human Review / UAT Bridge revision and hash; APPROVE alone never means IMPLEMENTED |
+| Measurement windows | PASS | Asia/Taipei; baseline and each 30/60/90D checkpoint use 28 complete days; execution day excluded |
+| Outcome taxonomy | PASS | `WON`, `PARTIAL_WIN`, `NO_CHANGE`, `LOST`, `INSUFFICIENT_DATA`; no causal claim |
+| Source semantics | PASS | GSC search actual, GA4 behavior diagnostic, GEO fixed sample, SERP snapshot, SF/CrUX and Business remain separate grains |
+| Missing / freshness | PASS | missing/null, FAILED, STALE and NOT_AVAILABLE never become zero/current |
+| Comparability | PASS | exact scope/entity/population/methodology; GEO version and SERP observation constraints retained |
+| Guardrails / mixed signal | PASS | independent support is required for WON; guardrail breach is LOST; mixed signals remain visible as PARTIAL_WIN/conflict |
+| Review / bridge protection | PASS | outcome never changes Candidate revision, WP5 Score, Confidence, Review or Bridge; new revision does not inherit old approval |
+| Append-only persistence | PASS | implementation and outcome JSONL stores support contiguous revisions, supersedes, idempotency and tamper rejection |
+| Proposal contracts | PASS | `implementation_event.v1.proposal.json` and `outcome_tracking.v1.proposal.json`; Draft 2020-12, no production activation |
+| Synthetic fixtures | PASS | A–P metadata fixture; offline-only, no live source or production rows |
+| WP11 targeted | PASS | **21 tests, OK** |
+| Full regression | PASS | **281 tests, OK** with bundled Python and Node runtime |
+| Schema / AST / dates | PASS | proposal schema validation, fixture JSON, Python AST, explicit date/date-time and `git diff --check` |
+| Security / production boundary | PASS | scoped credential/PII/live-call scan clean; production mutation=0 |
+| Readiness | READY | 下一個唯一工作為 **WP12 — Production hardening（最後gate）** |

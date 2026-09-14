@@ -137,3 +137,20 @@ WP10 targeted 為 **26 tests，OK**；合併既有 WP1–WP9 suite 後 fresh dis
 explicit date/date-time、`git diff --check`、scoped secret/PII/live-call 與 production
 boundary；production mutation=0。下一個唯一工作是 WP11 — Outcome tracking，不能在 WP10
 開始 outcome tracking、production rollout 或 Next Steps automation。
+
+## WP11 outcome tracking coverage
+
+`tests/test_opportunity_outcomes.py` 與 `tests/fixtures/opportunity_outcomes/scenarios.json`
+使用 synthetic A–P metadata fixture，覆蓋 implementation anchor、exact candidate/review/
+bridge lineage、28 complete-day window、30/60/90D checkpoints、WON/PARTIAL_WIN/NO_CHANGE/
+LOST/INSUFFICIENT_DATA、missing/null/FAILED/STALE/NOT_AVAILABLE、guardrail、mixed signals、
+GEO sample revision、SERP snapshot comparability、GA4 diagnostic-only、Business attribution
+contract、DO_NOTHING/MONITOR、deterministic replay、candidate/bridge revision invalidation、
+append-only outcome history、tamper/hash、preview projection 與 production boundary。
+
+WP11 targeted 為 **21 tests，OK**；加入 WP1–WP10 後 fresh full regression 為 **281 tests，OK**。
+所有 inputs、dates、evidence pins 與 evaluation timestamp 可明確傳入；沒有 source adapter、
+live query、credential、scheduler、Recommendations、Next Steps、Sheets、Apps Script 或
+production writer。兩份 WP11 proposal schema 使用 Draft 2020-12、explicit date/date-time
+format、AST、JSON、`git diff --check` 與 scoped security/PII/live-call scan。下一個正式任務為
+**WP12 — Production hardening（最後gate）**；本輪不開始 WP12。

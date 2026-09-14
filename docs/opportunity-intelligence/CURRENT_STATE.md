@@ -262,3 +262,31 @@ append-only，Next Steps 與 production mutation 固定為 false。
 `DRAFT_NOT_APPROVED`、`x-production-activation=false`。A–P fixture 與 26 個 WP10
 tests 全部 synthetic；`WP10_HUMAN_REVIEW_BRIDGE_READINESS = READY`。下一個唯一任務依
 ROADMAP 是 **WP11 — Outcome tracking**；本輪未開始或建立 WP11。
+
+## WP11 implementation handoff（2026-09-14）
+
+本輪以 `WP11_BASELINE_SHA=83745d36ff59b9dfa45313c43c125f3a014f8b94` 建立 clean
+worktree `/private/tmp/seo-geo-wp11-outcomes` 與 branch
+`feat/opportunity-outcome-tracking`。原 dirty worktree 未觸碰；本輪沒有 push、PR、merge、
+WP12 branch、live source query 或 production writer。
+
+新增 `reporting/opportunity/outcomes.py` 與 `outcome_preview.py`。WP11 只接受已批准的
+exact Candidate / human Review / UAT Bridge revision，以及明確的 IMPLEMENTED
+implementation event anchor。APPROVE 不代表 IMPLEMENTED；DO_NOTHING 與 MONITOR 只會
+留在 `NOT_ELIGIBLE` / `OBSERVATION_ONLY`，不產生假執行結果。
+
+Outcome record 以 Asia/Taipei 的完成日計算 baseline 與 30/60/90D 各 28 個完整日，保留
+source、scope、population、methodology、sample version、missing/FAILED/STALE/
+NOT_AVAILABLE、exact evidence pins 與中立限制文字。GSC、GA4、GEO、SERP、SF/CrUX 的
+grain 分開比較；GA4 僅是 behavior diagnostic，CTA/Lead/SQL/Revenue 不會被當成正式
+conversion，SERP snapshot、不同 GEO fixed sample、site-wide/page-level 或 business
+attribution contract 缺漏會保留 `NOT_COMPARABLE` / policy gap。
+
+`WON` 需要 primary target、至少一個獨立 support signal、guardrails 通過且資料可比；
+混合訊號保留為 `PARTIAL_WIN`，資料不足為 `INSUFFICIENT_DATA`，不作 causal / ROI claim。
+Outcome 與 implementation event 都以 local append-only JSONL store 保存，revision 必須
+連續、supersedes 前一版、hash 可重算、歷史 observation 不被新 revision 覆寫。兩份 proposal
+schema 維持 `DRAFT_NOT_APPROVED` 與 `x-production-activation=false`。
+
+`WP11_OUTCOME_TRACKING_READINESS = READY`。下一個唯一工作依 ROADMAP 是 **WP12 — Production
+hardening（最後gate）**；本輪未開始或建立 WP12。

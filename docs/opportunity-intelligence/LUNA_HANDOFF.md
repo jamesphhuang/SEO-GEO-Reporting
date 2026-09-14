@@ -165,3 +165,27 @@ WP10 targeted **26 tests PASS**，full regression **260 tests PASS**；schema、
 date/date-time、`git diff --check`、security/PII/live-call/production-boundary checks PASS，
 production mutation=0。`WP10_HUMAN_REVIEW_BRIDGE_READINESS = READY`。只建立 local commit，
 不要 push/merge，也不要開始或建立 WP11。下一個唯一任務是 **WP11 — Outcome tracking**。
+
+## Current handoff — WP11 complete（2026-09-14）
+
+Baseline `83745d36ff59b9dfa45313c43c125f3a014f8b94`；branch
+`feat/opportunity-outcome-tracking`；clean worktree `/private/tmp/seo-geo-wp11-outcomes`。
+
+WP11 新增 implementation event anchor、outcome evaluator、30/60/90D checkpoint projection、
+append-only OutcomeStore、兩份 Draft proposal schema、A–P synthetic fixture 與 targeted tests。
+正式 outcome 前必須有 exact authenticated human APPROVE、Bridge revision 與明確
+IMPLEMENTED deployment/change anchor；MONITOR/DO_NOTHING 只保留 observation-only 狀態。
+
+所有 observations 都 pin `evidence_id + revision + content_hash`，baseline/follow-up 依
+Asia/Taipei 28 complete days 比較，同 scope/population/methodology 與 GEO sample revision
+必須一致。GSC、GA4、SERP、GEO、SF/CrUX、Business 的 source semantics 分離；GA4 CTA 不作
+conversion，Business 無 attribution contract 不形成正式 outcome，SERP timestamp 不併成
+period rank。WON 需要 primary、independent support 與 guardrails；missing、FAILED、STALE、
+NOT_AVAILABLE、NOT_COMPARABLE 均保留，沒有 causal 或 ROI 文字。
+
+WP11 targeted **21/21 PASS**；fresh full regression **281/281 PASS**。Schema、fixtures、AST、
+explicit date/date-time、`git diff --check`、security/PII/live-call/production-boundary
+checks PASS，production mutation=0。`WP11_OUTCOME_TRACKING_READINESS = READY`。
+
+本輪只允許建立 local commit；不 push、不建 PR、不 merge、不開始或建立 WP12。下一個唯一
+任務依 ROADMAP 是 **WP12 — Production hardening（最後gate）**。
