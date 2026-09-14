@@ -137,3 +137,16 @@ NEEDS_MORE_EVIDENCE 語義均保持獨立；Recommendations、Next Steps、Sheet
 
 `WP10_HUMAN_REVIEW_BRIDGE_READINESS = READY`。下一個唯一正式任務是 **WP11 — Outcome
 tracking**。本輪未開始 WP11，也未建立 WP11 branch。
+
+## Current state after WP11（2026-09-14）
+
+`WP11_BASELINE_SHA=83745d36ff59b9dfa45313c43c125f3a014f8b94`；branch
+`feat/opportunity-outcome-tracking`；clean worktree `/private/tmp/seo-geo-wp11-outcomes`。
+WP11 targeted 21/21、fresh full regression 281/281 PASS；proposal schemas、fixtures、AST、
+JSON、date/date-time、`git diff --check`、security/PII/live-call/production-boundary checks
+均 PASS，production mutation=0。`WP11_OUTCOME_TRACKING_READINESS = READY`。
+
+下一個唯一正式任務：**WP12 — Production hardening（最後gate）**。
+
+WP12 尚未開始、尚未建立 branch；本輪不執行 production promotion、scheduler、Recommendations、
+Next Steps、Sheets、Apps Script 或任何 live source query。

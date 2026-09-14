@@ -76,6 +76,28 @@ __all__ = [
     "build_recommendation_bridge",
     "validate_recommendation_bridge",
     "project_review_status",
+    "ImplementationAnchor",
+    "MeasurementPlan",
+    "MetricObservation",
+    "OutcomeEvaluationResult",
+    "OutcomeInputError",
+    "OutcomeStore",
+    "OutcomeTrackingInput",
+    "OutcomeTrackingResult",
+    "OutcomeTrackingStore",
+    "ImplementationEvent",
+    "create_implementation_anchor",
+    "evaluate_outcome",
+    "evaluate_outcomes",
+    "expected_window",
+    "validate_implementation_anchor",
+    "validate_outcome_record",
+    "validate_outcome",
+    "outcome_preview",
+    "checkpoint_preview",
+    "project_outcome_preview",
+    "render_checkpoint_preview",
+    "render_outcome_preview",
 ]
 
 
@@ -130,4 +152,10 @@ def __getattr__(name):
     if name in {"RecommendationBridgeResult", "RecommendationBridgeStore", "build_recommendation_bridge", "validate_recommendation_bridge", "project_review_status"}:
         from .review_bridge import RecommendationBridgeResult, RecommendationBridgeStore, build_recommendation_bridge, validate_recommendation_bridge, project_review_status
         return {"RecommendationBridgeResult": RecommendationBridgeResult, "RecommendationBridgeStore": RecommendationBridgeStore, "build_recommendation_bridge": build_recommendation_bridge, "validate_recommendation_bridge": validate_recommendation_bridge, "project_review_status": project_review_status}[name]
+    if name in {"ImplementationAnchor", "ImplementationEvent", "MeasurementPlan", "MetricObservation", "OutcomeEvaluationResult", "OutcomeInputError", "OutcomeStore", "OutcomeTrackingInput", "OutcomeTrackingResult", "OutcomeTrackingStore", "create_implementation_anchor", "evaluate_outcome", "evaluate_outcomes", "expected_window", "validate_implementation_anchor", "validate_outcome", "validate_outcome_record"}:
+        from .outcomes import (ImplementationAnchor, ImplementationEvent, MeasurementPlan, MetricObservation, OutcomeEvaluationResult, OutcomeInputError, OutcomeStore, OutcomeTrackingInput, OutcomeTrackingResult, OutcomeTrackingStore, create_implementation_anchor, evaluate_outcome, evaluate_outcomes, expected_window, validate_implementation_anchor, validate_outcome, validate_outcome_record)
+        return {"ImplementationAnchor": ImplementationAnchor, "ImplementationEvent": ImplementationEvent, "MeasurementPlan": MeasurementPlan, "MetricObservation": MetricObservation, "OutcomeEvaluationResult": OutcomeEvaluationResult, "OutcomeInputError": OutcomeInputError, "OutcomeStore": OutcomeStore, "OutcomeTrackingInput": OutcomeTrackingInput, "OutcomeTrackingResult": OutcomeTrackingResult, "OutcomeTrackingStore": OutcomeTrackingStore, "create_implementation_anchor": create_implementation_anchor, "evaluate_outcome": evaluate_outcome, "evaluate_outcomes": evaluate_outcomes, "expected_window": expected_window, "validate_implementation_anchor": validate_implementation_anchor, "validate_outcome": validate_outcome, "validate_outcome_record": validate_outcome_record}[name]
+    if name in {"outcome_preview", "checkpoint_preview", "project_outcome_preview", "render_checkpoint_preview", "render_outcome_preview"}:
+        from .outcome_preview import checkpoint_preview, outcome_preview, project_outcome_preview, render_checkpoint_preview, render_outcome_preview
+        return {"outcome_preview": outcome_preview, "checkpoint_preview": checkpoint_preview, "project_outcome_preview": project_outcome_preview, "render_checkpoint_preview": render_checkpoint_preview, "render_outcome_preview": render_outcome_preview}[name]
     raise AttributeError(name)
