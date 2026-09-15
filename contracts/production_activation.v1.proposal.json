@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/contracts/production_activation.v1.proposal.json",
+  "title": "Offline production activation gate proposal",
+  "type": "object",
+  "x-proposal-status": "DRAFT_NOT_APPROVED",
+  "x-production-activation": false,
+  "required": [
+    "activation_id", "revision", "environment", "release_version",
+    "required_wp_versions", "required_contract_versions", "required_readiness_gates",
+    "allowed_writers", "allowed_targets", "allowed_schedulers", "allowed_sources",
+    "approval_ref", "activation_state", "rollback_state", "created_at",
+    "production_mutation", "semantic_hash"
+  ],
+  "properties": {
+    "x-proposal-status": {"const": "DRAFT_NOT_APPROVED"},
+    "x-production-activation": {"const": false},
+    "activation_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,199}$"},
+    "revision": {"type": "integer", "minimum": 1},
+    "environment": {"enum": ["LOCAL", "TEST", "UAT", "PRODUCTION"]},
+    "release_version": {"type": "string", "minLength": 1, "maxLength": 100},
+    "required_wp_versions": {"type": "object", "minProperties": 1, "additionalProperties": {"type": "string", "minLength": 1}},
+    "required_contract_versions": {"type": "object", "minProperties": 1, "additionalProperties": {"type": "string", "minLength": 1}},
+    "required_readiness_gates": {"type": "object", "minProperties": 1, "additionalProperties": {"type": "boolean"}},
+    "allowed_writers": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "allowed_targets": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "allowed_schedulers": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "allowed_sources": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "approval_ref": {"type": ["string", "null"]},
+    "activation_state": {"enum": ["DRY_RUN", "NOT_AUTHORIZED", "BLOCKED", "REVOKED", "DISABLED"]},
+    "rollback_state": {"enum": ["AVAILABLE", "DISABLED", "REVOKED", "NOT_STARTED"]},
+    "kill_switch": {"type": "boolean"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "production_mutation": {"const": 0},
+    "semantic_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  },
+  "additionalProperties": false
+}

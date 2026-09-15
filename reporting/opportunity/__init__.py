@@ -21,6 +21,21 @@ from .ga4_diagnostics import (
     validate_ga4_diagnostic,
 )
 from .ga4_preview import diagnostic_preview
+from .production_hardening import (
+    ACTIVATION_CONTRACT_VERSION,
+    ERROR_CODES,
+    RELEASE_MANIFEST_CONTRACT_VERSION,
+    HardeningResult,
+    IdempotencyLedger,
+    ProductionHardeningError,
+    build_release_manifest,
+    dry_run_promotion,
+    idempotency_key,
+    semantic_hash,
+    validate_activation_proposal,
+    validate_hardening_result,
+    validate_release_manifest,
+)
 
 __all__ = [
     "ValidationError",
@@ -98,6 +113,19 @@ __all__ = [
     "project_outcome_preview",
     "render_checkpoint_preview",
     "render_outcome_preview",
+    "ACTIVATION_CONTRACT_VERSION",
+    "ERROR_CODES",
+    "RELEASE_MANIFEST_CONTRACT_VERSION",
+    "HardeningResult",
+    "IdempotencyLedger",
+    "ProductionHardeningError",
+    "build_release_manifest",
+    "dry_run_promotion",
+    "idempotency_key",
+    "semantic_hash",
+    "validate_activation_proposal",
+    "validate_hardening_result",
+    "validate_release_manifest",
 ]
 
 

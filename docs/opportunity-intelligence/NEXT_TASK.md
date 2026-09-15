@@ -148,5 +148,27 @@ JSON、date/date-time、`git diff --check`、security/PII/live-call/production-b
 
 下一個唯一正式任務：**WP12 — Production hardening（最後gate）**。
 
-WP12 尚未開始、尚未建立 branch；本輪不執行 production promotion、scheduler、Recommendations、
-Next Steps、Sheets、Apps Script 或任何 live source query。
+## Current state after WP12 initial implementation — before consistency probe（2026-09-14）
+
+`WP12_BASELINE_SHA=6415c9e086f6afe419076461fa486d2c457f89a6`；branch
+`feat/opportunity-production-hardening`；clean isolated worktree。WP12 targeted **30/30**、
+fresh full regression **311/311 PASS**；兩份 production hardening proposal、A–T synthetic
+fixture、schema/JSON/AST/date-time、`git diff --check`、security/PII/live-call/production-
+boundary checks 均 PASS，production mutation=0。
+
+正式 readiness 是 `WP12_PRODUCTION_HARDENING_READINESS = READY`。這只代表 offline/UAT
+hardening implementation ready；`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`，不是 production
+ready 或 production active。Activation proposal 與 release manifest 仍為
+`DRAFT_NOT_APPROVED`、`x-production-activation=false`；scheduler、writer、Recommendations、
+Next Steps、production workbook、Apps Script 與 live source collection 均未啟用。
+
+ROADMAP 已完成目前列出的最後 hardening gate，沒有自動開始的 WP13。下一步若要 promotion，
+必須由 owner 另行提供明確 production activation authorization；本輪不執行該 gate。
+
+WP12 已完成 hardening implementation；本輪不執行 production promotion、scheduler、
+Recommendations、Next Steps、Sheets、Apps Script 或任何 live source query。
+
+## WP12 repair handoff（2026-09-15）
+
+第一次 consistency probe 的 `BLOCKED_HANDOFF_INCONSISTENCY` 已保留；follow-up repair 補齊 required gates、kill switch/terminal states、revision/hash lineage、audit、cross-run idempotency、recursive redaction、manifest required fields 與 structured rollback。原始 WP12 commit 不 amend，production mutation 維持 `0`。`WP12_PRODUCTION_HARDENING_READINESS` 只有在 repair 後 targeted 與 fresh full regression 都通過時才可標示 `READY`；下一個正式工作仍不是自動啟用 production，也不建立 WP13。
+Repair 後 WP12 targeted **40/40**、fresh full regression **321/321 PASS**；schema、AST、JSON、date/date-time、`git diff --check`、security/PII/live-call/production-boundary checks 均 PASS。

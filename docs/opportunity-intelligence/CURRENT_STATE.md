@@ -290,3 +290,40 @@ schema 維持 `DRAFT_NOT_APPROVED` 與 `x-production-activation=false`。
 
 `WP11_OUTCOME_TRACKING_READINESS = READY`。下一個唯一工作依 ROADMAP 是 **WP12 — Production
 hardening（最後gate）**；本輪未開始或建立 WP12。
+
+## WP12 production hardening handoff（2026-09-14）
+
+`WP12_BASELINE_SHA=6415c9e086f6afe419076461fa486d2c457f89a6`。在 clean branch
+`feat/opportunity-production-hardening` 完成 offline production hardening gates；原
+dirty worktree 未觸碰。新增 `reporting/opportunity/production_hardening.py`、
+`contracts/production_activation.v1.proposal.json`、
+`contracts/production_release_manifest.v1.proposal.json`、A–T synthetic hardening
+fixture 與 `tests/test_production_hardening.py`。
+
+Hardening layer 只產生 dry-run planned/blocked operations、deterministic idempotency
+keys、release manifest、rollback plan 與 structured observability events；writer、target、
+environment、contract、authorization、scheduler、source、secret、PII、hash、revision、
+stale evidence、audit 與 partial-failure gates 全部 fail closed。Recommendations、
+Next Steps、production workbook、Apps Script、runtime production store 與 scheduler 都
+維持 untouched；production mutation 與 actual write count 都是 0。
+
+兩份新增 proposal contract 維持 `DRAFT_NOT_APPROVED` 與
+`x-production-activation=false`。WP12 targeted **30 tests PASS**，fresh full regression
+**311 tests PASS**；schema、synthetic fixture、AST、JSON、explicit date/date-time、
+`git diff --check`、security/PII/live-call/production-boundary checks 均 PASS。
+
+`WP12_PRODUCTION_HARDENING_READINESS = READY`；`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。
+WP12 不啟用 production、不建立 scheduler、不寫 production targets，亦未建立 PR、push 或
+merge。ROADMAP 已完成最後 hardening gate；後續 production activation 仍需獨立明確授權。
+## WP12 repair handoff（2026-09-15）
+原始 WP12 handoff 的 consistency probe 曾因 runtime enforcement 不足暫列
+`BLOCKED_HANDOFF_INCONSISTENCY`。follow-up repair 保留原始 commit 不變，補上 required gate
+完整性、activation kill switch/terminal state、artifact revision/hash pins、mandatory
+audit、cross-run idempotency ledger、recursive secret/PII rejection 與 redaction、manifest
+lineage/structured test summary、structured rollback、partial failure receipts，以及
+production/dry-run state separation。repair 只在 clean worktree 進行，未觸碰原 dirty worktree。
+本節的最終 targeted/full regression 數字以 repair 後 fresh discovery 記錄為準；在驗證完成前
+不得把原始 30/311 PASS 記錄解讀為 repair 已通過。readiness key 維持
+`WP12_PRODUCTION_HARDENING_READINESS`，且 `PRODUCTION_ACTIVATION=NOT_AUTHORIZED`。
+Repair 後 WP12 targeted **40/40**、fresh full regression **321/321 PASS**；所有 production
+mutation/write count 仍為 `0`，沒有 push、PR、merge 或 production activation。

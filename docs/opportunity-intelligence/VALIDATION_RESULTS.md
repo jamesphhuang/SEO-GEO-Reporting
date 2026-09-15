@@ -334,3 +334,41 @@ SERP validation is shortlist-only and observational. It does not claim unbiased 
 | Schema / AST / dates | PASS | proposal schema validation, fixture JSON, Python AST, explicit date/date-time and `git diff --check` |
 | Security / production boundary | PASS | scoped credential/PII/live-call scan clean; production mutation=0 |
 | Readiness | READY | 下一個唯一工作為 **WP12 — Production hardening（最後gate）** |
+
+## WP12 Production hardening — initial implementation record before consistency probe（2026-09-14）
+
+| Check | Result | Scope / limit |
+| --- | --- | --- |
+| Clean baseline / branch | PASS | `WP12_BASELINE_SHA=6415c9e086f6afe419076461fa486d2c457f89a6`; `feat/opportunity-production-hardening`; original dirty worktree untouched |
+| Activation proposal | PASS | Draft 2020-12; `DRAFT_NOT_APPROVED`; `x-production-activation=false`; activation state remains offline-only |
+| Writer / target allowlist | PASS | unknown writer, target, environment and production destinations fail closed |
+| Authorization boundary | PASS | Candidate APPROVE, WP11 READY and WP12 PASS never imply production activation; explicit separate authorization required |
+| Idempotency | PASS | deterministic key; same key/hash is idempotent; same key/different hash is conflict |
+| Partial failure | PASS | write/audit/source failure remains `PARTIAL`, `FAILED` or `BLOCKED`; never silently COMPLETE |
+| Rollback / kill switch | PASS | disable-new-writes and readback; immutable history is superseded, never deleted |
+| Dry-run / release manifest | PASS | planned and blocked operations plus semantic hash; actual writes = 0 |
+| Observability | PASS | structured run/write/blocked/partial/completed events; no credentials, tokens or PII |
+| Scheduler boundary | PASS | scheduler state `DISABLED`; no cron, trigger, Actions schedule or n8n schedule |
+| Live-source boundary | PASS | no GSC, GA4, Workduo, Google Search, Ahrefs, Screaming Frog or CrUX calls |
+| Synthetic fixtures | PASS | `tests/fixtures/opportunity_hardening/scenarios.json`; A–T, offline-only |
+| WP12 targeted | PASS | **30 tests, OK** |
+| Full regression | PASS | **311 tests, OK** (281 pre-WP12 + 30 WP12) |
+| Schema / JSON / AST / dates | PASS | both proposal schemas, fixture JSON, Python AST, explicit date/date-time and `git diff --check` |
+| Security / PII / production boundary | PASS | scoped secret/PII/live-call/writer scan clean; production mutation=0 |
+| Readiness | READY | hardening implementation ready; production activation remains `NOT_AUTHORIZED` |
+
+## WP12 handoff consistency repair（2026-09-15）
+
+| Check | Result | Scope / limit |
+| --- | --- | --- |
+| Historical probe | BLOCKED then repaired | Initial handoff probe exposed unenforced required gates, terminal activation states, lineage, audit, idempotency, redaction and manifest requirements; original commit was not amended |
+| Runtime gates | PASS after repair | required gates are complete/all true; kill switch and `REVOKED`/`DISABLED`/`NOT_AUTHORIZED` fail closed |
+| Artifact lineage | PASS after repair | positive revision, expected revision, semantic hash, expected hash, freshness, status, approval and proposal contract are checked |
+| Idempotency | PASS after repair | deterministic identity-bound key, same-run no-op and cross-run append-only ledger conflict are checked |
+| Audit / partial receipts | PASS after repair | audit plan is mandatory; failed execution receipts remain visible as `PARTIAL`/`FAILED` with structured events |
+| Secret / PII boundary | PASS after repair | recursive keys and values, email/phone text and nested payloads are rejected without value leakage |
+| Manifest completeness | PASS after repair | non-empty versions, gate results, structured test summary, write-disabled state and rollback structure are required |
+| Production boundary | PASS after repair | proposal status remains `DRAFT_NOT_APPROVED`, activation false, scheduler disabled and mutation/write count zero |
+| Final readiness | READY after fresh verification | only offline/UAT hardening readiness; no production activation, push, PR or merge |
+| Repair targeted regression | PASS | **40/40 tests** |
+| Repair full regression | PASS | **321/321 tests**, fresh discovery |

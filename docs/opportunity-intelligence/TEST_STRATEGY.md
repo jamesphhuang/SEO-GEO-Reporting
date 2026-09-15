@@ -154,3 +154,24 @@ live query、credential、scheduler、Recommendations、Next Steps、Sheets、Ap
 production writer。兩份 WP11 proposal schema 使用 Draft 2020-12、explicit date/date-time
 format、AST、JSON、`git diff --check` 與 scoped security/PII/live-call scan。下一個正式任務為
 **WP12 — Production hardening（最後gate）**；本輪不開始 WP12。
+
+## WP12 production hardening coverage
+
+`tests/test_production_hardening.py` 與 `tests/fixtures/opportunity_hardening/scenarios.json`
+使用 synthetic A–T records，覆蓋 activation/release proposal status、UAT dry-run、explicit
+production authorization、environment/writer/target allowlist、idempotency/no-op/conflict、
+partial write/audit failure、rollback/kill switch、scheduler default-off、source unavailable、
+STALE、hash/revision mismatch、secret/PII rejection、Recommendations/Next Steps/workbook/
+Apps Script boundary、structured observability、deterministic release hash 與 zero mutation。
+
+WP12 targeted 為 **30 tests，OK**；合併 WP1–WP11 後 fresh full regression 為 **311 tests，OK**。
+兩份 production hardening proposal 使用 Draft 2020-12、`DRAFT_NOT_APPROVED`、
+`x-production-activation=false`；另驗證 fixture JSON、Python AST、explicit date/date-time、
+`git diff --check`、scoped secret/PII/live-call/production-boundary scan。所有 dry-run actual
+writes 與 production mutation 為 0；production activation 仍需獨立明確授權。
+
+## WP12 repair coverage（2026-09-15）
+
+本次 fresh discovery 為 WP12 targeted **40/40 PASS**、full regression **321/321 PASS**。
+
+新增 targeted cases 對應初次 handoff probe 的缺口：required gate false/missing/unknown/empty、kill switch 與 `REVOKED`/`DISABLED`/`NOT_AUTHORIZED`、invalid revision/hash pins、missing or arbitrary idempotency identity、mandatory audit、shared cross-run ledger、nested secret/PII and email/phone redaction、mandatory manifest lineage and structured test summary、structured rollback，以及 real execution receipt partial failure。所有資料仍 synthetic/offline；沒有 live source、credential、scheduler、Recommendations、Next Steps、Sheets、Apps Script 或 production writer。最終 targeted/full regression 數字只採用 repair 後 fresh discovery。
