@@ -6,6 +6,7 @@ from pathlib import Path
 from jsonschema import Draft202012Validator, FormatChecker
 
 from reporting.opportunity.production_hardening import (
+    IdempotencyLedger,
     PROPOSAL_STATUS,
     dry_run_promotion,
     semantic_hash,
@@ -57,26 +58,36 @@ def operation(*, target="UAT_RECOMMENDATIONS", writer="UAT_DRY_RUN_WRITER", fail
         "operation": operation_name,
         "writer": writer,
         "semantic_hash": semantic,
+        "expected_revision": revision,
+        "expected_hash": semantic,
+        "freshness_state": "READY",
+        "status": "READY",
+        "approval_state": "APPROVED_UAT",
+        "contract_state": PROPOSAL_STATUS,
         "failure_mode": failure_mode,
         "audit_required": True,
+        "audit_config": {"audit_type": "OFFLINE_PLAN", "writer": "UAT_AUDIT_PLAN"},
     }
     if key is not None:
         value["idempotency_key"] = key
     return value
 
 
-def run(*operations, activation_value=None, readiness=None, **extra):
+def run(*operations, activation_value=None, readiness=None, ledger=None, **extra):
     payload = {
         "activation": activation_value or activation(),
         "main_sha": MAIN_SHA,
         "release_id": "REL_WP12_DRY_RUN",
         "run_id": "RUN_WP12_DRY_RUN",
         "created_at": CREATED_AT,
-        "readiness_gates": readiness or {"wp1_to_wp11": True, "security": True, "dry_run": True},
+        "readiness_gates": readiness if readiness is not None else {"wp1_to_wp11_integrated": True, "dry_run": True},
+        "wp_versions": {f"WP{i}": "READY" for i in range(1, 13)},
+        "contract_versions": {"activation": "production_activation.v1.proposal", "manifest": "production_release_manifest.v1.proposal"},
+        "test_result_summary": {"status": "PASS", "suites": {"full_regression": {"suite": "full_regression", "passed": 311, "failed": 0, "skipped": 0, "status": "PASS", "run_identifier": "RUN_WP12_TESTS"}}},
         "operations": list(operations),
     }
     payload.update(extra)
-    return dry_run_promotion(payload)
+    return dry_run_promotion(payload, ledger=ledger)
 
 
 class ProductionHardeningTests(unittest.TestCase):
@@ -102,7 +113,7 @@ class ProductionHardeningTests(unittest.TestCase):
     def test_wp12_ready_does_not_activate_production(self):
         result = run(operation())
         self.assertTrue(result.is_valid, result.as_dict())
-        self.assertEqual(result.manifest["activation_status"], "DRY_RUN_READY")
+        self.assertEqual(result.manifest["activation_status"], "DRY_RUN_VALIDATION_READY")
         self.assertFalse(result.manifest["x-production-activation"])
 
     def test_draft_contract_and_missing_authorization_block_production(self):
@@ -239,6 +250,100 @@ class ProductionHardeningTests(unittest.TestCase):
         self.assertTrue({"run_started", "write_planned", "run_completed"}.issubset({event["event_type"] for event in result.events}))
         encoded = json.dumps(result.events)
         self.assertNotRegex(encoded, r"(?i)bearer|api[_-]?key|customer[_-]?id|email|phone")
+
+    def test_required_gate_false_missing_unknown_and_empty_fail_closed(self):
+        for readiness in (
+            {"wp1_to_wp11_integrated": False, "dry_run": True},
+            {"wp1_to_wp11_integrated": True},
+            {"wp1_to_wp11_integrated": True, "dry_run": True, "unexpected": True},
+            {},
+        ):
+            result = run(operation(), readiness=readiness)
+            self.assertTrue({"REQUIRED_GATE_FAILED", "REQUIRED_GATE_UNKNOWN"} & {item.code for item in result.validation.errors})
+            self.assertEqual(result.write_count, 0)
+
+    def test_activation_kill_switch_and_terminal_states_fail_closed(self):
+        for overrides, code in (({"kill_switch": True}, "KILL_SWITCH_ACTIVE"), ({"activation_state": "REVOKED"}, "PRODUCTION_DISABLED"), ({"activation_state": "DISABLED"}, "PRODUCTION_DISABLED"), ({"activation_state": "NOT_AUTHORIZED"}, "PRODUCTION_DISABLED")):
+            result = run(operation(), activation_value=activation(**overrides))
+            self.assertIn(code, {item.code for item in result.validation.errors})
+
+    def test_revision_and_hash_pins_are_real_fields(self):
+        for revision in (0, -1, 1.0, "1", None):
+            result = run(operation(revision=revision))
+            self.assertIn("REVISION_MISMATCH", {item.code for item in result.validation.errors})
+        value = operation()
+        value["expected_hash"] = "b" * 64
+        result = run(value)
+        self.assertIn("HASH_MISMATCH", {item.code for item in result.validation.errors})
+
+    def test_missing_identity_arbitrary_key_and_audit_are_blocked(self):
+        value = operation()
+        value.pop("entity_id")
+        result = run(value)
+        self.assertIn("MISSING_IDEMPOTENCY_KEY", {item.code for item in result.validation.errors})
+        value = operation(key="ARBITRARY_KEY")
+        result = run(value)
+        self.assertIn("IDEMPOTENCY_KEY_MISMATCH", {item.code for item in result.validation.errors})
+        value = operation()
+        value["audit_required"] = False
+        result = run(value)
+        self.assertIn("AUDIT_REQUIRED", {item.code for item in result.validation.errors})
+
+    def test_cross_run_ledger_is_idempotent_and_conflicts_on_new_hash(self):
+        ledger = IdempotencyLedger()
+        first = run(operation(), ledger=ledger)
+        self.assertTrue(first.is_valid)
+        second = run(operation(), ledger=ledger)
+        self.assertTrue(second.is_valid)
+        self.assertEqual(second.manifest["planned_operations"][0]["status"], "ALREADY_APPLIED")
+        conflict = run(operation(semantic="b" * 64, key=first.manifest["planned_operations"][0]["idempotency_key"]), ledger=ledger)
+        self.assertIn("IDEMPOTENCY_CONFLICT", {item.code for item in conflict.validation.errors})
+
+    def test_nested_secret_and_pii_values_are_redacted_from_result(self):
+        value = operation()
+        value["metadata"] = {"nested": [{"api_key": "synthetic-secret-value"}, {"note": "synthetic-person@example.invalid"}, {"note": "+886 9123 4567"}]}
+        result = run(value)
+        encoded = json.dumps(result.as_dict())
+        self.assertIn("SECRET_REJECTED", {item.code for item in result.validation.errors})
+        self.assertIn("PII_REJECTED", {item.code for item in result.validation.errors})
+        self.assertNotIn("synthetic-secret-value", encoded)
+        self.assertNotIn("synthetic-person@example.invalid", encoded)
+        self.assertNotIn("9123 4567", encoded)
+
+    def test_manifest_contains_lineage_gates_summary_and_structured_rollback(self):
+        result = run(operation())
+        manifest = result.manifest
+        for field in ("wp_versions", "contract_versions", "test_result_summary", "required_gates", "gate_results"):
+            self.assertTrue(manifest[field])
+        self.assertFalse(manifest["production_write_ready"])
+        self.assertEqual(manifest["production_activation_readiness"], "NOT_AUTHORIZED")
+        rollback = manifest["rollback_instructions"]
+        self.assertTrue(rollback["disable_future_writes"])
+        self.assertTrue(rollback["reason"])
+        self.assertEqual(rollback["status"], "PLANNED")
+
+    def test_partial_execution_receipts_are_visible(self):
+        first = operation(entity_id="CAND_WP12_A")
+        second = operation(entity_id="CAND_WP12_B")
+        second["execution_receipt"] = {"status": "FAILED", "error_code": "SOURCE_UNAVAILABLE"}
+        result = run(first, second)
+        self.assertEqual(result.manifest["activation_status"], "PARTIAL")
+        self.assertIn("SOURCE_UNAVAILABLE", {item.code for item in result.validation.errors})
+        self.assertTrue(any(event["event_type"] == "write_failed" for event in result.events))
+
+    def test_structured_test_summary_is_mandatory(self):
+        result = run(operation(), test_result_summary={})
+        self.assertIn("SCHEMA_INVALID", {item.code for item in result.validation.errors})
+        self.assertTrue(result.manifest["test_result_summary"]["suites"])
+
+    def test_failed_suite_missing_manifest_evidence_and_scheduler_state_block(self):
+        failed_summary = {"status": "FAIL", "suites": {"full_regression": {"suite": "full_regression", "passed": 10, "failed": 1, "skipped": 0, "status": "FAIL", "run_identifier": "RUN_FAIL"}}}
+        result = run(operation(), test_result_summary=failed_summary)
+        self.assertIn("PRODUCTION_DISABLED", {item.code for item in result.validation.errors})
+        result = run(operation(), scheduler_state="ENABLED")
+        self.assertIn("SCHEDULER_DISABLED", {item.code for item in result.validation.errors})
+        result = run(operation(), main_sha="", wp_versions={}, contract_versions={})
+        self.assertIn("SCHEMA_INVALID", {item.code for item in result.validation.errors})
 
 
 if __name__ == "__main__":

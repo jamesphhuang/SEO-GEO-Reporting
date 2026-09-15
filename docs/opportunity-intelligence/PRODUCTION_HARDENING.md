@@ -9,7 +9,7 @@ audit 與 observability 邊界；它不啟用 production。
 
 `contracts/production_activation.v1.proposal.json` 是 activation gate 的 proposal，
 `x-proposal-status=DRAFT_NOT_APPROVED` 且 `x-production-activation=false`。允許的
-activation state 只有 `DRY_RUN`、`NOT_AUTHORIZED`、`BLOCKED`、`REVOKED`；
+activation state 只有 `DRY_RUN`、`NOT_AUTHORIZED`、`BLOCKED`、`REVOKED`、`DISABLED`；
 `APPROVED`、`ACTIVE`、`PRODUCTION` 不屬於本輪狀態。WP10 的 Candidate / Review
 approval、WP11 的 outcome readiness、WP12 測試 PASS 都不能替代一個獨立的 production
 activation authorization。
@@ -79,3 +79,11 @@ PRODUCTION_ACTIVATION_READINESS = NOT_AUTHORIZED
 驗證 approved contracts、writer ACL、scheduler approval、rollback、audit、dry-run
 readback 與 live-source collector contract。WP12 本身不會建立 scheduler、啟用 writer、
 寫入 production 或公開發布。
+
+## Repair record（2026-09-15）
+
+第一次 handoff consistency probe 曾回報 `BLOCKED_HANDOFF_INCONSISTENCY`：required readiness gates、activation kill switch/REVOKED/DISABLED、實際 revision/hash lineage、cross-run idempotency、mandatory audit、recursive secret/PII rejection、manifest lineage 欄位與 structured partial receipts 當時沒有完整 runtime enforcement。這些差異保留為歷史記錄，沒有 amend 原始 WP12 commit。
+
+follow-up repair 將上述條件改為 fail-closed runtime gates。required gate 必須完整且全為 `true`；只有 activation state `DRY_RUN` 能通過 offline gate；kill switch、terminal state、missing/malformed revision/hash、stale/missing evidence、audit 缺漏、key mismatch 與 cross-run conflict 都會阻擋。manifest 必須帶非空 WP/contract versions、gate results、structured test summary、production-write=false 與 structured rollback；sensitive values 會在 manifest/event 前拒絕且不回顯。`IdempotencyLedger` 僅為 offline append-only plan reconciliation，不能作為 production lock 或 writer。
+
+Repair 完成後 WP12 targeted 為 **40/40 PASS**，fresh full regression 為 **321/321 PASS**；schema、fixture/JSON、AST、explicit date/date-time、`git diff --check`、security/PII/live-call/production-boundary checks 亦通過。readiness 仍只代表 offline/UAT hardening implementation ready；兩份 contract 仍是 `DRAFT_NOT_APPROVED`、`x-production-activation=false`，production mutation 與 actual write count 固定為 `0`。原始 commit `884559049b0bb34751b2c46cb9b2b9b54041eacb` 未被修改。

@@ -148,7 +148,7 @@ JSON、date/date-time、`git diff --check`、security/PII/live-call/production-b
 
 下一個唯一正式任務：**WP12 — Production hardening（最後gate）**。
 
-## Current state after WP12（2026-09-14）
+## Current state after WP12 initial implementation — before consistency probe（2026-09-14）
 
 `WP12_BASELINE_SHA=6415c9e086f6afe419076461fa486d2c457f89a6`；branch
 `feat/opportunity-production-hardening`；clean isolated worktree。WP12 targeted **30/30**、
@@ -167,3 +167,8 @@ ROADMAP 已完成目前列出的最後 hardening gate，沒有自動開始的 WP
 
 WP12 已完成 hardening implementation；本輪不執行 production promotion、scheduler、
 Recommendations、Next Steps、Sheets、Apps Script 或任何 live source query。
+
+## WP12 repair handoff（2026-09-15）
+
+第一次 consistency probe 的 `BLOCKED_HANDOFF_INCONSISTENCY` 已保留；follow-up repair 補齊 required gates、kill switch/terminal states、revision/hash lineage、audit、cross-run idempotency、recursive redaction、manifest required fields 與 structured rollback。原始 WP12 commit 不 amend，production mutation 維持 `0`。`WP12_PRODUCTION_HARDENING_READINESS` 只有在 repair 後 targeted 與 fresh full regression 都通過時才可標示 `READY`；下一個正式工作仍不是自動啟用 production，也不建立 WP13。
+Repair 後 WP12 targeted **40/40**、fresh full regression **321/321 PASS**；schema、AST、JSON、date/date-time、`git diff --check`、security/PII/live-call/production-boundary checks 均 PASS。

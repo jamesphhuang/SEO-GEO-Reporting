@@ -335,7 +335,7 @@ SERP validation is shortlist-only and observational. It does not claim unbiased 
 | Security / production boundary | PASS | scoped credential/PII/live-call scan clean; production mutation=0 |
 | Readiness | READY | 下一個唯一工作為 **WP12 — Production hardening（最後gate）** |
 
-## WP12 Production hardening（2026-09-14）
+## WP12 Production hardening — initial implementation record before consistency probe（2026-09-14）
 
 | Check | Result | Scope / limit |
 | --- | --- | --- |
@@ -356,3 +356,19 @@ SERP validation is shortlist-only and observational. It does not claim unbiased 
 | Schema / JSON / AST / dates | PASS | both proposal schemas, fixture JSON, Python AST, explicit date/date-time and `git diff --check` |
 | Security / PII / production boundary | PASS | scoped secret/PII/live-call/writer scan clean; production mutation=0 |
 | Readiness | READY | hardening implementation ready; production activation remains `NOT_AUTHORIZED` |
+
+## WP12 handoff consistency repair（2026-09-15）
+
+| Check | Result | Scope / limit |
+| --- | --- | --- |
+| Historical probe | BLOCKED then repaired | Initial handoff probe exposed unenforced required gates, terminal activation states, lineage, audit, idempotency, redaction and manifest requirements; original commit was not amended |
+| Runtime gates | PASS after repair | required gates are complete/all true; kill switch and `REVOKED`/`DISABLED`/`NOT_AUTHORIZED` fail closed |
+| Artifact lineage | PASS after repair | positive revision, expected revision, semantic hash, expected hash, freshness, status, approval and proposal contract are checked |
+| Idempotency | PASS after repair | deterministic identity-bound key, same-run no-op and cross-run append-only ledger conflict are checked |
+| Audit / partial receipts | PASS after repair | audit plan is mandatory; failed execution receipts remain visible as `PARTIAL`/`FAILED` with structured events |
+| Secret / PII boundary | PASS after repair | recursive keys and values, email/phone text and nested payloads are rejected without value leakage |
+| Manifest completeness | PASS after repair | non-empty versions, gate results, structured test summary, write-disabled state and rollback structure are required |
+| Production boundary | PASS after repair | proposal status remains `DRAFT_NOT_APPROVED`, activation false, scheduler disabled and mutation/write count zero |
+| Final readiness | READY after fresh verification | only offline/UAT hardening readiness; no production activation, push, PR or merge |
+| Repair targeted regression | PASS | **40/40 tests** |
+| Repair full regression | PASS | **321/321 tests**, fresh discovery |

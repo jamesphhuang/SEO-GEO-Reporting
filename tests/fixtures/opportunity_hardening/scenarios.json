@@ -8,7 +8,7 @@
     "notes": "No credentials, raw customer data, live source rows, or production destinations."
   },
   "scenarios": [
-    {"id": "A", "name": "all gates pass in UAT dry-run", "expected": "DRY_RUN_READY"},
+    {"id": "A", "name": "all gates pass in UAT dry-run", "expected": "DRY_RUN_VALIDATION_READY"},
     {"id": "B", "name": "production approval missing", "expected": "AUTHORIZATION_REQUIRED"},
     {"id": "C", "name": "contract still draft", "expected": "CONTRACT_NOT_APPROVED"},
     {"id": "D", "name": "duplicate idempotency key", "expected": "IDEMPOTENT_NO_OP"},

@@ -169,3 +169,9 @@ WP12 targeted 為 **30 tests，OK**；合併 WP1–WP11 後 fresh full regressio
 `x-production-activation=false`；另驗證 fixture JSON、Python AST、explicit date/date-time、
 `git diff --check`、scoped secret/PII/live-call/production-boundary scan。所有 dry-run actual
 writes 與 production mutation 為 0；production activation 仍需獨立明確授權。
+
+## WP12 repair coverage（2026-09-15）
+
+本次 fresh discovery 為 WP12 targeted **40/40 PASS**、full regression **321/321 PASS**。
+
+新增 targeted cases 對應初次 handoff probe 的缺口：required gate false/missing/unknown/empty、kill switch 與 `REVOKED`/`DISABLED`/`NOT_AUTHORIZED`、invalid revision/hash pins、missing or arbitrary idempotency identity、mandatory audit、shared cross-run ledger、nested secret/PII and email/phone redaction、mandatory manifest lineage and structured test summary、structured rollback，以及 real execution receipt partial failure。所有資料仍 synthetic/offline；沒有 live source、credential、scheduler、Recommendations、Next Steps、Sheets、Apps Script 或 production writer。最終 targeted/full regression 數字只採用 repair 後 fresh discovery。
