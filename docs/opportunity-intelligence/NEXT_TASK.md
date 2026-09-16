@@ -236,3 +236,21 @@ principal ref、audit binding 與 zero-row count 均一致。
 
 下一個唯一正式任務仍是 **Phase 1 Zero-Write Production-Config Dry Run**。本輪已停止，
 不得開始 live write、scheduler 或 production activation。
+
+
+## NEXT_TASK — Phase 1 Trusted Review Identity Binding
+
+Phase 1 Zero-Write Production-Config Dry Run 已完成並通過。正式 durable binding、真實
+workbook/tab/schema/ACL/audit readback 均保持一致；dry-run 只產生不可執行 plan，
+Recommendation rows 與 audit receipts 仍為 `0`。
+
+`ZERO_WRITE_CONFIG_DRY_RUN = PASS`，但 `LIVE_WRITE_READINESS = BLOCKED`，因為：
+
+- `TRUSTED_REVIEW_IDENTITY_NOT_VERIFIED`
+- `PRODUCTION_CONTRACTS_NOT_APPROVED`
+- `PRODUCTION_ACTIVATION_NOT_AUTHORIZED`
+
+下一個唯一正式任務是 **Phase 1 Trusted Review Identity Binding**：建立並驗證 trusted
+human-review identity/provider/role binding；不得把 Google OAuth principal 當成人審身份。
+在 identity、contracts 與 activation authorization 全部完成前，不得執行 live Recommendation
+write、scheduler 或 production activation。

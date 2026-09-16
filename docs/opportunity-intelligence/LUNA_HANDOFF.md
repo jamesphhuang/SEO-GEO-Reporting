@@ -278,3 +278,18 @@ allowlist hash、ACL policy、`recommendation_row_count=0` 與 binding semantic 
 `TRUSTED_REVIEW_IDENTITY = NOT_VERIFIED`；OAuth principal 不等同 human-review provider。
 `PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。下一個唯一任務是 **Phase 1 Zero-Write
 Production-Config Dry Run**，不得在本輪執行。
+
+
+## Phase 1 Zero-Write Production-Config Dry Run handoff（2026-09-16）
+
+Dry-run 只使用 durable external binding，不讀取 credential file，不執行 Google business
+write。真實 workbook/tab/schema/ACL/audit metadata 以 read-only path 驗證；pre/post
+Recommendation rows = `0`，audit folder 沒有新增 receipt。
+
+`DryRunWritePlan` 僅保存 operation、exact Candidate/Review/Bridge refs、allowlisted planned
+fields、payload hash、deterministic idempotency key、readback/audit plan 與 kill-switch state；
+不建立正式 `WriteIntent`、production idempotency ledger 或 audit receipt。
+
+`ZERO_WRITE_CONFIG_DRY_RUN = PASS`；`LIVE_WRITE_READINESS = BLOCKED`。三個預期 blocker
+為 trusted human-review identity 未驗證、proposal contracts 未批准、production activation 未授權。
+下一個唯一任務是 **Phase 1 Trusted Review Identity Binding**，本輪停止。

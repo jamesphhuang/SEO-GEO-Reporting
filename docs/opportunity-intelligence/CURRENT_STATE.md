@@ -406,3 +406,21 @@ Authorization header、cookie、private key 或 raw credential JSON。
 `TRUSTED_REVIEW_IDENTITY = NOT_VERIFIED` 仍阻止第一筆 live Recommendation；
 `PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。下一步仍是 **Phase 1 Zero-Write
 Production-Config Dry Run**，本輪不開始執行。
+
+
+## Phase 1 Zero-Write Production-Config Dry Run（2026-09-16）
+
+本輪只從 durable external binding `98_環境設定/opportunity-canary/environment-binding.json`
+載入設定；未使用 task-local `/private/tmp` 作為正式來源。Binding semantic/schema/allowlist
+hashes、principal ref、workbook/tab、audit ref、ACL policy 與 `verified_at` 均通過。
+
+真實 Canary workbook readback：canonical 23 欄 header exact、pre/post
+`Opportunity_Recommendations` data rows 均為 `0`；audit folder items 仍為 `0`。Dry-run
+只產生一筆不可執行的 `DryRunWritePlan`，`transport_mode=ZERO_WRITE`，未建立正式
+`WriteIntent`、未寫入 idempotency ledger、未建立 audit receipt。
+
+`ZERO_WRITE_CONFIG_DRY_RUN = PASS`。Live write eligibility 明確為
+`BLOCKED`，原因為 `TRUSTED_REVIEW_IDENTITY_NOT_VERIFIED`、
+`PRODUCTION_CONTRACTS_NOT_APPROVED`、`PRODUCTION_ACTIVATION_NOT_AUTHORIZED`。
+下一個唯一任務是 **Phase 1 Trusted Review Identity Binding**；本輪不開始 live write、
+scheduler 或 production activation。
