@@ -202,3 +202,55 @@ location，以及一個 business day observation period。
 這些是 environment/binding verification，仍不等於 production activation 或 Recommendation
 live write。未完成 binding 前，不執行 Google write、scheduler、batch expansion 或 production
 activation。
+
+
+## NEXT_TASK — Phase 1 Zero-Write Production-Config Dry Run
+
+Phase 1 Canary Environment Binding 已完成：authorized-user OAuth runtime ref、exact Drive
+root、dedicated workbook/tab、canonical header、ACL、zero-row readback 與 persistent audit
+folder binding 均已驗證。Environment-specific IDs 留在 external binding metadata，不進
+repository；target 仍沒有 Recommendation data row，audit folder 仍沒有 production receipt。
+
+下一個唯一正式任務是 **Phase 1 Zero-Write Production-Config Dry Run**：
+
+- 只載入 external binding/config，驗證 allowlist、protected fields、trusted-review gate、
+  readback/reconcile/no-retry、kill switch 與 activation state。
+- 不建立 WriteIntent、不呼叫 Recommendation writer、不寫 Recommendation row、不建立
+  `operation_<operation_id>.json`。
+- 不啟用 production、scheduler、Next Steps automation、outcome automation 或 batch expansion。
+
+`CANARY_ENVIRONMENT_BINDING = READY`；`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。
+Trusted human-review identity/provider 仍為 `NOT_VERIFIED`，必須在任何 live Recommendation
+write 前另行完成並取得明確授權。
+
+
+## Phase 1 Canary Environment Binding finalization（2026-09-16）
+
+Owner-approved ACL policy (`shopline.com / reader`) 已 readback 並符合；durable non-secret
+binding 已保存於 external environment config，resource refs、schema/allowlist hashes、
+principal ref、audit binding 與 zero-row count 均一致。
+
+`DURABLE_BINDING = VERIFIED`、`ACL_POLICY = APPROVED`、
+`ZERO_WRITE_DRY_RUN_READINESS = READY`。Trusted review identity 仍為
+`NOT_VERIFIED`；這不將 OAuth principal 變成人審身份，也不授權 live Recommendation。
+
+下一個唯一正式任務仍是 **Phase 1 Zero-Write Production-Config Dry Run**。本輪已停止，
+不得開始 live write、scheduler 或 production activation。
+
+
+## NEXT_TASK — Phase 1 Trusted Review Identity Binding
+
+Phase 1 Zero-Write Production-Config Dry Run 已完成並通過。正式 durable binding、真實
+workbook/tab/schema/ACL/audit readback 均保持一致；dry-run 只產生不可執行 plan，
+Recommendation rows 與 audit receipts 仍為 `0`。
+
+`ZERO_WRITE_CONFIG_DRY_RUN = PASS`，但 `LIVE_WRITE_READINESS = BLOCKED`，因為：
+
+- `TRUSTED_REVIEW_IDENTITY_NOT_VERIFIED`
+- `PRODUCTION_CONTRACTS_NOT_APPROVED`
+- `PRODUCTION_ACTIVATION_NOT_AUTHORIZED`
+
+下一個唯一正式任務是 **Phase 1 Trusted Review Identity Binding**：建立並驗證 trusted
+human-review identity/provider/role binding；不得把 Google OAuth principal 當成人審身份。
+在 identity、contracts 與 activation authorization 全部完成前，不得執行 live Recommendation
+write、scheduler 或 production activation。

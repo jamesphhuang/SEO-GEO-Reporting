@@ -52,6 +52,17 @@ from .canary_writer import (
     idempotency_key as canary_idempotency_key,
     validate_canary_contract,
 )
+from .canary_dry_run import (
+    LIVE_WRITE_BLOCKERS as CANARY_DRY_RUN_LIVE_WRITE_BLOCKERS,
+    ZERO_WRITE_CONFIG_DRY_RUN,
+    DryRunResult,
+    DryRunWritePlan,
+    ZeroWriteBlocked,
+    ZeroWriteTransportGuard,
+    load_durable_binding,
+    plan_zero_write,
+    validate_durable_binding,
+)
 
 __all__ = [
     "ValidationError",
@@ -156,6 +167,15 @@ __all__ = [
     "WriteIntent",
     "canary_idempotency_key",
     "validate_canary_contract",
+    "CANARY_DRY_RUN_LIVE_WRITE_BLOCKERS",
+    "ZERO_WRITE_CONFIG_DRY_RUN",
+    "DryRunResult",
+    "DryRunWritePlan",
+    "ZeroWriteBlocked",
+    "ZeroWriteTransportGuard",
+    "load_durable_binding",
+    "plan_zero_write",
+    "validate_durable_binding",
 ]
 
 

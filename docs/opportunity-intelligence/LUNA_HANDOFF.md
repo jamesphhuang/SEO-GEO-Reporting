@@ -242,3 +242,54 @@ day observation period；audit logical location 為
 workbook/Drive binding、驗證 OAuth principal 與 ACL、建立 trusted human-review identity
 binding，以及建立 persistent audit binding。這些 exact environment values 尚未建立或驗證；
 本地 commit 完成後仍不得自行 push、PR、merge、Google write 或 production activation。
+
+
+## Phase 1 Canary Environment Binding handoff（2026-09-16）
+
+Fresh `origin/main` baseline 為 `17f2669de0e49f33fb51d3a545b2af1698df3e29`；在隔離
+branch `feat/opportunity-canary-environment-binding` 完成 environment binding。精確
+Drive root、`95_Production Canary/Opportunity Intelligence/` 資料夾鏈、獨立 workbook、
+`Opportunity_Recommendations` tab 與 `audit/` folder 均已建立並 readback。真實 resource ID
+只保存在 external non-secret binding metadata；不可搬回 repository source/docs。
+
+`principal://authorized-user-oauth/runtime` 已由 profile 與 bounded Drive/Sheets 操作驗證，
+current principal 對 workbook/audit path 具 owner/writer-capable access；未導入 service account、
+未讀取或輸出 token/client secret、未修改 ACL。Canonical 23 欄 header 是唯一 structural
+write，target data rows = `0`；沒有 Recommendation write、WriteIntent 或 production audit receipt。
+
+`CANARY_ENVIRONMENT_BINDING = READY`，但 trusted human-review identity/provider 仍
+`NOT_VERIFIED`，不可把 OAuth identity 當成 reviewer authentication。`PRODUCTION_ACTIVATION =
+NOT_AUTHORIZED`。下一個唯一任務是 **Phase 1 Zero-Write Production-Config Dry Run**；完成前
+不得進入 live Recommendation write、scheduler 或 production activation。
+
+
+## Phase 1 Canary Environment Binding finalization handoff（2026-09-16）
+
+Owner decision 允許並確認 `shopline.com` domain-wide `reader` policy；workbook 與 audit
+path 已 read-only verify 符合，未修改 ACL。Durable non-secret binding 已移至
+`98_環境設定/opportunity-canary/environment-binding.json`；實際 resource refs 留在 external
+config，不進 Git docs/source。
+
+Readback 已確認 principal ref、Drive/workbook/tab/audit refs、23-field schema hash、
+allowlist hash、ACL policy、`recommendation_row_count=0` 與 binding semantic hash 全部一致。
+因此 `DURABLE_BINDING = VERIFIED`、`ACL_POLICY = APPROVED`、
+`ZERO_WRITE_DRY_RUN_READINESS = READY`。
+
+`TRUSTED_REVIEW_IDENTITY = NOT_VERIFIED`；OAuth principal 不等同 human-review provider。
+`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。下一個唯一任務是 **Phase 1 Zero-Write
+Production-Config Dry Run**，不得在本輪執行。
+
+
+## Phase 1 Zero-Write Production-Config Dry Run handoff（2026-09-16）
+
+Dry-run 只使用 durable external binding，不讀取 credential file，不執行 Google business
+write。真實 workbook/tab/schema/ACL/audit metadata 以 read-only path 驗證；pre/post
+Recommendation rows = `0`，audit folder 沒有新增 receipt。
+
+`DryRunWritePlan` 僅保存 operation、exact Candidate/Review/Bridge refs、allowlisted planned
+fields、payload hash、deterministic idempotency key、readback/audit plan 與 kill-switch state；
+不建立正式 `WriteIntent`、production idempotency ledger 或 audit receipt。
+
+`ZERO_WRITE_CONFIG_DRY_RUN = PASS`；`LIVE_WRITE_READINESS = BLOCKED`。三個預期 blocker
+為 trusted human-review identity 未驗證、proposal contracts 未批准、production activation 未授權。
+下一個唯一任務是 **Phase 1 Trusted Review Identity Binding**，本輪停止。

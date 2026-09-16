@@ -168,3 +168,42 @@ Canonical月報搬移另走ARCHITECTURE migration序列：先characterization，
   environment binding: create the dedicated workbook, verify exact workbook/Drive binding,
   OAuth principal, ACL, trusted-review identity binding and persistent audit binding. This
   remains separate from production activation.
+
+
+## Production Phase 1 — Canary Environment Binding（completed environment setup）
+
+- Result：`CANARY_ENVIRONMENT_BINDING = READY`。Exact Drive root、dedicated folder chain、
+  independent workbook、`Opportunity_Recommendations` tab、canonical header、ACL、empty-target
+  readback 與 audit folder binding 均完成。
+- Mutation accounting：environment resources created/reused as authorized；structural sheet
+  writes = `1`（header only）；`RECOMMENDATION_RECORDS_WRITTEN = 0`；
+  `PRODUCTION_AUDIT_RECEIPTS_WRITTEN = 0`；`PRODUCTION_BUSINESS_DATA_MUTATION = 0`。
+- Governance：binding metadata 在 external config；不含 credential/token/secret，不把 real IDs
+  寫入 Git。Trusted human-review identity/provider 尚未 verified，不能以 OAuth principal 取代。
+- Excluded：Recommendation writer、WriteIntent、live source collection、scheduler、Next Steps
+  automation、outcome automation、batch expansion、production activation。
+- Next single task：**Phase 1 Zero-Write Production-Config Dry Run**。
+
+
+## Production Phase 1 — Canary Environment Binding finalization
+
+- `ACL_POLICY = APPROVED`：Canary workbook 與 audit path 的 `shopline.com` domain-wide
+  access 為 `reader`；本輪沒有 ACL mutation。
+- `DURABLE_BINDING = VERIFIED`：non-secret binding 已放置於既有 external config pattern；
+  readback 確認 resource refs、schema/allowlist hashes、ACL policy、zero-row count 與 semantic hash。
+- `ZERO_WRITE_DRY_RUN_READINESS = READY`：可進入下一個零寫入 dry-run gate，但尚未執行。
+- `TRUSTED_REVIEW_IDENTITY = NOT_VERIFIED`；OAuth principal 不得取代 trusted reviewer。
+- `PRODUCTION_ACTIVATION = NOT_AUTHORIZED`；Recommendation rows、audit receipts 與 business data
+  mutation 仍為 `0`。
+
+
+## Production Phase 1 — Zero-Write Production-Config Dry Run（completed）
+
+- Input：durable external binding；不從 task-local temp metadata 讀取，不讀 credential。
+- Result：`ZERO_WRITE_CONFIG_DRY_RUN = PASS`；real target readback、23-field schema、ACL、
+  zero-row gate 與 audit folder unchanged。
+- Guard：`ZERO_WRITE` transport boundary 阻擋所有 Sheets/Drive/ACL/audit mutations；未建立
+  正式 WriteIntent、idempotency ledger 或 audit receipt。
+- Live gate：`LIVE_WRITE_READINESS = BLOCKED`，blockers 為 trusted review identity 未驗證、
+  contracts `DRAFT_NOT_APPROVED`、activation `NOT_AUTHORIZED`。
+- Next single task：**Phase 1 Trusted Review Identity Binding**。

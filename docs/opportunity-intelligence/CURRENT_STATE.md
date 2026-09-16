@@ -365,3 +365,62 @@ one-business-day observation period。logical audit location 也已確認為
 workbook ACL、trusted human-review identity provider/role mapping、actual persistent audit
 binding/retention，以及正式 production contracts。下一個工作是 **Phase 1 Canary Environment
 Binding**；本輪不建立 workbook、不執行 production activation。
+
+
+## Phase 1 Canary Environment Binding（2026-09-16）
+
+以 `17f2669de0e49f33fb51d3a545b2af1698df3e29` 為 fresh `origin/main` baseline，在隔離
+branch `feat/opportunity-canary-environment-binding` 完成受控 environment binding。
+Drive root `SEO／GEO Reporting` 已以 exact title 與可列 children capability 消歧；
+`95_Production Canary/Opportunity Intelligence/`、獨立 workbook
+`Opportunity Intelligence｜Production Canary`、`Opportunity_Recommendations` tab 與
+`audit/` folder 均已建立並完成 metadata/readback 驗證。Environment-specific resource
+IDs 僅存在 external binding metadata，不進 Git。
+
+目前驗證結果：
+
+- `principal://authorized-user-oauth/runtime`：authorized-user OAuth identity 與有效 Drive/Sheets write path verified；未導入 service account，未輸出 credential。
+- Workbook 與 audit folder：current principal 具 owner/writer-capable access；ACL 僅讀取，未做 share/invite/role/ownership mutation。
+- `Opportunity_Recommendations!A1:X1`：canonical 23 欄 header verified；data rows = `0`。
+- Structural sheet writes = `1`（canonical header row）；Recommendation records = `0`。
+- Audit binding = `VERIFIED`；真實 `operation_<operation_id>.json` receipt = `0`。
+- Trusted human-review identity/provider 仍為 `NOT_VERIFIED`；OAuth identity 不等同 human-review identity。
+
+`CANARY_ENVIRONMENT_BINDING = READY` 僅表示資源、ACL、schema、zero-row readback 與
+external binding metadata 完成；`PRODUCTION_ACTIVATION = NOT_AUTHORIZED` 仍維持。
+下一階段只能進行 **Phase 1 Zero-Write Production-Config Dry Run**，不得 live write、
+scheduler、batch expansion 或 production activation。
+
+
+## Phase 1 Canary Environment Binding finalization（2026-09-16）
+
+Owner decision 已確認 Canary workbook 可保留 `shopline.com` domain-wide `reader` access；
+目前 workbook 與 audit path 均符合，未做 ACL mutation。非機密 binding 已從 task-local
+metadata 移至既有 external environment config pattern：`98_環境設定/opportunity-canary/`。
+
+`DURABLE_BINDING = VERIFIED`、`ACL_POLICY = APPROVED`（`shopline.com / reader`）、
+`ZERO_WRITE_DRY_RUN_READINESS = READY`。Durable binding readback 與 semantic hash、schema hash、
+principal ref、audit ref、`recommendation_row_count=0` 全部一致；不含 token、client secret、
+Authorization header、cookie、private key 或 raw credential JSON。
+
+`TRUSTED_REVIEW_IDENTITY = NOT_VERIFIED` 仍阻止第一筆 live Recommendation；
+`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。下一步仍是 **Phase 1 Zero-Write
+Production-Config Dry Run**，本輪不開始執行。
+
+
+## Phase 1 Zero-Write Production-Config Dry Run（2026-09-16）
+
+本輪只從 durable external binding `98_環境設定/opportunity-canary/environment-binding.json`
+載入設定；未使用 task-local `/private/tmp` 作為正式來源。Binding semantic/schema/allowlist
+hashes、principal ref、workbook/tab、audit ref、ACL policy 與 `verified_at` 均通過。
+
+真實 Canary workbook readback：canonical 23 欄 header exact、pre/post
+`Opportunity_Recommendations` data rows 均為 `0`；audit folder items 仍為 `0`。Dry-run
+只產生一筆不可執行的 `DryRunWritePlan`，`transport_mode=ZERO_WRITE`，未建立正式
+`WriteIntent`、未寫入 idempotency ledger、未建立 audit receipt。
+
+`ZERO_WRITE_CONFIG_DRY_RUN = PASS`。Live write eligibility 明確為
+`BLOCKED`，原因為 `TRUSTED_REVIEW_IDENTITY_NOT_VERIFIED`、
+`PRODUCTION_CONTRACTS_NOT_APPROVED`、`PRODUCTION_ACTIVATION_NOT_AUTHORIZED`。
+下一個唯一任務是 **Phase 1 Trusted Review Identity Binding**；本輪不開始 live write、
+scheduler 或 production activation。

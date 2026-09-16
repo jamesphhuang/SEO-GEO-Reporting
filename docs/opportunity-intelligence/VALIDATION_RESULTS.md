@@ -401,3 +401,63 @@ project owner/user operational/rollback/kill-switch authority, mandatory readbac
 reconciliation, logical audit location and one-business-day observation period are confirmed.
 Exact principal, workbook ID, Drive binding, ACL, trusted-review identity binding and physical
 persistent audit binding remain uncreated or unverified.
+
+
+## Phase 1 Canary Environment Binding（2026-09-16）
+
+| Check | Result | Scope / limit |
+| --- | --- | --- |
+| Fresh baseline / isolated branch | PASS | `origin/main=17f2669de0e49f33fb51d3a545b2af1698df3e29`; `feat/opportunity-canary-environment-binding`; original dirty worktree untouched |
+| OAuth principal / transport | PASS | authorized-user OAuth runtime ref verified by profile plus successful bounded Drive/Sheets operations; no service account or credential value read/output |
+| Drive root resolution | PASS | exact `SEO／GEO Reporting` folder resolved with child listing capability; no ambiguous duplicate selected |
+| Canary resources | PASS | dedicated folder chain, workbook, target tab and audit folder created; no unrelated resource changed |
+| ACL | PASS | current principal owner/writer-capable on workbook and audit path; read-only inspection only; no permission mutation |
+| Header/schema | PASS | canonical 23-field `Opportunity_Recommendations` header written once and read back exactly |
+| Empty-target gate | PASS | target data rows = `0`; no Recommendation row, synthetic row or WriteIntent written |
+| Audit binding | PASS | logical audit folder readable and empty; no production audit receipt created |
+| External binding metadata | PASS | non-secret resource references and semantic hash stored outside Git; no token/client secret/email persisted |
+| Trusted-review boundary | BLOCKED FOR LIVE WRITE | production trusted human-review identity/provider remains `NOT_VERIFIED`; OAuth principal is not treated as reviewer identity |
+| Canary targeted tests | PASS | 18/18 tests using synthetic transport (bundled runtime plus external jsonschema package path) |
+| Working tree / diff check | PASS | clean isolated branch; `git diff --check` PASS; no repository files changed by binding operations |
+
+`CANARY_ENVIRONMENT_BINDING = READY`；trusted-review identity 是 live write 的獨立 blocker。
+`RECOMMENDATION_RECORDS_WRITTEN = 0`、`PRODUCTION_AUDIT_RECEIPTS_WRITTEN = 0`、
+`PRODUCTION_BUSINESS_DATA_MUTATION = 0`，且 `PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。
+
+
+## Phase 1 Canary Environment Binding finalization（2026-09-16）
+
+| Check | Result | Scope / limit |
+| --- | --- | --- |
+| ACL policy | PASS | `shopline.com = reader` confirmed on workbook and audit path; no share/invite/role/ownership mutation |
+| Durable binding location | PASS | existing external config pattern `98_環境設定/opportunity-canary/environment-binding.json`; not Git-tracked |
+| Durable binding readback | PASS | resource refs, principal ref, schema/allowlist hashes, ACL policy, zero-row count and binding semantic hash match |
+| Secret persistence | PASS | no token, client secret, authorization header, cookie, private key or raw credential JSON |
+| Zero-write readiness | READY | config can be loaded for a zero-write dry run; no WriteIntent or Recommendation write performed |
+| Trusted-review boundary | BLOCKED FOR LIVE WRITE | `TRUSTED_REVIEW_IDENTITY = NOT_VERIFIED`; OAuth principal is not reviewer identity |
+
+`ACL_POLICY = APPROVED`、`DURABLE_BINDING = VERIFIED`、`ZERO_WRITE_DRY_RUN_READINESS = READY`。
+`RECOMMENDATION_RECORDS_WRITTEN = 0`、`PRODUCTION_AUDIT_RECEIPTS_WRITTEN = 0`、
+`PRODUCTION_BUSINESS_DATA_MUTATION = 0`、`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。
+
+
+## Phase 1 Zero-Write Production-Config Dry Run（2026-09-16）
+
+| Check | Result | Scope / limit |
+| --- | --- | --- |
+| Durable binding source | PASS | loaded from `98_環境設定/opportunity-canary/environment-binding.json`; task-local temp file was not used |
+| Binding hashes / refs | PASS | semantic hash, schema hash, allowlist hash, principal/workbook/tab/audit refs and ACL policy matched |
+| Real target readback | PASS | workbook identity, target tab, exact 23-column header and ACL readback verified |
+| Pre/post row gate | PASS | Recommendation rows `0` before and after dry-run; audit folder items `0` |
+| Synthetic projection | PASS | one exact Candidate/Review/Bridge synthetic input projected to allowlist only |
+| Zero-write guard | PASS | transport, appendCells, updateCells, values append/update, batchUpdate, audit and ACL/Drive mutation attempts blocked |
+| Plan / idempotency | PASS | one `DryRunWritePlan`; same input gives same payload hash/idempotency key; changed payload differs |
+| Kill switch | PASS | enabled switch blocks planning before any transport path |
+| Contract gate | BLOCKED FOR LIVE WRITE | proposal contracts remain `DRAFT_NOT_APPROVED`, activation false |
+| Trusted-review gate | BLOCKED FOR LIVE WRITE | trusted human-review identity/provider remains `NOT_VERIFIED` |
+| Full regression | PASS | `354/354` tests; canary targeted `33/33` |
+| Structural / boundary checks | PASS | AST, contract JSON, `git diff --check`, secret scan and production boundary scan |
+
+`ZERO_WRITE_CONFIG_DRY_RUN = PASS`；`LIVE_WRITE_READINESS = BLOCKED`。
+`RECOMMENDATION_RECORDS_WRITTEN = 0`、`PRODUCTION_AUDIT_RECEIPTS_WRITTEN = 0`、
+`PRODUCTION_BUSINESS_DATA_MUTATION = 0`、`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。
