@@ -222,3 +222,17 @@ repository；target 仍沒有 Recommendation data row，audit folder 仍沒有 p
 `CANARY_ENVIRONMENT_BINDING = READY`；`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。
 Trusted human-review identity/provider 仍為 `NOT_VERIFIED`，必須在任何 live Recommendation
 write 前另行完成並取得明確授權。
+
+
+## Phase 1 Canary Environment Binding finalization（2026-09-16）
+
+Owner-approved ACL policy (`shopline.com / reader`) 已 readback 並符合；durable non-secret
+binding 已保存於 external environment config，resource refs、schema/allowlist hashes、
+principal ref、audit binding 與 zero-row count 均一致。
+
+`DURABLE_BINDING = VERIFIED`、`ACL_POLICY = APPROVED`、
+`ZERO_WRITE_DRY_RUN_READINESS = READY`。Trusted review identity 仍為
+`NOT_VERIFIED`；這不將 OAuth principal 變成人審身份，也不授權 live Recommendation。
+
+下一個唯一正式任務仍是 **Phase 1 Zero-Write Production-Config Dry Run**。本輪已停止，
+不得開始 live write、scheduler 或 production activation。

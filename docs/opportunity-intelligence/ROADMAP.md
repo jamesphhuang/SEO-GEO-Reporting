@@ -183,3 +183,15 @@ Canonical月報搬移另走ARCHITECTURE migration序列：先characterization，
 - Excluded：Recommendation writer、WriteIntent、live source collection、scheduler、Next Steps
   automation、outcome automation、batch expansion、production activation。
 - Next single task：**Phase 1 Zero-Write Production-Config Dry Run**。
+
+
+## Production Phase 1 — Canary Environment Binding finalization
+
+- `ACL_POLICY = APPROVED`：Canary workbook 與 audit path 的 `shopline.com` domain-wide
+  access 為 `reader`；本輪沒有 ACL mutation。
+- `DURABLE_BINDING = VERIFIED`：non-secret binding 已放置於既有 external config pattern；
+  readback 確認 resource refs、schema/allowlist hashes、ACL policy、zero-row count 與 semantic hash。
+- `ZERO_WRITE_DRY_RUN_READINESS = READY`：可進入下一個零寫入 dry-run gate，但尚未執行。
+- `TRUSTED_REVIEW_IDENTITY = NOT_VERIFIED`；OAuth principal 不得取代 trusted reviewer。
+- `PRODUCTION_ACTIVATION = NOT_AUTHORIZED`；Recommendation rows、audit receipts 與 business data
+  mutation 仍為 `0`。

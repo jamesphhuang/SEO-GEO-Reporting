@@ -390,3 +390,19 @@ IDs 僅存在 external binding metadata，不進 Git。
 external binding metadata 完成；`PRODUCTION_ACTIVATION = NOT_AUTHORIZED` 仍維持。
 下一階段只能進行 **Phase 1 Zero-Write Production-Config Dry Run**，不得 live write、
 scheduler、batch expansion 或 production activation。
+
+
+## Phase 1 Canary Environment Binding finalization（2026-09-16）
+
+Owner decision 已確認 Canary workbook 可保留 `shopline.com` domain-wide `reader` access；
+目前 workbook 與 audit path 均符合，未做 ACL mutation。非機密 binding 已從 task-local
+metadata 移至既有 external environment config pattern：`98_環境設定/opportunity-canary/`。
+
+`DURABLE_BINDING = VERIFIED`、`ACL_POLICY = APPROVED`（`shopline.com / reader`）、
+`ZERO_WRITE_DRY_RUN_READINESS = READY`。Durable binding readback 與 semantic hash、schema hash、
+principal ref、audit ref、`recommendation_row_count=0` 全部一致；不含 token、client secret、
+Authorization header、cookie、private key 或 raw credential JSON。
+
+`TRUSTED_REVIEW_IDENTITY = NOT_VERIFIED` 仍阻止第一筆 live Recommendation；
+`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。下一步仍是 **Phase 1 Zero-Write
+Production-Config Dry Run**，本輪不開始執行。

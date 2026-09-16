@@ -423,3 +423,19 @@ persistent audit binding remain uncreated or unverified.
 `CANARY_ENVIRONMENT_BINDING = READY`；trusted-review identity 是 live write 的獨立 blocker。
 `RECOMMENDATION_RECORDS_WRITTEN = 0`、`PRODUCTION_AUDIT_RECEIPTS_WRITTEN = 0`、
 `PRODUCTION_BUSINESS_DATA_MUTATION = 0`，且 `PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。
+
+
+## Phase 1 Canary Environment Binding finalization（2026-09-16）
+
+| Check | Result | Scope / limit |
+| --- | --- | --- |
+| ACL policy | PASS | `shopline.com = reader` confirmed on workbook and audit path; no share/invite/role/ownership mutation |
+| Durable binding location | PASS | existing external config pattern `98_環境設定/opportunity-canary/environment-binding.json`; not Git-tracked |
+| Durable binding readback | PASS | resource refs, principal ref, schema/allowlist hashes, ACL policy, zero-row count and binding semantic hash match |
+| Secret persistence | PASS | no token, client secret, authorization header, cookie, private key or raw credential JSON |
+| Zero-write readiness | READY | config can be loaded for a zero-write dry run; no WriteIntent or Recommendation write performed |
+| Trusted-review boundary | BLOCKED FOR LIVE WRITE | `TRUSTED_REVIEW_IDENTITY = NOT_VERIFIED`; OAuth principal is not reviewer identity |
+
+`ACL_POLICY = APPROVED`、`DURABLE_BINDING = VERIFIED`、`ZERO_WRITE_DRY_RUN_READINESS = READY`。
+`RECOMMENDATION_RECORDS_WRITTEN = 0`、`PRODUCTION_AUDIT_RECEIPTS_WRITTEN = 0`、
+`PRODUCTION_BUSINESS_DATA_MUTATION = 0`、`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。

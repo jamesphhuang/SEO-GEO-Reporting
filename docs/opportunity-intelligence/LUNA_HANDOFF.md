@@ -261,3 +261,20 @@ write，target data rows = `0`；沒有 Recommendation write、WriteIntent 或 p
 `NOT_VERIFIED`，不可把 OAuth identity 當成 reviewer authentication。`PRODUCTION_ACTIVATION =
 NOT_AUTHORIZED`。下一個唯一任務是 **Phase 1 Zero-Write Production-Config Dry Run**；完成前
 不得進入 live Recommendation write、scheduler 或 production activation。
+
+
+## Phase 1 Canary Environment Binding finalization handoff（2026-09-16）
+
+Owner decision 允許並確認 `shopline.com` domain-wide `reader` policy；workbook 與 audit
+path 已 read-only verify 符合，未修改 ACL。Durable non-secret binding 已移至
+`98_環境設定/opportunity-canary/environment-binding.json`；實際 resource refs 留在 external
+config，不進 Git docs/source。
+
+Readback 已確認 principal ref、Drive/workbook/tab/audit refs、23-field schema hash、
+allowlist hash、ACL policy、`recommendation_row_count=0` 與 binding semantic hash 全部一致。
+因此 `DURABLE_BINDING = VERIFIED`、`ACL_POLICY = APPROVED`、
+`ZERO_WRITE_DRY_RUN_READINESS = READY`。
+
+`TRUSTED_REVIEW_IDENTITY = NOT_VERIFIED`；OAuth principal 不等同 human-review provider。
+`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。下一個唯一任務是 **Phase 1 Zero-Write
+Production-Config Dry Run**，不得在本輪執行。
