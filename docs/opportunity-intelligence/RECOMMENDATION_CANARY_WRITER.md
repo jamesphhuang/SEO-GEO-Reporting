@@ -75,10 +75,15 @@ workbook integration, Apps Script deployment, or retry without reconciliation.
 
 ## Promotion prerequisites
 
-Before any production promotion, an owner must approve a real workbook binding,
-OAuth principal, trusted identity provider, operational and rollback owners,
-kill-switch authority, persistent audit destination, exact allowed/protected
-fields, and a one-business-day observation window. A production implementation
+The Phase 1 logical decisions are fixed: an independent Google workbook with the
+`Opportunity_Recommendations` tab, authorized-user OAuth, project owner/user as
+operational, rollback, and kill-switch authority, one operation, mandatory
+readback, no automatic retry on unknown results, the logical audit location
+`95_Production Canary/Opportunity Intelligence/audit/operation_<operation_id>.json`,
+and a one-business-day observation window. Before any environment binding or
+production promotion, the exact workbook/Drive binding, OAuth principal, ACL,
+trusted identity provider/role mapping, persistent audit binding/retention and
+production contracts must be created or verified. A production implementation
 must add durable execution receipts, target ACL verification, staging/readback
 and rollback controls. The current proposal contracts remain
 `DRAFT_NOT_APPROVED` with `x-production-activation=false`.

@@ -395,3 +395,9 @@ SERP validation is shortlist-only and observational. It does not claim unbiased 
 The readiness key is `PHASE1_CANARY_WRITER_READINESS`; it does not authorize production
 activation. Both canary contracts remain `DRAFT_NOT_APPROVED` with
 `x-production-activation=false`.
+
+Phase 1 decision state: target type, tab, authorized-user OAuth mode, one-operation limit,
+project owner/user operational/rollback/kill-switch authority, mandatory readback, unknown-result
+reconciliation, logical audit location and one-business-day observation period are confirmed.
+Exact principal, workbook ID, Drive binding, ACL, trusted-review identity binding and physical
+persistent audit binding remain uncreated or unverified.

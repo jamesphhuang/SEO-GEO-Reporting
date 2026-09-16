@@ -354,6 +354,14 @@ WP12→WP1 targeted **214/214**、fresh full regression **339/339 PASS**；全�
 Apps Script、scheduler、push、PR 或 merge。
 
 `PHASE1_CANARY_WRITER_READINESS = READY` 僅代表離線/UAT implementation ready；
-`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。下一步是由 owner 決定正式 production target、
-trusted identity、ACL、audit destination、rollback owner 與 observation window；本輪不執行
-production activation。
+`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。Phase 1 logical design 已確認為 independent
+Google workbook、`Opportunity_Recommendations`、authorized-user OAuth、project
+owner/user 作為 operational、rollback 與 kill-switch authority、最多一筆 operation、
+mandatory readback、unknown result stop/readback/reconcile/no automatic retry、以及
+one-business-day observation period。logical audit location 也已確認為
+`95_Production Canary/Opportunity Intelligence/audit/operation_<operation_id>.json`。
+
+仍待下一階段建立或驗證的是 exact OAuth principal、exact workbook ID、Drive folder/binding、
+workbook ACL、trusted human-review identity provider/role mapping、actual persistent audit
+binding/retention，以及正式 production contracts。下一個工作是 **Phase 1 Canary Environment
+Binding**；本輪不建立 workbook、不執行 production activation。

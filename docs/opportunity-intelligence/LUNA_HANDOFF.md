@@ -232,5 +232,13 @@ Contracts `recommendation_canary_writer.v1` 與 `google_sheets_target_binding.v1
 live source、production writer、scheduler、Apps Script 或 production mutation。
 
 `PHASE1_CANARY_WRITER_READINESS = READY`；`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。
-本地 commit 完成後不得自行 push、PR 或 merge；下一步只等待 owner 的 production target、
-trusted identity、ACL、audit、rollback 與 observation decision。
+Phase 1 logical design 已確認為 independent Google workbook、`Opportunity_Recommendations`、
+authorized-user OAuth、project owner/user 的 operational/rollback/kill-switch authority、
+最多一筆 operation、mandatory readback、unknown result no automatic retry，以及一個 business
+day observation period；audit logical location 為
+`95_Production Canary/Opportunity Intelligence/audit/operation_<operation_id>.json`。
+
+下一個唯一任務是 **Phase 1 Canary Environment Binding**：建立專用 workbook、取得 exact
+workbook/Drive binding、驗證 OAuth principal 與 ACL、建立 trusted human-review identity
+binding，以及建立 persistent audit binding。這些 exact environment values 尚未建立或驗證；
+本地 commit 完成後仍不得自行 push、PR、merge、Google write 或 production activation。

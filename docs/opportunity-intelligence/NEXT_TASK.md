@@ -183,7 +183,22 @@ JSON、date/date-time、`git diff --check` 與 scoped security/production bounda
 Google Sheets write、live source、scheduler、Apps Script、push、PR 或 merge。
 
 `PHASE1_CANARY_WRITER_READINESS = READY` 只代表 offline/UAT implementation ready。
-`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。下一個需要 owner 決定的工作是 production
-activation readiness：正式 workbook ID/tab ACL、trusted reviewer identity、persistent audit
-destination、operational/rollback owner、kill-switch authority 與 observation window。未取得
-新的明確授權前，不開始 production writer activation、scheduler 或 batch expansion。
+`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。Phase 1 logical design 已確認：independent
+Google workbook、`Opportunity_Recommendations`、authorized-user OAuth、project owner/user
+作為 operational/rollback/kill-switch authority、最多一筆 Recommendation、mandatory
+readback、unknown result stop/readback/reconcile/no automatic retry、persistent audit logical
+location，以及一個 business day observation period。
+
+## NEXT_TASK — Phase 1 Canary Environment Binding
+
+下一個唯一正式任務是 **Phase 1 Canary Environment Binding**：
+
+- 建立專用 canary workbook 與 `Opportunity_Recommendations` tab
+- 取得 exact workbook ID 與 Drive folder/binding
+- 驗證 exact authorized-user OAuth principal 與 workbook ACL
+- 建立 trusted human-review identity/provider/role binding
+- 建立 persistent audit binding、retention 與 readback target
+
+這些是 environment/binding verification，仍不等於 production activation 或 Recommendation
+live write。未完成 binding 前，不執行 Google write、scheduler、batch expansion 或 production
+activation。

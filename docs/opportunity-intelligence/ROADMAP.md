@@ -162,5 +162,9 @@ Canonical月報搬移另走ARCHITECTURE migration序列：先characterization，
   production mutation=0。
 - Explicitly excluded：real workbook/Google write、OAuth consent/refresh、scheduler、
   Next Steps/outcome automation、live collection、bulk/multi-target publish、Apps Script。
-- Promotion gate：owner must decide workbook ID/tab ACL, trusted reviewer identity, persistent
-  audit destination, operational/rollback owner, kill-switch authority and observation window.
+- Promotion gate：logical design decisions are confirmed for target type/tab, authorized-user
+  OAuth, project owner/user operational/rollback/kill-switch authority, one operation,
+  mandatory readback, no automatic retry and one-business-day observation. The next task is
+  environment binding: create the dedicated workbook, verify exact workbook/Drive binding,
+  OAuth principal, ACL, trusted-review identity binding and persistent audit binding. This
+  remains separate from production activation.
