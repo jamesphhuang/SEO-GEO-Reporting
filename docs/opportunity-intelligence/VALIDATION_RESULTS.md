@@ -401,3 +401,25 @@ project owner/user operational/rollback/kill-switch authority, mandatory readbac
 reconciliation, logical audit location and one-business-day observation period are confirmed.
 Exact principal, workbook ID, Drive binding, ACL, trusted-review identity binding and physical
 persistent audit binding remain uncreated or unverified.
+
+
+## Phase 1 Canary Environment Binding（2026-09-16）
+
+| Check | Result | Scope / limit |
+| --- | --- | --- |
+| Fresh baseline / isolated branch | PASS | `origin/main=17f2669de0e49f33fb51d3a545b2af1698df3e29`; `feat/opportunity-canary-environment-binding`; original dirty worktree untouched |
+| OAuth principal / transport | PASS | authorized-user OAuth runtime ref verified by profile plus successful bounded Drive/Sheets operations; no service account or credential value read/output |
+| Drive root resolution | PASS | exact `SEO／GEO Reporting` folder resolved with child listing capability; no ambiguous duplicate selected |
+| Canary resources | PASS | dedicated folder chain, workbook, target tab and audit folder created; no unrelated resource changed |
+| ACL | PASS | current principal owner/writer-capable on workbook and audit path; read-only inspection only; no permission mutation |
+| Header/schema | PASS | canonical 23-field `Opportunity_Recommendations` header written once and read back exactly |
+| Empty-target gate | PASS | target data rows = `0`; no Recommendation row, synthetic row or WriteIntent written |
+| Audit binding | PASS | logical audit folder readable and empty; no production audit receipt created |
+| External binding metadata | PASS | non-secret resource references and semantic hash stored outside Git; no token/client secret/email persisted |
+| Trusted-review boundary | BLOCKED FOR LIVE WRITE | production trusted human-review identity/provider remains `NOT_VERIFIED`; OAuth principal is not treated as reviewer identity |
+| Canary targeted tests | PASS | 18/18 tests using synthetic transport (bundled runtime plus external jsonschema package path) |
+| Working tree / diff check | PASS | clean isolated branch; `git diff --check` PASS; no repository files changed by binding operations |
+
+`CANARY_ENVIRONMENT_BINDING = READY`；trusted-review identity 是 live write 的獨立 blocker。
+`RECOMMENDATION_RECORDS_WRITTEN = 0`、`PRODUCTION_AUDIT_RECEIPTS_WRITTEN = 0`、
+`PRODUCTION_BUSINESS_DATA_MUTATION = 0`，且 `PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。

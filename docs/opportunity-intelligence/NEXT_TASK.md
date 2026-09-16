@@ -202,3 +202,23 @@ location，以及一個 business day observation period。
 這些是 environment/binding verification，仍不等於 production activation 或 Recommendation
 live write。未完成 binding 前，不執行 Google write、scheduler、batch expansion 或 production
 activation。
+
+
+## NEXT_TASK — Phase 1 Zero-Write Production-Config Dry Run
+
+Phase 1 Canary Environment Binding 已完成：authorized-user OAuth runtime ref、exact Drive
+root、dedicated workbook/tab、canonical header、ACL、zero-row readback 與 persistent audit
+folder binding 均已驗證。Environment-specific IDs 留在 external binding metadata，不進
+repository；target 仍沒有 Recommendation data row，audit folder 仍沒有 production receipt。
+
+下一個唯一正式任務是 **Phase 1 Zero-Write Production-Config Dry Run**：
+
+- 只載入 external binding/config，驗證 allowlist、protected fields、trusted-review gate、
+  readback/reconcile/no-retry、kill switch 與 activation state。
+- 不建立 WriteIntent、不呼叫 Recommendation writer、不寫 Recommendation row、不建立
+  `operation_<operation_id>.json`。
+- 不啟用 production、scheduler、Next Steps automation、outcome automation 或 batch expansion。
+
+`CANARY_ENVIRONMENT_BINDING = READY`；`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。
+Trusted human-review identity/provider 仍為 `NOT_VERIFIED`，必須在任何 live Recommendation
+write 前另行完成並取得明確授權。

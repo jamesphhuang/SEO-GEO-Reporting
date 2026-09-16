@@ -365,3 +365,28 @@ one-business-day observation period。logical audit location 也已確認為
 workbook ACL、trusted human-review identity provider/role mapping、actual persistent audit
 binding/retention，以及正式 production contracts。下一個工作是 **Phase 1 Canary Environment
 Binding**；本輪不建立 workbook、不執行 production activation。
+
+
+## Phase 1 Canary Environment Binding（2026-09-16）
+
+以 `17f2669de0e49f33fb51d3a545b2af1698df3e29` 為 fresh `origin/main` baseline，在隔離
+branch `feat/opportunity-canary-environment-binding` 完成受控 environment binding。
+Drive root `SEO／GEO Reporting` 已以 exact title 與可列 children capability 消歧；
+`95_Production Canary/Opportunity Intelligence/`、獨立 workbook
+`Opportunity Intelligence｜Production Canary`、`Opportunity_Recommendations` tab 與
+`audit/` folder 均已建立並完成 metadata/readback 驗證。Environment-specific resource
+IDs 僅存在 external binding metadata，不進 Git。
+
+目前驗證結果：
+
+- `principal://authorized-user-oauth/runtime`：authorized-user OAuth identity 與有效 Drive/Sheets write path verified；未導入 service account，未輸出 credential。
+- Workbook 與 audit folder：current principal 具 owner/writer-capable access；ACL 僅讀取，未做 share/invite/role/ownership mutation。
+- `Opportunity_Recommendations!A1:X1`：canonical 23 欄 header verified；data rows = `0`。
+- Structural sheet writes = `1`（canonical header row）；Recommendation records = `0`。
+- Audit binding = `VERIFIED`；真實 `operation_<operation_id>.json` receipt = `0`。
+- Trusted human-review identity/provider 仍為 `NOT_VERIFIED`；OAuth identity 不等同 human-review identity。
+
+`CANARY_ENVIRONMENT_BINDING = READY` 僅表示資源、ACL、schema、zero-row readback 與
+external binding metadata 完成；`PRODUCTION_ACTIVATION = NOT_AUTHORIZED` 仍維持。
+下一階段只能進行 **Phase 1 Zero-Write Production-Config Dry Run**，不得 live write、
+scheduler、batch expansion 或 production activation。

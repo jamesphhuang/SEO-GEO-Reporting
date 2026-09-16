@@ -168,3 +168,18 @@ Canonical月報搬移另走ARCHITECTURE migration序列：先characterization，
   environment binding: create the dedicated workbook, verify exact workbook/Drive binding,
   OAuth principal, ACL, trusted-review identity binding and persistent audit binding. This
   remains separate from production activation.
+
+
+## Production Phase 1 — Canary Environment Binding（completed environment setup）
+
+- Result：`CANARY_ENVIRONMENT_BINDING = READY`。Exact Drive root、dedicated folder chain、
+  independent workbook、`Opportunity_Recommendations` tab、canonical header、ACL、empty-target
+  readback 與 audit folder binding 均完成。
+- Mutation accounting：environment resources created/reused as authorized；structural sheet
+  writes = `1`（header only）；`RECOMMENDATION_RECORDS_WRITTEN = 0`；
+  `PRODUCTION_AUDIT_RECEIPTS_WRITTEN = 0`；`PRODUCTION_BUSINESS_DATA_MUTATION = 0`。
+- Governance：binding metadata 在 external config；不含 credential/token/secret，不把 real IDs
+  寫入 Git。Trusted human-review identity/provider 尚未 verified，不能以 OAuth principal 取代。
+- Excluded：Recommendation writer、WriteIntent、live source collection、scheduler、Next Steps
+  automation、outcome automation、batch expansion、production activation。
+- Next single task：**Phase 1 Zero-Write Production-Config Dry Run**。
