@@ -216,3 +216,29 @@ Next Steps、Sheets、Apps Script 或執行 live source。ROADMAP 沒有自動 W
 
 Handoff consistency probe 初次結果為 `BLOCKED_HANDOFF_INCONSISTENCY`，因為部分安全語意仍只存在 fixture/docs。follow-up repair 將 required readiness gates、activation state/kill switch、revision/hash、audit、append-only cross-run idempotency、recursive secret/PII redaction、manifest lineage/test summary、partial receipt 與 structured rollback 實作為 runtime checks。修補沒有改寫 `884559049b0bb34751b2c46cb9b2b9b54041eacb`，沒有 push/PR/merge，亦沒有 production mutation；proposal contracts 仍為 `DRAFT_NOT_APPROVED` 且 activation false。
 Repair 後 WP12 targeted **40/40 PASS**、fresh full regression **321/321 PASS**；schema、AST、JSON、date/date-time、`git diff --check`、security/PII/live-call/production-boundary checks 均通過，production mutation=0。
+
+## Production Phase 1 Recommendation Canary Writer（2026-09-16）
+
+以 `9f984b26e177cec109e8b3b5ac2053d6b0e62b43` 為 baseline 的 clean branch
+`feat/opportunity-recommendation-canary-writer` 已完成 offline/UAT-only canary writer。
+它以 exact human review → Recommendation Bridge lineage 為入口，只產生一筆 WriteIntent，將
+allowlisted fields 送至注入的 synthetic target，強制 exact readback 與 append-only audit。
+Untrusted identity、caller 自稱 authenticated、protected mutation、unknown target、timeout
+without reconciliation、readback mismatch、audit failure 與 kill switch 都 fail closed。
+
+WP Phase 1 **18/18**、WP12→WP1 **214/214**、fresh full regression **339/339 PASS**。
+Contracts `recommendation_canary_writer.v1` 與 `google_sheets_target_binding.v1` 仍是
+`DRAFT_NOT_APPROVED`、activation false。沒有 real workbook/tab、OAuth refresh/consent、
+live source、production writer、scheduler、Apps Script 或 production mutation。
+
+`PHASE1_CANARY_WRITER_READINESS = READY`；`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。
+Phase 1 logical design 已確認為 independent Google workbook、`Opportunity_Recommendations`、
+authorized-user OAuth、project owner/user 的 operational/rollback/kill-switch authority、
+最多一筆 operation、mandatory readback、unknown result no automatic retry，以及一個 business
+day observation period；audit logical location 為
+`95_Production Canary/Opportunity Intelligence/audit/operation_<operation_id>.json`。
+
+下一個唯一任務是 **Phase 1 Canary Environment Binding**：建立專用 workbook、取得 exact
+workbook/Drive binding、驗證 OAuth principal 與 ACL、建立 trusted human-review identity
+binding，以及建立 persistent audit binding。這些 exact environment values 尚未建立或驗證；
+本地 commit 完成後仍不得自行 push、PR、merge、Google write 或 production activation。

@@ -372,3 +372,32 @@ SERP validation is shortlist-only and observational. It does not claim unbiased 
 | Final readiness | READY after fresh verification | only offline/UAT hardening readiness; no production activation, push, PR or merge |
 | Repair targeted regression | PASS | **40/40 tests** |
 | Repair full regression | PASS | **321/321 tests**, fresh discovery |
+
+## Production Phase 1 Recommendation Canary Writer（2026-09-16）
+
+| Check | Result | Scope / limit |
+| --- | --- | --- |
+| Clean baseline / branch | PASS | baseline `9f984b26e177cec109e8b3b5ac2053d6b0e62b43`; isolated `feat/opportunity-recommendation-canary-writer`; original dirty worktree untouched |
+| Human review boundary | PASS | exact Candidate/Review/Bridge pins; trusted provider + subject required; caller `authenticated=true` alone rejected |
+| Target binding | PASS | synthetic UAT Google Sheets binding, exact `Opportunity_Recommendations` tab; workbook/principal remain runtime refs |
+| Allowlist / protection | PASS | approved recommendation fields only; manual notes, Next Steps, report data and unknown fields protected |
+| Write controls | PASS | exactly one operation; kill switch, environment, target, idempotency and protected-field gates fail closed |
+| Readback / unknown reconciliation | PASS | success requires exact readback; timeout never retries; exact/absent/conflict states are distinct |
+| Audit / persistence | PASS | append-only semantic-hash-bound receipt required before completion |
+| Synthetic fixtures | PASS | `tests/fixtures/opportunity_canary_writer/scenarios.json`; A–V, synthetic/offline |
+| WP Phase 1 targeted | PASS | **18 tests, OK** |
+| WP12→WP1 targeted | PASS | **214 tests, OK** |
+| Fresh full regression | PASS | **339 tests, OK** with bundled Python and Node runtime |
+| Schema / JSON / AST / dates | PASS | proposal schemas, fixture JSON, Python AST and explicit date/date-time checks |
+| Security / production boundary | PASS | scoped secret/PII/live-call/scheduler/production-writer scans; production mutation=0 |
+| Readiness | READY | local implementation only; no OAuth consent, Google write, push, PR, merge or activation |
+
+The readiness key is `PHASE1_CANARY_WRITER_READINESS`; it does not authorize production
+activation. Both canary contracts remain `DRAFT_NOT_APPROVED` with
+`x-production-activation=false`.
+
+Phase 1 decision state: target type, tab, authorized-user OAuth mode, one-operation limit,
+project owner/user operational/rollback/kill-switch authority, mandatory readback, unknown-result
+reconciliation, logical audit location and one-business-day observation period are confirmed.
+Exact principal, workbook ID, Drive binding, ACL, trusted-review identity binding and physical
+persistent audit binding remain uncreated or unverified.

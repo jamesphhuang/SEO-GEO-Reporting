@@ -327,3 +327,41 @@ production/dry-run state separation。repair 只在 clean worktree 進行，未�
 `WP12_PRODUCTION_HARDENING_READINESS`，且 `PRODUCTION_ACTIVATION=NOT_AUTHORIZED`。
 Repair 後 WP12 targeted **40/40**、fresh full regression **321/321 PASS**；所有 production
 mutation/write count 仍為 `0`，沒有 push、PR、merge 或 production activation。
+
+## Production Phase 1 Recommendation Canary Writer（2026-09-16）
+
+以 `9f984b26e177cec109e8b3b5ac2053d6b0e62b43` 為 baseline，在隔離 branch
+`feat/opportunity-recommendation-canary-writer` 完成 offline/UAT-only Recommendation
+Canary Writer。它只接受一筆 exact human-approved Recommendation Bridge，保留 Candidate、
+Review、Bridge 的 revision/hash pins，產生一個 WriteIntent，寫入注入的 synthetic transport，
+強制 readback，並保存 append-only audit receipt。UAT target binding 固定為
+`Opportunity_Recommendations`；實際 workbook ID 與 OAuth principal 僅允許 runtime refs，
+不寫入 repository。
+
+Writer 的 allowlist 只包含 recommendation、candidate/review/bridge pins、approved text、
+action/topic/URL refs、read-only Score/Confidence、evidence/conflict/governance refs、
+release/operation/semantic hash 與 created_at。人工備註、Next Steps、既有 production report
+data、未批准欄位與其他 target data 均受保護。多於一個 operation、kill switch、invalid/
+stale/missing evidence、untrusted reviewer、superseded review、unresolved conflict、protected
+mutation、readback mismatch、audit failure 與 unknown target 都 fail closed。
+
+Uncertain transport 絕不自動 retry：exact readback 才能 `RECONCILED_SUCCESS`，空結果只回傳
+`SAFE_TO_RETRY_REQUIRES_HUMAN_AUTHORIZATION`，衝突則為
+`RECONCILIATION_CONFLICT`。兩份 canary proposal contract 維持
+`DRAFT_NOT_APPROVED` 與 `x-production-activation=false`。WP Phase 1 targeted **18/18**、
+WP12→WP1 targeted **214/214**、fresh full regression **339/339 PASS**；全部資料與 transport
+均 synthetic/offline，production mutation=0，沒有 OAuth consent、Google write、live source、
+Apps Script、scheduler、push、PR 或 merge。
+
+`PHASE1_CANARY_WRITER_READINESS = READY` 僅代表離線/UAT implementation ready；
+`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。Phase 1 logical design 已確認為 independent
+Google workbook、`Opportunity_Recommendations`、authorized-user OAuth、project
+owner/user 作為 operational、rollback 與 kill-switch authority、最多一筆 operation、
+mandatory readback、unknown result stop/readback/reconcile/no automatic retry、以及
+one-business-day observation period。logical audit location 也已確認為
+`95_Production Canary/Opportunity Intelligence/audit/operation_<operation_id>.json`。
+
+仍待下一階段建立或驗證的是 exact OAuth principal、exact workbook ID、Drive folder/binding、
+workbook ACL、trusted human-review identity provider/role mapping、actual persistent audit
+binding/retention，以及正式 production contracts。下一個工作是 **Phase 1 Canary Environment
+Binding**；本輪不建立 workbook、不執行 production activation。

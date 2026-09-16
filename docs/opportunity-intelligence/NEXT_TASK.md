@@ -172,3 +172,33 @@ Recommendations、Next Steps、Sheets、Apps Script 或任何 live source query�
 
 第一次 consistency probe 的 `BLOCKED_HANDOFF_INCONSISTENCY` 已保留；follow-up repair 補齊 required gates、kill switch/terminal states、revision/hash lineage、audit、cross-run idempotency、recursive redaction、manifest required fields 與 structured rollback。原始 WP12 commit 不 amend，production mutation 維持 `0`。`WP12_PRODUCTION_HARDENING_READINESS` 只有在 repair 後 targeted 與 fresh full regression 都通過時才可標示 `READY`；下一個正式工作仍不是自動啟用 production，也不建立 WP13。
 Repair 後 WP12 targeted **40/40**、fresh full regression **321/321 PASS**；schema、AST、JSON、date/date-time、`git diff --check`、security/PII/live-call/production-boundary checks 均 PASS。
+
+## Production Phase 1 canary writer handoff（2026-09-16）
+
+本輪在隔離 branch `feat/opportunity-recommendation-canary-writer` 完成 offline/UAT
+Recommendation Canary Writer。WP Phase 1 targeted **18/18**、WP12→WP1 targeted
+**214/214**、fresh full regression **339/339 PASS**；A–V fixture、proposal schema、AST、
+JSON、date/date-time、`git diff --check` 與 scoped security/production boundary checks
+均通過。所有 transport 都是 synthetic，production mutation=0，沒有 Google OAuth consent、
+Google Sheets write、live source、scheduler、Apps Script、push、PR 或 merge。
+
+`PHASE1_CANARY_WRITER_READINESS = READY` 只代表 offline/UAT implementation ready。
+`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。Phase 1 logical design 已確認：independent
+Google workbook、`Opportunity_Recommendations`、authorized-user OAuth、project owner/user
+作為 operational/rollback/kill-switch authority、最多一筆 Recommendation、mandatory
+readback、unknown result stop/readback/reconcile/no automatic retry、persistent audit logical
+location，以及一個 business day observation period。
+
+## NEXT_TASK — Phase 1 Canary Environment Binding
+
+下一個唯一正式任務是 **Phase 1 Canary Environment Binding**：
+
+- 建立專用 canary workbook 與 `Opportunity_Recommendations` tab
+- 取得 exact workbook ID 與 Drive folder/binding
+- 驗證 exact authorized-user OAuth principal 與 workbook ACL
+- 建立 trusted human-review identity/provider/role binding
+- 建立 persistent audit binding、retention 與 readback target
+
+這些是 environment/binding verification，仍不等於 production activation 或 Recommendation
+live write。未完成 binding 前，不執行 Google write、scheduler、batch expansion 或 production
+activation。
