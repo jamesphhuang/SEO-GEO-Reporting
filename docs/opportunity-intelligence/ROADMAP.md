@@ -149,3 +149,18 @@ hardening 已完成。`WP12_PRODUCTION_HARDENING_READINESS = READY`；production
 未啟用 scheduler、writer、Recommendations、Next Steps 或任何 production destination。
 
 Canonical月報搬移另走ARCHITECTURE migration序列：先characterization，再thin wrappers、period injection、template parity；不和WP5 engine或WP10治理混成一個大diff。
+
+## Production Phase 1 — Recommendation canary writer（completed offline/UAT）
+
+- 唯一目標：以 exact human-approved Recommendation Bridge 驗證一筆受控 Recommendation
+  的 WriteIntent、synthetic target、mandatory readback、reconciliation 與 audit receipt。
+- Output：`reporting/opportunity/canary_writer.py`、兩份 proposal contract、A–V synthetic
+  fixture 與 targeted tests。
+- Governance：UAT target only；allowlist/protected fields、trusted identity、one operation、
+  no automatic retry、kill switch、append-only idempotency/audit 均 fail closed。
+- Result：`PHASE1_CANARY_WRITER_READINESS = READY`；`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`；
+  production mutation=0。
+- Explicitly excluded：real workbook/Google write、OAuth consent/refresh、scheduler、
+  Next Steps/outcome automation、live collection、bulk/multi-target publish、Apps Script。
+- Promotion gate：owner must decide workbook ID/tab ACL, trusted reviewer identity, persistent
+  audit destination, operational/rollback owner, kill-switch authority and observation window.

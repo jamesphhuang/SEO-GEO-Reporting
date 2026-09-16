@@ -172,3 +172,18 @@ Recommendations、Next Steps、Sheets、Apps Script 或任何 live source query�
 
 第一次 consistency probe 的 `BLOCKED_HANDOFF_INCONSISTENCY` 已保留；follow-up repair 補齊 required gates、kill switch/terminal states、revision/hash lineage、audit、cross-run idempotency、recursive redaction、manifest required fields 與 structured rollback。原始 WP12 commit 不 amend，production mutation 維持 `0`。`WP12_PRODUCTION_HARDENING_READINESS` 只有在 repair 後 targeted 與 fresh full regression 都通過時才可標示 `READY`；下一個正式工作仍不是自動啟用 production，也不建立 WP13。
 Repair 後 WP12 targeted **40/40**、fresh full regression **321/321 PASS**；schema、AST、JSON、date/date-time、`git diff --check`、security/PII/live-call/production-boundary checks 均 PASS。
+
+## Production Phase 1 canary writer handoff（2026-09-16）
+
+本輪在隔離 branch `feat/opportunity-recommendation-canary-writer` 完成 offline/UAT
+Recommendation Canary Writer。WP Phase 1 targeted **18/18**、WP12→WP1 targeted
+**214/214**、fresh full regression **339/339 PASS**；A–V fixture、proposal schema、AST、
+JSON、date/date-time、`git diff --check` 與 scoped security/production boundary checks
+均通過。所有 transport 都是 synthetic，production mutation=0，沒有 Google OAuth consent、
+Google Sheets write、live source、scheduler、Apps Script、push、PR 或 merge。
+
+`PHASE1_CANARY_WRITER_READINESS = READY` 只代表 offline/UAT implementation ready。
+`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。下一個需要 owner 決定的工作是 production
+activation readiness：正式 workbook ID/tab ACL、trusted reviewer identity、persistent audit
+destination、operational/rollback owner、kill-switch authority 與 observation window。未取得
+新的明確授權前，不開始 production writer activation、scheduler 或 batch expansion。

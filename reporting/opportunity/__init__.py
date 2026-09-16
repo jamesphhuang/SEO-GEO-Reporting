@@ -36,6 +36,22 @@ from .production_hardening import (
     validate_hardening_result,
     validate_release_manifest,
 )
+from .canary_writer import (
+    ALLOWED_FIELDS as CANARY_ALLOWED_FIELDS,
+    PROTECTED_FIELDS as CANARY_PROTECTED_FIELDS,
+    TARGET_TAB as CANARY_TARGET_TAB,
+    WRITER_ID as CANARY_WRITER_ID,
+    CanaryIdempotencyStore,
+    CanaryResult,
+    GoogleSheetsTargetBinding,
+    RecommendationAuditStore,
+    RecommendationCanaryWriter,
+    SyntheticRecommendationTransport,
+    TransportResult,
+    WriteIntent,
+    idempotency_key as canary_idempotency_key,
+    validate_canary_contract,
+)
 
 __all__ = [
     "ValidationError",
@@ -126,6 +142,20 @@ __all__ = [
     "validate_activation_proposal",
     "validate_hardening_result",
     "validate_release_manifest",
+    "CANARY_ALLOWED_FIELDS",
+    "CANARY_PROTECTED_FIELDS",
+    "CANARY_TARGET_TAB",
+    "CANARY_WRITER_ID",
+    "CanaryIdempotencyStore",
+    "CanaryResult",
+    "GoogleSheetsTargetBinding",
+    "RecommendationAuditStore",
+    "RecommendationCanaryWriter",
+    "SyntheticRecommendationTransport",
+    "TransportResult",
+    "WriteIntent",
+    "canary_idempotency_key",
+    "validate_canary_contract",
 ]
 
 

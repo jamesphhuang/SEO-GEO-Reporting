@@ -108,3 +108,17 @@ session denominator。`missing_evidence`、`STALE`、`PARTIAL`、`FAILED` 與 co
 `GA4DiagnosticStore` 以 diagnostic revision / supersedes chain append，historical
 revision immutable。preview 只讀 diagnostic projection，沒有 production destination、
 Google Sheets、Apps Script 或 scheduler side effect。
+
+## Production Phase 1 Recommendation canary proposal
+
+`contracts/recommendation_canary_writer.v1.proposal.json` 與
+`contracts/google_sheets_target_binding.v1.proposal.json` 描述 offline/UAT canary
+boundary，兩者均為 `DRAFT_NOT_APPROVED` 且 `x-production-activation=false`。Target
+binding 僅允許 runtime workbook/principal refs 與固定 `Opportunity_Recommendations`
+tab；實際 credential、workbook ID、ACL 與 OAuth consent 不在 repository。
+
+Writer 只接受 exact human Review → Recommendation Bridge lineage，保留 candidate/review/
+bridge revision/hash pins，產生一筆 allowlisted WriteIntent，強制 readback 與 append-only
+audit。Unknown transport result 不會自動 retry；exact readback、absent 或 conflict 分別進入
+不同 reconciliation states。Score/Confidence 只是 read-only projection，writer 不改寫
+Candidate、Review、Bridge、Next Steps、Recommendations 或既有 production report。

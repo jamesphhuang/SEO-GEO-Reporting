@@ -175,3 +175,17 @@ writes 與 production mutation 為 0；production activation 仍需獨立明確�
 本次 fresh discovery 為 WP12 targeted **40/40 PASS**、full regression **321/321 PASS**。
 
 新增 targeted cases 對應初次 handoff probe 的缺口：required gate false/missing/unknown/empty、kill switch 與 `REVOKED`/`DISABLED`/`NOT_AUTHORIZED`、invalid revision/hash pins、missing or arbitrary idempotency identity、mandatory audit、shared cross-run ledger、nested secret/PII and email/phone redaction、mandatory manifest lineage and structured test summary、structured rollback，以及 real execution receipt partial failure。所有資料仍 synthetic/offline；沒有 live source、credential、scheduler、Recommendations、Next Steps、Sheets、Apps Script 或 production writer。最終 targeted/full regression 數字只採用 repair 後 fresh discovery。
+
+## Production Phase 1 Recommendation Canary Writer coverage
+
+`tests/test_opportunity_canary_writer.py` 與 A–V synthetic fixture 覆蓋 exact human
+review/bridge pins、trusted provider/subject identity、allowlist/protected fields、one-op
+limit、UAT target binding、kill switch、idempotency replay/conflict、deterministic
+WriteIntent、success/readback mismatch、timeout reconciliation、mandatory audit、secret/PII
+redaction、production environment block 與 zero mutation。
+
+WP Phase 1 targeted 為 **18 tests，OK**；WP12→WP1 targeted 為 **214 tests，OK**；fresh full
+regression 為 **339 tests，OK**。Proposal schemas、fixture JSON、Python AST、explicit
+date/date-time、`git diff --check` 與 scoped security/PII/live-call/scheduler/production
+boundary checks 均 PASS。沒有 real Google request、OAuth consent/refresh、production workbook
+write 或 scheduler activity。

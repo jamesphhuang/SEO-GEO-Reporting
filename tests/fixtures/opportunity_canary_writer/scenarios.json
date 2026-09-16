@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "synthetic": true,
+    "source": "offline-only",
+    "production_mutation": 0,
+    "target_tab": "Opportunity_Recommendations",
+    "max_operations": 1,
+    "observation_period": "1 business day",
+    "notes": "No workbook, OAuth token, credential, PII, or live transport is used."
+  },
+  "scenarios": [
+    {"id": "A", "name": "valid one Recommendation dry-run", "expected": "CANARY_COMPLETE"},
+    {"id": "B", "name": "more than one Recommendation", "expected": "BLOCKED_OPERATION_LIMIT"},
+    {"id": "C", "name": "invalid review", "expected": "INVALID_REVIEW_PIN"},
+    {"id": "D", "name": "unauthenticated or untrusted review", "expected": "BLOCKED_TRUSTED_IDENTITY"},
+    {"id": "E", "name": "superseded review", "expected": "SUPERSEDED_REVIEW"},
+    {"id": "F", "name": "bridge hash mismatch", "expected": "INVALID_BRIDGE_PIN"},
+    {"id": "G", "name": "protected field mutation", "expected": "PROTECTED_FIELD_MUTATION"},
+    {"id": "H", "name": "unknown target", "expected": "TARGET_TAB_NOT_ALLOWED"},
+    {"id": "I", "name": "unknown principal", "expected": "INVALID_REFERENCE"},
+    {"id": "J", "name": "kill switch enabled", "expected": "KILL_SWITCH_ENABLED"},
+    {"id": "K", "name": "same operation replay", "expected": "ALREADY_APPLIED"},
+    {"id": "L", "name": "idempotency conflict", "expected": "IDEMPOTENCY_CONFLICT"},
+    {"id": "M", "name": "transport success and readback match", "expected": "CANARY_COMPLETE"},
+    {"id": "N", "name": "transport success and readback mismatch", "expected": "READBACK_MISMATCH"},
+    {"id": "O", "name": "transport timeout and readback found match", "expected": "RECONCILED_SUCCESS"},
+    {"id": "P", "name": "transport timeout and record absent", "expected": "SAFE_TO_RETRY_REQUIRES_HUMAN_AUTHORIZATION"},
+    {"id": "Q", "name": "transport timeout and conflicting record", "expected": "RECONCILIATION_CONFLICT"},
+    {"id": "R", "name": "audit persistence failure", "expected": "AUDIT_PERSISTENCE_FAILED"},
+    {"id": "S", "name": "nested secret payload", "expected": "SECRET_REJECTED"},
+    {"id": "T", "name": "nested PII payload", "expected": "PII_REJECTED"},
+    {"id": "U", "name": "same inputs deterministic semantic hash", "expected": "DETERMINISTIC"},
+    {"id": "V", "name": "canary complete does not auto-expand", "expected": "NO_EXPANSION"}
+  ]
+}
