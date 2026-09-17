@@ -4,6 +4,6 @@
   "title": "Rollback acknowledgement receipt (proposal)",
   "type": "object", "additionalProperties": false,
   "x-proposal-status": "DRAFT_NOT_APPROVED", "x-production-activation": false,
-  "required": ["receipt_id", "release_id", "contract_id", "contract_revision", "contract_semantic_hash", "acknowledger_identity_ref", "acknowledged_at", "reason", "rollback_target", "semantic_hash"],
-  "properties": {"receipt_id": {"type": "string"}, "release_id": {"type": "string"}, "contract_id": {"type": "string"}, "contract_revision": {"type": "integer", "minimum": 1}, "contract_semantic_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "acknowledger_identity_ref": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "acknowledged_at": {"type": "string", "format": "date-time"}, "reason": {"type": "string"}, "rollback_target": {"type": "string"}, "semantic_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}
+  "required": ["receipt_id", "release_id", "contract_id", "contract_revision", "contract_semantic_hash", "acknowledger_identity_ref", "acknowledged_at", "reason", "rollback_target", "rollback_semantic_fingerprint", "semantic_hash"],
+  "properties": {"receipt_id": {"type": "string"}, "release_id": {"type": "string"}, "contract_id": {"type": "string"}, "contract_revision": {"type": "integer", "minimum": 1}, "contract_semantic_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "acknowledger_identity_ref": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "acknowledged_at": {"type": "string", "format": "date-time"}, "reason": {"type": "string"}, "rollback_target": {"type": "string"}, "rollback_semantic_fingerprint": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "semantic_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}
 }

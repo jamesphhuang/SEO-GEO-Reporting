@@ -16,7 +16,11 @@ from pathlib import Path
 from typing import Any, Iterable, Mapping
 
 from .store.serialization import canonical_json, canonical_line
-from .trusted_review_identity import TrustedIdentityEvidence
+from .trusted_review_identity import (
+    TrustedIdentityEvidence,
+    TrustedReviewBinding,
+    TrustedReviewVerifier,
+)
 
 
 CONTRACT_APPROVAL_RECEIPT_VERSION = "contract_approval_receipt.v1"
@@ -91,6 +95,28 @@ def _reject_sensitive(value: Mapping[str, Any]) -> None:
         raise ContractApprovalError("SENSITIVE_FIELD_FORBIDDEN")
 
 
+def _approval_semantic_payload(value: Mapping[str, Any]) -> dict[str, Any]:
+    """Return approval meaning without storage identity or lifecycle metadata."""
+
+    fields = (
+        "contract_id", "contract_version", "contract_revision", "contract_semantic_hash",
+        "approved_scope", "environment", "target_binding_ref", "approver_identity_ref",
+        "approver_role", "effective_at", "expires_at", "operation_limit",
+        "production_inheritance", "automatic_scope_expansion", "approval_waiver_ref",
+        "readback_result",
+    )
+    try:
+        return {field: value[field] for field in fields}
+    except KeyError as exc:
+        raise ContractApprovalError("APPROVAL_SEMANTICS_INCOMPLETE") from exc
+
+
+def approval_semantic_fingerprint(value: Mapping[str, Any]) -> str:
+    """Hash approval meaning; receipt IDs and storage metadata do not participate."""
+
+    return _hash(_approval_semantic_payload(value))
+
+
 @dataclass(frozen=True)
 class ContractInstance:
     """The exact contract revision to which a receipt applies."""
@@ -142,24 +168,31 @@ class ContractApproverIdentityEvidence:
     environment: str
     evidence_hash: str
     source_evidence_hash: str | None = None
+    source_evidence: TrustedIdentityEvidence | None = None
+    source_binding: TrustedReviewBinding | None = None
 
     @classmethod
-    def from_trusted_identity(cls, evidence: TrustedIdentityEvidence, *,
+    def from_trusted_identity(cls, evidence: TrustedIdentityEvidence, binding: TrustedReviewBinding, *,
                               environment: str = PHASE1_CANARY_ENVIRONMENT) -> "ContractApproverIdentityEvidence":
-        if not isinstance(evidence, TrustedIdentityEvidence) or not evidence.is_verified_provider_evidence():
+        if (not isinstance(evidence, TrustedIdentityEvidence)
+                or not evidence.is_verified_provider_evidence()
+                or not isinstance(binding, TrustedReviewBinding)):
             raise ContractApprovalError("APPROVER_EVIDENCE_NOT_VERIFIED")
         if environment != PHASE1_CANARY_ENVIRONMENT:
             raise ContractApprovalError("APPROVER_ENVIRONMENT_INVALID")
         payload = {"identity_ref": evidence.reviewer_subject_ref, "provider": evidence.provider,
                    "role": CONTRACT_SEMANTICS_APPROVER_ROLE, "environment": environment,
                    "source_evidence_hash": evidence.evidence_hash}
-        return cls(payload["identity_ref"], payload["provider"], payload["role"], environment, _hash(payload), evidence.evidence_hash)
+        return cls(payload["identity_ref"], payload["provider"], payload["role"], environment,
+                   _hash(payload), evidence.evidence_hash, evidence, binding)
 
     def is_valid(self) -> bool:
         if not (bool(_HEX64.fullmatch(self.identity_ref)) and _HEX64.fullmatch(self.evidence_hash) is not None):
             return False
-        if self.source_evidence_hash is None:
-            return True
+        if (not isinstance(self.source_evidence, TrustedIdentityEvidence)
+                or not isinstance(self.source_binding, TrustedReviewBinding)
+                or self.source_evidence_hash is None):
+            return False
         if _HEX64.fullmatch(self.source_evidence_hash) is None:
             return False
         payload = {"identity_ref": self.identity_ref, "provider": self.provider,
@@ -225,6 +258,7 @@ class ContractApprovalReceipt:
     automatic_scope_expansion: bool
     approval_waiver_ref: str | None
     readback_result: str
+    approval_semantic_fingerprint: str
     receipt_semantic_hash: str
 
     @classmethod
@@ -251,7 +285,9 @@ class ContractApprovalReceipt:
             raise ContractApprovalError("RECEIPT_EXPIRY_TOO_LONG")
         if approval_waiver_ref is not None:
             _check_ref(approval_waiver_ref, "WAIVER_REF_INVALID")
-        return cls(**base, receipt_semantic_hash=_hash(base))
+        fingerprint = approval_semantic_fingerprint(base)
+        return cls(**base, approval_semantic_fingerprint=fingerprint,
+                   receipt_semantic_hash=_hash({**base, "approval_semantic_fingerprint": fingerprint}))
 
     def as_dict(self) -> dict[str, Any]:
         payload = {k: getattr(self, k) for k in self.__dataclass_fields__ if k != "receipt_semantic_hash"}
@@ -259,7 +295,8 @@ class ContractApprovalReceipt:
 
     def is_valid(self) -> bool:
         payload = {k: getattr(self, k) for k in self.__dataclass_fields__ if k != "receipt_semantic_hash"}
-        return self.receipt_semantic_hash == _hash(payload)
+        return (self.approval_semantic_fingerprint == approval_semantic_fingerprint(payload)
+                and self.receipt_semantic_hash == _hash(payload))
 
 
 @dataclass(frozen=True)
@@ -270,6 +307,7 @@ class ContractRevocationReceipt:
     contract_semantic_hash: str
     revoked_at: str
     reason: str
+    revocation_semantic_fingerprint: str
     revocation_semantic_hash: str
 
     @classmethod
@@ -277,7 +315,10 @@ class ContractRevocationReceipt:
         payload = {"revocation_id": _check_ref(revocation_id, "REVOCATION_ID_INVALID"), "approval_receipt_id": approval.receipt_id,
                    "contract_revision": approval.contract_revision, "contract_semantic_hash": approval.contract_semantic_hash,
                    "revoked_at": _check_time(revoked_at, "REVOKED_AT_INVALID"), "reason": _check_ref(reason, "REVOCATION_REASON_INVALID")}
-        return cls(**payload, revocation_semantic_hash=_hash(payload))
+        fingerprint = _hash({"approval_receipt_id": payload["approval_receipt_id"], "contract_revision": payload["contract_revision"],
+                             "contract_semantic_hash": payload["contract_semantic_hash"], "revoked_at": payload["revoked_at"], "reason": payload["reason"]})
+        return cls(**payload, revocation_semantic_fingerprint=fingerprint,
+                   revocation_semantic_hash=_hash({**payload, "revocation_semantic_fingerprint": fingerprint}))
 
     def as_dict(self) -> dict[str, Any]:
         payload = {k: getattr(self, k) for k in self.__dataclass_fields__ if k != "revocation_semantic_hash"}
@@ -285,7 +326,10 @@ class ContractRevocationReceipt:
 
     def is_valid(self) -> bool:
         payload = {k: getattr(self, k) for k in self.__dataclass_fields__ if k != "revocation_semantic_hash"}
-        return self.revocation_semantic_hash == _hash(payload)
+        fingerprint = _hash({"approval_receipt_id": self.approval_receipt_id, "contract_revision": self.contract_revision,
+                             "contract_semantic_hash": self.contract_semantic_hash, "revoked_at": self.revoked_at, "reason": self.reason})
+        return (self.revocation_semantic_fingerprint == fingerprint
+                and self.revocation_semantic_hash == _hash(payload))
 
 
 @dataclass(frozen=True)
@@ -299,6 +343,7 @@ class RollbackAcknowledgementReceipt:
     acknowledged_at: str
     reason: str
     rollback_target: str
+    rollback_semantic_fingerprint: str
     semantic_hash: str
 
     @classmethod
@@ -310,7 +355,9 @@ class RollbackAcknowledgementReceipt:
                    "acknowledger_identity_ref": _check_hash(acknowledger_identity_ref, "ACK_IDENTITY_INVALID"),
                    "acknowledged_at": _check_time(acknowledged_at, "ACK_TIME_INVALID"), "reason": _check_ref(reason, "ACK_REASON_INVALID"),
                    "rollback_target": _check_ref(rollback_target, "ROLLBACK_TARGET_INVALID")}
-        return cls(**payload, semantic_hash=_hash(payload))
+        fingerprint = _hash({key: payload[key] for key in payload if key != "receipt_id"})
+        return cls(**payload, rollback_semantic_fingerprint=fingerprint,
+                   semantic_hash=_hash({**payload, "rollback_semantic_fingerprint": fingerprint}))
 
     def as_dict(self) -> dict[str, Any]:
         payload = {k: getattr(self, k) for k in self.__dataclass_fields__ if k != "semantic_hash"}
@@ -318,7 +365,9 @@ class RollbackAcknowledgementReceipt:
 
     def is_valid(self) -> bool:
         payload = {k: getattr(self, k) for k in self.__dataclass_fields__ if k != "semantic_hash"}
-        return self.semantic_hash == _hash(payload)
+        fingerprint = _hash({key: payload[key] for key in payload if key != "receipt_id" and key != "rollback_semantic_fingerprint"})
+        return (self.rollback_semantic_fingerprint == fingerprint
+                and self.semantic_hash == _hash(payload))
 
 
 @dataclass(frozen=True)
@@ -334,11 +383,25 @@ class ContractApprovalVerifier:
     def verify(self, contract: ContractInstance, approval: ContractApprovalReceipt,
                approver: ContractApproverIdentityEvidence, *, waiver: ContractApprovalWaiver | None,
                environment: str, target_binding_ref: str, operation_count: int,
-               now: str, revocations: Iterable[ContractRevocationReceipt] = ()) -> ContractApprovalVerification:
+               now: str, revocations: Iterable[ContractRevocationReceipt] = (),
+               trusted_binding: TrustedReviewBinding | None = None,
+               writer_principal_ref: str | None = None) -> ContractApprovalVerification:
         errors: list[str] = []
+        provenance_errors: list[str] = []
         if not isinstance(contract, ContractInstance): errors.append("CONTRACT_INVALID")
         if not isinstance(approval, ContractApprovalReceipt) or not approval.is_valid(): errors.append("APPROVAL_INVALID")
         if not isinstance(approver, ContractApproverIdentityEvidence) or not approver.is_valid(): errors.append("APPROVER_EVIDENCE_INVALID")
+        if trusted_binding is None or writer_principal_ref is None:
+            provenance_errors.append("TRUSTED_IDENTITY_BINDING_REQUIRED")
+        elif isinstance(approver, ContractApproverIdentityEvidence) and isinstance(approver.source_evidence, TrustedIdentityEvidence):
+            trusted = TrustedReviewVerifier(trusted_binding).verify(
+                approver.source_evidence,
+                writer_principal_ref=writer_principal_ref,
+                operation_count=operation_count,
+                environment="PHASE1_CANARY",
+            )
+            if not trusted.trusted:
+                provenance_errors.append("BLOCKED_UNVERIFIED_APPROVER_IDENTITY")
         if not errors:
             if (approval.contract_id, approval.contract_version, approval.contract_revision, approval.contract_semantic_hash) != (contract.contract_id, contract.contract_version, contract.revision, contract.semantic_hash): errors.append("CONTRACT_PIN_MISMATCH")
             if approver.identity_ref != approval.approver_identity_ref: errors.append("IDENTITY_MISMATCH")
@@ -354,6 +417,7 @@ class ContractApprovalVerifier:
             if any(r.is_valid() and r.approval_receipt_id == approval.receipt_id for r in revocations): errors.append("APPROVAL_REVOKED")
             if approval.approval_waiver_ref is None or waiver is None: errors.append("WAIVER_REQUIRED")
             elif not waiver.is_valid() or waiver.waiver_id != PHASE1_CANARY_CONTRACT_APPROVAL_WAIVER or approval.approval_waiver_ref != PHASE1_CANARY_CONTRACT_APPROVAL_WAIVER or waiver.approver_identity_ref != approver.identity_ref or waiver.environment != environment or waiver.operation_limit != 1 or waiver.production_inheritance or waiver.automatic_scope_expansion or waiver.broader_production_use: errors.append("WAIVER_INVALID")
+        errors.extend(provenance_errors)
         return ContractApprovalVerification("PASS" if not errors else "BLOCKED", tuple(errors))
 
 
@@ -367,6 +431,10 @@ class ContractApprovalReceiptStore:
         existing = list(self.records())
         if any(r.get("receipt_id") == receipt.receipt_id for r in existing):
             raise ContractApprovalError("DUPLICATE_RECEIPT_FORBIDDEN")
+        if any(r.get("approval_semantic_fingerprint") == receipt.approval_semantic_fingerprint for r in existing):
+            raise ContractApprovalError("SEMANTIC_COLLISION_FORBIDDEN")
+        if not receipt.is_valid():
+            raise ContractApprovalError("INVALID_RECEIPT_FORBIDDEN")
         self.path.parent.mkdir(parents=True, exist_ok=True)
         with self.path.open("a", encoding="utf-8") as handle:
             handle.write(canonical_line(receipt.as_dict()))
@@ -386,6 +454,10 @@ class ContractRevocationReceiptStore:
         records = self.records()
         if any(item.get("revocation_id") == receipt.revocation_id for item in records):
             raise ContractApprovalError("DUPLICATE_REVOCATION_FORBIDDEN")
+        if any(item.get("revocation_semantic_fingerprint") == receipt.revocation_semantic_fingerprint for item in records):
+            raise ContractApprovalError("REVOCATION_SEMANTIC_COLLISION_FORBIDDEN")
+        if not receipt.is_valid():
+            raise ContractApprovalError("INVALID_REVOCATION_FORBIDDEN")
         self.path.parent.mkdir(parents=True, exist_ok=True)
         with self.path.open("a", encoding="utf-8") as handle:
             handle.write(canonical_line(receipt.as_dict()))
@@ -405,6 +477,10 @@ class RollbackAcknowledgementStore:
         records = self.records()
         if any(item.get("receipt_id") == receipt.receipt_id for item in records):
             raise ContractApprovalError("DUPLICATE_ROLLBACK_ACK_FORBIDDEN")
+        if any(item.get("rollback_semantic_fingerprint") == receipt.rollback_semantic_fingerprint for item in records):
+            raise ContractApprovalError("ROLLBACK_SEMANTIC_COLLISION_FORBIDDEN")
+        if not receipt.is_valid():
+            raise ContractApprovalError("INVALID_ROLLBACK_ACK_FORBIDDEN")
         self.path.parent.mkdir(parents=True, exist_ok=True)
         with self.path.open("a", encoding="utf-8") as handle:
             handle.write(canonical_line(receipt.as_dict()))
@@ -423,7 +499,7 @@ __all__ = [
     "ROLLBACK_ACKNOWLEDGEMENT_VERSION", "CONTRACT_SEMANTICS_APPROVER_ROLE", "PHASE1_CANARY_ENVIRONMENT",
     "PHASE1_CANARY_CONTRACT_APPROVAL_WAIVER", "RETENTION_POLICY", "DEFAULT_UNUSED_APPROVAL_DAYS", "PRODUCTION_ACTIVATION",
     "PRODUCTION_CONTRACTS_APPROVED", "LIVE_WRITE_READINESS", "PHASE1_CONTRACT_DEPENDENCIES",
-    "ContractApprovalError", "ContractInstance", "ContractApproverIdentityEvidence", "ContractApprovalWaiver",
+    "ContractApprovalError", "approval_semantic_fingerprint", "ContractInstance", "ContractApproverIdentityEvidence", "ContractApprovalWaiver",
     "ContractApprovalReceipt", "ContractRevocationReceipt", "RollbackAcknowledgementReceipt", "ContractApprovalVerification",
     "ContractApprovalVerifier", "ContractApprovalReceiptStore", "ContractRevocationReceiptStore",
     "RollbackAcknowledgementStore", "contract_semantic_hash",

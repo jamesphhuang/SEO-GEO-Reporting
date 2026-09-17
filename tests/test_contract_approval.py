@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 from pathlib import Path
 
 import pytest
@@ -23,12 +24,41 @@ from reporting.opportunity.contract_approval import (
     RollbackAcknowledgementStore,
     PHASE1_CONTRACT_DEPENDENCIES,
     PHASE1_CANARY_CONTRACT_APPROVAL_WAIVER,
+    approval_semantic_fingerprint,
+)
+from reporting.opportunity.store.serialization import canonical_json
+from reporting.opportunity.trusted_review_identity import (
+    TrustedIdentityEvidence,
+    TrustedReviewBinding,
+    VerifiedProviderIdentity,
+    reviewer_subject_ref,
 )
 
 
 NOW = "2026-09-10T10:00:00Z"
 IDENTITY = "a" * 64
 EVIDENCE = "b" * 64
+WRITER = "principal://synthetic-writer"
+
+
+def make_binding_and_evidence():
+    subject_ref = reviewer_subject_ref("synthetic-contract-approver")
+    payload = {
+        "binding_version": "trusted-review-identity-binding.v1", "provider": "GOOGLE_WORKSPACE",
+        "reviewer_subject_ref": subject_ref, "workspace_domain": "shopline.com",
+        "role": "RECOMMENDATION_APPROVER", "scope": "PHASE1_CANARY", "status": "ACTIVE",
+        "binding_revision": 1, "provider_verification_method": "GOOGLE_OIDC_ID_TOKEN_V1",
+        "same_person_writer_reviewer": False, "separation_of_duties_waiver": None,
+        "production_inheritance": False, "automatic_scope_expansion": False,
+        "verified_at": "2026-09-10T08:00:00Z",
+    }
+    binding_payload = {**payload, "semantic_hash": hashlib.sha256(canonical_json(payload).encode()).hexdigest()}
+    binding = TrustedReviewBinding.from_mapping(binding_payload)
+    provider = VerifiedProviderIdentity.from_verified_google_claims(
+        {"sub": "synthetic-contract-approver", "hd": "shopline.com"}, verified_at="2026-09-10T08:00:00Z"
+    )
+    evidence = TrustedIdentityEvidence.from_verified_provider_output(provider, binding)
+    return binding, evidence
 
 
 def make_contract(**fields):
@@ -36,10 +66,8 @@ def make_contract(**fields):
 
 
 def make_approver(**kwargs):
-    return ContractApproverIdentityEvidence(
-        kwargs.get("identity_ref", IDENTITY), kwargs.get("provider", "GOOGLE_WORKSPACE"),
-        kwargs.get("role", CONTRACT_SEMANTICS_APPROVER_ROLE), kwargs.get("environment", PHASE1_CANARY_ENVIRONMENT), EVIDENCE,
-    )
+    binding, evidence = make_binding_and_evidence()
+    return ContractApproverIdentityEvidence.from_trusted_identity(evidence, binding)
 
 
 def make_receipt(contract=None, approver=None, **kwargs):
@@ -51,8 +79,8 @@ def make_receipt(contract=None, approver=None, **kwargs):
     )
 
 
-def make_waiver(approver=IDENTITY, waiver_id=PHASE1_CANARY_CONTRACT_APPROVAL_WAIVER):
-    return ContractApprovalWaiver.create(waiver_id, 1, approver)
+def make_waiver(approver=None, waiver_id=PHASE1_CANARY_CONTRACT_APPROVAL_WAIVER):
+    return ContractApprovalWaiver.create(waiver_id, 1, approver or make_approver().identity_ref)
 
 
 def verify(contract=None, approval=None, approver=None, waiver=None, **kwargs):
@@ -62,7 +90,8 @@ def verify(contract=None, approval=None, approver=None, waiver=None, **kwargs):
     verifier_approver = approver or receipt_approver
     return ContractApprovalVerifier().verify(c, a, verifier_approver, waiver=waiver if waiver is not None else make_waiver(),
         environment=kwargs.get("environment", PHASE1_CANARY_ENVIRONMENT), target_binding_ref=kwargs.get("target_binding_ref", "target/uat"),
-        operation_count=kwargs.get("operation_count", 1), now=kwargs.get("now", NOW))
+        operation_count=kwargs.get("operation_count", 1), now=kwargs.get("now", NOW),
+        trusted_binding=make_binding_and_evidence()[0], writer_principal_ref=WRITER)
 
 
 def test_valid_exact_approval_passes_and_does_not_authorize_activation():
@@ -89,11 +118,15 @@ def test_contract_pin_changes_require_new_approval(change):
 
 
 def test_wrong_identity_is_blocked():
-    assert "IDENTITY_MISMATCH" in verify(approver=make_approver(identity_ref="c" * 64)).errors
+    forged = ContractApproverIdentityEvidence("c" * 64, "GOOGLE_WORKSPACE", CONTRACT_SEMANTICS_APPROVER_ROLE, PHASE1_CANARY_ENVIRONMENT, EVIDENCE)
+    result = verify(approver=forged)
+    assert "APPROVER_EVIDENCE_INVALID" in result.errors
 
 
 def test_wrong_role_is_blocked():
-    assert "ROLE_INVALID" in verify(approver=make_approver(role="RECOMMENDATION_APPROVER")).errors
+    forged = ContractApproverIdentityEvidence(IDENTITY, "GOOGLE_WORKSPACE", "RECOMMENDATION_APPROVER", PHASE1_CANARY_ENVIRONMENT, EVIDENCE)
+    result = verify(approver=forged)
+    assert "APPROVER_EVIDENCE_INVALID" in result.errors
 
 
 def test_wrong_environment_is_blocked():
@@ -169,6 +202,27 @@ def test_receipt_store_is_append_only(tmp_path: Path):
     assert json.loads((tmp_path / "approvals.jsonl").read_text())["receipt_id"] == "approval-1"
 
 
+def test_different_receipt_ids_same_semantics_are_blocked(tmp_path: Path):
+    store = ContractApprovalReceiptStore(tmp_path / "approvals.jsonl")
+    store.append(make_receipt(receipt_id="approval-1"))
+    with pytest.raises(ContractApprovalError, match="SEMANTIC_COLLISION_FORBIDDEN"):
+        store.append(make_receipt(receipt_id="approval-2"))
+
+
+def test_different_semantics_are_not_a_collision(tmp_path: Path):
+    store = ContractApprovalReceiptStore(tmp_path / "approvals.jsonl")
+    store.append(make_receipt(receipt_id="approval-1", target_binding_ref="target/uat"))
+    store.append(make_receipt(receipt_id="approval-2", target_binding_ref="target/uat-2"))
+    assert len(store.records()) == 2
+
+
+def test_fingerprint_ignores_storage_identity_and_lifecycle_metadata():
+    receipt = make_receipt()
+    first = approval_semantic_fingerprint(receipt.as_dict())
+    changed = {**receipt.as_dict(), "receipt_id": "other", "status": "SUPERSEDED", "revocation_state": "REVOKED"}
+    assert first == approval_semantic_fingerprint(changed)
+
+
 def test_revocation_and_rollback_logs_are_append_only(tmp_path: Path):
     approval = make_receipt()
     revocation = ContractRevocationReceipt.create("revoke-1", approval, "2026-09-11T10:00:00Z", "operator-request")
@@ -181,6 +235,20 @@ def test_revocation_and_rollback_logs_are_append_only(tmp_path: Path):
     rollbacks.append(rollback)
     with pytest.raises(ContractApprovalError, match="DUPLICATE_ROLLBACK_ACK_FORBIDDEN"):
         rollbacks.append(rollback)
+
+
+def test_revocation_and_rollback_semantic_collisions_are_blocked(tmp_path: Path):
+    approval = make_receipt()
+    revocations = ContractRevocationReceiptStore(tmp_path / "revocations.jsonl")
+    revocations.append(ContractRevocationReceipt.create("revoke-1", approval, "2026-09-11T10:00:00Z", "operator-request"))
+    with pytest.raises(ContractApprovalError, match="REVOCATION_SEMANTIC_COLLISION_FORBIDDEN"):
+        revocations.append(ContractRevocationReceipt.create("revoke-2", approval, "2026-09-11T10:00:00Z", "operator-request"))
+    rollbacks = RollbackAcknowledgementStore(tmp_path / "rollback.jsonl")
+    first = RollbackAcknowledgementReceipt.create(receipt_id="rollback-1", release_id="release-1", contract=make_contract(), acknowledger_identity_ref=IDENTITY, acknowledged_at=NOW, reason="rollback", rollback_target="release-0")
+    rollbacks.append(first)
+    second = RollbackAcknowledgementReceipt.create(receipt_id="rollback-2", release_id="release-1", contract=make_contract(), acknowledger_identity_ref=IDENTITY, acknowledged_at=NOW, reason="rollback", rollback_target="release-0")
+    with pytest.raises(ContractApprovalError, match="ROLLBACK_SEMANTIC_COLLISION_FORBIDDEN"):
+        rollbacks.append(second)
 
 
 def test_semantic_hash_is_deterministic():
@@ -225,3 +293,12 @@ def test_tampered_receipt_hash_is_blocked():
     receipt = make_receipt()
     tampered = ContractApprovalReceipt(**{**receipt.__dict__, "target_binding_ref": "target/other"})
     assert "APPROVAL_INVALID" in verify(approval=tampered).errors
+
+
+def test_directly_constructed_correct_looking_identity_is_blocked():
+    forged = ContractApproverIdentityEvidence(
+        make_approver().identity_ref, "GOOGLE_WORKSPACE", CONTRACT_SEMANTICS_APPROVER_ROLE,
+        PHASE1_CANARY_ENVIRONMENT, EVIDENCE,
+    )
+    result = verify(approver=forged)
+    assert "APPROVER_EVIDENCE_INVALID" in result.errors

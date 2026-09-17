@@ -31,6 +31,14 @@ receipt；有效 approval 加上有效 revocation 一律視為 invalid。過期�
 同樣 fail closed。Rollback acknowledgement 必須 pin release、contract revision/hash、verified
 identity、timestamp、reason 與 rollback target，不接受 boolean、button 或 docs-only evidence。
 
+`approval_semantic_fingerprint` 只 hash approval meaning，不包含 `receipt_id` 或其他 storage
+identity。Store 同時維護 receipt ID index 與 semantic fingerprint index：duplicate ID、semantic
+collision 與 overwrite 都 fail closed；修正只能建立 genuinely different、可追溯的 superseding
+receipt。
+
+Revocation 與 rollback acknowledgement stores 也各自維護 ID 與 semantic fingerprint index，
+因此不同 ID 的相同 evidence 不會被 silent dedupe 或重複接受。
+
 ## Runtime gate
 
 Verifier 必須同時比對 exact contract、approval、approver evidence、waiver、environment、target
@@ -38,6 +46,9 @@ Verifier 必須同時比對 exact contract、approval、approver evidence、waiv
 `PRODUCTION_ACTIVATION = NOT_AUTHORIZED`；activation 仍需獨立的使用者授權與另外的 production
 contract gate。Receipt retention 的預設 policy 是至少 Phase 1 結束後一年，並受
 `SUBJECT_TO_COMPANY_RETENTION_POLICY` 約束。
+
+Approver evidence 必須重新通過既有 `TrustedReviewVerifier`、exact external binding、pseudonymous
+subject match 與 provider provenance；直接構造的 flattened dataclass 即使欄位看似正確也會 fail closed。
 
 ## Status
 

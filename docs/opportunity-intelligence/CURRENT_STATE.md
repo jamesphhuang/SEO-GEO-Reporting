@@ -448,6 +448,9 @@ business-data mutation 都是 `0`。`LIVE_WRITE_READINESS = BLOCKED`，剩餘 bl
 
 ## Phase 1 Contract Approval Evidence Foundation（2026-09-17）
 
+Foundation commit 的實際 changed paths 為 14 個；沒有新增 dummy path，scope 只包含本 foundation
+code、synthetic tests、四份 proposal schemas 與必要 handoff docs。
+
 本地 foundation 定義 exact contract instance pinning（contract id/version/revision/semantic hash）、
 provider-verified pseudonymous approver evidence、獨立的 `CONTRACT_SEMANTICS_APPROVER` role、
 Phase 1 canary waiver、七日未使用 approval expiry、append-only revocation/supersession、rollback
