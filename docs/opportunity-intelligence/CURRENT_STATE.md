@@ -445,3 +445,19 @@ waiver 只容許 `PHASE1_CANARY`、一筆 operation，且禁止 production inher
 business-data mutation 都是 `0`。`LIVE_WRITE_READINESS = BLOCKED`，剩餘 blockers 為
 `PRODUCTION_CONTRACTS_NOT_APPROVED` 與 `PRODUCTION_ACTIVATION_NOT_AUTHORIZED`；
 `PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。
+
+## Phase 1 Contract Approval Evidence Foundation（2026-09-17）
+
+本地 foundation 定義 exact contract instance pinning（contract id/version/revision/semantic hash）、
+provider-verified pseudonymous approver evidence、獨立的 `CONTRACT_SEMANTICS_APPROVER` role、
+Phase 1 canary waiver、七日未使用 approval expiry、append-only revocation/supersession、rollback
+acknowledgement 與 deterministic receipt hashes。Approval verifier 只產生
+`CONTRACT_APPROVAL_GATE = PASS/BLOCKED`，不會把 contract semantics approval 轉成 production
+activation authorization。
+
+七份 Phase 1 dependency contracts 與 foundation proposal contracts 都維持
+`DRAFT_NOT_APPROVED`、`x-production-activation=false`；本地 synthetic cases 與既有 regression
+供驗證使用，沒有建立正式 approval receipt、Recommendation、audit receipt 或任何 production
+mutation。`CONTRACT_APPROVAL_EVIDENCE_FOUNDATION = READY`、
+`PRODUCTION_CONTRACTS_APPROVED = FALSE`、`LIVE_WRITE_READINESS = BLOCKED`、
+`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。下一步只做 Contract Approval Package Review。

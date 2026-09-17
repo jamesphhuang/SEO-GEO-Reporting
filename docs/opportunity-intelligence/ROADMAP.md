@@ -221,3 +221,16 @@ Canonical月報搬移另走ARCHITECTURE migration序列：先characterization，
 - Remaining blockers：`PRODUCTION_CONTRACTS_NOT_APPROVED`,
   `PRODUCTION_ACTIVATION_NOT_AUTHORIZED`.
 - Next single task：**Phase 1 Production Contract Approval Readiness Review**。
+
+## Production Phase 1 — Contract Approval Evidence Foundation（completed）
+
+- Exact approvals pin contract id/version/revision/semantic hash and target/environment scope.
+- Provider-verified pseudonymous identity is explicitly bound to `CONTRACT_SEMANTICS_APPROVER`;
+  reviewer identity and writer identity remain separate concepts.
+- Canary waiver limits one operation, expires unused approvals after seven calendar days, and forbids
+  production inheritance or automatic scope expansion.
+- Revocation, supersession and rollback acknowledgement are append-only evidence paths; no original
+  approval is overwritten.
+- Result：`CONTRACT_APPROVAL_EVIDENCE_FOUNDATION = READY`；proposal contracts remain
+  `DRAFT_NOT_APPROVED`；`PRODUCTION_CONTRACTS_APPROVED = FALSE`；activation remains unauthorized.
+- Next single task：**Phase 1 Contract Approval Package Review**。

@@ -270,3 +270,15 @@ pseudonymous subject binding、exact role/scope/revision/hash、same-person waiv
 下一個唯一正式任務是 **Phase 1 Production Contract Approval Readiness Review**：只盤點
 production contracts、approval authorities、rollback/audit prerequisites 與 authorization gaps。
 不得開始 Live Recommendation Write、Production Activation、scheduler 或 batch expansion。
+
+## NEXT_TASK — Phase 1 Contract Approval Package Review
+
+Contract Approval Evidence Foundation 已完成：approval 只針對 exact contract revision/hash，
+並要求獨立的 provider-verified semantics approver、canary waiver、expiry、revocation、
+supersession 與 rollback acknowledgement。這些是 offline/UAT foundation controls，並沒有批准
+任何 production contract，也沒有產生正式 approval receipt。
+
+下一個唯一正式任務是 **Phase 1 Contract Approval Package Review**。在該 review 完成前，
+`PRODUCTION_CONTRACTS_APPROVED = FALSE`、`LIVE_WRITE_READINESS = BLOCKED`、
+`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`；不得開始 live write、scheduler、batch expansion 或
+建立 production approval receipt。

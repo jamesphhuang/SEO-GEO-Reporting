@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://shopline.example/contracts/contract_approval_receipt.v1.proposal.json",
+  "title": "Contract approval evidence receipt (proposal)",
+  "type": "object",
+  "additionalProperties": false,
+  "x-proposal-status": "DRAFT_NOT_APPROVED",
+  "x-production-activation": false,
+  "required": ["receipt_id", "contract_id", "contract_version", "contract_revision", "contract_semantic_hash", "approved_scope", "environment", "target_binding_ref", "approver_identity_ref", "approver_role", "approved_at", "effective_at", "expires_at", "status", "revocation_state", "operation_limit", "production_inheritance", "automatic_scope_expansion", "approval_waiver_ref", "readback_result", "receipt_semantic_hash"],
+  "properties": {
+    "receipt_id": {"type": "string"}, "contract_id": {"type": "string"}, "contract_version": {"type": "string"}, "contract_revision": {"type": "integer", "minimum": 1},
+    "contract_semantic_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "approved_scope": {"const": "PHASE1_CANARY_ONLY"}, "environment": {"const": "PHASE1_CANARY_ONLY"}, "target_binding_ref": {"type": "string"}, "approver_identity_ref": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "approver_role": {"const": "CONTRACT_SEMANTICS_APPROVER"},
+    "approved_at": {"type": "string", "format": "date-time"}, "effective_at": {"type": "string", "format": "date-time"}, "expires_at": {"type": "string", "format": "date-time"}, "status": {"enum": ["ACTIVE", "EXPIRED", "REVOKED", "SUPERSEDED"]}, "revocation_state": {"enum": ["ACTIVE", "REVOKED"]}, "supersedes": {"type": ["string", "null"]}, "superseded_by": {"type": ["string", "null"]}, "operation_limit": {"const": 1}, "production_inheritance": {"const": false}, "automatic_scope_expansion": {"const": false}, "approval_waiver_ref": {"type": ["string", "null"]}, "readback_result": {"type": "string"}, "receipt_semantic_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  }
+}
