@@ -499,3 +499,38 @@ persistent audit binding remain uncreated or unverified.
 
 `CONTRACT_APPROVAL_EVIDENCE_FOUNDATION = READY`；`PRODUCTION_CONTRACTS_APPROVED = FALSE`；
 `LIVE_WRITE_READINESS = BLOCKED`；`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。
+
+## Phase 1 Contract Canonical Instance Foundation（2026-09-17）
+
+| Check | Result | Scope / limit |
+| --- | --- | --- |
+| Seven-contract registry | PASS | exact logical ids, proposal mapping, ruleset, runtime consumer and materializer key; duplicate/ambiguous mapping fails closed |
+| Independent dimensions | PASS | `PHASE1_CANARY` / `UAT` / `ZERO_WRITE` / `PRODUCTION_CANARY` / `NOT_AUTHORIZED` remain separate |
+| Legacy migration | PASS | `PHASE1_CANARY_ONLY` is rejected unless the explicit migration helper is requested |
+| Deterministic materialization | PASS | same semantic inputs produce the same instance and SHA-256 hash; revision changes the hash |
+| Semantic allowlists | PASS | runtime metadata, receipts, credentials, identity values and external target ids are excluded |
+| Seven canonical fixtures | PASS | rules-only instances; no approval receipt, identity binding, real target id or production artifact |
+| Proposal status | PASS | all seven proposals remain `DRAFT_NOT_APPROVED`; activation flag remains false |
+| Production boundary | PASS | no approval store, approval execution, Google/Drive/Sheets write, scheduler, live source or business-data mutation |
+
+`CONTRACT_CANONICAL_INSTANCE_FOUNDATION = READY`、`SEMANTIC_READINESS = READY`、
+`CANONICAL_INSTANCE_READINESS = READY`；`APPROVAL_EXECUTION_READINESS = BLOCKED_PERSISTENT_STORE`、
+`PRIOR_APPROVAL_DECISION_STATUS = RECONFIRMATION_REQUIRED`、`FORMAL_APPROVAL_RECEIPTS = 0`、
+`CONTRACTS_APPROVED = 0`、`LIVE_WRITE_READINESS = BLOCKED`、
+`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。下一個唯一任務為 **Phase 1 Persistent Approval Store**。
+
+## Contract Canonical Instance Test Runner Consistency（2026-09-17）
+
+| Check | Result | Scope / limit |
+| --- | --- | --- |
+| Test conversion | PASS | `test_contract_approval.py` and `test_contract_canonical_instances.py` use only `unittest`; no pytest import, marker or fixture remains |
+| Authoritative runner | PASS | `97_Runtime/gsc-mcp/bin/python3.12 -m unittest discover -s tests` |
+| Fresh full regression | PASS | `419/419`; failures `0`, errors `0`, skipped `0` |
+| Targeted suites | PASS | Contract Approval + Canonical `52/52`; Trusted Identity `13/13`; Canary Writer `18/18`; Zero-Write `15/15`; WP12→WP1 `321/321` |
+| Canonical fixture readback | PASS | seven materialized instances match the checked-in fixture exactly |
+| Structural / boundary checks | PASS | proposal schemas, AST, `git diff --check`, secret/PII/identity/live-call/scheduler scans; no production implementation drift |
+
+`TEST_RUNNER_CONSISTENCY = PASS`、`AUTHORITATIVE_TEST_RUNNER = UNITTEST`、
+`PYTEST_REQUIRED = FALSE`。本輪只修正測試 runner compatibility；formal approval
+receipts、approved contracts 與 production mutation 仍為 `0`，
+`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。

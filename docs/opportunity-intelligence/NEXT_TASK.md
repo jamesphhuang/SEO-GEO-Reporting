@@ -282,3 +282,28 @@ supersession 與 rollback acknowledgement。這些是 offline/UAT foundation con
 `PRODUCTION_CONTRACTS_APPROVED = FALSE`、`LIVE_WRITE_READINESS = BLOCKED`、
 `PRODUCTION_ACTIVATION = NOT_AUTHORIZED`；不得開始 live write、scheduler、batch expansion 或
 建立 production approval receipt。
+
+## NEXT_TASK — Phase 1 Persistent Approval Store
+
+The Contract Canonical Instance Foundation is complete. Seven deterministic
+rules instances are checked in as a rules fixture and materialized through the
+authoritative registry; this does not create an approval receipt or approve a
+contract. Canonical dimensions remain `PHASE1_CANARY` approval scope,
+`UAT` execution context, `ZERO_WRITE` transport,
+`PRODUCTION_CANARY` target environment and `NOT_AUTHORIZED` activation.
+
+Current readiness:
+
+- `CONTRACT_CANONICAL_INSTANCE_FOUNDATION = READY`
+- `SEMANTIC_READINESS = READY`
+- `CANONICAL_INSTANCE_READINESS = READY`
+- `APPROVAL_EXECUTION_READINESS = BLOCKED_PERSISTENT_STORE`
+- `PRIOR_APPROVAL_DECISION_STATUS = RECONFIRMATION_REQUIRED`
+- `FORMAL_APPROVAL_RECEIPTS = 0`
+- `CONTRACTS_APPROVED = 0`
+- `LIVE_WRITE_READINESS = BLOCKED`
+- `PRODUCTION_ACTIVATION = NOT_AUTHORIZED`
+
+The next and only task is **Phase 1 Persistent Approval Store**. Do not infer a
+persistent store, approval receipt, external binding, production write or
+activation from this foundation.
