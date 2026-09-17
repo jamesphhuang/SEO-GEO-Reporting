@@ -351,3 +351,25 @@ NOT_AUTHORIZED` and `LIVE_WRITE_READINESS = BLOCKED`.
 
 Next single task: **Phase 1 Persistent Approval Store**. Do not infer approval
 execution or production authorization from this handoff.
+
+## Contract Canonical Instance Test Runner Consistency handoff（2026-09-17）
+
+The two pytest-only modules were converted to standard `unittest.TestCase`
+tests without changing production code, contracts, fixtures or security cases.
+The authoritative command is:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 '../97_Runtime/gsc-mcp/bin/python3.12' -m unittest discover -s tests
+```
+
+Fresh discovery is **419/419 PASS** with zero failures, errors or skipped tests.
+Contract Approval + Canonical targeted tests are **52/52 PASS**; Trusted Identity
+is **13/13**, Canary Writer **18/18**, Zero-Write **15/15**, and WP12→WP1
+targeted suites **321/321**. Proposal schemas, canonical fixture readback, AST,
+`git diff --check` and scoped security/production-boundary scans pass. No pytest
+dependency, approval receipt, production write, scheduler or activation was
+introduced. `TEST_RUNNER_CONSISTENCY = PASS`, `PYTEST_REQUIRED = FALSE`, and
+`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`.
+
+The next single task remains **Phase 1 Persistent Approval Store**; it is not
+started.

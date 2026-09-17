@@ -492,3 +492,17 @@ not approval receipts; all seven proposal contracts remain `DRAFT_NOT_APPROVED` 
 The next single task is **Phase 1 Persistent Approval Store**. No approval store,
 approval receipt, Google/Drive/Sheets write, scheduler or live source call was
 created in this foundation.
+
+## Contract Canonical Instance Test Runner Consistency（2026-09-17）
+
+The two canonical-foundation test modules are now pure `unittest` tests. The
+repository has one reproducible authoritative runner:
+`97_Runtime/gsc-mcp/bin/python3.12 -m unittest discover -s tests`.
+Fresh discovery completed **419/419 PASS** with zero failures and zero errors;
+pytest is not a repository dependency. Contract Approval and Canonical targeted
+suites completed **52/52 PASS**. The canonical fixture still matches fresh
+materialization **7/7** exactly, and production mutation remains `0`.
+
+`TEST_RUNNER_CONSISTENCY = PASS` and `AUTHORITATIVE_TEST_RUNNER = UNITTEST`.
+Approval execution remains `BLOCKED_PERSISTENT_STORE`; the next single task is
+still **Phase 1 Persistent Approval Store**.
