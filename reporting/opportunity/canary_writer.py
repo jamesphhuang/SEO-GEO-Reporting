@@ -21,6 +21,7 @@ from .proposal_validation import ValidationError, ValidationResult
 from .review_bridge import validate_recommendation_bridge
 from .review import validate_human_review
 from .store.serialization import canonical_json, canonical_line
+from .trusted_review_identity import verify_trusted_review_context
 
 
 CONTRACT_VERSION = "recommendation_canary_writer.v1.proposal"
@@ -367,10 +368,21 @@ def _validate_binding(binding: GoogleSheetsTargetBinding) -> list[ValidationErro
     return [error for error in errors if error is not None]
 
 
-def _trusted_review_errors(review: Mapping[str, Any], context: Any) -> list[ValidationError]:
+def _trusted_review_errors(
+    review: Mapping[str, Any],
+    context: Any,
+    *,
+    writer_principal_ref: str,
+    operation_count: int,
+) -> list[ValidationError]:
     errors: list[ValidationError] = []
-    if not isinstance(context, Mapping) or context.get("verified") is not True or not context.get("provider_ref") or not context.get("subject_ref"):
-        errors.append(_error("BLOCKED_TRUSTED_IDENTITY", "trusted_review_context", "production identity provider verification is required; caller authentication booleans are insufficient"))
+    verification = verify_trusted_review_context(
+        context,
+        writer_principal_ref=writer_principal_ref,
+        operation_count=operation_count,
+    )
+    if not verification.trusted:
+        errors.append(_error("BLOCKED_TRUSTED_IDENTITY", "trusted_review_context", "verified provider evidence and exact active binding are required"))
     if review.get("reviewer", {}).get("authenticated") is not True or review.get("authenticated_human") is not True:
         errors.append(_error("BLOCKED_TRUSTED_IDENTITY", "reviewer", "reviewer must be authenticated"))
     if review.get("superseded") is True or str(review.get("review_status", "")).upper() == "SUPERSEDED":
@@ -378,7 +390,13 @@ def _trusted_review_errors(review: Mapping[str, Any], context: Any) -> list[Vali
     return errors
 
 
-def _eligibility(operation: Mapping[str, Any], trusted_review_context: Any) -> tuple[list[ValidationError], Optional[dict[str, Any]], Optional[dict[str, Any]], Optional[dict[str, Any]]]:
+def _eligibility(
+    operation: Mapping[str, Any],
+    trusted_review_context: Any,
+    *,
+    writer_principal_ref: str = "principal://authorized-user-oauth/runtime",
+    operation_count: int = 1,
+) -> tuple[list[ValidationError], Optional[dict[str, Any]], Optional[dict[str, Any]], Optional[dict[str, Any]]]:
     errors: list[ValidationError] = []
     candidate = operation.get("candidate") if isinstance(operation.get("candidate"), Mapping) else {}
     review = operation.get("review") if isinstance(operation.get("review"), Mapping) else {}
@@ -396,7 +414,12 @@ def _eligibility(operation: Mapping[str, Any], trusted_review_context: Any) -> t
         errors.append(_error("CANDIDATE_PIN_MISMATCH", "candidate", "bridge must pin the exact Candidate revision/hash"))
     if review.get("revision") != bridge.get("review_revision") or review.get("content_hash") != bridge.get("review_hash"):
         errors.append(_error("REVIEW_PIN_MISMATCH", "review", "bridge must pin the exact Review revision/hash"))
-    errors.extend(_trusted_review_errors(review, trusted_review_context))
+    errors.extend(_trusted_review_errors(
+        review,
+        trusted_review_context,
+        writer_principal_ref=writer_principal_ref,
+        operation_count=operation_count,
+    ))
     if operation.get("review_superseded") is True:
         errors.append(_error("SUPERSEDED_REVIEW", "review", "superseded review cannot publish"))
     if bridge.get("review_decision") != "APPROVE":
@@ -452,7 +475,12 @@ class RecommendationCanaryWriter:
         if sensitive_errors:
             return _result("BLOCKED", sensitive_errors)
         trusted = operation.get("trusted_review_context")
-        eligibility_errors, candidate, review, bridge = _eligibility(operation, trusted)
+        eligibility_errors, candidate, review, bridge = _eligibility(
+            operation,
+            trusted,
+            writer_principal_ref=self.binding.writer_principal_ref,
+            operation_count=len(operations),
+        )
         errors.extend(eligibility_errors)
         if errors:
             return _result("BLOCKED", errors)

@@ -21,6 +21,12 @@ from reporting.opportunity.canary_writer import (
 )
 from reporting.opportunity.review import create_human_review
 from reporting.opportunity.review_bridge import build_recommendation_bridge
+from reporting.opportunity.trusted_review_identity import (
+    TrustedIdentityEvidence,
+    TrustedReviewBinding,
+    VerifiedProviderIdentity,
+    reviewer_subject_ref,
+)
 from reporting.opportunity.store.serialization import content_hash
 
 
@@ -29,7 +35,35 @@ FIXTURE = json.loads((ROOT / "tests/fixtures/opportunity_canary_writer/scenarios
 REVIEW_FIXTURE = json.loads((ROOT / "tests/fixtures/opportunity_review/scenarios.json").read_text())
 DECISION_AT = REVIEW_FIXTURE["metadata"]["sample_dates"]["decision_at"]
 REVIEWER = {"actor_type": "HUMAN", "actor_ref": "reviewer_canary", "authenticated": True, "identity_source": "UAT_REVIEW_SURFACE"}
-TRUSTED = {"verified": True, "provider_ref": "synthetic://trusted-review-provider", "subject_ref": "synthetic://reviewer-canary"}
+
+
+def trusted_context():
+    value = {
+        "binding_version": "trusted-review-identity-binding.v1",
+        "provider": "GOOGLE_WORKSPACE",
+        "reviewer_subject_ref": reviewer_subject_ref("synthetic-google-subject-a"),
+        "workspace_domain": "shopline.com",
+        "role": "RECOMMENDATION_APPROVER",
+        "scope": "PHASE1_CANARY",
+        "status": "ACTIVE",
+        "binding_revision": 1,
+        "provider_verification_method": "GOOGLE_OIDC_ID_TOKEN_V1",
+        "same_person_writer_reviewer": True,
+        "separation_of_duties_waiver": "APPROVED_PHASE1_CANARY_ONLY",
+        "production_inheritance": False,
+        "automatic_scope_expansion": False,
+        "verified_at": "2026-09-17T09:00:00+08:00",
+    }
+    import hashlib
+    from reporting.opportunity.store.serialization import canonical_json
+    value["semantic_hash"] = hashlib.sha256(canonical_json(value).encode()).hexdigest()
+    binding = TrustedReviewBinding.from_mapping(value)
+    identity = VerifiedProviderIdentity.from_verified_google_claims(
+        {"sub": "synthetic-google-subject-a", "hd": "shopline.com"},
+        verified_at="2026-09-17T09:00:00+08:00",
+    )
+    evidence = TrustedIdentityEvidence.from_verified_provider_output(identity, binding)
+    return {"binding": binding, "evidence": evidence}
 
 
 def candidate(letter="A"):
@@ -47,7 +81,7 @@ def approved_operation(letter="A", operation_id="OP_CANARY_001", *, trusted=True
         "candidate": value,
         "review": review_result.review,
         "bridge": bridge_result.bridge,
-        "trusted_review_context": TRUSTED if trusted else None,
+        "trusted_review_context": trusted_context() if trusted else None,
     }
 
 

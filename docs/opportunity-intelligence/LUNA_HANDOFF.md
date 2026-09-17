@@ -293,3 +293,22 @@ fields、payload hash、deterministic idempotency key、readback/audit plan 與 
 `ZERO_WRITE_CONFIG_DRY_RUN = PASS`；`LIVE_WRITE_READINESS = BLOCKED`。三個預期 blocker
 為 trusted human-review identity 未驗證、proposal contracts 未批准、production activation 未授權。
 下一個唯一任務是 **Phase 1 Trusted Review Identity Binding**，本輪停止。
+
+## Phase 1 Trusted Review Identity Binding handoff（2026-09-17）
+
+Baseline 為 `fcccce424820e59a9d76c4c0224b4dd3c3499b6a`；generic implementation 在隔離
+`feat/opportunity-trusted-review-identity`。`trusted_review_identity.py` 定義固定
+`google-workspace-reviewer-v1:` subject-ref namespace、non-secret binding、typed provider
+evidence 與 fail-closed verifier。不得讓 caller JSON、`authenticated=true`、email、role、domain
+或 subject ref 字串取代經驗證 provider evidence。
+
+實際 external binding 僅保存 pseudonymous ref、`GOOGLE_WORKSPACE`、`shopline.com`、
+`RECOMMENDATION_APPROVER`、`PHASE1_CANARY`、revision/hash 與
+`APPROVED_PHASE1_CANARY_ONLY` waiver；不得將 raw subject、email、token、credential 或實際
+subject ref 放入 Git、fixture、log 或文件。外部 binding readback 與新 provider readback 已比對
+一致。config ACL 為 domain viewer 加明確 owner/authorized editors，未做 ACL mutation。
+
+`TRUSTED_REVIEW_IDENTITY_BINDING = READY`、`TRUSTED_IDENTITY_GATE = PASS`。identity PASS
+不表示 live write 或 production activation；剩餘 blockers 是 production contracts 未批准與
+production activation 未授權。下一個唯一任務為 **Phase 1 Production Contract Approval
+Readiness Review**。

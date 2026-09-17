@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "synthetic": true,
+    "source": "offline-only",
+    "production_mutation": 0,
+    "description": "Synthetic trust-binding adversarial cases; no real subject, email, token, or credential material."
+  },
+  "scenarios": [
+    {"id": "A", "name": "valid verified provider evidence", "expected": "PASS"},
+    {"id": "B", "name": "authenticated true only", "expected": "BLOCKED"},
+    {"id": "C", "name": "caller email only", "expected": "BLOCKED"},
+    {"id": "D", "name": "caller role only", "expected": "BLOCKED"},
+    {"id": "E", "name": "fake workspace email", "expected": "BLOCKED"},
+    {"id": "F", "name": "provider evidence absent", "expected": "BLOCKED"},
+    {"id": "G", "name": "wrong provider", "expected": "BLOCKED"},
+    {"id": "H", "name": "wrong subject ref", "expected": "BLOCKED"},
+    {"id": "I", "name": "wrong domain", "expected": "BLOCKED"},
+    {"id": "J", "name": "wrong role", "expected": "BLOCKED"},
+    {"id": "K", "name": "wrong scope", "expected": "BLOCKED"},
+    {"id": "L", "name": "disabled binding", "expected": "BLOCKED"},
+    {"id": "M", "name": "revision mismatch", "expected": "BLOCKED"},
+    {"id": "N", "name": "semantic hash mismatch", "expected": "BLOCKED"},
+    {"id": "O", "name": "same-person valid waiver", "expected": "PASS"},
+    {"id": "P", "name": "same-person missing waiver", "expected": "BLOCKED"},
+    {"id": "Q", "name": "waiver outside phase 1", "expected": "BLOCKED"},
+    {"id": "R", "name": "operation limit above one", "expected": "BLOCKED"},
+    {"id": "S", "name": "production inheritance attempt", "expected": "BLOCKED"}
+  ]
+}
