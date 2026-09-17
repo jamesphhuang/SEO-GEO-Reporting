@@ -255,7 +255,7 @@ Recommendation rows 與 audit receipts 仍為 `0`。
 Google OAuth principal 當成人審身份；在 identity、contracts 與 activation authorization 全部完成
 前，不得執行 live Recommendation write、scheduler 或 production activation。
 
-## NEXT_TASK — Phase 1 Production Contract Approval Readiness Review
+## Historical completed task — Phase 1 Production Contract Approval Readiness Review
 
 Phase 1 Trusted Review Identity Binding 已完成：Google Workspace provider evidence、external
 pseudonymous subject binding、exact role/scope/revision/hash、same-person waiver 及 runtime gate
@@ -267,6 +267,18 @@ pseudonymous subject binding、exact role/scope/revision/hash、same-person waiv
 - `PRODUCTION_CONTRACTS_NOT_APPROVED`
 - `PRODUCTION_ACTIVATION_NOT_AUTHORIZED`
 
-下一個唯一正式任務是 **Phase 1 Production Contract Approval Readiness Review**：只盤點
+當時唯一正式任務是 **Phase 1 Production Contract Approval Readiness Review**：只盤點
 production contracts、approval authorities、rollback/audit prerequisites 與 authorization gaps。
 不得開始 Live Recommendation Write、Production Activation、scheduler 或 batch expansion。
+
+## NEXT_TASK — Phase 1 Contract Approval Package Review
+
+Contract Approval Evidence Foundation 已完成：approval 只針對 exact contract revision/hash，
+並要求獨立的 provider-verified semantics approver、canary waiver、expiry、revocation、
+supersession 與 rollback acknowledgement。這些是 offline/UAT foundation controls，並沒有批准
+任何 production contract，也沒有產生正式 approval receipt。
+
+下一個唯一正式任務是 **Phase 1 Contract Approval Package Review**。在該 review 完成前，
+`PRODUCTION_CONTRACTS_APPROVED = FALSE`、`LIVE_WRITE_READINESS = BLOCKED`、
+`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`；不得開始 live write、scheduler、batch expansion 或
+建立 production approval receipt。

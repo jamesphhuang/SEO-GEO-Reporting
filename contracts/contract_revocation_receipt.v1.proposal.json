@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://shopline.example/contracts/contract_revocation_receipt.v1.proposal.json",
+  "title": "Contract approval revocation receipt (proposal)",
+  "type": "object", "additionalProperties": false,
+  "x-proposal-status": "DRAFT_NOT_APPROVED", "x-production-activation": false,
+  "required": ["revocation_id", "approval_receipt_id", "contract_revision", "contract_semantic_hash", "revoked_at", "reason", "revocation_semantic_fingerprint", "revocation_semantic_hash"],
+  "properties": {"revocation_id": {"type": "string"}, "approval_receipt_id": {"type": "string"}, "contract_revision": {"type": "integer", "minimum": 1}, "contract_semantic_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "revoked_at": {"type": "string", "format": "date-time"}, "reason": {"type": "string"}, "revocation_semantic_fingerprint": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "revocation_semantic_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}
+}

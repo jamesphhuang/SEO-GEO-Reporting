@@ -312,3 +312,15 @@ subject ref 放入 Git、fixture、log 或文件。外部 binding readback 與�
 不表示 live write 或 production activation；剩餘 blockers 是 production contracts 未批准與
 production activation 未授權。下一個唯一任務為 **Phase 1 Production Contract Approval
 Readiness Review**。
+
+## Phase 1 Contract Approval Evidence Foundation handoff（2026-09-17）
+
+新 foundation 在隔離 branch 提供 generic exact-instance contract approval verifier、synthetic
+append-only receipt store、canary approval waiver、immutable revocation/supersession、rollback
+acknowledgement 與 deterministic semantic hashes。Approver 必須是 provider-verified pseudonymous
+identity 並以獨立 `CONTRACT_SEMANTICS_APPROVER` role 綁定；existing reviewer role 不會自動繼承。
+
+所有七份 Phase 1 dependency contracts 仍是 proposal-only。未建立正式 approval receipt，未做
+Google/Drive/Sheets/ACL/audit write，未啟用 scheduler。`CONTRACT_APPROVAL_EVIDENCE_FOUNDATION = READY`、
+`PRODUCTION_CONTRACTS_APPROVED = FALSE`、`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。
+下一個唯一任務為 **Phase 1 Contract Approval Package Review**。

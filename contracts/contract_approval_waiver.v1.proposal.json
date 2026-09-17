@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://shopline.example/contracts/contract_approval_waiver.v1.proposal.json",
+  "title": "Phase 1 canary contract approval waiver (proposal)",
+  "type": "object", "additionalProperties": false,
+  "x-proposal-status": "DRAFT_NOT_APPROVED", "x-production-activation": false,
+  "required": ["waiver_id", "revision", "environment", "operation_limit", "production_inheritance", "automatic_scope_expansion", "broader_production_use", "approver_identity_ref", "semantic_hash"],
+  "properties": {"waiver_id": {"type": "string"}, "revision": {"type": "integer", "minimum": 1}, "environment": {"const": "PHASE1_CANARY_ONLY"}, "operation_limit": {"const": 1}, "production_inheritance": {"const": false}, "automatic_scope_expansion": {"const": false}, "broader_production_use": {"const": false}, "approver_identity_ref": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "semantic_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}
+}

@@ -483,3 +483,19 @@ persistent audit binding remain uncreated or unverified.
 `REAL_REVIEW_EVENTS_CREATED = 0`、`PRODUCTION_AUDIT_RECEIPTS_WRITTEN = 0`、
 `PRODUCTION_BUSINESS_DATA_MUTATION = 0`。`LIVE_WRITE_READINESS = BLOCKED`，僅餘
 `PRODUCTION_CONTRACTS_NOT_APPROVED`、`PRODUCTION_ACTIVATION_NOT_AUTHORIZED`。
+
+## Phase 1 Contract Approval Evidence Foundation（2026-09-17）
+
+| Check | Result | Scope / limit |
+| --- | --- | --- |
+| Exact contract pinning | PASS | contract id/version/revision/semantic hash must match the reviewed instance |
+| Approver evidence | PASS | provider-verified pseudonymous identity and explicit `CONTRACT_SEMANTICS_APPROVER` role |
+| Waiver / scope | PASS | canary-only, one operation, no production inheritance or automatic expansion |
+| Expiry / revocation / supersession | PASS | seven-day unused approval limit; append-only invalidation paths |
+| Rollback acknowledgement | PASS | release and contract revision/hash, identity, timestamp, reason and target are pinned |
+| Proposal contracts | PASS | foundation proposals remain `DRAFT_NOT_APPROVED`; activation flag remains false |
+| Synthetic targeted foundation cases | PASS | exact-match, mismatch, expiry, revocation, duplicate and activation-separation cases |
+| Production boundary | PASS | no formal approvals, writes, scheduler, live sources, or business-data mutation |
+
+`CONTRACT_APPROVAL_EVIDENCE_FOUNDATION = READY`；`PRODUCTION_CONTRACTS_APPROVED = FALSE`；
+`LIVE_WRITE_READINESS = BLOCKED`；`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。
