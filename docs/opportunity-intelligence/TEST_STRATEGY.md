@@ -189,3 +189,16 @@ regression 為 **339 tests，OK**。Proposal schemas、fixture JSON、Python AST
 date/date-time、`git diff --check` 與 scoped security/PII/live-call/scheduler/production
 boundary checks 均 PASS。沒有 real Google request、OAuth consent/refresh、production workbook
 write 或 scheduler activity。
+
+## Phase 1 Trusted Review Identity Binding coverage
+
+`tests/test_opportunity_trusted_review_identity.py` 與 synthetic A–S fixture 覆蓋 fixed
+subject-ref namespace、binding semantic hash、typed provider evidence、exact provider/subject/domain/
+role/scope/revision/hash matching、authenticated/caller-claim spoof rejection、disabled binding、
+same-person waiver、one-operation limit、production inheritance block、writer/reviewer reference
+separation、proposal schema 與 sensitive binding fields rejection。
+
+Trusted identity + Canary Writer + Zero-Write targeted 為 **46/46 PASS**；fresh full regression
+為 **367/367 PASS**。fixtures 不含 real email、subject、subject reference、token 或 credential。
+驗證不建立 HumanReview、Recommendation、WriteIntent、audit receipt、Sheets/Drive/ACL mutation、
+scheduler 或 production activation。

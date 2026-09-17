@@ -424,3 +424,22 @@ hashes、principal ref、workbook/tab、audit ref、ACL policy 與 `verified_at`
 `PRODUCTION_CONTRACTS_NOT_APPROVED`、`PRODUCTION_ACTIVATION_NOT_AUTHORIZED`。
 下一個唯一任務是 **Phase 1 Trusted Review Identity Binding**；本輪不開始 live write、
 scheduler 或 production activation。
+
+## Phase 1 Trusted Review Identity Binding（2026-09-17）
+
+Google Workspace provider readback 已經過官方 OIDC verifier 的 signature、issuer、audience、
+expiry、stable subject、`hd=shopline.com` 與 `email_verified` 驗證。外部 non-secret binding
+位於 `98_環境設定/opportunity-canary/trusted-review-identity.json`，只保存 pseudonymous
+subject ref、role `RECOMMENDATION_APPROVER`、scope `PHASE1_CANARY`、revision、waiver 與
+semantic hash；不保存 raw subject、email、token 或 credential material，且不進 Git。
+
+Runtime gate 必須同時比對 typed provider evidence、exact subject/domain/role/scope、binding
+revision/hash 與 Phase 1 same-person waiver。`authenticated=true`、caller email、role、domain
+或 subject ref 字串均不能單獨通過。writer principal 與 reviewer subject ref 是不同概念；本輪
+waiver 只容許 `PHASE1_CANARY`、一筆 operation，且禁止 production inheritance 與自動擴張。
+
+`TRUSTED_REVIEW_IDENTITY_BINDING = READY`、`TRUSTED_REVIEW_EXTERNAL_BINDING = VERIFIED`、
+`TRUSTED_IDENTITY_GATE = PASS`。Recommendation records、real review events、audit receipts 與
+business-data mutation 都是 `0`。`LIVE_WRITE_READINESS = BLOCKED`，剩餘 blockers 為
+`PRODUCTION_CONTRACTS_NOT_APPROVED` 與 `PRODUCTION_ACTIVATION_NOT_AUTHORIZED`；
+`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。

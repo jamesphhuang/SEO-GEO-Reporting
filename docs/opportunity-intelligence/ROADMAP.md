@@ -207,3 +207,17 @@ Canonical月報搬移另走ARCHITECTURE migration序列：先characterization，
 - Live gate：`LIVE_WRITE_READINESS = BLOCKED`，blockers 為 trusted review identity 未驗證、
   contracts `DRAFT_NOT_APPROVED`、activation `NOT_AUTHORIZED`。
 - Next single task：**Phase 1 Trusted Review Identity Binding**。
+
+## Production Phase 1 — Trusted Review Identity Binding（completed）
+
+- Result：`TRUSTED_REVIEW_IDENTITY_BINDING = READY`、
+  `TRUSTED_REVIEW_EXTERNAL_BINDING = VERIFIED`、`TRUSTED_IDENTITY_GATE = PASS`。
+- Input：Google official OIDC verification output and external non-secret binding; stable subject is
+  represented only by a deterministic pseudonymous reference.
+- Governance：role `RECOMMENDATION_APPROVER`, scope `PHASE1_CANARY`, one-operation same-person
+  waiver only; no production inheritance or automatic scope expansion.
+- Excluded：HumanReview event, Recommendation, WriteIntent, Sheets/Drive/ACL write, audit receipt,
+  contract approval, scheduler and production activation.
+- Remaining blockers：`PRODUCTION_CONTRACTS_NOT_APPROVED`,
+  `PRODUCTION_ACTIVATION_NOT_AUTHORIZED`.
+- Next single task：**Phase 1 Production Contract Approval Readiness Review**。

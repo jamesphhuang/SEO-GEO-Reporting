@@ -297,7 +297,12 @@ def plan_zero_write(
     if sensitive_errors:
         return DryRunResult("BLOCKED", ValidationResult(errors=sensitive_errors), None, None, "BLOCKED_CONFIG", tuple(LIVE_WRITE_BLOCKERS))
     synthetic_context = operation.get("trusted_review_context")
-    eligibility_errors, candidate, review, bridge = _eligibility(operation, synthetic_context)
+    eligibility_errors, candidate, review, bridge = _eligibility(
+        operation,
+        synthetic_context,
+        writer_principal_ref=str(binding["principal_ref"]),
+        operation_count=len(operations),
+    )
     eligibility_errors = [
         error for error in eligibility_errors
         if not (error.code == "BLOCKED_TRUSTED_IDENTITY" and error.field == "trusted_review_context")

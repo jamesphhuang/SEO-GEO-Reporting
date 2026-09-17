@@ -254,3 +254,14 @@ Recommendation rows 與 audit receipts 仍為 `0`。
 human-review identity/provider/role binding；不得把 Google OAuth principal 當成人審身份。
 在 identity、contracts 與 activation authorization 全部完成前，不得執行 live Recommendation
 write、scheduler 或 production activation。
+
+## NEXT_TASK — Phase 1 Production Contract Approval Readiness Review
+
+Phase 1 Trusted Review Identity Binding 已完成：Google Workspace provider evidence、external
+pseudonymous subject binding、exact role/scope/revision/hash、same-person waiver 及 runtime gate
+均已驗證。這不批准 production contract，也不建立 HumanReview、Recommendation、WriteIntent
+或 audit receipt。
+
+下一個唯一正式任務是 **Phase 1 Production Contract Approval Readiness Review**：只盤點
+production contracts、approval authorities、rollback/audit prerequisites 與 authorization gaps。
+不得開始 Live Recommendation Write、Production Activation、scheduler 或 batch expansion。

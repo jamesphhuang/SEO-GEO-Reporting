@@ -461,3 +461,25 @@ persistent audit binding remain uncreated or unverified.
 `ZERO_WRITE_CONFIG_DRY_RUN = PASS`；`LIVE_WRITE_READINESS = BLOCKED`。
 `RECOMMENDATION_RECORDS_WRITTEN = 0`、`PRODUCTION_AUDIT_RECEIPTS_WRITTEN = 0`、
 `PRODUCTION_BUSINESS_DATA_MUTATION = 0`、`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。
+
+## Phase 1 Trusted Review Identity Binding（2026-09-17）
+
+| Check | Result | Scope / limit |
+| --- | --- | --- |
+| Fresh baseline / isolated branch | PASS | `origin/main=fcccce424820e59a9d76c4c0224b4dd3c3499b6a`; isolated `feat/opportunity-trusted-review-identity` |
+| Provider readback | PASS | Google official OIDC verifier checked signature, issuer, audience, expiry, stable subject, hosted domain and email verification; raw claims never persisted or reported |
+| External binding | VERIFIED | `98_環境設定/opportunity-canary/trusted-review-identity.json`; pseudonymous subject ref only, revision/hash readback exact, file mode `0600`, not Git-tracked |
+| Config ACL | PASS | `shopline.com` link access is viewer-only; edit rights are explicit owner/authorized editors, with no domain-wide editor; read-only inspection only |
+| Runtime gate | PASS | typed provider evidence plus exact binding/provider/domain/subject/role/scope/revision/hash and waiver are required |
+| Spoof resistance | PASS | authenticated boolean, caller identity fields, missing evidence, wrong provider/subject/domain/role/scope, disabled binding, mismatch and invalid waiver all fail closed |
+| Same-person waiver | PASS | only `PHASE1_CANARY`, one operation, explicit waiver, no production inheritance and no automatic scope expansion |
+| Proposal contract | PASS | `trusted_review_identity_binding.v1.proposal.json` remains `DRAFT_NOT_APPROVED`, `x-production-activation=false` |
+| Targeted tests | PASS | trusted identity + canary writer + zero-write: `46/46` |
+| Full regression | PASS | `367/367` tests |
+| Structural / boundary checks | PASS | generic code/docs/tests only; no real subject/email/token in Git, no Sheets/Drive/ACL/audit mutation |
+
+`TRUSTED_REVIEW_IDENTITY_BINDING = READY`、`TRUSTED_REVIEW_EXTERNAL_BINDING = VERIFIED`、
+`TRUSTED_IDENTITY_GATE = PASS`。`RECOMMENDATION_RECORDS_WRITTEN = 0`、
+`REAL_REVIEW_EVENTS_CREATED = 0`、`PRODUCTION_AUDIT_RECEIPTS_WRITTEN = 0`、
+`PRODUCTION_BUSINESS_DATA_MUTATION = 0`。`LIVE_WRITE_READINESS = BLOCKED`，僅餘
+`PRODUCTION_CONTRACTS_NOT_APPROVED`、`PRODUCTION_ACTIVATION_NOT_AUTHORIZED`。

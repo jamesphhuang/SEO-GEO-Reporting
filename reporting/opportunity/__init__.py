@@ -63,6 +63,16 @@ from .canary_dry_run import (
     plan_zero_write,
     validate_durable_binding,
 )
+from .trusted_review_identity import (
+    TrustedIdentityEvidence,
+    TrustedIdentityVerification,
+    TrustedReviewBinding,
+    TrustedReviewVerifier,
+    VerifiedProviderIdentity,
+    load_trusted_review_binding,
+    reviewer_subject_ref,
+    verify_trusted_review_context,
+)
 
 __all__ = [
     "ValidationError",
@@ -176,6 +186,14 @@ __all__ = [
     "load_durable_binding",
     "plan_zero_write",
     "validate_durable_binding",
+    "TrustedIdentityEvidence",
+    "TrustedIdentityVerification",
+    "TrustedReviewBinding",
+    "TrustedReviewVerifier",
+    "VerifiedProviderIdentity",
+    "load_trusted_review_binding",
+    "reviewer_subject_ref",
+    "verify_trusted_review_context",
 ]
 
 
