@@ -408,7 +408,7 @@ Authorization header、cookie、private key 或 raw credential JSON。
 Production-Config Dry Run**，本輪不開始執行。
 
 
-## Phase 1 Zero-Write Production-Config Dry Run（2026-09-16）
+## Historical state before Trusted Review Identity completion — Phase 1 Zero-Write Production-Config Dry Run（2026-09-16）
 
 本輪只從 durable external binding `98_環境設定/opportunity-canary/environment-binding.json`
 載入設定；未使用 task-local `/private/tmp` 作為正式來源。Binding semantic/schema/allowlist
@@ -419,11 +419,13 @@ hashes、principal ref、workbook/tab、audit ref、ACL policy 與 `verified_at`
 只產生一筆不可執行的 `DryRunWritePlan`，`transport_mode=ZERO_WRITE`，未建立正式
 `WriteIntent`、未寫入 idempotency ledger、未建立 audit receipt。
 
-`ZERO_WRITE_CONFIG_DRY_RUN = PASS`。Live write eligibility 明確為
-`BLOCKED`，原因為 `TRUSTED_REVIEW_IDENTITY_NOT_VERIFIED`、
-`PRODUCTION_CONTRACTS_NOT_APPROVED`、`PRODUCTION_ACTIVATION_NOT_AUTHORIZED`。
-下一個唯一任務是 **Phase 1 Trusted Review Identity Binding**；本輪不開始 live write、
-scheduler 或 production activation。
+`ZERO_WRITE_CONFIG_DRY_RUN = PASS`。在 Trusted Review Identity Binding 完成前，
+live write eligibility 明確為 `BLOCKED`，當時原因為
+`TRUSTED_REVIEW_IDENTITY_NOT_VERIFIED`、`PRODUCTION_CONTRACTS_NOT_APPROVED`、
+`PRODUCTION_ACTIVATION_NOT_AUTHORIZED`。其中
+`TRUSTED_REVIEW_IDENTITY_NOT_VERIFIED` 已於後續完成的 Trusted Review Identity Binding
+解決；**Phase 1 Trusted Review Identity Binding** 是當時的下一個任務，現已完成。本輪不開始
+live write、scheduler 或 production activation。
 
 ## Phase 1 Trusted Review Identity Binding（2026-09-17）
 
