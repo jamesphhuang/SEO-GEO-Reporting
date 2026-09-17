@@ -464,3 +464,31 @@ activation authorization。
 mutation。`CONTRACT_APPROVAL_EVIDENCE_FOUNDATION = READY`、
 `PRODUCTION_CONTRACTS_APPROVED = FALSE`、`LIVE_WRITE_READINESS = BLOCKED`、
 `PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。下一步只做 Contract Approval Package Review。
+
+## Phase 1 Contract Canonical Instance Foundation（2026-09-17）
+
+Canonical contract instances are now materialized offline from an authoritative
+seven-contract registry. The registry keeps proposal mapping, ruleset reference,
+runtime consumer and materializer key explicit; unknown or ambiguous mappings
+fail closed. The trusted identity logical id intentionally maps to the existing
+`trusted_review_identity_binding.v1` proposal.
+
+Canonical dimensions are independent: `approval_scope=PHASE1_CANARY`,
+`execution_context=UAT`, `transport_mode=ZERO_WRITE`,
+`target_environment=PRODUCTION_CANARY`, `production_activation=NOT_AUTHORIZED`,
+`production_inheritance=false` and `automatic_scope_expansion=false`.
+`PHASE1_CANARY_ONLY` is historical and requires the explicit migration helper;
+it is never silently reinterpreted.
+
+`CONTRACT_CANONICAL_INSTANCE_FOUNDATION = READY`、`SEMANTIC_READINESS = READY`、
+`CANONICAL_INSTANCE_READINESS = READY`。This foundation contains rules instances,
+not approval receipts; all seven proposal contracts remain `DRAFT_NOT_APPROVED` and
+`x-production-activation=false`.
+
+`APPROVAL_EXECUTION_READINESS = BLOCKED_PERSISTENT_STORE`、
+`PRIOR_APPROVAL_DECISION_STATUS = RECONFIRMATION_REQUIRED`、
+`FORMAL_APPROVAL_RECEIPTS = 0`、`CONTRACTS_APPROVED = 0`、
+`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`、`LIVE_WRITE_READINESS = BLOCKED`。
+The next single task is **Phase 1 Persistent Approval Store**. No approval store,
+approval receipt, Google/Drive/Sheets write, scheduler or live source call was
+created in this foundation.

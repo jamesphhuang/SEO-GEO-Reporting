@@ -1,0 +1,183 @@
+{
+  "fixture_version": "opportunity-contract-canonical.v1",
+  "environment": {
+    "approval_scope": "PHASE1_CANARY",
+    "automatic_scope_expansion": false,
+    "execution_context": "UAT",
+    "production_activation": "NOT_AUTHORIZED",
+    "production_inheritance": false,
+    "target_environment": "PRODUCTION_CANARY",
+    "transport_mode": "ZERO_WRITE"
+  },
+  "instances": [
+    {
+      "approval_scope": "PHASE1_CANARY",
+      "automatic_scope_expansion": false,
+      "contract_id": "trusted_review_identity.v1",
+      "contract_revision": 1,
+      "contract_semantic_hash": "3431e2999ab840023b39df19f45a83dcd27a6659a83b61ce9b4aedd9bc30b265",
+      "contract_version": "trusted_review_identity.v1.canonical.v1",
+      "created_from_ruleset_ref": "trusted-review-identity-rules.v1",
+      "execution_context": "UAT",
+      "materializer_version": "contract-canonical-materializer.v1",
+      "production_activation": "NOT_AUTHORIZED",
+      "production_inheritance": false,
+      "semantic_fields": {
+        "automatic_scope_expansion": false,
+        "production_inheritance": false,
+        "provider": "GOOGLE_WORKSPACE",
+        "provider_verification_method": "GOOGLE_OIDC_ID_TOKEN_V1",
+        "requires_provider_evidence": true,
+        "role": "RECOMMENDATION_APPROVER",
+        "scope": "PHASE1_CANARY"
+      },
+      "target_environment": "PRODUCTION_CANARY",
+      "transport_mode": "ZERO_WRITE"
+    },
+    {
+      "approval_scope": "PHASE1_CANARY",
+      "automatic_scope_expansion": false,
+      "contract_id": "human_review.v1",
+      "contract_revision": 1,
+      "contract_semantic_hash": "c93d379b60855c7a1bade2b930f030798d76bc5d88217a8d3e3c900e1b68b6dc",
+      "contract_version": "human_review.v1.canonical.v1",
+      "created_from_ruleset_ref": "human-review-rules.v1",
+      "execution_context": "UAT",
+      "materializer_version": "contract-canonical-materializer.v1",
+      "production_activation": "NOT_AUTHORIZED",
+      "production_inheritance": false,
+      "semantic_fields": {
+        "allowed_decisions": ["APPROVE", "REJECT", "NEEDS_MORE_EVIDENCE", "DEFER", "RETURN_FOR_REVIEW"],
+        "approval_does_not_authorize_activation": true,
+        "exact_candidate_pin": true,
+        "requires_trusted_identity": true,
+        "reviewer_actor_type": "HUMAN"
+      },
+      "target_environment": "PRODUCTION_CANARY",
+      "transport_mode": "ZERO_WRITE"
+    },
+    {
+      "approval_scope": "PHASE1_CANARY",
+      "automatic_scope_expansion": false,
+      "contract_id": "recommendation_bridge.v1",
+      "contract_revision": 1,
+      "contract_semantic_hash": "df56b52fcdf4da9c2084d88d4dbff8bbad89475d7394e73c5f919ffbeaec0269",
+      "contract_version": "recommendation_bridge.v1.canonical.v1",
+      "created_from_ruleset_ref": "recommendation-bridge-rules.v1",
+      "execution_context": "UAT",
+      "materializer_version": "contract-canonical-materializer.v1",
+      "production_activation": "NOT_AUTHORIZED",
+      "production_inheritance": false,
+      "semantic_fields": {
+        "allowed_review_decision": "APPROVE",
+        "automatic_approval": false,
+        "exact_review_pin": true,
+        "next_steps_written": false,
+        "production_mutation": false,
+        "target_scope": "PHASE1_CANARY",
+        "workflow_role": "RECOMMENDATION_WORKFLOW_ENTRY_ONLY"
+      },
+      "target_environment": "PRODUCTION_CANARY",
+      "transport_mode": "ZERO_WRITE"
+    },
+    {
+      "approval_scope": "PHASE1_CANARY",
+      "automatic_scope_expansion": false,
+      "contract_id": "google_sheets_target_binding.v1",
+      "contract_revision": 1,
+      "contract_semantic_hash": "da4dc187624037dde5bf734ae5bf34913b2223857665e53341f4578c4550fa61",
+      "contract_version": "google_sheets_target_binding.v1.canonical.v1",
+      "created_from_ruleset_ref": "google-sheets-target-binding-rules.v1",
+      "execution_context": "UAT",
+      "materializer_version": "contract-canonical-materializer.v1",
+      "production_activation": "NOT_AUTHORIZED",
+      "production_inheritance": false,
+      "semantic_fields": {
+        "external_binding_required": true,
+        "external_target_id_excluded": true,
+        "max_operations": 1,
+        "protected_fields_required": true,
+        "readback_required": true,
+        "target_tab": "Opportunity_Recommendations",
+        "target_type": "GOOGLE_SHEETS"
+      },
+      "target_environment": "PRODUCTION_CANARY",
+      "transport_mode": "ZERO_WRITE"
+    },
+    {
+      "approval_scope": "PHASE1_CANARY",
+      "automatic_scope_expansion": false,
+      "contract_id": "recommendation_canary_writer.v1",
+      "contract_revision": 1,
+      "contract_semantic_hash": "b61cce5bc04110bc5f005b90c9de5f1db989046b3e47465d01d5f8e13b4f555d",
+      "contract_version": "recommendation_canary_writer.v1.canonical.v1",
+      "created_from_ruleset_ref": "recommendation-canary-writer-rules.v1",
+      "execution_context": "UAT",
+      "materializer_version": "contract-canonical-materializer.v1",
+      "production_activation": "NOT_AUTHORIZED",
+      "production_inheritance": false,
+      "semantic_fields": {
+        "audit_receipt_required": true,
+        "automatic_retry": false,
+        "bulk_write": false,
+        "kill_switch_required": true,
+        "max_operations": 1,
+        "production_inheritance": false,
+        "readback_required": true,
+        "transport_mode": "ZERO_WRITE",
+        "writer_mode": "AUTHORIZED_USER_OAUTH"
+      },
+      "target_environment": "PRODUCTION_CANARY",
+      "transport_mode": "ZERO_WRITE"
+    },
+    {
+      "approval_scope": "PHASE1_CANARY",
+      "automatic_scope_expansion": false,
+      "contract_id": "production_release_manifest.v1",
+      "contract_revision": 1,
+      "contract_semantic_hash": "52e3ed235bf0e9a7ad7ccfa1951cbc23de5201e46504389717f66ea6bfcaa772",
+      "contract_version": "production_release_manifest.v1.canonical.v1",
+      "created_from_ruleset_ref": "production-release-manifest-rules.v1",
+      "execution_context": "UAT",
+      "materializer_version": "contract-canonical-materializer.v1",
+      "production_activation": "NOT_AUTHORIZED",
+      "production_inheritance": false,
+      "semantic_fields": {
+        "activation_state": "NOT_AUTHORIZED",
+        "audit_required": true,
+        "planned_operations_max": 1,
+        "production_write_ready": false,
+        "readback_required": true,
+        "release_kind": "PRODUCTION_CANARY_RULESET",
+        "rollback_required": true,
+        "scheduler_state": "DISABLED"
+      },
+      "target_environment": "PRODUCTION_CANARY",
+      "transport_mode": "ZERO_WRITE"
+    },
+    {
+      "approval_scope": "PHASE1_CANARY",
+      "automatic_scope_expansion": false,
+      "contract_id": "production_activation.v1",
+      "contract_revision": 1,
+      "contract_semantic_hash": "0dfbe32596bb58495756cbeb303645d18766a3c6968cef24ce0da101997bcb71",
+      "contract_version": "production_activation.v1.canonical.v1",
+      "created_from_ruleset_ref": "production-activation-rules.v1",
+      "execution_context": "UAT",
+      "materializer_version": "contract-canonical-materializer.v1",
+      "production_activation": "NOT_AUTHORIZED",
+      "production_inheritance": false,
+      "semantic_fields": {
+        "activation_kind": "GOVERNANCE_GATE_ONLY",
+        "activation_state": "NOT_AUTHORIZED",
+        "approval_receipt_required": true,
+        "automatic_activation": false,
+        "explicit_authorization_required": true,
+        "production_mutation": 0,
+        "scheduler_enabled": false
+      },
+      "target_environment": "PRODUCTION_CANARY",
+      "transport_mode": "ZERO_WRITE"
+    }
+  ]
+}

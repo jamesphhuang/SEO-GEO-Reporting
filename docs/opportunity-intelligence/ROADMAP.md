@@ -234,3 +234,19 @@ Canonical月報搬移另走ARCHITECTURE migration序列：先characterization，
 - Result：`CONTRACT_APPROVAL_EVIDENCE_FOUNDATION = READY`；proposal contracts remain
   `DRAFT_NOT_APPROVED`；`PRODUCTION_CONTRACTS_APPROVED = FALSE`；activation remains unauthorized.
 - Next single task：**Phase 1 Contract Approval Package Review**。
+
+## Phase 1 — Contract Canonical Instance Foundation（2026-09-17）
+
+- Added a deterministic canonical instance model with independent scope,
+  execution, transport, target and activation dimensions.
+- Added the authoritative seven-contract registry, including the explicit
+  logical mapping from `trusted_review_identity.v1` to the existing binding
+  proposal.
+- Added explicit legacy migration for `PHASE1_CANARY_ONLY`; no silent aliasing.
+- Added seven rules-only canonical instances and synthetic deterministic tests.
+- Result：`CONTRACT_CANONICAL_INSTANCE_FOUNDATION = READY`、
+  `SEMANTIC_READINESS = READY`、`CANONICAL_INSTANCE_READINESS = READY`。
+- Approval remains blocked by the absence of a persistent approval store;
+  proposal contracts remain `DRAFT_NOT_APPROVED`, formal receipts remain `0`,
+  and `PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。
+- Next single task：**Phase 1 Persistent Approval Store**。

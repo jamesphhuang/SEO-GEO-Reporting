@@ -324,3 +324,30 @@ identity 並以獨立 `CONTRACT_SEMANTICS_APPROVER` role 綁定；existing revie
 Google/Drive/Sheets/ACL/audit write，未啟用 scheduler。`CONTRACT_APPROVAL_EVIDENCE_FOUNDATION = READY`、
 `PRODUCTION_CONTRACTS_APPROVED = FALSE`、`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。
 下一個唯一任務為 **Phase 1 Contract Approval Package Review**。
+
+## Phase 1 Contract Canonical Instance Foundation handoff（2026-09-17）
+
+The isolated branch adds `contract_canonical.py`, the authoritative registry,
+seven rules-only canonical instances and synthetic tests. The canonical model
+keeps `approval_scope=PHASE1_CANARY`, `execution_context=UAT`,
+`transport_mode=ZERO_WRITE`, `target_environment=PRODUCTION_CANARY` and
+`production_activation=NOT_AUTHORIZED` independent. Legacy
+`PHASE1_CANARY_ONLY` requires explicit migration and is never silently
+reinterpreted.
+
+The registry maps the seven logical contracts to proposal files, rulesets,
+runtime consumers and materializer keys. It fails closed on unknown, duplicate
+or ambiguous mappings. Semantic hashes are deterministic, include the contract
+semantics revision, and exclude timestamps, Git/filesystem metadata, receipts,
+credentials, identity values and external target ids.
+
+Foundation status is `CONTRACT_CANONICAL_INSTANCE_FOUNDATION = READY`,
+`SEMANTIC_READINESS = READY` and `CANONICAL_INSTANCE_READINESS = READY`.
+Approval execution remains `BLOCKED_PERSISTENT_STORE`; prior approval status is
+`RECONFIRMATION_REQUIRED`; formal receipts and approved contracts remain `0`.
+No approvals directory, approval receipt, Google/Drive/Sheets write, scheduler,
+live source call or production mutation was created. `PRODUCTION_ACTIVATION =
+NOT_AUTHORIZED` and `LIVE_WRITE_READINESS = BLOCKED`.
+
+Next single task: **Phase 1 Persistent Approval Store**. Do not infer approval
+execution or production authorization from this handoff.

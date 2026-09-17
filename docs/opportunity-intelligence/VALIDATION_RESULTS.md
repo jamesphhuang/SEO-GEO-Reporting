@@ -499,3 +499,22 @@ persistent audit binding remain uncreated or unverified.
 
 `CONTRACT_APPROVAL_EVIDENCE_FOUNDATION = READY`；`PRODUCTION_CONTRACTS_APPROVED = FALSE`；
 `LIVE_WRITE_READINESS = BLOCKED`；`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。
+
+## Phase 1 Contract Canonical Instance Foundation（2026-09-17）
+
+| Check | Result | Scope / limit |
+| --- | --- | --- |
+| Seven-contract registry | PASS | exact logical ids, proposal mapping, ruleset, runtime consumer and materializer key; duplicate/ambiguous mapping fails closed |
+| Independent dimensions | PASS | `PHASE1_CANARY` / `UAT` / `ZERO_WRITE` / `PRODUCTION_CANARY` / `NOT_AUTHORIZED` remain separate |
+| Legacy migration | PASS | `PHASE1_CANARY_ONLY` is rejected unless the explicit migration helper is requested |
+| Deterministic materialization | PASS | same semantic inputs produce the same instance and SHA-256 hash; revision changes the hash |
+| Semantic allowlists | PASS | runtime metadata, receipts, credentials, identity values and external target ids are excluded |
+| Seven canonical fixtures | PASS | rules-only instances; no approval receipt, identity binding, real target id or production artifact |
+| Proposal status | PASS | all seven proposals remain `DRAFT_NOT_APPROVED`; activation flag remains false |
+| Production boundary | PASS | no approval store, approval execution, Google/Drive/Sheets write, scheduler, live source or business-data mutation |
+
+`CONTRACT_CANONICAL_INSTANCE_FOUNDATION = READY`、`SEMANTIC_READINESS = READY`、
+`CANONICAL_INSTANCE_READINESS = READY`；`APPROVAL_EXECUTION_READINESS = BLOCKED_PERSISTENT_STORE`、
+`PRIOR_APPROVAL_DECISION_STATUS = RECONFIRMATION_REQUIRED`、`FORMAL_APPROVAL_RECEIPTS = 0`、
+`CONTRACTS_APPROVED = 0`、`LIVE_WRITE_READINESS = BLOCKED`、
+`PRODUCTION_ACTIVATION = NOT_AUTHORIZED`。下一個唯一任務為 **Phase 1 Persistent Approval Store**。
